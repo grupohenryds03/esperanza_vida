@@ -3,6 +3,7 @@
 import streamlit as st
 import snowflake.connector
 
+# Jhovany Lara was here.
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
 @st.experimental_singleton
