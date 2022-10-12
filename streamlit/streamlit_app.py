@@ -1,3 +1,5 @@
+# streamlit_app.py
+
 import streamlit as st
 import snowflake.connector
 
@@ -9,11 +11,7 @@ def init_connection():
         **st.secrets["snowflake"], client_session_keep_alive=True
     )
 
-conn = init_connection().cursor()
-
-
-sql = "USE WAREHOUSE PRUEBA"
-conn.execute(sql)
+conn = init_connection()
 
 # Perform query.
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
