@@ -11,7 +11,7 @@ def init_connection():
         **st.secrets["snowflake"], client_session_keep_alive=True
     )
 
-conn = init_connection()
+conn = init_connection() # conect
 
 # Perform query.
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
