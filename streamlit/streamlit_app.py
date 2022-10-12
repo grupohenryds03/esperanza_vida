@@ -21,7 +21,8 @@ def run_query(query):
         cur.execute(query)
         return cur.fetchall()
 
-rows = run_query("SELECT * from COSTUMERS")
+run_query("Use database PRUEBA;")
+rows = run_query("SELECT * from COSTUMERS;")
 
 # Print results.
 for row in rows:
