@@ -9,7 +9,8 @@ def init_connection():
         **st.secrets["snowflake"], client_session_keep_alive=True
     )
 
-conn = init_connection()
+conn = init_connection().cursor()
+
 
 sql = "USE WAREHOUSE PRUEBA"
 conn.execute(sql)
