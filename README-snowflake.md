@@ -163,6 +163,7 @@ dentro de la carpeta container:
 | https://www.analyticslane.com/2019/11/18/test-de-causalidad-de-wiener-granger/                                        | granger causality test ejemplo en Python                                        |
 
 - tabla de variables
+
 |                                                                SERIE                                                                |       TIPO      |         ID        |   |   |
 |:-----------------------------------------------------------------------------------------------------------------------------------:|:---------------:|:-----------------:|---|---|
 | Population, total en millones no ratio (ver apartado)                                                                               |   Demografica   |    SP.POP.TOTL    |   |   |
