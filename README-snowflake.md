@@ -13,7 +13,7 @@
 - Para el deploy del dashboard se utuliza la herramienta del deply de streamlit.
 - Para relaizar el trabajo colaborativo , se establece la conexión desde visual studio code local (en revison- mediante un container en Docker con databrick-conection).
 
-<img src="/imagenes/engineering snowflake2.png"/>
+<img src="/imagenes/engineering snowflake2.png" width="400" height="400"/>
 
 
 
@@ -23,8 +23,9 @@
 - descargar conda
 - creacion del entorno: conda create -n dbconnect python=3.8.12 # pse crea el entorno para realizar la conexión en visual studio code con phyton y snowflake (dbconnect es el nombre del entorno), no cambiar la versión ya que puede generar problema con el conector de snowflake
 - activar el entorno: conda activate dbconnect
-- instalar el conector con databricks: pip install snowflake-connector-python[pandas] # no cambiar la versión ya que puede generar problema con la versión de phyton instalada para el entorno en cuestión
+- instalar el conector con snowflake: pip install snowflake-connector-python[pandas] # no cambiar la versión ya que puede generar problema con la versión de phyton instalada para el entorno en cuestión
 - para realizar la conexión a la base de datos de snowflake, se igresan lo siguientes comando en notebook de phyton:
+
 ```python
 import snowflake.connector
 conn = snowflake.connector.connect(
