@@ -8,11 +8,11 @@
 
 ### Arquitectura (Ingesta data lake -> Armado Pipeline -> Ingesta data data warehouse)
 
-- La arquitectura esta basada en el entorno de trabajo de snowflake, donde se ingestaran los datasets, se realiza el pipline del EDA, se trajara con modelos de ML y se visualizará en un dashboard de stremlit de acuerdo a los requerimientos del cliente.
+- La arquitectura esta basada en el entorno de trabajo de snowflake, donde se ingestaran archivos de los datasets, siguiendo la realización de un pipline del EDA, para luego crear las tablas relacionales en un data warehouse donde se ingestan los datos. Realizando querys se trabajaran los  modelos de ML para visualizar en un dashboard de streamlit los requerimientos del cliente.
 
 <img src="/imagenes/diagrama.png"/>
 
-- Para la ingesta de dataset se realizará un datalake, en un storage interno de snowflake (si el cliente requiere más capacidad de almacenamento se creará una cuenta en AWS para usar un bucket S3 como external storege).
+- Para la ingesta de dataset se realizará un data lake, en un storage interno de snowflake (si el cliente requiere más capacidad de almacenamento se creará una cuenta en AWS para usar un bucket S3 como external storege).
 - Se ingestan los archivos crudos en formato .csv (tmb se manejan formatos json, parquet , avro) mediante u na compresión en formato .gz desde la api del Banco Mundial y la Organización Mundial de la salud.
 
 | archivo                              | external storage | tipo de compresión |
@@ -20,8 +20,8 @@
 | banco mundial.csv                    | AWS S3 bucket    | .gz                |
 | organización mundial de la salud.csv | AWS S3 bucket    | .gz                |
 
-- Luego de la ingesta de archivos se realiza un pipline para su EDA
-- Para el armado del data warehouse se crean las tablas relacionales de hecho y dimensión con sus respectivos Id´s, primary keys y foreign key.
+- Luego de la ingesta de archivos se realiza un pipline automático para su EDA.
+- Para el armado del data warehouse se crean las tablas relacionales de hecho y dimensión con sus respectivos Id´s y primary keys.
 
 - tabla de hecho
 
@@ -53,19 +53,23 @@
 | región | string | -   |
 
 
-- Para la creación del dashboard se utiliza streamlit. https://grupohenryds03-esperanza-vida-streamlitstreamlit-app-kni98s.streamlitapp.com/
+- Para la creación del dashboard se utiliza streamlit: https://grupohenryds03-esperanza-vida-streamlitstreamlit-app-kni98s.streamlitapp.com/
 
-- Para el deploy del dashboard se uttlizará la herramienta del deploy de streamlit
+- Para el deploy del dashboard se utiliza la herramienta porpia streamlit.
 
 ### Descripción de los pasos para el trabajo colaborativo sin container docker:
 
 - Para relaizar el trabajo colaborativo , se establece la conexión desde visual studio code local
 
-- en terminal se crea el entorno de trabajo:
-- descargar conda
-- creacion del entorno: conda create -n dbconnect python=3.8.12 # pse crea el entorno para realizar la conexión en visual studio code con phyton y snowflake (dbconnect es el nombre del entorno), no cambiar la versión ya que puede generar problema con el conector de snowflake
-- activar el entorno: conda activate dbconnect
-- instalar el conector con snowflake: pip install snowflake-connector-python[pandas] # no cambiar la versión ya que puede generar problema con la versión de phyton instalada para el entorno en cuestión
+- en terminal se crea el entorno de trabajo para realizar con la conexión con snowflake en visual studio code en maquina local con lenguaje phyton:
+
+```
+ pip install conda #se descarga condas
+ conda create -n dbconnect python=3.8 #creacion del entorno
+ conda activate dbconnect #activar el entorno
+ pip install snowflake-connector-python[pandas] #se instala el conector con snowflake
+```
+
 - para realizar la conexión a la base de datos de snowflake, se igresan lo siguientes comando en notebook de phyton:
 
 ```python
@@ -85,60 +89,66 @@ conn = snowflake.connector.connect(
 dentro de la carpeta container:
 
 - *.devcontainer*->carpepeta para realizar el container en Visual Studio Code (VSC)
-
 - *Dockerfile*-> archivo docker para la cracion del container
-
-- *.databricks-connect.template* ->archivo con datos en formato .json para la conección con databricks
-
+- *.snowflake-connect.template* ->archivo con datos en formato .json para la conección con snowflake
 - *devcontainer.json*->archivo .json con especificaciones del entorno para la conexión 
-
 - para la creacion del container en VSC, se va a From Remote-Containers: Reopen in Container y se eleje la carpeta *.devcontainer*
-
 
 ### Documentación Paises elegidos
 
 - Se selecciono una muestra de países teniendo en cuenta incluir estados de los 5 continentes que sean representativos, tengan buena calidad en la información histórica recolectada por el World Bank para la confección de sus indicadores.
 -  Inicialmente se utilizó como filtro para diferenciar la muestra por continentes, el status de países “desarrollados” vs “en desarrollo”, pero tomando en cuenta la clasificación que realiza las naciones unidas se observo que tanto en América Latina, África como en Medio Oriente, se necesitaba incluir otro nivel de clasificación para mejorar la diferenciación; por lo cual se decidió utilizar la clasificación por nivel de ingresos que realiza el World Bank mediante el “GNI (Ingreso Bruto Nacional)  per cápita” y así poder mejorar la diferenciación de los efectos de las diferentes variables sobre la esperanza de vida, según el país o continente en estudio.
 
-| PAIS           | GNI PER CAPITA (SIMIL GDP PER CAPITA | ID WBGAPI | CONTINENTE |
-|----------------|--------------------------------------|-----------|------------|
-| USA            | H                                    | USA       | AMERICA    |
-| CANADA         | H                                    | CAN       | AMERICA    |
-| MEXICO         | M                                    | MEX       | AMERICA    |
-| COSTA RICA     | M                                    | CRI       | AMERICA    |
-| PANAMA         | H                                    | PAN       | AMERICA    |
-| BRASIL         | M                                    | BRA       | AMERICA    |
-| ARGENTINA      | M                                    | ARG       | AMERICA    |
-| CHILE          | H                                    | CHL       | AMERICA    |
-| URUGUAY        | H                                    | URY       | AMERICA    |
-| BOLIVIA        | LM                                   | BOL       | AMERICA    |
-| PERU           | M                                    | PER       | AMERICA    |
-| EGIPTO         | LM                                   | EGY       | AFRICA     |
-| LIBIA          | M                                    | LBY       | AFRICA     |
-| SUDAFRICA      | M                                    | ZAF       | AFRICA     |
-| NIGERIA        | LM                                   | NGA       | AFRICA     |
-| MARRUECOS      | LM                                   | MAR       | AFRICA     |
-| AUSTRALIA      | H                                    | AUS       | OCEANIA    |
-| CHINA          | M                                    | CHN       | ASIA       |
-| INDIA          | LM                                   | IND       | ASIA       |
-| TAILANDIA      | M                                    | THA       | ASIA       |
-| JAPON          | H                                    | JPN       | ASIA       |
-| COREA DEL SUR  | H                                    | KOR       | ASIA       |
-| ISRAEL         | H                                    | ISR       | ASIA       |
-| ARABIA SAUDITA | H                                    | SAU       | ASIA       |
-| MALASIA        | M                                    | MYS       | ASIA       |
-| INDONESIA      | LM                                   | IDN       | ASIA       |
-| RUSIA          | M                                    | RUS       | EUROPA     |
-| TURQUIA        | M                                    | TUR       | EUROPA     |
-| ESPAÑA         | H                                    | ESP       | EUROPA     |
-| BULGARIA       | M                                    | BGR       | EUROPA     |
-| FRANCIA        | H                                    | FRA       | EUROPA     |
-| ITALIA         | H                                    | ITA       | EUROPA     |
-| ALEMANIA       | H                                    | DEU       | EUROPA     |
-| INGLATERRA     | H                                    | GBR       | EUROPA     |
-| NORUEGA        | H                                    | NOR       | EUROPA     |
-| SUECIA         | H                                    | SWE       | EUROPA     |
-| GRECIA         | H                                    | GRC       | EUROPA     |
+-tabla paises elejidos
+
+| PAIS           | INCOME | CODE | CONTINENTE |
+|----------------|--------|------|------------|
+| USA            | H      | USA  | AMERICA    |
+| CANADA         | H      | CAN  | AMERICA    |
+| MEXICO         | M      | MEX  | AMERICA    |
+| COSTA RICA     | M      | CRI  | AMERICA    |
+| PANAMA         | H      | PAN  | AMERICA    |
+| BRASIL         | M      | BRA  | AMERICA    |
+| ARGENTINA      | M      | ARG  | AMERICA    |
+| CHILE          | H      | CHL  | AMERICA    |
+| URUGUAY        | H      | URY  | AMERICA    |
+| BOLIVIA        | LM     | BOL  | AMERICA    |
+| PERU           | M      | PER  | AMERICA    |
+| EGIPTO         | LM     | EGY  | AFRICA     |
+| LIBIA          | M      | LBY  | AFRICA     |
+| SUDAFRICA      | M      | ZAF  | AFRICA     |
+| NIGERIA        | LM     | NGA  | AFRICA     |
+| MARRUECOS      | LM     | MAR  | AFRICA     |
+| AUSTRALIA      | H      | AUS  | OCEANIA    |
+| CHINA          | M      | CHN  | ASIA       |
+| INDIA          | LM     | IND  | ASIA       |
+| TAILANDIA      | M      | THA  | ASIA       |
+| JAPON          | H      | JPN  | ASIA       |
+| COREA DEL SUR  | H      | KOR  | ASIA       |
+| ISRAEL         | H      | ISR  | ASIA       |
+| ARABIA SAUDITA | H      | SAU  | ASIA       |
+| MALASIA        | M      | MYS  | ASIA       |
+| INDONESIA      | LM     | IDN  | ASIA       |
+| RUSIA          | M      | RUS  | EUROPA     |
+| TURQUIA        | M      | TUR  | EUROPA     |
+| ESPAÑA         | H      | ESP  | EUROPA     |
+| BULGARIA       | M      | BGR  | EUROPA     |
+| FRANCIA        | H      | FRA  | EUROPA     |
+| ITALIA         | H      | ITA  | EUROPA     |
+| ALEMANIA       | H      | DEU  | EUROPA     |
+| INGLATERRA     | H      | GBR  | EUROPA     |
+| NORUEGA        | H      | NOR  | EUROPA     |
+| SUECIA         | H      | SWE  | EUROPA     |
+| GRECIA         | H      | GRC  | EUROPA     |
+
+- tabla income
+
+| TIPO INCOME | DESCRIPCIÓN         |
+|-------------|---------------------|
+| H           | HIGH INCOME         |
+| M           | UPPER MEDIUM INCOME |
+| LM          | LOW MEDIUM INCOME   |
+| L           | LOW INCOME          |
 
 
 ### Documentación Paises variables elejidas
