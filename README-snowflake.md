@@ -53,6 +53,50 @@ dentro de la carpeta container:
 - para la creacion del container en VSC, se va a From Remote-Containers: Reopen in Container y se eleje la carpeta *.devcontainer*
 
 
+### Documentación Paises elegidos
 
+- Se selecciono una muestra de países teniendo en cuenta incluir estados de los 5 continentes que sean representativos, tengan buena calidad en la información histórica recolectada por el World Bank para la confección de sus indicadores.
+-  Inicialmente se utilizó como filtro para diferenciar la muestra por continentes, el status de países “desarrollados” vs “en desarrollo”, pero tomando en cuenta la clasificación que realiza las naciones unidas se observo que tanto en América Latina, África como en Medio Oriente, se necesitaba incluir otro nivel de clasificación para mejorar la diferenciación; por lo cual se decidió utilizar la clasificación por nivel de ingresos que realiza el World Bank mediante el “GNI (Ingreso Bruto Nacional)  per cápita” y así poder mejorar la diferenciación de los efectos de las diferentes variables sobre la esperanza de vida, según el país o continente en estudio.
+
+
+|      PAIS      | GNI PER CAPITA (SIMIL GDP PER CAPITA | ID WBGAPI | CONTINENTE |
+|:--------------:|:------------------------------------:|:---------:|:----------:|
+| USA            |                   H                  |    USA    |   AMERICA  |
+| CANADA         |                   H                  |    CAN    |            |
+| MEXICO         |                   M                  |    MEX    |            |
+| COSTA RICA     |                   M                  |    CRI    |            |
+| PANAMA         |                   H                  |    PAN    |            |
+| BRASIL         |                   M                  |    BRA    |            |
+| ARGENTINA      |                   M                  |    ARG    |            |
+| CHILE          |                   H                  |    CHL    |            |
+| URUGUAY        |                   H                  |    URY    |            |
+| BOLIVIA        |                  LM                  |    BOL    |            |
+| PERU           |                   M                  |    PER    |            |
+| EGIPTO         |                  LM                  |    EGY    |   AFRICA   |
+| LIBIA          |                   M                  |    LBY    |            |
+| SUDAFRICA      |                   M                  |    ZAF    |            |
+| NIGERIA        |                  LM                  |    NGA    |            |
+| MARRUECOS      |                  LM                  |    MAR    |            |
+| AUSTRALIA      |                   H                  |    AUS    |   OCEANIA  |
+| CHINA          |                   M                  |    CHN    |    ASIA    |
+| INDIA          |                  LM                  |    IND    |            |
+| TAILANDIA      |                   M                  |    THA    |            |
+| JAPON          |                   H                  |    JPN    |            |
+| COREA DEL SUR  |                   H                  |    KOR    |            |
+| ISRAEL         |                   H                  |    ISR    |            |
+| ARABIA SAUDITA |                   H                  |    SAU    |            |
+| MALASIA        |                   M                  |    MYS    |            |
+| INDONESIA      |                  LM                  |    IDN    |            |
+| RUSIA          |                   M                  |    RUS    |   EUROPA   |
+| TURQUIA        |                   M                  |    TUR    |            |
+| ESPAÑA         |                   H                  |    ESP    |            |
+| BULGARIA       |                   M                  |    BGR    |            |
+| FRANCIA        |                   H                  |    FRA    |            |
+| ITALIA         |                   H                  |    ITA    |            |
+| ALEMANIA       |                   H                  |    DEU    |            |
+| INGLATERRA     |                   H                  |    GBR    |            |
+| NORUEGA        |                   H                  |    NOR    |            |
+| SUECIA         |                   H                  |    SWE    |            |
+| GRECIA         |                   H                  |    GRC    |            |
 
 
