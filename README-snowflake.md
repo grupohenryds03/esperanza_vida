@@ -139,3 +139,79 @@ dentro de la carpeta container:
 | SUECIA         | H                                    | SWE       | EUROPA     |
 | GRECIA         | H                                    | GRC       | EUROPA     |
 
+
+### Documentación Paises variables elejidas
+
+- de acuerdo a diferentes papers la seleccion de variables se separaron en salud y socio-económicas:
+- papers realacionados
+
+|                                                 Papers life expectancy                                                |                                   descripción                                   |
+|:---------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------:|
+| http://www.scielo.org.pe/scielo.php?script=sci_arttext&pid=S1025-55832011000400006                                    |                                                                                 |
+| https://ruc.udc.es/dspace/bitstream/handle/2183/16409/RodriguezRodriguez_David_TFG_2015.pdf?sequence=2                |                                                                                 |
+| https://population.un.org/wpp/Publications/Files/WPP2022_Methodology.pdf                                              |                         Metodologia UN para proyecciones                        |
+| https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2022_wpp_key-messages.pdf |                   Informe UN "World Population Prospects 2022"                  |
+| https://www.kaggle.com/search?q=life+expectancy                                                                       |                                      KAGGLE                                     |
+| https://www.kaggle.com/code/nilaychauhan/etl-pipelines-tutorial-world-bank-datasets                                   |                                                                                 |
+| https://www.ucm.es/data/cont/docs/518-2016-09-15-Tema2_regresi%C3%B3n%20con%20series%20temporales.pdf                 |                  Analizar Correlacion Espuria (como filtrarla)                  |
+| https://core.ac.uk/download/pdf/6264941.pdf                                                                           |              Correlacion Espuria (como filtrarla) Con cointegracion             |
+| https://www.linkedin.com/pulse/la-correlaci%C3%B3n-de-todos-los-males-valent%C3%ADn-chab/?originalSubdomain=es        |                               Correlacion Espuria                               |
+| https://statisticsbyjim.com/basics/spurious-correlation/                                                              |                                                                                 |
+| https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6650812/                                                                 |                  A Causal Analysis of Life Expectancy at Birth.                 |
+| https://hrcak.srce.hr/file/178666                                                                                     | Determinant Factors of Life Expectancy at Birth in the European Union Countries |
+| https://rstudio-pubs-static.s3.amazonaws.com/180554_a412caa868c24939a873ca679d54bbde.html                             |                          8 variables a tener en cuenta                          |
+| https://www.analyticslane.com/2019/11/18/test-de-causalidad-de-wiener-granger/                                        | granger causality test ejemplo en Python                                        |
+
+- tabla de variables
+|                                                                SERIE                                                                |       TIPO      |         ID        |   |   |
+|:-----------------------------------------------------------------------------------------------------------------------------------:|:---------------:|:-----------------:|---|---|
+| Population, total en millones no ratio (ver apartado)                                                                               |   Demografica   |    SP.POP.TOTL    |   |   |
+| Number of under-five deaths                                                                                                         |      Salud      |    SH.DTH.MORT    |   |   |
+| Prevalence of overweight, weight for height (% of children under 5)                                                                 |      Salud      |   SH.STA.OWGH.ZS  |   |   |
+| Prevalence of wasting, weight for height (% of children under 5)                                                                    |      Salud      |   SH.STA.WAST.ZS  |   |   |
+| CPIA policy and institutions for environmental sustainability rating (1=low to 6=high)                                              | Socio-Economica |   IQ.CPA.ENVR.XQ  |   |   |
+| impuesto a las ganancias (% de las ganancias comerciales)                                                                           | Socio-Economica | GC.TAX.YPKG.RV.ZS |   |   |
+| impuesto total y tasa de contribucion (% de la ganacia)                                                                             | Socio-Economica | IC.TAX.TOTL.CP.ZS |   |   |
+| indice de capital humano (escala 0-1)                                                                                               | Socio-Economica |    HD.HCI.OVRL    |   |   |
+| indice de pobreza multidimensional (escala 0-1)                                                                                     | Socio-Economica |   SI.POV.MDIM.XQ  |   |   |
+| Primary income payments (BoP, current US$)                                                                                          | Socio-Economica |   BM.GSR.FCTY.CD  |   |   |
+| Women participating in the three decisions (own health care, major household purchases, and visiting family) (% of women age 15-49) | Socio-Economica | SG.DMK.ALLD.FN.ZS |   |   |
+| Total alcohol consumption per capita, female (liters of pure alcohol, projected estimates, female 15+ years of age)                 |      Salud      | SH.ALC.PCAP.FE.LI |   |   |
+| Average precipitation in depth (mm per year)                                                                                        |    Climatica    |   AG.LND.PRCP.MM  |   |   |
+| emisiones de CO2 (kt)                                                                                                               |    Climatica    |   EN.ATM.CO2E.KT  |   |   |
+| crecimiento de la poblacion (% anual)                                                                                               |   Demografica   |    SP.POP.GROW    |   |   |
+| Educational attainment, at least completed primary, population 25+ years, female (%) (cumulative)                                   |    Educacion    | SE.PRM.CUAT.FE.ZS |   |   |
+| School enrollment, tertiary (% gross)                                                                                               |    Educacion    |    SE.TER.ENRR    |   |   |
+| Tasa de alfabetizacion, total adultos (% de personas)                                                                               |    Educacion    |   SE.ADT.LITR.ZS  |   |   |
+| Hepatitis B (HepB3) immunization coverage among 1-year-olds (%)                                                                     |      Salud      |    CSV from WHO   |   |   |
+| Immunization, DPT (% of children ages 12-23 months)                                                                                 |      Salud      |    SH.IMM.IDPT    |   |   |
+| Immunization, measles (% of children ages 12-23 months)                                                                             |      Salud      |    SH.IMM.MEAS    |   |   |
+| Incidence of HIV, all (per 1,000 uninfected population)                                                                             |      Salud      | SH.HIV.INCD.TL.P3 |   |   |
+| Mortality rate, under-5 (per 1,000 live births)                                                                                     |      Salud      |    SH.DYN.MORT    |   |   |
+| Number of deaths ages 5-9 years                                                                                                     |      Salud      |    SH.DTH.0509    |   |   |
+| Number of infant deaths (per 1,000 live births)                                                                                     |      Salud      |   SH.DTH.IMRT.IN  |   |   |
+| Polio (Pol3) immunization covergae among 1-year-olds (%)                                                                            |      Salud      |    CSV from WHO   |   |   |
+| prevalencia del consumo de tabaco, hombres                                                                                          |      Salud      |   SH.PRV.SMOK.MA  |   |   |
+| prevalencia del consumo de tabaco, mujeres                                                                                          |      Salud      |   SH.PRV.SMOK.FE  |   |   |
+| tasa de mortalidad materna (cada 100.000 nacidos vivos)                                                                             |      Salud      |    SH.STA.MMRT    |   |   |
+| tasa de mortalidad menores de 5 años (por 1000nacidos vivos)                                                                        |      Salud      |    SH.DYN.MORT    |   |   |
+| tasa de mortalidad, adultos hombres (por cada 1000 adultos)                                                                         |      Salud      |   SP.DYN.AMRT.MA  |   |   |
+| tasa de mortalidad, adultos mujeres (por cada 1000 adultos)                                                                         |      Salud      |   SP.DYN.AMRT.FE  |   |   |
+| Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)                                |      Salud      |   SH.ALC.PCAP.LI  |   |   |
+| Access to clean fuels and technologies for cooking, rural (% of rural population)                                                   | Socio-Economica | EG.CFT.ACCS.RU.ZS |   |   |
+| Current education expenditure, primary (% of total expenditure in primary public institutions)                                      | Socio-Economica |   SE.XPD.CPRM.ZS  |   |   |
+| Current health expenditure (% of GDP)                                                                                               | Socio-Economica | SH.XPD.CHEX.GD.ZS |   |   |
+| desempleo total (% de la poblacion laboral)                                                                                         | Socio-Economica | SL.UEM.TOTL.NE.ZS |   |   |
+| esperanza de vida al nacer, hombres (años)                                                                                          | Socio-Economica | SP.DYN.LE00.MA.IN |   |   |
+| esperanza de vida al nacer, muejres (años)                                                                                          | Socio-Economica | SP.DYN.LE00.FE.IN |   |   |
+| esperanza de vida al nacer, Total (años)                                                                                            | Socio-Economica |   SP.DYN.LE00.IN  |   |   |
+| gasto publico (% del pib)                                                                                                           | Socio-Economica | GC.XPN.TOTL.GD.ZS |   |   |
+| gasto publico en educación, total (% del pbi)                                                                                       | Socio-Economica | SE.XPD.TOTL.GD.ZS |   |   |
+| GDP per capita (constant 2015 US$)                                                                                                  | Socio-Economica |   NY.GDP.PCAP.KD  |   |   |
+| poblacion que vive en barrios marginales (% de la poblacion urbana)                                                                 | Socio-Economica | EN.POP.SLUM.UR.ZS |   |   |
+| Población Rural (% de la poblacion total)                                                                                           | Socio-Economica |   SP.RUR.TOTL.ZS  |   |   |
+| poblacion urbana (%poblacion total)                                                                                                 | Socio-Economica | SP.URB.TOTL.IN.ZS |   |   |
+| Research and development expenditure (% of GDP)                                                                                     | Socio-Economica | GB.XPD.RSDV.GD.ZS |   |   |
+| Researchers in R&D (per million people)                                                                                             | Socio-Economica | SP.POP.SCIE.RD.P6 |   |   |
+| tasa de recuento de la pobreza, multidimensional (%de la poblacion total)                                                           | Socio-Economica |    SI.POV.MDIM    |   |   |
+| Trade in services (% of GDP)                                                                                                        | Socio-Economica | BG.GSR.NFSV.GD.ZS |   |   |
