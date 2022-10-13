@@ -23,6 +23,7 @@
 - Para el armado del data warehouse se crean las tablas relacionales de hecho y dimensión con sus respectivos Id´s, primary keys y foreign key.
 
 - tabla de hecho
+
 | col    | tipo   | key | 
 |--------|--------|-----|
 | idPais | int    | PK  |
@@ -33,13 +34,17 @@
 | var37  | float  | -   |
 
 - tablas de dimesiones
+
 - income
+
 | col    | tipo   | key |
 |--------|--------|-----|
 | idPais | int    | PK  |
 | pais   | string | -   |
 | income | string | -   |
+
 - geográfica
+
 | col    | tipo   | key |
 |--------|--------|-----|
 | idPais | int    | PK  |
