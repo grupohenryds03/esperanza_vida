@@ -8,7 +8,8 @@
 
 ### Arquitectura (Ingesta data lake -> Armado Pipeline -> Ingesta data data warehouse)
 
-- Para relaizar el trabajo colaborativo , se establece la conexión desde visual studio code local
+- La arquitectura esta basada en el entorno de trabajo de snowflake, donde se ingestaran los datasets, se realiza el pipline del EDA, se trajara con modelos de ML y se visualizará en un dashboard de stremlit de acuerdo a los requerimientos del cliente.
+
 <img src="/imagenes/engineering snowflake2.png" width="400" height="250"/>
 
 - Para la ingesta de dataset se realizará un datalake, en un storage de S3 AWS con los archivos crudos en formato csv (tmb json, parquet , avro) comprimidos de la api del Banco Mundial y la Organización Mundial de la salud.
@@ -23,7 +24,10 @@
 
 - tabla de hecho
 
-| col    | tipo   | key |
+<div class="pull-left">
+
+<center>tabla de hecho </center>
+| col    | tipo   | key | 
 |--------|--------|-----|
 | idPais | int    | PK  |
 | pais   | string | -   |
@@ -32,23 +36,24 @@
 | ..     | ..     | -   |
 | ..     | ..     | -   |
 | var37  | float  | -   |
+</div>
 
-- tablas de dimesiones1
-
+<center>tablas de dimesiones</center>
+income
 | col    | tipo   | key |
 |--------|--------|-----|
 | idPais | int    | PK  |
 | pais   | string | -   |
 | income | string | -   |
-
-- tablas de dimesiones2
-
+geográfica
 | col    | tipo   | key |
 |--------|--------|-----|
 | idPais | int    | PK  |
 | pais   | string | -   |
 | región | string | -   |
-| región | string | -   |
+
+</div>
+</div>
 
 
 - Para la creación del dashboard se utiliza streamlit. https://grupohenryds03-esperanza-vida-streamlitstreamlit-app-kni98s.streamlitapp.com/
@@ -57,7 +62,9 @@
 
 ### Descripción de los pasos para el trabajo colaborativo sin container docker:
 
-1. en terminal se crea el entorno de trabajo:
+- Para relaizar el trabajo colaborativo , se establece la conexión desde visual studio code local
+
+- en terminal se crea el entorno de trabajo:
 - descargar conda
 - creacion del entorno: conda create -n dbconnect python=3.8.12 # pse crea el entorno para realizar la conexión en visual studio code con phyton y snowflake (dbconnect es el nombre del entorno), no cambiar la versión ya que puede generar problema con el conector de snowflake
 - activar el entorno: conda activate dbconnect
