@@ -79,7 +79,7 @@ conn = snowflake.connector.connect(
 
 ### Descripción de los pasos para el trabajo colaborativo con container docker:
 
-1. conar este repo: git clone https://github.com/grupohenryds03/esperanza_vida
+1. clonar este repo: git clone https://github.com/grupohenryds03/esperanza_vida
 
 dentro de la carpeta container:
 
