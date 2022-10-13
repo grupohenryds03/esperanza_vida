@@ -13,7 +13,7 @@
 - Para el deploy del dashboard se utuliza la herramienta del deply de streamlit.
 - Para relaizar el trabajo colaborativo , se establece la conexión desde visual studio code local (en revison- mediante un container en Docker con databrick-conection).
 
-<img src="/imagenes/engineering snowflake2.png" width="800" height="400"/>
+<img src="/imagenes/engineering snowflake2.png" width="400" height="250"/>
 
 
 
