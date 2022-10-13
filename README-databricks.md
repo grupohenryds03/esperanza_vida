@@ -1,7 +1,7 @@
 # Proyecto Final -Data 03- Soy Henry
 ## Jhovany Lara, Rodrigo Ruiz, Pablo Poletti ,José María Toledo
 
-### Consigna: Desarrollo de un proyecto
+### Consigna: Desarrollo de un Proyecto de Trabajo
 
 Para este proyecto final, se elegio la Esperanza de Vida al Nacer.
 
