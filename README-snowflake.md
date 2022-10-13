@@ -3,12 +3,13 @@
 
 ### Consigna: Desarrollo de un proyecto
 
-Para este proyecto final, se elegio la Esperanza de Vida al Nacer.
+- Para este proyecto final, se elegio la Esperanza de Vida al Nacer.
+
 
 ### Ejecución
 
-- Para la ingesta de dataset se realizará un data warehouse con base de datos relacional en snowflake, con almacenamiento el cloud de AWS.
-- Para la creación del dashboard se utiliza streamlit.
+- Para la ingesta de dataset se realizará un data warehouse con base de datos relacional en snowflake, con almacenamiento el cloud de AWS. 
+- Para la creación del dashboard se utiliza streamlit. https://grupohenryds03-esperanza-vida-streamlitstreamlit-app-kni98s.streamlitapp.com/
 - Para el deploy del dashboard se utuliza la herramienta del deply de streamlit.
 - Para relaizar el trabajo colaborativo , se establece la conexión desde visual studio code local (en revison- mediante un container en Docker con databrick-conection).
 
@@ -24,6 +25,7 @@ Para este proyecto final, se elegio la Esperanza de Vida al Nacer.
 - activar el entorno: conda activate dbconnect
 - instalar el conector con databricks: pip install snowflake-connector-python[pandas] # no cambiar la versión ya que puede generar problema con la versión de phyton instalada para el entorno en cuestión
 - para realizar la conexión a la base de datos de snowflake, se igresan lo siguientes comando en notebook de phyton:
+'''
 import snowflake.connector
 conn = snowflake.connector.connect(
     user='xxxxx',
@@ -31,7 +33,7 @@ conn = snowflake.connector.connect(
     account='nrxxxx.sa-east-1.aws', # nombre de cuenta de snowflake con su región asgnada en cloud AWS
     role ='ACCOUNTADMIN', # tipo de rol
     )
-
+'''python
 
 ### Descripción de los pasos para el trabajo colaborativo con container docker:
 
