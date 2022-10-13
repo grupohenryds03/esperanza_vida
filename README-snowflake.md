@@ -23,10 +23,6 @@
 - Para el armado del data warehouse se crean las tablas relacionales de hecho y dimensión con sus respectivos Id´s, primary keys y foreign key.
 
 - tabla de hecho
-
-<div class="pull-left">
-
-<center>tabla de hecho </center>
 | col    | tipo   | key | 
 |--------|--------|-----|
 | idPais | int    | PK  |
@@ -34,26 +30,21 @@
 | año    | int    | -   |
 | var1   | float  | -   |
 | ..     | ..     | -   |
-| ..     | ..     | -   |
 | var37  | float  | -   |
-</div>
 
-<center>tablas de dimesiones</center>
-income
+- tablas de dimesiones
+- income
 | col    | tipo   | key |
 |--------|--------|-----|
 | idPais | int    | PK  |
 | pais   | string | -   |
 | income | string | -   |
-geográfica
+- geográfica
 | col    | tipo   | key |
 |--------|--------|-----|
 | idPais | int    | PK  |
 | pais   | string | -   |
 | región | string | -   |
-
-</div>
-</div>
 
 
 - Para la creación del dashboard se utiliza streamlit. https://grupohenryds03-esperanza-vida-streamlitstreamlit-app-kni98s.streamlitapp.com/
