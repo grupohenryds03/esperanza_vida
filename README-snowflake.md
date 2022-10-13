@@ -63,7 +63,7 @@
 
 - en terminal se crea el entorno de trabajo para realizar con la conexión con snowflake en visual studio code en maquina local con lenguaje phyton:
 
-```
+```python
  pip install conda #se descarga condas
  conda create -n dbconnect python=3.8 #creacion del entorno
  conda activate dbconnect #activar el entorno
