@@ -14,7 +14,7 @@
 
 - La arquitectura esta basada en el entorno de trabajo de snowflake, donde se ingestaran archivos de los datasets, siguiendo la realización de un pipline del EDA, para luego crear las tablas relacionales en un data warehouse donde se ingestan los datos. Realizando querys se trabajaran los  modelos de ML para visualizar en un dashboard de streamlit los requerimientos del cliente.
 
-<img src="/imagenes/diagrama.png"/>
+<img src="/imagenes/diagrama latin data.png"/>
 
 - Para la ingesta de dataset se realizará un data lake, en un storage interno de snowflake (si el cliente requiere más capacidad de almacenamento se creará una cuenta en AWS para usar un bucket S3 como external storege).
 - Se ingestan los archivos crudos en formato .csv (tmb se manejan formatos json, parquet , avro) mediante u na compresión en formato .gz desde la api del Banco Mundial y la Organización Mundial de la salud.
