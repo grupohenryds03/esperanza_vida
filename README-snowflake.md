@@ -19,10 +19,10 @@
 - Para la ingesta de dataset se realizará un data lake, en un storage interno de snowflake (si el cliente requiere más capacidad de almacenamento se creará una cuenta en AWS para usar un bucket S3 como external storege).
 - Se ingestan los archivos crudos en formato .csv (tmb se manejan formatos json, parquet , avro) mediante u na compresión en formato .gz desde la api del Banco Mundial y la Organización Mundial de la salud.
 
-| archivo                              | external storage | tipo de compresión |
+| archivo                              | internal storage | tipo de compresión |
 |--------------------------------------|------------------|--------------------|
-| banco mundial.csv                    | AWS S3 bucket    | .gz                |
-| organización mundial de la salud.csv | AWS S3 bucket    | .gz                |
+| banco mundial.csv                    | snowflake        | .gz                |
+| organización mundial de la salud.csv | snowflake        | .gz                |
 
 - Luego de la ingesta de archivos se realiza un pipline automático para su EDA.
 - Para el armado del data warehouse se crean las tablas relacionales de hecho y dimensión con sus respectivos Id´s y primary keys.
