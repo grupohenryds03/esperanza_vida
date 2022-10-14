@@ -1,9 +1,9 @@
 # Proyecto Final -Data 03- Soy Henry
 ## Jhovany Lara, Rodrigo Ruiz, Pablo Poletti ,José María Toledo
 
-<img src="/imagenes/Snowflake_Logo.png" width="250" height="100"/>
+<img src="/imagenes/Snowflake_Logo.png" width="250" height="100"  class="pull-left"/>
 
-<img src="/imagenes/Pandas_logo.png" width="250" height="100"/>
+<img src="/imagenes/Pandas_logo.png" width="250" height="100"  class="pull-rigth"/>
 
 
 
