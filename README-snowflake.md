@@ -2,11 +2,11 @@
 ## Jhovany Lara, Rodrigo Ruiz, Pablo Poletti ,José María Toledo
 
 <div class="pull-right">
-<img src="/imagenes/Snowflake_Logo.png"/>
+<img src="/imagenes/Snowflake_Logo.png" width="200" height="100"/>
 </div>
-<img src="/imagenes/Pandas_logo.png"/
+<img src="/imagenes/Pandas_logo.png" width="200" height="100"/>
 </div>
-<img src="/imagenes/Streamlit.png"/>
+<img src="/imagenes/Streamlit.png" width="200" height="100"/>
 </div>
 </div>
 
