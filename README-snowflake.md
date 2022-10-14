@@ -1,14 +1,11 @@
 # Proyecto Final -Data 03- Soy Henry
 ## Jhovany Lara, Rodrigo Ruiz, Pablo Poletti ,José María Toledo
 
-<div class="pull-right">
-<img src="/imagenes/Snowflake_Logo.png" width="200" height="100"/>
-</div>
-<img src="/imagenes/Pandas_logo.png" width="200" height="100"/>
-</div>
-<img src="/imagenes/Streamlit.png" width="200" height="100"/>
-</div>
-</div>
+<img src="/imagenes/Snowflake_Logo.png" width="250" height="100"/>
+
+<img src="/imagenes/Pandas_logo.png" width="250" height="100"/>
+
+
 
 ### Consigna: Desarrollo de un proyecto
 
