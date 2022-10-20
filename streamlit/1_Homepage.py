@@ -82,5 +82,5 @@ cur.execute(sql)
 df = cur.fetch_pandas_all()
 st.dataframe(df)
 
-cur.close()
-conn.close()
+# cur.close()
+# conn.close()
