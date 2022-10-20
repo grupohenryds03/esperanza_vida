@@ -23,10 +23,6 @@ option = st.selectbox(
     'Elejir el país de la lista despleglable',
     id_pais)
 
-st.write('You selected:',dic_pais[option])
-
-
-
 
 sql =f"""SELECT p.NOMBRE, e.ANIO, e.VALOR, i.CODIGO as INDICADOR FROM EV e JOIN PAIS p ON (e.{option}=p.{option}) JOIN INDICADOR i ON (e.ID_INDICADOR=i.ID_INDICADOR) WHERE e.ID_INDICADOR=2"""
 df=pd.read_sql(sql,cnn)
