@@ -12,8 +12,8 @@ st.set_page_config(
     page_icon="👋",
 )
 
-Image=Image.open('https://github.com/grupohenryds03/esperanza_vida/blob/main/streamlit/LDlogo.png')
-st.image(Image)
+# Image=Image.open('https://github.com/grupohenryds03/esperanza_vida/blob/main/streamlit/LDlogo.png')
+st.image('https://github.com/grupohenryds03/esperanza_vida/blob/main/streamlit/LDlogo.png')
 
 st.title("Main Page")
 st.sidebar.success("Select a page above.")
