@@ -9,7 +9,7 @@ st.set_page_config(
     page_title="Multipage App",
     page_icon="👋",
 )
-
+st.image('/images/latin-data-logo.png')
 st.title("Main Page")
 st.sidebar.success("Select a page above.")
 
@@ -43,13 +43,6 @@ def init_connection():
 
 conn = init_connection() # connect
 
-# Perform query.
-# Uses st.experimental_memo to only rerun when the query changes or after 10 min.
-#@st.experimental_memo(ttl=600)
-#def run_query(query):
-#    with conn.cursor() as cur:
-#        cur.execute(query)
-#        return cur.fetchall()
 
 cnn = snowflake.connector.connect(
     user='grupods03',
@@ -58,8 +51,6 @@ cnn = snowflake.connector.connect(
     warehouse='DW_EV',
     database="LAKE")
 
-# Create a cursor object.
-#cur = cnn.cursor()
 
 sql ="""SELECT p.NOMBRE, e.ANIO, e.VALOR, i.CODIGO as INDICADOR 
         FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS) 
