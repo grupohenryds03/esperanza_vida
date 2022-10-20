@@ -69,6 +69,5 @@ df=pd.read_sql(sql,cnn)
 
 st.dataframe(df)
 
-cur.close()
 cnn.close
 conn.close()
