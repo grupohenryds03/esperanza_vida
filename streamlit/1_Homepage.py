@@ -50,20 +50,18 @@ conn = init_connection() # connect
 #    with conn.cursor() as cur:
 #        cur.execute(query)
 #        return cur.fetchall()
-'''
+
 def execute_query(connection, query):
     cursor = connection.cursor() # se inicializa la conexión Creates a cursor object. Each statement will be executed in a new cursor object.
     cursor.execute(query)
     cursor.close()
 
 query = "Use database LAKE" # se inicializa database
-
 execute_query(conn, query)
 
-query = "Use warehouse DW_EV" # se inicializa datawarehouse
+query1 = "Use warehouse DW_EV" # se inicializa datawarehouse
+execute_query(conn, query1)
 
-execute_query(conn, query)
-'''
 
 # Create a cursor object.
 cur = conn.cursor()
