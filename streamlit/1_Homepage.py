@@ -66,7 +66,7 @@ sql ="""SELECT p.NOMBRE, e.ANIO, e.VALOR, i.CODIGO as INDICADOR
         FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS) 
                 JOIN INDICADOR i ON (e.ID_INDICADOR=i.ID_INDICADOR)
         WHERE e.ID_INDICADOR=2"""
-df=pd.read_sql(sql,conn)
+df=pd.read_sql(sql,cnn)
 
 # Execute a statement that will generate a result set.
 
