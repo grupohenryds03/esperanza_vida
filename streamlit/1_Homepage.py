@@ -58,9 +58,8 @@ cnn = snowflake.connector.connect(
     warehouse='DW_EV',
     database="LAKE")
 
-
 # Create a cursor object.
-cur = cnn.cursor()
+#cur = cnn.cursor()
 
 sql ="""SELECT p.NOMBRE, e.ANIO, e.VALOR, i.CODIGO as INDICADOR 
         FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS) 
@@ -68,11 +67,6 @@ sql ="""SELECT p.NOMBRE, e.ANIO, e.VALOR, i.CODIGO as INDICADOR
         WHERE e.ID_INDICADOR=2"""
 df=pd.read_sql(sql,cnn)
 
-# Execute a statement that will generate a result set.
-
-#cur.execute(sql)
-# Fetch the result set from the cursor and deliver it as the Pandas DataFrame.
-#df = cur.fetch_pandas_all()
 st.dataframe(df)
 
 cur.close()
