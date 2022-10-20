@@ -14,7 +14,7 @@ st.set_page_config(
 
 col1,col2=st.columns(2)
 with col1:
-    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/streamlit/LDlogo.png', width=200, center)
+    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/streamlit/LDlogo.png', width=200)
 
 with col2:
     st.title("ANÁLISIS DE ESPERANZA DE VIDA")
