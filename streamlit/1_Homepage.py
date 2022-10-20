@@ -50,23 +50,23 @@ conn = init_connection() # connect
 #    with conn.cursor() as cur:
 #        cur.execute(query)
 #        return cur.fetchall()
-
+'''
 cnn = snowflake.connector.connect(
     user='grupods03',
     password='Henry2022#',
     account='nr28668.sa-east-1.aws',
     warehouse='DW_EV',
     database="LAKE")
-
+'''
 
 # Create a cursor object.
-cur = cnn.cursor()
+cur = conn.cursor()
 
 sql ="""SELECT p.NOMBRE, e.ANIO, e.VALOR, i.CODIGO as INDICADOR 
         FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS) 
                 JOIN INDICADOR i ON (e.ID_INDICADOR=i.ID_INDICADOR)
         WHERE e.ID_INDICADOR=2"""
-df=pd.read_sql(sql,cnn)
+df=pd.read_sql(sql,conn)
 
 # Execute a statement that will generate a result set.
 
@@ -76,5 +76,5 @@ df=pd.read_sql(sql,cnn)
 st.dataframe(df)
 
 cur.close()
-cnn.close
+#cnn.close
 conn.close()
