@@ -51,6 +51,15 @@ conn = init_connection() # conect
 #        cur.execute(query)
 #        return cur.fetchall()
 
+
+query = "Use database LAKE" # se inicializa database
+
+execute_query(conn, query)
+
+query = "Use warehouse DW_EV" # se inicializa datawarehouse
+
+execute_query(conn, query)
+
 # Create a cursor object.
 cur = conn.cursor()
 
