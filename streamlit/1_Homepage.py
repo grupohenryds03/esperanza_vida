@@ -51,12 +51,22 @@ conn = init_connection() # conect
 #        cur.execute(query)
 #        return cur.fetchall()
 
+# Create a cursor object.
+cur = conn.cursor()
 
 sql ="""SELECT p.NOMBRE, e.ANIO, e.VALOR, i.CODIGO as INDICADOR 
         FROM EV e 
         JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS) 
             JOIN INDICADOR i ON (e.ID_INDICADOR=i.ID_INDICADOR) 
         WHERE e.ID_INDICADOR=2""" 
-Indicador2=pd.read_sql(sql,conn)
+# Indicador2=pd.read_sql(sql,conn)
 
-st.dataframe(Indicador2)
+# Execute a statement that will generate a result set.
+
+cur.execute(sql)
+# Fetch the result set from the cursor and deliver it as the Pandas DataFrame.
+df = cur.fetch_pandas_all()
+st.dataframe(df)
+
+cur.close()
+conn.close()
