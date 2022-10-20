@@ -12,7 +12,7 @@ st.set_page_config(
     page_icon="👋",
 )
 
-st.image(Image.open('./semana2.png'),width=100)
+st.image(Image.open('./images/latin_data_logo.png'),width=100)
 
 st.title("Main Page")
 st.sidebar.success("Select a page above.")
