@@ -50,7 +50,7 @@ conn = init_connection() # conect
 #    with conn.cursor() as cur:
 #        cur.execute(query)
 #        return cur.fetchall()
-'''
+
 def execute_query(connection, query):
     cursor = connection.cursor() # se inicializa la conexión Creates a cursor object. Each statement will be executed in a new cursor object.
     cursor.execute(query)
@@ -63,7 +63,7 @@ execute_query(conn, query)
 query = "Use warehouse DW_EV" # se inicializa datawarehouse
 
 execute_query(conn, query)
-'''
+
 
 # Create a cursor object.
 cur = conn.cursor()
@@ -82,5 +82,5 @@ cur.execute(sql)
 df = cur.fetch_pandas_all()
 st.dataframe(df)
 
-# cur.close()
-# conn.close()
+cur.close()
+conn.close()
