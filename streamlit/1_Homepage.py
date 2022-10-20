@@ -2,6 +2,7 @@
 
 import streamlit as st
 import snowflake.connector
+import pandas as pd
 
 
 st.set_page_config(
@@ -44,15 +45,18 @@ conn = init_connection() # conect
 
 # Perform query.
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
-@st.experimental_memo(ttl=600)
-def run_query(query):
-    with conn.cursor() as cur:
-        cur.execute(query)
-        return cur.fetchall()
+#@st.experimental_memo(ttl=600)
+#def run_query(query):
+#    with conn.cursor() as cur:
+#        cur.execute(query)
+#        return cur.fetchall()
 
-run_query("Use database PRUEBA;")
-rows = run_query("SELECT * from COSTUMERS;")
 
-# Print results.
-for row in rows:
-    st.write(f"{row[0]} has a :{row[1]}:")
+sql ="""SELECT p.NOMBRE, e.ANIO, e.VALOR, i.CODIGO as INDICADOR 
+        FROM EV e 
+        JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS) 
+            JOIN INDICADOR i ON (e.ID_INDICADOR=i.ID_INDICADOR) 
+        WHERE e.ID_INDICADOR=2""" 
+Indicador2=pd.read_sql(sql,conn)
+
+st.dataframe(Indicador2)
