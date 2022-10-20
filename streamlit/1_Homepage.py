@@ -13,7 +13,7 @@ st.set_page_config(
 )
 
 # Image=Image.open('https://github.com/grupohenryds03/esperanza_vida/blob/main/streamlit/LDlogo.png')
-st.image('https://github.com/grupohenryds03/esperanza_vida/blob/main/streamlit/LDlogo.png', width=200)
+st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/streamlit/LDlogo.png', width=200)
 
 st.title("ANÁLISIS DE ESPERANZA DE VIDA")
 st.sidebar.success("Select a page above.")
@@ -39,7 +39,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 st.header("La esperanza de vida difiere en función del lugar de nacimiento")
 '''
-Según datos de la Organización mundial de la salud (OMS), a escala mundial, la esperanza de vida de los niños 
+Según datos de la Organización Mundial de la Salud (OMS), a escala mundial, la esperanza de vida de los niños 
 nacidos en 2015 era de 71,4 años (73,8 años para las niñas y 69,1 para los niños), pero las perspectivas de 
 cada niño en particular dependen del lugar de nacimiento. 
 
