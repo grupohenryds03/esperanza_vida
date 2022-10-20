@@ -9,7 +9,7 @@ st.set_page_config(
     page_title="Multipage App",
     page_icon="👋",
 )
-st.image("\images\latin-data-logo.png")
+st.image("./images/latin-data-logo.png")
 st.title("Main Page")
 st.sidebar.success("Select a page above.")
 
