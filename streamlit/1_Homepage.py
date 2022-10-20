@@ -12,7 +12,7 @@ st.set_page_config(
     page_icon="👋",
 )
 
-Image=Image.open('LDlogo.png')
+Image=Image.open('https://github.com/grupohenryds03/esperanza_vida/blob/main/streamlit/LDlogo.png')
 st.image(Image)
 
 st.title("Main Page")
