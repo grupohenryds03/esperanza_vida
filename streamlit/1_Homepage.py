@@ -10,8 +10,8 @@ st.set_page_config(
     page_title="Multipage App",
     page_icon="👋",
 )
-image=Image.open("latin-data-logo.png")
-st.image(image, caption='logo')
+
+st.image('latin-data-logo.png')
 
 st.title("Main Page")
 st.sidebar.success("Select a page above.")
