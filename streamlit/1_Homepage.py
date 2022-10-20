@@ -6,12 +6,13 @@ import pandas as pd
 from PIL import Image
 
 
+
 st.set_page_config(
     page_title="Multipage App",
     page_icon="👋",
 )
 
-#st.image('/latin-data-logo.png')
+st.image(Image.open('latin-data-logo.png'), width=100)
 
 st.title("Main Page")
 st.sidebar.success("Select a page above.")
