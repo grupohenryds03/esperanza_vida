@@ -51,30 +51,30 @@ conn = init_connection() # connect
 #        cur.execute(query)
 #        return cur.fetchall()
 
-def execute_query(connection, query):
-    cursor = connection.cursor() # se inicializa la conexión Creates a cursor object. Each statement will be executed in a new cursor object.
-    cursor.execute(query)
-    cursor.close()
-
-query = "Use database LAKE" # se inicializa database
-execute_query(conn, query)
-
-query1 = "Use warehouse DW_EV" # se inicializa datawarehouse
-execute_query(conn, query1)
+cnn = snowflake.connector.connect(
+    user='grupods03',
+    password='Henry2022#',
+    account='nr28668.sa-east-1.aws',
+    warehouse='DW_EV',
+    database="LAKE")
 
 
 # Create a cursor object.
-cur = conn.cursor()
+cur = cnn.cursor()
 
-sql ="SELECT p.NOMBRE, e.ANIO, e.VALOR, i.CODIGO as INDICADOR FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS) JOIN INDICADOR i ON (e.ID_INDICADOR=i.ID_INDICADOR)WHERE e.ID_INDICADOR=2"
-#df=pd.read_sql(sql,conn)
+sql ="""SELECT p.NOMBRE, e.ANIO, e.VALOR, i.CODIGO as INDICADOR 
+        FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS) 
+                JOIN INDICADOR i ON (e.ID_INDICADOR=i.ID_INDICADOR)
+        WHERE e.ID_INDICADOR=2"""
+df=pd.read_sql(sql,cnn)
 
 # Execute a statement that will generate a result set.
 
-cur.execute(sql)
+#cur.execute(sql)
 # Fetch the result set from the cursor and deliver it as the Pandas DataFrame.
-df = cur.fetch_pandas_all()
+#df = cur.fetch_pandas_all()
 st.dataframe(df)
 
 cur.close()
+cnn.close
 conn.close()
