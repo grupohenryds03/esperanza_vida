@@ -12,7 +12,8 @@ st.set_page_config(
     page_icon="👋",
 )
 
-st.image(Image.open('.\streamlit\LDlogo.png'),width=100)
+Image=Image.open('streamlit\LDlogo.png')
+st.image(Image)
 
 st.title("Main Page")
 st.sidebar.success("Select a page above.")
