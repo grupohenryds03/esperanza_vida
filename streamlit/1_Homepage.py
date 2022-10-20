@@ -11,7 +11,7 @@ st.set_page_config(
     page_icon="👋",
 )
 
-st.image('/latin-data-logo.png')
+#st.image('/latin-data-logo.png')
 
 st.title("Main Page")
 st.sidebar.success("Select a page above.")
