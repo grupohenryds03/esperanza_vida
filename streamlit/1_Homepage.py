@@ -12,7 +12,7 @@ st.set_page_config(
     page_icon="👋",
 )
 
-Image=Image.open('streamlit\LDlogo.png')
+Image=Image.open('LDlogo.png')
 st.image(Image)
 
 st.title("Main Page")
