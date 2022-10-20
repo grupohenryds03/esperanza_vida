@@ -1,25 +1,27 @@
 import streamlit as st
 import pandas as pd
-# se importa el conector de snowflake
-import snowflake.connector 
-# se importa del modulo de swnoflake la herramienta de pandas para ingestar un dataframe a una tabla de snowflake
-from snowflake.connector.pandas_tools import write_pandas 
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+
+st.title('Variables Seleccionadas')
+st.write('***')
 
 
-st.title("Projects")
+st.write('Se seleccionaron 17 indicadores que pueden ayudar a explicar la relación de la economía, la educación y la salud con la esperanza de vida al nacer.')
+st.write('Para hacer esta selección hicimos investigaciones propias basandonos en fuestes como estas:')
+st.write(1, '-  https://rstudio-pubs-static.s3.amazonaws.com/180554_a412caa868c24939a873ca679d54bbde.html')
+st.write(2, '-  https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2022_wpp_key-messages.pdf')
+st.write(3, '-  https://www.kaggle.com/search?q=life+expectancy')
+st.write(4, '-  https://www.kaggle.com/code/nilaychauhan/etl-pipelines-tutorial-world-bank-datasets')
+st.write(5, '-  https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6650812/')
+st.write('***')
 
-st.write("You have entered", st.session_state["my_input"])
+st.subheader('*Variables Socioeconómicas*')
+st.write(1, 'Trade in services (% of GDP) - ID:38')
+st.write(2, 'CO2 emissions (kt) - ID:2')
 
-#se crea conexión
-cnn = snowflake.connector.connect(
-    user='grupods03',
-    password='Henry2022#',
-    account='nr28668.sa-east-1.aws',
-    warehouse='DW_EV',
-    database="LAKE")
-
-#Consulta todos los países con indicador 2 --> Se hizo doble JOIN <--
-sql ="SELECT p.NOMBRE, e.ANIO, e.VALOR, i.CODIGO as INDICADOR FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS) JOIN INDICADOR i ON (e.ID_INDICADOR=i.ID_INDICADOR) WHERE e.ID_INDICADOR=2" 
-Indicador2=pd.read_sql(sql,cnn)
-
-st.dataframe(Indicador2)
+'''### Ecosistema de criptomonedas'''
+'_Análisis del TOP 10 por volúmen de operación de criptomonedas de la plataforma de exchange FTX_'
+'---------------------------------------------------------------------------------------------'
+'- hola'
