@@ -21,21 +21,16 @@ _This is some markdown_
 
 option = st.selectbox(
     'Elejir el país de la lista despleglable',
-    Nation)
+    id_pais)
 
-st.write('You selected:', option)
-
-
+st.write('You selected:',dic_pais[option])
 
 
-sql ="""SELECT p.NOMBRE, e.ANIO, e.VALOR, i.CODIGO as INDICADOR 
-        FROM EV e 
-        JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS) 
-                JOIN INDICADOR i ON (e.ID_INDICADOR=i.ID_INDICADOR)
-        WHERE e.ID_INDICADOR=2"""
+
+
+sql =f"""SELECT p.NOMBRE, e.ANIO, e.VALOR, i.CODIGO as INDICADOR FROM EV e JOIN PAIS p ON (e.{option}=p.{option}) JOIN INDICADOR i ON (e.ID_INDICADOR=i.ID_INDICADOR) WHERE e.ID_INDICADOR=2"""
 df=pd.read_sql(sql,cnn)
 
 st.dataframe(df)
 
 cnn.close
-conn.close()
