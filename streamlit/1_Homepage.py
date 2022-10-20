@@ -66,17 +66,17 @@ execute_query(conn, query)
 '''
 
 # Create a cursor object.
-#cur = conn.cursor()
+cur = conn.cursor()
 
 sql ="SELECT p.NOMBRE, e.ANIO, e.VALOR, i.CODIGO as INDICADOR FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS) JOIN INDICADOR i ON (e.ID_INDICADOR=i.ID_INDICADOR)WHERE e.ID_INDICADOR=2"
-df=pd.read_sql(sql,conn)
+#df=pd.read_sql(sql,conn)
 
 # Execute a statement that will generate a result set.
 
-#cur.execute(sql)
+cur.execute(sql)
 # Fetch the result set from the cursor and deliver it as the Pandas DataFrame.
-#df = cur.fetch_pandas_all()
+df = cur.fetch_pandas_all()
 st.dataframe(df)
 
-#cur.close()
+cur.close()
 conn.close()
