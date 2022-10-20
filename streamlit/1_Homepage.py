@@ -12,10 +12,13 @@ st.set_page_config(
     page_icon="👋",
 )
 
-# Image=Image.open('https://github.com/grupohenryds03/esperanza_vida/blob/main/streamlit/LDlogo.png')
-st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/streamlit/LDlogo.png', width=200)
+col1,col2=st.columns(2)
+with col1:
+    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/streamlit/LDlogo.png', width=200)
 
-st.title("ANÁLISIS DE ESPERANZA DE VIDA")
+with col2:
+    st.title("ANÁLISIS DE ESPERANZA DE VIDA")
+
 st.sidebar.success("Select a page above.")
 
 #if "my_input" not in st.session_state:
