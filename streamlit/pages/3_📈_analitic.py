@@ -24,7 +24,8 @@ option = st.selectbox(
     id_pais)
 
 
-sql =f"""SELECT p.NOMBRE, e.ANIO, e.VALOR, i.CODIGO as INDICADOR FROM EV e JOIN PAIS p ON (e.{option}=p.{option}) JOIN INDICADOR i ON (e.ID_INDICADOR=i.ID_INDICADOR) WHERE e.ID_INDICADOR=2"""
+
+sql =f"SELECT e.ID_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR FROM EV e JOIN INDICADOR i ON (e.ID_INDICADOR=i.ID_INDICADOR) WHERE e.ID_INDICADOR=28 AND e.ANIO>1960 AND e.ANIO<=2020 AND e.ID_PAIS='{option}'" 
 df=pd.read_sql(sql,cnn)
 
 st.dataframe(df)
