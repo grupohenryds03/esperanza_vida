@@ -42,6 +42,9 @@ with tab1:
     df_prediccion=pd.concat([YEAR,df], axis=1)
     df_final=pd.concat([df_prediccion.YEAR,df_prediccion[option]], axis=1)
 
+    sql =f"SELECT ANIO, ID_PAIS, VALOR FROM EV WHERE ID_INDICADOR=28 AND ANIO<=2020 AND ID_PAIS='{id_pais}'"
+    df_anterior=pd.read_sql(sql,cnn)
+
     'El análisis de las prediciones de la esperanza de visa se utilizaron modelos predictivos.....'
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=df_anterior.ANIO, 
@@ -60,9 +63,6 @@ with tab1:
 
     fig.update_xaxes(showgrid=False)
     st.plotly_chart(fig,use_container_width=True)
-
-sql =f"SELECT ANIO, ID_PAIS, VALOR FROM EV WHERE ID_INDICADOR=28 AND ANIO<=2020 AND ID_PAIS='{id_pais}'"
-df_anterior=pd.read_sql(sql,cnn)
 
 sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR 
         FROM EV e 
