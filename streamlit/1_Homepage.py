@@ -193,7 +193,7 @@ with tab1:
             FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
             WHERE e.ID_INDICADOR=28 AND e.ANIO=2020 AND e.ID_CONTINENTE=1"""
         df=pd.read_sql(sql,cnn)
-
+        df=df.drop_duplicates(subset='NOMBRE', keep=False)
         trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
                                 y=df['VALOR'].tolist(),
@@ -201,7 +201,9 @@ with tab1:
                                 )
 
         layout = go.Layout(
-                                    title = 'EV America'
+                                    title = 'EV America',
+                                    xaxis_title='País',
+                                    yaxis_title='Esperanza vida'
                                 )
         data = [trace]
         fig = go.Figure(data=data,layout = layout)
@@ -220,7 +222,9 @@ with tab2:
                                 )
 
         layout = go.Layout(
-                                    title = 'EV Europa'
+                                    title = 'EV Europa',
+                                    xaxis_title='País',
+                                    yaxis_title='Esperanza vida'
                                 )
         data = [trace]
         fig = go.Figure(data=data,layout = layout)
@@ -239,7 +243,9 @@ with tab3:
                                 )
 
         layout = go.Layout(
-                                    title = 'EV Asia'
+                                    title = 'EV Asia',
+                                    xaxis_title='País',
+                                    yaxis_title='Esperanza vida'
                                 )
         data = [trace]
         fig = go.Figure(data=data,layout = layout)
@@ -258,7 +264,9 @@ with tab4:
                                 )
 
         layout = go.Layout(
-                                    title = 'EV Africa'
+                                    title = 'EV Africa',
+                                    xaxis_title='País',
+                                    yaxis_title='Esperanza vida'
                                 )
         data = [trace]
         fig = go.Figure(data=data,layout = layout)
