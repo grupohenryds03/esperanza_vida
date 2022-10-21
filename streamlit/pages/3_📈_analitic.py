@@ -90,6 +90,9 @@ with tab3:
                             projection='natural earth',
                             title='Esperanza de Vida',
                             template='simple_white')
+    fig3.update_layout(margin=dict(l=10, r=0, b=0, t=35),
+                  width=900, 
+                  height=600)
     st.plotly_chart(fig3,use_container_width=True)
 with tab4:
     st.dataframe(df_prediccion)
