@@ -23,7 +23,7 @@ st.title("ANÁLISIS DE ESPERANZA DE VIDA")
 with st.sidebar:    
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/streamlit/LDlogo.png', width=100)
 
-st.sidebar.success('')
+#st.sidebar.success('')
 
 
 
