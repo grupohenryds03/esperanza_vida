@@ -6,9 +6,8 @@ import plotly.express as px
 from info import *
 
 st.set_page_config(
-    page_title="Multipage App",
-    page_icon="📈",
-)
+    page_title="Analitics",
+    page_icon="📈)
 
 cnn = snowflake.connector.connect(
     user='grupods03',
@@ -17,10 +16,6 @@ cnn = snowflake.connector.connect(
     warehouse='DW_EV',
     database="LAKE")
 
-st.set_page_config(
-    page_title="Multipage App",
-    page_icon="💡",
-)
 
 '''
 # Análisis de las predicción de esperanza de vida
