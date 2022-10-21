@@ -197,16 +197,12 @@ df=pd.read_sql(sql,cnn)
 st.dataframe(df)
 
 
-chart = (
-    alt.Chart(df)
-    .mark_bar()
-    .encode(
-        alt.X("País"),
-        alt.Y("EV")
-        )
-    .interactive()
-)
-st.altair_chart(chart)
+bar_chart = alt.Chart(df).mark_bar().encode(
+        y='EV',
+        x='País',
+    )
+ 
+st.altair_chart(bar_chart, use_container_width=True)
 
 cnn.close
 conn.close()
