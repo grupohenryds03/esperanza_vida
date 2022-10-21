@@ -8,7 +8,7 @@ from PIL import Image
 with st.sidebar:    
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/streamlit/LDlogo.png', width=100)
 
-st.sidebar.success()
+st.sidebar.success('')
 
 st.set_page_config(
     page_title="Multipage App",
