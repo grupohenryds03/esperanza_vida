@@ -4,8 +4,7 @@ import streamlit as st
 import snowflake.connector
 import pandas as pd
 from PIL import Image
-import altair as alt
-import plotly as plt
+import plotly.express as px
 
 
 st.set_page_config(
@@ -196,18 +195,9 @@ df=pd.read_sql(sql,cnn)
 
 st.dataframe(df)
 
-source=pd.DataFrame({
-    "Años":df['VALOR'].tolist(),
-    "País":df['NOMBRE'].tolist()
+fig=px.bar(df, x='País', y='EV')
 
-})
-bar_chart = alt.Chart(source).mark_bar().encode(
-        y='Años',
-        x='País',
-    )
- 
-st.altair_chart(bar_chart, use_container_width=True)
-
+st.plotly_chart(fig,use_container_width=True)
 
 cnn.close
 conn.close()
