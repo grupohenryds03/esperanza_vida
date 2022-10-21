@@ -15,13 +15,13 @@ st.set_page_config(
 
 col1,col2,col3=st.columns(3)
 with col2:
-    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/streamlit/LDlogo.png', width=200)
+    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/LDlogo.png', width=200)
 
 
 st.title("ANÁLISIS DE ESPERANZA DE VIDA")
 
 with st.sidebar:    
-    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/streamlit/LDlogo.png', width=100)
+    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/LDlogo.png', width=100)
 
 #st.sidebar.success('')
 
@@ -131,7 +131,7 @@ st.write('***')
 e1,e2,e3=st.columns(3)
 with e2:
     st.header("Arquitectura")
-
+st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/diagrama_arq.png')
 
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
