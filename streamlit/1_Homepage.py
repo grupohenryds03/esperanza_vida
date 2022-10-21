@@ -149,9 +149,9 @@ g1,g2,g3=st.columns(3)
 with g1:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/Streamlit.png', width=100)
 with g2:
-    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/GitHub_logo.png', width=100)
+    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/Project.png', width=100)
 with g3:
-    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/Pandas_logo.png', width=100)
+    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/mysql.png', width=100)
 
 
 # Initialize connection.
