@@ -267,7 +267,7 @@ with tab4:
         trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
                                 y=df['VALOR'].tolist(),
-                                showlegend = True
+                                showlegend = False
                                 )
 
         layout = go.Layout(
