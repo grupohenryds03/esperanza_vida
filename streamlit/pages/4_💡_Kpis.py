@@ -10,15 +10,7 @@ st.title('Kpis')
 
 lista_Kpi =['Mortalidad Infantil','Inversión Publica en Salud','Mortalidad Materna','Ingresos Per Capita']
 '''
-# PROBANDO SI FUNCIONA 1
-'''
-
-'''
-## PROBANDO SI FUNCIONA 2
-'''
-
-'''
-### PROBANDO SI FUNCIONA 3
+# KPIs
 '''
 
 eleccion = st.selectbox(
@@ -40,29 +32,35 @@ elif eleccion=='Inversión Publica en Salud':
     a1,a2=st.columns(2)
     with a1:
         st.subheader("Objetivo")
-        '''Objetivo Kpi 2'''
+        '''Se espera que los gobiernos de los países de la muestra aumenten el gasto público en Salud 
+            un 10% anual de 5 años manteniéndose todo los demás constante.'''
     with a2:
         st.subheader("Hipotesis")
-        '''Hipotesis Kpi 2'''
+        '''Se presenta como Hipótesis que la variación promedio anual de la Esperanza de Vida al nacer 
+            en los países sub-desarrollados de la muestra, aumente como mínimo el doble de la variación 
+            promedio anual en los países desarrollados.'''
 elif eleccion=='Mortalidad Materna':
     a1,a2=st.columns(2)
     with a1:
         st.subheader("Objetivo")
-        '''Objetivo Kpi 3'''
+        ''' Se espera que la tasa de mortalidad materna (por cada 100.000 nacidos vivos), disminuya 10% 
+            anual en los próximos 5 años para los países de la muestra manteniéndose todo los demás 
+            constante'''
     with a2:
         st.subheader("Hipotesis")
-        '''Hipotesis Kpi 3'''
+        '''Se presenta como Hipótesis que la variación promedio de la esperanza de vida del total de 
+            paises de la muestra aumentara como mínimo un 0.5% anual por los próximos 5 años.'''
 elif eleccion=='Ingresos Per Capita':
     a1,a2=st.columns(2)
     with a1:
         st.subheader("Objetivo")
-        '''Objetivo Kpi 4'''
+        '''Se espera que los ingresos per cápita (PBI per cápita (constante U$S 2015)), aumente en 
+            promedio un 10% anual por los próximos 5 años en los paises de la muestra.'''
     with a2:
         st.subheader("Hipotesis")
-        '''Hipotesis Kpi 4'''
-
-
-st.write(eleccion)
+        '''Se presenta como Hipótesis que este efecto positivo sobre los ingresos per cápita de la 
+            población, generara un efecto positivo en la esperanza de vida, que se presentara como un 
+            aumento promedio anual mínimo del 1%.'''
 
 
 
