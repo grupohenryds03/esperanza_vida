@@ -34,7 +34,7 @@ with tab1:
 
     a=dic_pais.get(option)
     'La selección fue:', option #dic_pais2[option]
-    a
+    
     id_pais=dic_id_pais[a] #option
 
     df=pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/Prediccion_EV_10.csv')

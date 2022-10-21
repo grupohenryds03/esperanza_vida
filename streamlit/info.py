@@ -8,7 +8,7 @@ dic_pais2={'USA': 'United States', 'CAN': 'Canada', 'MEX': 'Mexico', 'CRI': 'Cos
 dic_id_pais={'ARG': 0, 'AUS': 1, 'BGR': 2, 'BOL': 3, 'BRA': 4, 'CAN': 5, 'CHL': 6, 'CHN': 7, 'CRI': 8, 'DEU': 9, 'EGY': 10, 'ESP': 11, 'FRA': 12, 'GBR': 13, 'GRC': 14, 'IDN': 15, 'IND': 16, 'ISR': 17, 'ITA': 18, 'JPN': 19, 'KOR': 20, 'LBY': 21, 'MAR': 22, 'MEX': 23, 'MYS': 24, 'NGA': 25, 'NOR': 26, 'PAN': 27, 'PER': 28, 'RUS': 29, 'SAU': 30, 'SWE': 31, 'THA': 32, 'TUR': 33, 'URY': 34, 'USA': 35, 'ZAF': 36}
 
 
-pais = ['United States', 'Canada','Mexico','Costa Rica','Panama','Brazil','Argentina','Chile','Uruguay','Bolivia','Peru','Egypt, Arab Rep.','Libya','South Africa','Nigeria','Morocco','Australia','China','India','Thailand','Japan','Korea, Rep.','Israel','Saudi Arabia','Malaysia','Indonesia','Russian Federation','Turkiye','Spain','Bulgaria','France','Italy','Germany','United Kingdom','Norway','Sweden','Greece']
+pais = ['Mexico', 'Canada','United States','Costa Rica','Panama','Brazil','Argentina','Chile','Uruguay','Bolivia','Peru','Egypt, Arab Rep.','Libya','South Africa','Nigeria','Morocco','Australia','China','India','Thailand','Japan','Korea, Rep.','Israel','Saudi Arabia','Malaysia','Indonesia','Russian Federation','Turkiye','Spain','Bulgaria','France','Italy','Germany','United Kingdom','Norway','Sweden','Greece']
 lista_codigo_pais= ['MEX','CRI','PAN','BRA','ARG','CHL','URY','BOL','USA','CAN','PER','EGY','LBY','ZAF','NGA','MAR','AUS','CHN','IND','THA','JPN','KOR','ISR','SAU','MYS','IDN','RUS','TUR','ESP','BGR','FRA','ITA','DEU','GBR','NOR','SWE','GRC']
 
 
