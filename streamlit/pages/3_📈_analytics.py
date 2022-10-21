@@ -92,9 +92,9 @@ with tab2:
 with tab3:
     'mapa de calor del promedio por año de la esperanza de vida por pais......'
     fig3 = px.scatter_geo(EV_todos,
-                            locations='ID_PAIS',
-                            color='ID_PAIS',
-                            hover_name='ID_PAIS',
+                            locations='CODIGO_PAIS',
+                            color='CODIGO_PAIS',
+                            hover_name='CODIGO_PAIS',
                             size=EV_todos['VALOR'],
                             animation_frame='ANIO',
                             projection='natural earth',
