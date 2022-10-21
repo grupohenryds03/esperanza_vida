@@ -188,12 +188,26 @@ cnn = snowflake.connector.connect(
     database="LAKE")
 
 
-sql ="""SELECT p.NOMBRE, e.VALOR as INDICADOR 
+sql ="""SELECT p.NOMBRE, e.VALOR  
         FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
         WHERE e.ID_INDICADOR=28 AND e.ANIO=2020 AND e.ID_CONTINENTE=1"""
 df=pd.read_sql(sql,cnn)
 
 st.dataframe(df)
-st.plotly_chart(df)
+
+import seaborn as sns
+import streamlit as st
+import plotly as plt
+
+fig = plt.figure(figsize=(10,5))
+sns.barplot(df['NOMBRE'], df['VALOR'], alpha=0.8)
+fig.title('America')
+fig.ylabel('EV', fontsize=12)
+fig.xlabel('País', fontsize=12)
+
+
+# Add figure in streamlit app
+st.pyplot(fig)
+
 cnn.close
 conn.close()
