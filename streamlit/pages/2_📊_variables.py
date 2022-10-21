@@ -42,3 +42,7 @@ st.subheader('*Variables de Salud*')
 
 st.write('***')
 '''# Proceso de selección de variables'''
+'Obtuvimos 38 indicadores del Banco Mundial y de la Organización Mundial de la Salud.'
+'Con todos estos indicadores en nuestro dataset nos encontramos con una gran proporción de datos faltantes:'
+df = pd.read_csv('../datasets/EV.csv')
+st.write(df.head())
