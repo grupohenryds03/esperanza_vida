@@ -12,9 +12,6 @@ st.set_page_config(
     page_icon="👋",
 )
 
-<<<<<<< HEAD
-st.image(Image.open('/esperanza_vida/streamlit/LDlogo.png'),width=100)
-=======
 f='https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/streamlit/style.css'
 
 st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
@@ -25,7 +22,6 @@ with col2:
 
 
 st.title("ANÁLISIS DE ESPERANZA DE VIDA")
->>>>>>> 1cf887f237bf160aa1374f6d220a1ba9f96ca7ca
 
 st.sidebar.success("Select a page above.")
 
