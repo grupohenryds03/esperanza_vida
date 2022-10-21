@@ -40,7 +40,7 @@ df_final=pd.concat([df_prediccion.YEAR,df_prediccion[option]], axis=1)
 sql =f"SELECT ANIO, ID_PAIS, VALOR FROM EV WHERE ID_INDICADOR=28 AND ANIO<=2020 AND ID_PAIS='{id_pais}'"
 df_anterior=pd.read_sql(sql,cnn)
 
-sql ="""SELECT e.CODIGO_PAIS, e.ANIO, e.VALOR, 
+sql ="""SELECT e.ID_PAIS, e.ANIO, e.VALOR, 
         i.DESCRIPCION as INDICADOR FROM EV e JOIN INDICADOR i ON (e.ID_INDICADOR=i.ID_INDICADOR) 
         WHERE e.ID_INDICADOR=28 AND e.ANIO>1960 AND e.ANIO<=2020 """ 
 EV_todos=pd.read_sql(sql,cnn)
