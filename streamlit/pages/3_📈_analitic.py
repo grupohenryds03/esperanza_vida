@@ -75,9 +75,8 @@ with tab2:
                         color_continuous_scale=px.colors.sequential.Plasma,
                         projection="natural earth",
                         title='Esperanza de Vida')
-    fig2.update_layout(margin=dict(l=10, r=0, b=0, t=35),
-                  width=900, 
-                  height=600)
+    fig2.update_layout(margin={"r":10,"t":50,"l":10,"b":10},width=900, 
+                  height=600) 
     st.plotly_chart(fig2,use_container_width=True)
 with tab3:
     'mapa de calor del promedio por año de la esperanza de vida por pais......'
