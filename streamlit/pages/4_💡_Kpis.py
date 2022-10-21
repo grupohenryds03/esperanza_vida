@@ -33,8 +33,33 @@ if eleccion=='Kpi_1':
     with a2:
         st.subheader("Hipotesis")
         '''Hipotesis Kpi 1'''
-else:
-    st.write(eleccion)
+elif eleccion=='Kpi_2':
+    a1,a2=st.columns(2)
+    with a1:
+        st.subheader("Objetivo")
+        '''Objetivo Kpi 2'''
+    with a2:
+        st.subheader("Hipotesis")
+        '''Hipotesis Kpi 2'''
+elif eleccion=='Kpi_3':
+    a1,a2=st.columns(2)
+    with a1:
+        st.subheader("Objetivo")
+        '''Objetivo Kpi 3'''
+    with a2:
+        st.subheader("Hipotesis")
+        '''Hipotesis Kpi 3'''
+elif eleccion=='Kpi_4':
+    a1,a2=st.columns(2)
+    with a1:
+        st.subheader("Objetivo")
+        '''Objetivo Kpi 4'''
+    with a2:
+        st.subheader("Hipotesis")
+        '''Hipotesis Kpi 4'''
+
+
+st.write(eleccion)
 
 
 
