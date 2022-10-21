@@ -198,7 +198,7 @@ with tab1:
         trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
                                 y=df['VALOR'].tolist(),
-                                showlegend = True
+                                showlegend = False
                                 )
 
         layout = go.Layout(
@@ -221,7 +221,7 @@ with tab2:
         trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
                                 y=df['VALOR'].tolist(),
-                                showlegend = True
+                                showlegend = False
                                 )
 
         layout = go.Layout(
@@ -244,7 +244,7 @@ with tab3:
         trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
                                 y=df['VALOR'].tolist(),
-                                showlegend = True
+                                showlegend = False
                                 )
 
         layout = go.Layout(
@@ -290,7 +290,7 @@ with tab5:
         trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
                                 y=df['VALOR'].tolist(),
-                                showlegend = True
+                                showlegend = False
                                 )
 
         layout = go.Layout(
