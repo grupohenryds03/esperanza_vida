@@ -196,10 +196,14 @@ df=pd.read_sql(sql,cnn)
 
 st.dataframe(df)
 
+source=pd.DataFrame({
+    "Años":df['VALOR'].tolist(),
+    "País":df['NOMBRE'].tolist()
 
-bar_chart = alt.Chart(df).mark_bar().encode(
-        y='',
-        x='',
+})
+bar_chart = alt.Chart(source).mark_bar().encode(
+        y='Años',
+        x='País',
     )
  
 st.altair_chart(bar_chart, use_container_width=True)
