@@ -39,3 +39,6 @@ st.subheader('*Variables de Salud*')
 '- Polio (Pol3) immunization covergae among 1-year-olds (%) - ID:14'
 '- Mortality rate, female adults (per 1000 adults) - ID:20'
 '- Death rate, male adults (per 1000 adults) - ID:19'
+
+st.write('***')
+'''Proceso de selección de variables'''
