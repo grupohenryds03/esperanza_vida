@@ -4,4 +4,4 @@ numpy
 streamlit
 requests
 plotly
-seaborn
+altair
