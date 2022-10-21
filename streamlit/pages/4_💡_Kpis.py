@@ -2,6 +2,20 @@ import streamlit as st
 import pandas as pd
 
 st.title('Kpis')
+
+'''
+# PROBANDO SI FUNCIONA 1
+'''
+
+'''
+## PROBANDO SI FUNCIONA 2
+'''
+
+'''
+### PROBANDO SI FUNCIONA 3
+'''
+
+
 st.write('***')
 
 
