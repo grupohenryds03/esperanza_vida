@@ -52,7 +52,7 @@ EV_todos=pd.read_sql(sql,cnn)
 
 # se crean las tabs para mostrar las tablas, caluculadora y gráficos
 
-tab1, tab2, tab3 , tab4= st.tabs(['tendecia predicion',"mapa georeferenciado","mapa calor","Tabla Predicciones"])
+tab1, tab2, tab3 , tab4= st.tabs(['tendecia predicción',"mapa georeferenciado","mapa calor","Tabla Predicciones"])
 with tab1:
     'El análisis de las prediciones de la esperanza de visa se utilizaron modelos predictivos.....'
     fig = go.Figure()
@@ -78,9 +78,9 @@ with tab2:
     'mapa geo referenciado del promedio por año de la esperanza de vida por pais......'
     fig2 = px.choropleth(
                         EV_todos,
-                        locations="ID_PAIS",
+                        locations="CODIGO_PAIS",
                         color="VALOR",
-                        hover_name="ID_PAIS",
+                        hover_name="CODIGO_PAIS",
                         animation_frame="ANIO",
                         color_continuous_scale=px.colors.sequential.Plasma,
                         projection="natural earth",
