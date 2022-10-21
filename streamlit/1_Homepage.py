@@ -12,7 +12,7 @@ st.set_page_config(
     page_icon="👋",
 )
 
-with open('style.css') as f:
+with open('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/streamlit/style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 col1,col2,col3=st.columns(3)
