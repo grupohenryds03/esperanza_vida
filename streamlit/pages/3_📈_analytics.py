@@ -82,6 +82,7 @@ with tab2:
     fig2.update_layout(margin={"r":10,"t":50,"l":10,"b":10},width=900, 
                   height=600) 
     st.plotly_chart(fig2,use_container_width=True)
+
 with tab3:
     'mapa de calor del promedio por año de la esperanza de vida por pais......'
     fig3 = px.scatter_geo(EV_todos,
