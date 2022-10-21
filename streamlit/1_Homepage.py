@@ -53,6 +53,29 @@ Las mujeres japonesas, cuya vida se prolonga de media 86,8 años, son las más l
 es en Suiza donde más tiempo viven, con 81,3 años de media. La población de Sierra Leona tiene la esperanza de vida más 
 baja de todo el mundo para ambos sexos: 50,8 años para las mujeres y 49,3 años para los hombres.
 '''
+st.subheader("¿Qué factores influyen en la Esperanza de Vida (EV)?")
+
+'''
+El mayor aumento en la EV se registró en la Región de África, en la que la 
+esperanza de vida aumentó en 9,4 años hasta llegar a los 60 años, debido principalmente a las mejoras en la 
+supervivencia infantil, los progresos en la lucha contra el paludismo y la ampliación del acceso a los 
+antirretrovíricos para el tratamiento del VIH.
+
+Aunque en países más desarrollados se ha visto que la EV depende de otros factores como consumo de tabaco, 
+sobrepeso en menores de 5 años, contaminación del aire. Por lo que es un tema multifactorial que depende de la economía propia de cada país.
+
+'''
+a1,a2,a3=st.columns(3)
+with a1:
+    st.caption('1100')
+    st.text("""
+    millones de personas fuman tabaco""")
+with a2:
+    st.caption('156 millones')
+    st.text('de menores de 5 años sufren retraso del crecimiento')
+with a3:
+    st.caption('42 millones')
+    st.text('de menores de 5 años tienen sobrepeso')
 
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
