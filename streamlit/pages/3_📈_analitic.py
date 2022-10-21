@@ -34,7 +34,6 @@ sql =f"SELECT ANIO, ID_PAIS, VALOR FROM EV WHERE ID_INDICADOR=28 AND ID_PAIS='{o
 df_anterior=pd.read_sql(sql,cnn)
 
 
-cnn.close
 # se crean las tabs para mostrar las tablas, caluculadora y gráficos
 
 tab1, tab2, tab3 , tab4= st.tabs(['tendecia predicion',"mapa georeferenciado","mapa calor","Tabla Predicciones"])
