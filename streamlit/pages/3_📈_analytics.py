@@ -32,8 +32,8 @@ with tab1:
     'Elegir el país de la lista despleglable',
     pais) #lista_codigo_pais
 
-    dic_pais.get(option) 
-    'La selección fue:', pais #dic_pais2[option]
+    dic_pais.get(option)
+    'La selección fue:', option #dic_pais2[option]
 
     id_pais=dic_id_pais[dic_pais] #option
 
