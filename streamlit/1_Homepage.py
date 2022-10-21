@@ -108,7 +108,7 @@ st.write('***')
 
 c1,c2,c3=st.columns(3)
 with c2:
-    st.subheader("Objetivos")
+    st.header("Objetivos")
 
 '''
 - Brindar asesoramiento a entidades públicas y privadas acerca de los posibles factores socioeconómicos y de salud más relevantes en las incidencia de la esperanza de vida al nacer.
@@ -118,6 +118,15 @@ with c2:
 - Aportar para lograr una mejor calidad de vida a partir de un cambio en los indicadores por región.
 '''
 
+d1,d2=st.columns(2)
+with d1:
+    st.subheader("Alcance")
+    '''Ingesta de diferentes datasets con registros a partir del año 1960 para transformar estos datos en información de valor que permitan realizar consultas sobre la esperanza de vida al nacer en un período de tiempo específico o realizar predicciones a través de algoritmos de machine learning.'''
+with d2:
+    st.subheader("Fuera alcance")
+    '''El análisis y las predicciones proporcionadas no seran anteriores al año 1960.
+    Las consultas no incluirán factores biológicos.
+    La carga de datos será por lotes en diferentes formatos.'''
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
 @st.experimental_singleton
