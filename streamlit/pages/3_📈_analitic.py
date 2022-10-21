@@ -64,6 +64,8 @@ with tab1:
     st.plotly_chart(fig,use_container_width=True)
 
 with tab2:
+    
+    'mapa geo referenciado del promedio por año de la esperanza de vida por pais......'
     fig2 = px.choropleth(
                         EV_todos,
                         locations="ID_PAIS",
@@ -75,6 +77,7 @@ with tab2:
                         title='Esperanza de Vida')
     st.plotly_chart(fig2,use_container_width=True)
 with tab3:
+    'mapa de calor del promedio por año de la esperanza de vida por pais......'
     fig3 = px.scatter_geo(EV_todos,
                             locations='ID_PAIS',
                             color='ID_PAIS',
