@@ -105,7 +105,7 @@ with b3:
     '''de personas cocinan con combustibles contaminantes'''
 
 st.write('***')
-st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/paso_vida.jpeg', width=700)
+st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/paso_vida.jpeg')
 c1,c2,c3=st.columns(3)
 with c2:
     st.header("Objetivos")
