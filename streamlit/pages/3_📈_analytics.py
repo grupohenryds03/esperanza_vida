@@ -29,18 +29,19 @@ la Muestra_
 tab1, tab2, tab3 , tab4= st.tabs(['Tendecia y Predicción',"Mapa Geo-Referenciado(EV)","Mapa de Calor(GDP per Cap)","Tabla de Predicciones"])
 with tab1:
     option = st.selectbox(
-    'Elejir el país de la lista despleglable',
-    lista_codigo_pais)
+    'Elegir el país de la lista despleglable',
+    pais) #lista_codigo_pais
 
-    'La selección fue:', dic_pais2[option]
+    dic_pais.get(option) 
+    'La selección fue:', pais #dic_pais2[option]
 
-    id_pais=dic_id_pais[option]
+    id_pais=dic_id_pais[dic_pais] #option
 
     df=pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/Prediccion_EV_10.csv')
     df.drop('Unnamed: 0',inplace=True, axis=1)
     YEAR=pd.DataFrame([2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030], columns=['YEAR'])
     df_prediccion=pd.concat([YEAR,df], axis=1)
-    df_final=pd.concat([df_prediccion.YEAR,df_prediccion[option]], axis=1)
+    df_final=pd.concat([df_prediccion.YEAR,df_prediccion[dic_pais]], axis=1) #option
 
     sql =f"SELECT ANIO, ID_PAIS, VALOR FROM EV WHERE ID_INDICADOR=28 AND ANIO<=2020 AND ID_PAIS='{id_pais}'"
     df_anterior=pd.read_sql(sql,cnn)
@@ -51,11 +52,11 @@ with tab1:
                         y=df_anterior.VALOR,
                         mode='lines',
                         marker_color='#FF0000',
-                        name=option,
+                        name=dic_pais,#option
                         line=dict(width=0.8)))
 
     fig.add_trace(go.Scatter(x=df_final.YEAR, 
-                        y=df_final[option],
+                        y=df_final[dic_pais],#option
                         mode='lines',
                         marker_color='#00FF00',
                         name='Predicción Esperanza de Vida',
