@@ -72,11 +72,23 @@ with a1:
     millones de personas fuman tabaco'''
 with a2:
     st.caption('156 millones')
-    st.text('de menores de 5 años sufren retraso del crecimiento')
+    '''de menores de 5 años sufren retraso del crecimiento'''
 with a3:
     st.caption('42 millones')
-    st.text('de menores de 5 años tienen sobrepeso')
+    '''de menores de 5 años tienen sobrepeso'''
 
+b1,b2,b3=st.columns(3)
+with b1:
+    st.caption('1800 millones')
+    '''
+    millones de personas beben agua contaminada '''
+with b2:
+    st.caption('946 millones')
+    '''de personas defecan al aire libre'''
+with b3:
+    st.caption('3100 millones')
+    '''de personas cocinan con combustibles contaminantes'''
+    
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
 @st.experimental_singleton
