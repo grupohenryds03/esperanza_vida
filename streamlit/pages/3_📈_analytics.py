@@ -89,16 +89,25 @@ with tab2:
                   height=600) 
     st.plotly_chart(fig2,use_container_width=True)
 
+sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR 
+        FROM EV e 
+        JOIN INDICADOR i 
+        ON (e.ID_INDICADOR=i.ID_INDICADOR)
+        JOIN PAIS p
+        on (e.ID_PAIS=p.ID_PAIS)
+        WHERE e.ID_INDICADOR=31 AND e.ANIO>1960 AND e.ANIO<=2020 """ 
+GDP_todos=pd.read_sql(sql,cnn)
+
 with tab3:
     'mapa de calor del promedio por año de la esperanza de vida por pais......'
-    fig3 = px.scatter_geo(EV_todos,
+    fig3 = px.scatter_geo(GDP_todos,
                             locations='CODIGO_PAIS',
                             color='CODIGO_PAIS',
                             hover_name='CODIGO_PAIS',
-                            size=EV_todos['VALOR'],
+                            size=GDP_todos['VALOR'],
                             animation_frame='ANIO',
                             projection='natural earth',
-                            title='Esperanza de Vida',
+                            title='Gdp Per Capita',
                             template='simple_white')
     fig3.update_layout(margin={"r":10,"t":50,"l":10,"b":10},width=900, 
                   height=600)
