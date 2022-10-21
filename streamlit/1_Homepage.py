@@ -82,9 +82,9 @@ st.write('***')
 
 a1,a2,a3=st.columns(3)
 with a1:
-    st.caption('1100')
+    st.caption('1100 millones')
     '''
-    millones de personas fuman tabaco'''
+    de personas fuman tabaco'''
 with a2:
     st.caption('156 millones')
     '''de menores de 5 años sufren retraso del crecimiento'''
@@ -96,7 +96,7 @@ b1,b2,b3=st.columns(3)
 with b1:
     st.caption('1800 millones')
     '''
-    millones de personas beben agua contaminada '''
+    de personas beben agua contaminada '''
 with b2:
     st.caption('946 millones')
     '''de personas defecan al aire libre'''
@@ -105,7 +105,7 @@ with b3:
     '''de personas cocinan con combustibles contaminantes'''
 
 st.write('***')
-st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/paso_vida.jpeg', width=600)
+st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/paso_vida.jpeg', width=700)
 c1,c2,c3=st.columns(3)
 with c2:
     st.header("Objetivos")
@@ -127,6 +127,12 @@ with d2:
     '''El análisis y las predicciones proporcionadas no seran anteriores al año 1960.
     Las consultas no incluirán factores biológicos.
     La carga de datos será por lotes en diferentes formatos.'''
+st.write('***')
+e1,e2,e3=st.columns(3)
+with e2:
+    st.header("Arquitectura")
+
+
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
 @st.experimental_singleton
