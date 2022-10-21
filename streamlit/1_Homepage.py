@@ -132,6 +132,11 @@ e1,e2,e3=st.columns(3)
 with e2:
     st.header("Arquitectura")
 st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/diagrama_arq.png')
+st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/5puntos.jpg')
+
+f1,f2,f3=st.columns(3)
+with f2:
+    st.header("Tecnologías usadas")
 
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
