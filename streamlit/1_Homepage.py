@@ -198,8 +198,8 @@ st.dataframe(df)
 
 
 bar_chart = alt.Chart(df).mark_bar().encode(
-        y='EV',
-        x='País',
+        y='VALOR',
+        x='NOMBRE',
     )
  
 st.altair_chart(bar_chart, use_container_width=True)
