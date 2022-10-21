@@ -193,6 +193,6 @@ sql ="""SELECT p.NOMBRE, e.ANIO, e.VALOR as INDICADOR
 df=pd.read_sql(sql,cnn)
 
 st.dataframe(df)
-
+st.bar_chart(df)
 cnn.close
 conn.close()
