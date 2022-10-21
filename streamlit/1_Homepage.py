@@ -4,7 +4,7 @@ import streamlit as st
 import snowflake.connector
 import pandas as pd
 from PIL import Image
-import seaborn as sns
+import altair as alt
 import plotly as plt
 
 
@@ -197,16 +197,16 @@ df=pd.read_sql(sql,cnn)
 st.dataframe(df)
 
 
-
-fig = plt.figure(figsize=(10,5))
-sns.barplot(df['NOMBRE'], df['VALOR'], alpha=0.8)
-fig.title('America')
-fig.ylabel('EV', fontsize=12)
-fig.xlabel('País', fontsize=12)
-
-
-# Add figure in streamlit app
-st.pyplot(fig)
+chart = (
+    alt.Chart(df)
+    .mark_bar()
+    .encode(
+        alt.X("País"),
+        alt.Y("EV")
+        )
+    .interactive()
+)
+st.altair_chart(chart)
 
 cnn.close
 conn.close()
