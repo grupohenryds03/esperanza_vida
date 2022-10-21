@@ -42,8 +42,8 @@ st.subheader('*Variables de Salud*')
 
 st.write('***')
 '''# Proceso de selección de variables'''
-'''## Obtuvimos 38 indicadores del Banco Mundial y de la Organización Mundial de la Salud.'''
-'''## Con todos estos indicadores en nuestro dataset nos encontramos con una gran proporción de datos faltantes en ellos: 30.16%'''
-'''## Decidimos eliminar aquellos indicadores que contaban con mas del 20% de datos faltantes. Tomando ese porcentaje para eliminar los menos posibles.'''
-'''## Una vez hecho eso nos quedamos con 17 indicadores con un porcentaje de datos faltantes del 3.36%'''
-'''## Con una cantidad razonable de datos faltantes utilizamos el algoritmo de ML KNNImputer para reemplar adecuadamente los datos faltantes.'''
+'''#### Obtuvimos 38 indicadores del Banco Mundial y de la Organización Mundial de la Salud.'''
+'''#### Con todos estos indicadores en nuestro dataset nos encontramos con una gran proporción de datos faltantes en ellos: 30.16%'''
+'''#### Decidimos eliminar aquellos indicadores que contaban con mas del 20% de datos faltantes. Tomando ese porcentaje para eliminar los menos posibles.'''
+'''#### Una vez hecho eso nos quedamos con 17 indicadores con un porcentaje de datos faltantes del 3.36%'''
+'''#### Con una cantidad razonable de datos faltantes utilizamos el algoritmo de ML KNNImputer para reemplar adecuadamente los datos faltantes.'''
