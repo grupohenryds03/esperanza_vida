@@ -20,7 +20,12 @@ with col2:
 
 st.title("ANÁLISIS DE ESPERANZA DE VIDA")
 
+with st.sidebar:    
+    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/streamlit/LDlogo.png', width=100)
+
 st.sidebar.success("Select a page above.")
+
+
 
 #if "my_input" not in st.session_state:
 #    st.session_state["my_input"] = ""
@@ -80,7 +85,7 @@ with a2:
 with a3:
     st.caption('42 millones')
     '''de menores de 5 años tienen sobrepeso'''
-
+st.write('***')
 b1,b2,b3=st.columns(3)
 with b1:
     st.caption('1800 millones')
