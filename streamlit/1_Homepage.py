@@ -189,7 +189,6 @@ cnn = snowflake.connector.connect(
     database="LAKE")
 tab1, tab2, tab3 , tab4, tab5= st.tabs(["América","Europa","Asia","Africa","Oceania"])
 with tab1:
-        st.subheader('          EV América')
         sql ="""SELECT p.NOMBRE, e.VALOR  
             FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
             WHERE e.ID_INDICADOR=28 AND e.ANIO=2020 AND e.ID_CONTINENTE=1
@@ -225,7 +224,7 @@ with tab2:
                                 )
 
         layout = go.Layout(
-                                    title = 'EV Europa',
+                                    #title = 'EV Europa',
                                     xaxis_title='País',
                                     yaxis_title='Esperanza de vida (años)'
                                 )
@@ -248,7 +247,7 @@ with tab3:
                                 )
 
         layout = go.Layout(
-                                    title = 'EV Asia',
+                                    #title = 'EV Asia',
                                     xaxis_title='País',
                                     yaxis_title='Esperanza de vida (años)'
                                 )
@@ -271,7 +270,7 @@ with tab4:
                                 )
 
         layout = go.Layout(
-                                    title = 'EV Africa',
+                                    #title = 'EV Africa',
                                     xaxis_title='País',
                                     yaxis_title='Esperanza vida'
                                 )
@@ -294,7 +293,7 @@ with tab5:
                                 )
 
         layout = go.Layout(
-                                    title = 'EV Oceania',
+                                   #title = 'EV Oceania',
                                     xaxis_title='País',
                                     yaxis_title='Esperanza vida'
                                 )
