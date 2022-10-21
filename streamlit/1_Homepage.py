@@ -277,7 +277,9 @@ with tab5:
                                 )
 
         layout = go.Layout(
-                                    title = 'EV Oceania'
+                                    title = 'EV Oceania',
+                                    xaxis_title='País',
+                                    yaxis_title='Esperanza vida'
                                 )
         data = [trace]
         fig = go.Figure(data=data,layout = layout)
