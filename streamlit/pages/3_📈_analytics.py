@@ -20,9 +20,13 @@ cnn = snowflake.connector.connect(
 
 _This is some markdown_
 '''
+option = st.selectbox(
+    'Elejir el país de la lista despleglable',
+    lista_codigo_pais)
 
+'La selección fue:', dic_pais2[option]
 
-
+id_pais=dic_id_pais[option]
 
 
 df=pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/Prediccion_EV_10.csv')
@@ -48,7 +52,6 @@ EV_todos=pd.read_sql(sql,cnn)
 
 tab1, tab2, tab3 , tab4= st.tabs(['tendecia predicción',"mapa georeferenciado","mapa calor","Tabla Predicciones"])
 with tab1:
-
     option = st.selectbox(
     'Elejir el país de la lista despleglable',
     lista_codigo_pais)
@@ -56,7 +59,6 @@ with tab1:
     'La selección fue:', dic_pais2[option]
 
     id_pais=dic_id_pais[option]
-
     'El análisis de las prediciones de la esperanza de visa se utilizaron modelos predictivos.....'
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=df_anterior.ANIO, 
