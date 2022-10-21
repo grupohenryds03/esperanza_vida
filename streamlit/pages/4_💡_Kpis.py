@@ -10,14 +10,13 @@ st.set_page_config(
 
 lista_Kpi =['Mortalidad Infantil','Inversión Publica en Salud','Mortalidad Materna','Ingresos Per Capita']
 '''
-# KPIs
+# Key Performance Indicators (KPIs)
 '''
 
 st.write('***')
-st.write('''Para el diseño de estos KPI, se eligieron 4 variables que segun diferentes estudios realizados tienen influencia
-directa sobre la evolucion de la Esperanza de Vida (EV) de la poblacion de un pais.
-Ademas, se diferenció segun el nivel de desarrollo de un pais, para observar si esto influye de diferente
-forma en los efectos de las variables sobre la EV de cada pais.''')
+st.write('''Para el diseño de estos KPIs, se seleccionaron 4 variables que segun diferentes estudios afectan
+sobre la evolucion de la Esperanza de Vida (EV) de la poblacion de un pais.
+Ademas, se diferenció segun el nivel de desarrollo de un pais, para observar si esto influye en los efectos de las variables sobre la EV de cada pais.''')
 st.write('***')
 
 eleccion = st.selectbox(
