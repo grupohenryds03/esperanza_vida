@@ -105,7 +105,7 @@ with b3:
     '''de personas cocinan con combustibles contaminantes'''
 
 st.write('***')
-
+st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/paso_vida.jpeg', width=600)
 c1,c2,c3=st.columns(3)
 with c2:
     st.header("Objetivos")
@@ -123,7 +123,7 @@ with d1:
     st.subheader("Alcance")
     '''Ingesta de diferentes datasets con registros a partir del año 1960 para transformar estos datos en información de valor que permitan realizar consultas sobre la esperanza de vida al nacer en un período de tiempo específico o realizar predicciones a través de algoritmos de machine learning.'''
 with d2:
-    st.subheader("Fuera alcance")
+    st.subheader("Fuera de alcance")
     '''El análisis y las predicciones proporcionadas no seran anteriores al año 1960.
     Las consultas no incluirán factores biológicos.
     La carga de datos será por lotes en diferentes formatos.'''
