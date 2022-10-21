@@ -18,17 +18,15 @@ cnn = snowflake.connector.connect(
 '''
 ## Análisis y Presentación de Variables
 
-_Se realizó una prediccion de la Esperanza de Vida Promedio Anual Por Pais utilizando como metodologia
-Una estimacion de series de tiempo univariada SIN variables Exogenas Automatizada para todos los paises de 
+_Se realizó una predicción de la Esperanza de Vida Promedio Anual utilizando como metodologia
+una estimacion de series de tiempo univariada SIN variables Exógenas Automatizada para todos los paises de 
 la Muestra_
 '''
 
 
-
-
 # se crean las tabs para mostrar las tablas, caluculadora y gráficos
 
-tab1, tab2, tab3 , tab4= st.tabs(['tendecia predicción',"mapa georeferenciado","mapa calor","Tabla Predicciones"])
+tab1, tab2, tab3 , tab4= st.tabs(['Tendecia y Predicción',"Mapa Geo-Referenciado(EV)","Mapa de Calor(GDP per Cap)","Tabla de Predicciones"])
 with tab1:
     option = st.selectbox(
     'Elejir el país de la lista despleglable',
@@ -60,7 +58,7 @@ with tab1:
                         y=df_final[option],
                         mode='lines',
                         marker_color='#00FF00',
-                        name='predicción esperanza de vida',
+                        name='Predicción Esperanza de Vida',
                         line=dict(width=0.8)))
 
     fig.update_xaxes(showgrid=False)
@@ -77,7 +75,7 @@ EV_todos=pd.read_sql(sql,cnn)
 
 with tab2:
     
-    'Mapa Geo-Referenciado de la Esperanza de Vida Promedio por Año y por Pais'
+    'Mapa Geo-Referenciado de la Esperanza de Vida Promedio Anual por Pais'
     fig2 = px.choropleth(
                         EV_todos,
                         locations="CODIGO_PAIS",
@@ -109,7 +107,7 @@ with tab3:
                             size=GDP_todos['VALOR'],
                             animation_frame='ANIO',
                             projection='natural earth',
-                            title='GDP per capita (constant 2015 US$)',
+                            title='GDP per Capita (constant 2015 US$)',
                             template='simple_white')
     fig3.update_layout(margin={"r":10,"t":50,"l":10,"b":10},width=900, 
                   height=600)
