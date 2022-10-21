@@ -106,7 +106,7 @@ with b3:
 
 st.write('***')
 
-st.subititle("Objetivos")
+st.subheader("Objetivos")
 
 '''
 - Brindar asesoramiento a entidades públicas y privadas acerca de los posibles factores socioeconómicos y de salud más
