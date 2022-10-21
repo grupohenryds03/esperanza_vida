@@ -106,16 +106,16 @@ with b3:
 
 st.write('***')
 
-st.subheader("Objetivos")
+c1,c2,c3=st.columns(3)
+with c2:
+    st.subheader("Objetivos")
 
 '''
-- Brindar asesoramiento a entidades públicas y privadas acerca de los posibles factores socioeconómicos y de salud más
-relevantes en las incidencia de la esperanza de vida al nacer.
+- Brindar asesoramiento a entidades públicas y privadas acerca de los posibles factores socioeconómicos y de salud más relevantes en las incidencia de la esperanza de vida al nacer.
 
-- Ayudar a las distintas regiones o países a implementar políticas de estado, brindandoles las posibles
- causas que estan afectando la esperanza de vida al nacer.
+- Ayudar a las distintas regiones o países a implementar políticas de estado, brindandoles las posibles causas que estan afectando la esperanza de vida al nacer.
 
-- Aportar para lograr una mejor calidad de vida a traves de la mejora de los indicadores por región.
+- Aportar para lograr una mejor calidad de vida a partir de un cambio en los indicadores por región.
 '''
 
 # Initialize connection.
