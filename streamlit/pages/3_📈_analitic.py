@@ -47,7 +47,7 @@ with tab1:
                         name=option,
                         line=dict(width=0.8)))
 
-    fig.add_trace(go.Scatter(x=df_final.year, 
+    fig.add_trace(go.Scatter(x=df_final.YEAR, 
                         y=df_final[option],
                         mode='lines',
                         marker_color='#00FF00',
