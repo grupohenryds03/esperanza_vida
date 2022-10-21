@@ -297,5 +297,5 @@ with tab5:
         fig = go.Figure(data=data,layout = layout)
         st.plotly_chart(fig)
 
-cnn.close
+cnn.close()
 conn.close()
