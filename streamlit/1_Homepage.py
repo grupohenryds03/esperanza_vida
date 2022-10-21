@@ -155,7 +155,19 @@ with g3:
 with g4:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/airflow.png', width=100)
 
+st.write('***')
 
+h1,h2,h3=st.columns(3)
+with h2:
+    st.header("Metodología")
+'''El trabajo se sustenta bajo un enfoque cuantitativo con el que se buscará establecer relaciones de
+distintos tipos entre variables cuantitativas de indicadores socioeconomicos y de salud, como PIB per cápita, 
+gasto público en educación, tasa de mortalidad en menores de 5 años, % de población rural, % pobreza, % total de 
+gasto en salud, etc. las cuales permitan generar un contexto de la posible influencia de cada variable en 
+la esperanza de vida al nacer.
+
+Se trabajó en la elaboración de un algortimo de ML que permita generar predicciones futuras usando
+expectativas de dichos indicadores.'''
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
 @st.experimental_singleton
