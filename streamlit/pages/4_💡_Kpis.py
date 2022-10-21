@@ -8,7 +8,7 @@ st.set_page_config(
 
 st.title('Kpis')
 
-lista_Kpi =['Kpi_1','Kpi_2','Kpi_3','Kpi_4']
+lista_Kpi =['Mortalidad Infantil','Inversión Publica en Salud','Mortalidad Materna','Ingresos Per Capita']
 '''
 # PROBANDO SI FUNCIONA 1
 '''
@@ -25,15 +25,18 @@ eleccion = st.selectbox(
     'Seleccionar KPI',
     (lista_Kpi))
 
-if eleccion=='Kpi_1':
+if eleccion=='Mortalidad Infantil':
     a1,a2=st.columns(2)
     with a1:
         st.subheader("Objetivo")
-        '''Objetivo Kpi 1'''
+        '''Se espera que los gobiernos de los países de la muestra aumenten el gasto público 
+            en Salud un 10% anual de 5 años manteniéndose todo los demás constante.'''
     with a2:
         st.subheader("Hipotesis")
-        '''Hipotesis Kpi 1'''
-elif eleccion=='Kpi_2':
+        '''Se presenta como Hipótesis que la Esperanza de Vida al nacer en los países Sub-desarrollados,
+             aumentara como mínimo un 1% anual y en el caso de los países Desarrollados no llegara
+            a aumentar un 1% anual. Esto por efecto de la mejora en la tasa de mortalidad infantil'''
+elif eleccion=='Inversión Publica en Salud':
     a1,a2=st.columns(2)
     with a1:
         st.subheader("Objetivo")
@@ -41,7 +44,7 @@ elif eleccion=='Kpi_2':
     with a2:
         st.subheader("Hipotesis")
         '''Hipotesis Kpi 2'''
-elif eleccion=='Kpi_3':
+elif eleccion=='Mortalidad Materna':
     a1,a2=st.columns(2)
     with a1:
         st.subheader("Objetivo")
@@ -49,7 +52,7 @@ elif eleccion=='Kpi_3':
     with a2:
         st.subheader("Hipotesis")
         '''Hipotesis Kpi 3'''
-elif eleccion=='Kpi_4':
+elif eleccion=='Ingresos Per Capita':
     a1,a2=st.columns(2)
     with a1:
         st.subheader("Objetivo")
