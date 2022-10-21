@@ -204,7 +204,11 @@ bar_chart = alt.Chart(df).mark_bar().encode(
  
 st.altair_chart(bar_chart, use_container_width=True)
 
-st.bar_chart(df)
+chart_data = pd.DataFrame(
+     df['VALOR'],
+     columns=df["NOMBRE"])
+ 
+st.bar_chart(chart_data)
 
 cnn.close
 conn.close()
