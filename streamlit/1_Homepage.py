@@ -12,9 +12,6 @@ st.set_page_config(
     page_icon="👋",
 )
 
-f='https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/streamlit/style.css'
-
-st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 col1,col2,col3=st.columns(3)
 with col2:
@@ -69,6 +66,9 @@ Aunque en países más desarrollados se ha visto que la EV depende de otros fact
 sobrepeso en menores de 5 años, contaminación del aire. Por lo que es un tema multifactorial que depende de la economía propia de cada país.
 
 '''
+
+st.write('***')
+
 a1,a2,a3=st.columns(3)
 with a1:
     st.caption('1100')
@@ -92,6 +92,8 @@ with b2:
 with b3:
     st.caption('3100 millones')
     '''de personas cocinan con combustibles contaminantes'''
+
+st.write('***')
 
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
