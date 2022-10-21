@@ -25,8 +25,18 @@ eleccion = st.selectbox(
     'Seleccionar KPI',
     (lista_Kpi))
 
+if eleccion=='Kpi_1':
+    a1,a2=st.columns(2)
+    with a1:
+        st.subheader("Objetivo")
+        '''Objetivo Kpi 1'''
+    with a2:
+        st.subheader("Hipotesis")
+        '''Hipotesis Kpi 1'''
+else:
+    st.write(eleccion)
 
-st.write(eleccion)
+
 
 st.write('***')
 
