@@ -26,7 +26,7 @@ la Muestra_
 
 # se crean las tabs para mostrar las tablas, caluculadora y gráficos
 
-tab1, tab2, tab3 , tab4= st.tabs(['Tendecia y Predicción',"Mapa Geo-Referenciado(EV)","Mapa de Calor(GDP per Cap)","Tabla de Predicciones"])
+tab1, tab2, tab3 , tab4= st.tabs(['Tendecia y Predicción',"Mapa de Calor(GDP per Cap)","Mapa Geo-Referenciado(EV)","Tabla de Predicciones"])
 with tab1:
     option = st.selectbox(
     'Elegir el país de la lista despleglable',
