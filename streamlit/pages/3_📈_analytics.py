@@ -21,17 +21,7 @@ cnn = snowflake.connector.connect(
 _This is some markdown_
 '''
 
-sql =f"SELECT ANIO, ID_PAIS, VALOR FROM EV WHERE ID_INDICADOR=28 AND ANIO<=2020 AND ID_PAIS='{id_pais}'"
-df_anterior=pd.read_sql(sql,cnn)
 
-sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR 
-        FROM EV e 
-        JOIN INDICADOR i 
-        ON (e.ID_INDICADOR=i.ID_INDICADOR)
-        JOIN PAIS p
-        on (e.ID_PAIS=p.ID_PAIS)
-        WHERE e.ID_INDICADOR=28 AND e.ANIO>1960 AND e.ANIO<=2020 """ 
-EV_todos=pd.read_sql(sql,cnn)
 
 
 # se crean las tabs para mostrar las tablas, caluculadora y gráficos
@@ -70,6 +60,18 @@ with tab1:
 
     fig.update_xaxes(showgrid=False)
     st.plotly_chart(fig,use_container_width=True)
+
+sql =f"SELECT ANIO, ID_PAIS, VALOR FROM EV WHERE ID_INDICADOR=28 AND ANIO<=2020 AND ID_PAIS='{id_pais}'"
+df_anterior=pd.read_sql(sql,cnn)
+
+sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR 
+        FROM EV e 
+        JOIN INDICADOR i 
+        ON (e.ID_INDICADOR=i.ID_INDICADOR)
+        JOIN PAIS p
+        on (e.ID_PAIS=p.ID_PAIS)
+        WHERE e.ID_INDICADOR=28 AND e.ANIO>1960 AND e.ANIO<=2020 """ 
+EV_todos=pd.read_sql(sql,cnn)
 
 with tab2:
     
