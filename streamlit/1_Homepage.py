@@ -145,13 +145,15 @@ with f3:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/Pandas_logo.png', width=100)
 with f4:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/GitHub_logo.png', width=100)
-g1,g2,g3=st.columns(3)
+g1,g2,g3,g4=st.columns(4)
 with g1:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/Streamlit.png', width=100)
 with g2:
-    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/Project.png', width=100)
+    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/project.png', width=100)
 with g3:
-    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/mysql.png', width=100)
+    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/Mysql.png', width=100)
+with g4:
+    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/airflow.png', width=100)
 
 
 # Initialize connection.
