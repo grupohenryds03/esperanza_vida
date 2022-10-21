@@ -15,10 +15,15 @@ st.write(5, '-  https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6650812/')
 st.write('***')
 
 st.subheader('*Variables Socioeconómicas*')
+'- Trade in services (% of GDP) - ID:38'
+
+
+
+
 st.write(1, 'Trade in services (% of GDP) - ID:38')
 st.write(2, 'CO2 emissions (kt) - ID:2')
 
 '''### Ecosistema de criptomonedas'''
 '_Análisis del TOP 10 por volúmen de operación de criptomonedas de la plataforma de exchange FTX_'
 '---------------------------------------------------------------------------------------------'
-'- hola'
+'- hol'
