@@ -180,7 +180,7 @@ def init_connection():
 
 conn = init_connection() # connect
 
-
+st.header("Esperanza de vida por continente")
 cnn = snowflake.connector.connect(
     user='grupods03',
     password='Henry2022#',
@@ -214,6 +214,7 @@ with tab2:
             FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
             WHERE e.ID_INDICADOR=28 AND e.ANIO=2020 AND e.ID_CONTINENTE=2"""
         df=pd.read_sql(sql,cnn)
+        df=df.drop_duplicates()
 
         trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
@@ -235,6 +236,7 @@ with tab3:
             FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
             WHERE e.ID_INDICADOR=28 AND e.ANIO=2020 AND e.ID_CONTINENTE=3"""
         df=pd.read_sql(sql,cnn)
+        df=df.drop_duplicates()
 
         trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
@@ -256,6 +258,7 @@ with tab4:
             FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
             WHERE e.ID_INDICADOR=28 AND e.ANIO=2020 AND e.ID_CONTINENTE=4"""
         df=pd.read_sql(sql,cnn)
+        df=df.drop_duplicates()
 
         trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
@@ -277,6 +280,7 @@ with tab5:
             FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
             WHERE e.ID_INDICADOR=28 AND e.ANIO=2020 AND e.ID_CONTINENTE=5"""
         df=pd.read_sql(sql,cnn)
+        df=df.drop_duplicates()
 
         trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
