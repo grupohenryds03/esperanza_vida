@@ -30,7 +30,7 @@ YEAR=pd.DataFrame([2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030], 
 df_prediccion=pd.concat([YEAR,df], axis=1)
 df_final=pd.concat([df_prediccion.YEAR,df_prediccion[option]], axis=1)
 
-sql =f"SELECT ANIO, ID_PAIS, VALOR FROM EV WHERE ID_INDICADOR=28 e.ANIO>1960 AND e.ANIO<=2020 AND ID_PAIS='{option}'"
+sql =f"SELECT ANIO, ID_PAIS, VALOR FROM EV WHERE ID_INDICADOR=28 AND ANIO<=2020 AND ID_PAIS='{option}'"
 df_anterior=pd.read_sql(sql,cnn)
 
 
