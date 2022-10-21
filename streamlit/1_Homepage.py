@@ -204,5 +204,7 @@ bar_chart = alt.Chart(df).mark_bar().encode(
  
 st.altair_chart(bar_chart, use_container_width=True)
 
+st.bar_chart(df)
+
 cnn.close
 conn.close()
