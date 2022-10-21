@@ -193,7 +193,7 @@ with tab1:
             FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
             WHERE e.ID_INDICADOR=28 AND e.ANIO=2020 AND e.ID_CONTINENTE=1"""
         df=pd.read_sql(sql,cnn)
-        df.drop_duplicates(subset='NOMBRE', keep=False)
+        df.drop_duplicates()
         trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
                                 y=df['VALOR'].tolist(),
