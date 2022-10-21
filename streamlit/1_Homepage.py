@@ -168,6 +168,7 @@ la esperanza de vida al nacer.
 
 Se trabajó en la elaboración de un algortimo de ML que permita generar predicciones futuras usando
 expectativas de dichos indicadores.'''
+st.write('***')
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
 @st.experimental_singleton
@@ -187,12 +188,12 @@ cnn = snowflake.connector.connect(
     database="LAKE")
 
 
-sql ="""SELECT p.NOMBRE, e.ANIO, e.VALOR as INDICADOR 
+sql ="""SELECT p.NOMBRE, e.VALOR as INDICADOR 
         FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
         WHERE e.ID_INDICADOR=28 AND e.ANIO=2020 AND e.ID_CONTINENTE=1"""
 df=pd.read_sql(sql,cnn)
 
 st.dataframe(df)
-st.bar_chart(df)
+st.plotly_chart(df)
 cnn.close
 conn.close()
