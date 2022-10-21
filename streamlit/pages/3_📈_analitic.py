@@ -28,7 +28,7 @@ df=pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/
 df.drop('Unnamed: 0',inplace=True, axis=1)
 YEAR=pd.DataFrame([2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030], columns=['YEAR'])
 df_prediccion=pd.concat([YEAR,df], axis=1)
-df_final=pd.concat([df_prediccion.YEAR,df_prediccion.option], axis=1)
+df_final=pd.concat([df_prediccion.YEAR,df_prediccion[option]], axis=1)
 
 sql =f"SELECT ANIO, ID_PAIS, VALOR FROM EV WHERE ID_INDICADOR=28 AND ID_PAIS='{option}'"
 df_anterior=pd.read_sql(sql,cnn)
@@ -48,7 +48,7 @@ with tab1:
                         line=dict(width=0.8)))
 
     fig.add_trace(go.Scatter(x=df_final.year, 
-                        y=df_final.option,
+                        y=df_final[option],
                         mode='lines',
                         marker_color='#00FF00',
                         name='predicción esperanza de vida',
