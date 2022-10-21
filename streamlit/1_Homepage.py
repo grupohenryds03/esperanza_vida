@@ -5,6 +5,7 @@ import snowflake.connector
 import pandas as pd
 from PIL import Image
 import plotly.express as px
+import plotly.graph_objs as go
 
 
 st.set_page_config(
@@ -195,9 +196,18 @@ df=pd.read_sql(sql,cnn)
 
 st.dataframe(df)
 
-fig=px.bar(df, x='País', y='EV')
+trace  = go.Bar(
+                                x=df['NOMBRE'].tolist(),
+                                y=df['VALOR'].tolist(),
+                                showlegend = True
+                                )
 
-st.plotly_chart(fig,use_container_width=True)
+layout = go.Layout(
+                            title = 'America'
+                        )
+data = [trace]
+fig = go.Figure(data=data,layout = layout)
+st.plotly_chart(fig)
 
 cnn.close
 conn.close()
