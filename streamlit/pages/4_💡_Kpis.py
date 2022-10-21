@@ -13,6 +13,13 @@ lista_Kpi =['Mortalidad Infantil','Inversión Publica en Salud','Mortalidad Mate
 # KPIs
 '''
 
+'''
+### Para el diseño de estos KPI, se eligieron 4 variables que segun diferentes estudios realizados tienen influencia
+directa sobre la evolucion de la Esperanza de Vida (EV) de la poblacion de un pais.
+Ademas, se diferenció segun el nivel de desarrollo de un pais, para observar si esto influye de diferente
+forma en los efectos de las variables sobre la EV de cada pais.
+'''
+
 eleccion = st.selectbox(
     'Seleccionar KPI',
     (lista_Kpi))
@@ -21,8 +28,9 @@ if eleccion=='Mortalidad Infantil':
     a1,a2=st.columns(2)
     with a1:
         st.subheader("Objetivo")
-        '''Se espera que los gobiernos de los países de la muestra aumenten el gasto público 
-            en Salud un 10% anual de 5 años manteniéndose todo los demás constante.'''
+        '''Se espera que la tasa de mortalidad menores de 5 años (por cada 1000 nacidos vivos), 
+            disminuya 10% anual en los próximos 5 años para los países de la muestra manteniéndose 
+            todo los demás constante.'''
     with a2:
         st.subheader("Hipotesis")
         '''Se presenta como Hipótesis que la Esperanza de Vida al nacer en los países Sub-desarrollados,
