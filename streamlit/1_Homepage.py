@@ -68,8 +68,8 @@ sobrepeso en menores de 5 años, contaminación del aire. Por lo que es un tema 
 a1,a2,a3=st.columns(3)
 with a1:
     st.caption('1100')
-    st.text("""
-    millones de personas fuman tabaco""")
+    '''
+    millones de personas fuman tabaco'''
 with a2:
     st.caption('156 millones')
     st.text('de menores de 5 años sufren retraso del crecimiento')
