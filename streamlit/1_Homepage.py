@@ -4,7 +4,9 @@ import streamlit as st
 import snowflake.connector
 import pandas as pd
 from PIL import Image
-
+import seaborn as sns
+import streamlit as st
+import plotly as plt
 
 
 st.set_page_config(
@@ -195,9 +197,7 @@ df=pd.read_sql(sql,cnn)
 
 st.dataframe(df)
 
-import seaborn as sns
-import streamlit as st
-import plotly as plt
+
 
 fig = plt.figure(figsize=(10,5))
 sns.barplot(df['NOMBRE'], df['VALOR'], alpha=0.8)
