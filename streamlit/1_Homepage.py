@@ -12,6 +12,9 @@ st.set_page_config(
     page_icon="👋",
 )
 
+with open('style.css') as f:
+    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
 col1,col2,col3=st.columns(3)
 with col2:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/streamlit/LDlogo.png', width=200)
@@ -88,7 +91,7 @@ with b2:
 with b3:
     st.caption('3100 millones')
     '''de personas cocinan con combustibles contaminantes'''
-    
+
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
 @st.experimental_singleton
