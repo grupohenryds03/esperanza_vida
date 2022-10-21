@@ -187,27 +187,101 @@ cnn = snowflake.connector.connect(
     account='nr28668.sa-east-1.aws',
     warehouse='DW_EV',
     database="LAKE")
+tab1, tab2, tab3 , tab4, tab5= st.tabs(["América","Europa","Asia","Africa","Oceania"])
+with tab1:
+        sql ="""SELECT p.NOMBRE, e.VALOR  
+            FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
+            WHERE e.ID_INDICADOR=28 AND e.ANIO=2020 AND e.ID_CONTINENTE=1"""
+        df=pd.read_sql(sql,cnn)
 
-
-sql ="""SELECT p.NOMBRE, e.VALOR  
-        FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
-        WHERE e.ID_INDICADOR=28 AND e.ANIO=2020 AND e.ID_CONTINENTE=1"""
-df=pd.read_sql(sql,cnn)
-
-st.dataframe(df)
-
-trace  = go.Bar(
+        trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
                                 y=df['VALOR'].tolist(),
                                 showlegend = True
                                 )
 
-layout = go.Layout(
-                            title = 'America'
-                        )
-data = [trace]
-fig = go.Figure(data=data,layout = layout)
-st.plotly_chart(fig)
+        layout = go.Layout(
+                                    title = 'EV America'
+                                )
+        data = [trace]
+        fig = go.Figure(data=data,layout = layout)
+        st.plotly_chart(fig)
+
+with tab2:
+        sql ="""SELECT p.NOMBRE, e.VALOR  
+            FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
+            WHERE e.ID_INDICADOR=28 AND e.ANIO=2020 AND e.ID_CONTINENTE=2"""
+        df=pd.read_sql(sql,cnn)
+
+        trace  = go.Bar(
+                                x=df['NOMBRE'].tolist(),
+                                y=df['VALOR'].tolist(),
+                                showlegend = True
+                                )
+
+        layout = go.Layout(
+                                    title = 'EV Europa'
+                                )
+        data = [trace]
+        fig = go.Figure(data=data,layout = layout)
+        st.plotly_chart(fig)
+
+with tab3:
+        sql ="""SELECT p.NOMBRE, e.VALOR  
+            FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
+            WHERE e.ID_INDICADOR=28 AND e.ANIO=2020 AND e.ID_CONTINENTE=3"""
+        df=pd.read_sql(sql,cnn)
+
+        trace  = go.Bar(
+                                x=df['NOMBRE'].tolist(),
+                                y=df['VALOR'].tolist(),
+                                showlegend = True
+                                )
+
+        layout = go.Layout(
+                                    title = 'EV Asia'
+                                )
+        data = [trace]
+        fig = go.Figure(data=data,layout = layout)
+        st.plotly_chart(fig)
+
+with tab4:
+        sql ="""SELECT p.NOMBRE, e.VALOR  
+            FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
+            WHERE e.ID_INDICADOR=28 AND e.ANIO=2020 AND e.ID_CONTINENTE=4"""
+        df=pd.read_sql(sql,cnn)
+
+        trace  = go.Bar(
+                                x=df['NOMBRE'].tolist(),
+                                y=df['VALOR'].tolist(),
+                                showlegend = True
+                                )
+
+        layout = go.Layout(
+                                    title = 'EV Africa'
+                                )
+        data = [trace]
+        fig = go.Figure(data=data,layout = layout)
+        st.plotly_chart(fig)
+
+with tab5:
+        sql ="""SELECT p.NOMBRE, e.VALOR  
+            FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
+            WHERE e.ID_INDICADOR=28 AND e.ANIO=2020 AND e.ID_CONTINENTE=5"""
+        df=pd.read_sql(sql,cnn)
+
+        trace  = go.Bar(
+                                x=df['NOMBRE'].tolist(),
+                                y=df['VALOR'].tolist(),
+                                showlegend = True
+                                )
+
+        layout = go.Layout(
+                                    title = 'EV Oceania'
+                                )
+        data = [trace]
+        fig = go.Figure(data=data,layout = layout)
+        st.plotly_chart(fig)
 
 cnn.close
 conn.close()
