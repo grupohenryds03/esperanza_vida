@@ -67,9 +67,15 @@ esperanza de vida aumentó en 9,4 años hasta llegar a los 60 años, debido prin
 supervivencia infantil, los progresos en la lucha contra el paludismo y la ampliación del acceso a los 
 antirretrovíricos para el tratamiento del VIH.
 
-Aunque en países más desarrollados se ha visto que la EV depende de otros factores como consumo de tabaco, 
-sobrepeso en menores de 5 años, contaminación del aire. Por lo que es un tema multifactorial que depende de la economía propia de cada país.
+Aunque en países más desarrollados se ha visto que la EV depende de otros factores, como el consumo de tabaco, 
+el sobrepeso en menores de 5 años, la contaminación del aire. Por lo que es un tema multifactorial que depende de la economía propia de cada país.
 
+Estudios de diferentes entidades demuestran que la esperanza de vida al nacer viene en
+aumento año tras año. Diferentes factores son claves para descifrar el por qué del 
+aumento de la esperanza de vida al nacer.
+Desde la revolucón industrial en adelante se demostró que no solo afectan la EV los
+facotres biológicos propianente dichos, sinó que también los factores socioeconómicos
+fueron ganando terreno en la relevancia para la construcción de este índice.
 '''
 
 st.write('***')
@@ -99,6 +105,18 @@ with b3:
     '''de personas cocinan con combustibles contaminantes'''
 
 st.write('***')
+
+st.subititle("Objetivos")
+
+'''
+- Brindar asesoramiento a entidades públicas y privadas acerca de los posibles factores socioeconómicos y de salud más
+relevantes en las incidencia de la esperanza de vida al nacer.
+
+- Ayudar a las distintas regiones o países a implementar políticas de estado, brindandoles las posibles
+ causas que estan afectando la esperanza de vida al nacer.
+
+- Aportar para lograr una mejor calidad de vida a traves de la mejora de los indicadores por región.
+'''
 
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
