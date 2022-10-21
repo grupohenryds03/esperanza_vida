@@ -5,9 +5,6 @@ import plotly.graph_objects as go
 import plotly.express as px
 from info import *
 
-st.set_page_config(
-    page_title="Analitics",
-    page_icon="📈)
 
 cnn = snowflake.connector.connect(
     user='grupods03',
