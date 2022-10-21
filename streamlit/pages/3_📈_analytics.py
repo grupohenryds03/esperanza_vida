@@ -59,6 +59,13 @@ with tab1:
     'La selección fue:', dic_pais2[option]
 
     id_pais=dic_id_pais[option]
+
+    df=pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/Prediccion_EV_10.csv')
+    df.drop('Unnamed: 0',inplace=True, axis=1)
+    YEAR=pd.DataFrame([2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030], columns=['YEAR'])
+    df_prediccion=pd.concat([YEAR,df], axis=1)
+    df_final=pd.concat([df_prediccion.YEAR,df_prediccion[option]], axis=1)
+
     'El análisis de las prediciones de la esperanza de visa se utilizaron modelos predictivos.....'
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=df_anterior.ANIO, 
