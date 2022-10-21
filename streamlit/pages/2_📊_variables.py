@@ -41,4 +41,4 @@ st.subheader('*Variables de Salud*')
 '- Death rate, male adults (per 1000 adults) - ID:19'
 
 st.write('***')
-'''Proceso de selección de variables'''
+'''# Proceso de selección de variables'''
