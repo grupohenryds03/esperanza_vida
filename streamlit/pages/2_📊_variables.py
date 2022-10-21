@@ -16,14 +16,21 @@ st.write('***')
 
 st.subheader('*Variables Socioeconómicas*')
 '- Trade in services (% of GDP) - ID:38'
+'- CO2 emissions (kt) - ID:2'
+'- Population growth (annual %) - ID:3'
+'- GPD per capita (constant 2015 US$) - ID:31'
+'- Total unemployment (% total population) - ID:25'
+'- Life expectancy at birth, men (years) - ID:26'
+'- Life expectancy at birth, women (years) - ID:27'
+'- Life expectancy at birth, total (years) - ID:28'
+'- Rural population (% of total population) - ID:33'
+'- Urban population (% total population) - ID:34'
 
-
-
-
-st.write(1, 'Trade in services (% of GDP) - ID:38')
-st.write(2, 'CO2 emissions (kt) - ID:2')
-
-'''### Ecosistema de criptomonedas'''
-'_Análisis del TOP 10 por volúmen de operación de criptomonedas de la plataforma de exchange FTX_'
-'---------------------------------------------------------------------------------------------'
-'- hol'
+st.subheader('*Variables de Salud*')
+'- Hepatitis B (HepB3) inmmunization coverage among 1-year-olds % - ID:7'
+'- Mortality rate, under-5 (per 1000 live births) - ID:11'
+'- Inmmunization, DPT (% of children ages 12-23 months) - ID:8'
+'- Inmmunization, measles (% of children ages 12-23 months) -ID:9'
+'- Polio (Pol3) immunization covergae among 1-year-olds (%) - ID:14'
+'- Mortality rate, female adults (per 1000 adults) - ID:20'
+'- Death rate, male adults (per 1000 adults) - ID:19'
