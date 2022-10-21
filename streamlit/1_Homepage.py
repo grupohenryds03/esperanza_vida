@@ -187,10 +187,9 @@ cnn = snowflake.connector.connect(
     database="LAKE")
 
 
-sql ="""SELECT p.NOMBRE, e.ANIO, e.VALOR, i.CODIGO as INDICADOR 
-        FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS) 
-                JOIN INDICADOR i ON (e.ID_INDICADOR=i.ID_INDICADOR)
-        WHERE e.ID_INDICADOR=2"""
+sql ="""SELECT p.NOMBRE, e.ANIO, e.VALOR as INDICADOR 
+        FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
+        WHERE e.ID_INDICADOR=28 AND e.ANIO=2020"""
 df=pd.read_sql(sql,cnn)
 
 st.dataframe(df)
