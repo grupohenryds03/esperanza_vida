@@ -6,7 +6,7 @@ st.set_page_config(
     page_icon="💡",
 )
 
-st.title('Kpis')
+#st.title('Kpis')
 
 lista_Kpi =['Mortalidad Infantil','Inversión Publica en Salud','Mortalidad Materna','Ingresos Per Capita']
 '''
@@ -63,16 +63,4 @@ elif eleccion=='Ingresos Per Capita':
             aumento promedio anual mínimo del 1%.'''
 
 
-
-st.write('***')
-
-
-st.write('Se seleccionaron 4 Kpis.')
-st.write('Utilizando las siguientes variables:')
-st.write(1, '-  var 1')
-st.write(2, '-  var 2')
-st.write(3, '-  var 3')
-st.write(4, '-  var 4')
-st.write(5, '-  var 5')
-st.write('***')
 
