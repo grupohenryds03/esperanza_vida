@@ -29,15 +29,29 @@ with g4:
 st.write('***')
 
 
+# Initialize connection.
+# Uses st.experimental_singleton to only run once.
+@st.experimental_singleton
 def init_connection():
-    return snowflake.connector.connect(st.secrets["snowflake"], client_session_keep_alive=True)
+    return snowflake.connector.connect(
+        **st.secrets["snowflake"], client_session_keep_alive=True
+    )
 
-conn = init_connection() # connect
+conn = init_connection()
+
+#
+@st.experimental_memo(ttl=600)
+def run_query(query):
+    with conn.cursor() as cur:
+        cur.execute(query)
+        return cur.fetch_pandas_all()
 
 sql ="""SELECT p.NOMBRE, e.VALOR  
             FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
             WHERE e.ID_INDICADOR=28 AND e.ANIO=2020 AND e.ID_CONTINENTE=1
             ORDER BY e.VALOR DESC"""
-df=pd.read_sql(sql,conn)
+
+df = run_query(sql)
+
 df=df.drop_duplicates()
 st.dataframe(df)
