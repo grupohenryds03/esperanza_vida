@@ -54,8 +54,8 @@ st.write('***')
 df = pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/EV.csv')
 st.write(df.head())
 trace  = go.Bar(
-                x=df.columns.tolist(),
-                y=df.value_counts(),
+                x=df.VALOR.tolist(),
+                y=df.VALOR.value_counts(),
                 showlegend = False
                                     )
 
