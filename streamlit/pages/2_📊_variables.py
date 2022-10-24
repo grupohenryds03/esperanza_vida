@@ -47,3 +47,6 @@ st.write('***')
 '''#### Decidimos eliminar aquellos indicadores que contaban con mas del 20% de datos faltantes. Tomando ese porcentaje para eliminar los menos posibles.'''
 '''#### Una vez hecho eso nos quedamos con 17 indicadores con un porcentaje de datos faltantes del 3.36%'''
 '''#### Con una cantidad razonable de datos faltantes utilizamos el algoritmo de ML KNNImputer para reemplar adecuadamente los datos faltantes.'''
+
+df = pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/EV.csv')
+st.write(df.head())
