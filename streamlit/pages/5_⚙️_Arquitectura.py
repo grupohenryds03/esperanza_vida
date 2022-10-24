@@ -54,6 +54,7 @@ conn = init_connection()
 def run_query(query):
     with conn.cursor() as cur:
         cur.execute(query)
+        
         return cur.fetch_pandas_all()
 
 sql ="""SELECT p.NOMBRE, e.VALOR  
@@ -61,7 +62,7 @@ sql ="""SELECT p.NOMBRE, e.VALOR
             WHERE e.ID_INDICADOR=28 AND e.ANIO=2020 AND e.ID_CONTINENTE=1
             ORDER BY e.VALOR DESC"""
 
-df = run_query(sql)
+df = pd.read_sql(sql,conn)
 
 df=df.drop_duplicates()
 st.dataframe(df)
