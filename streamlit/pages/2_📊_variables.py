@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import missingno as msno
-import matplotlib.pyplot as plt
 
 st.set_page_config(
     page_title="Multipage App",
@@ -53,4 +52,4 @@ st.write('***')
 df = pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/EV.csv')
 st.write(df.head())
 f = msno.bar(df)
-st.plt(f)
+st.write(f)
