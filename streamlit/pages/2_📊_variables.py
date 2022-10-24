@@ -53,18 +53,16 @@ st.write('***')
 
 df = pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/EV.csv')
 st.write(df.head())
-#trace  = go.Bar(
-#                x=df.columns.tolist(),
-#                y=len(df).tolist(),
-#                showlegend = False
-#                                    )
-#
-#layout = go.Layout(                                    
-#                    xaxis_title='País',
-#                    yaxis_title='Esperanza de vida (años)'
-#                                                            )
-#data = [trace]
-#fig = go.Figure(data=data,layout = layout)
-#st.plotly_chart(fig)
+trace  = go.Bar(
+                x=df.tolist(),
+                y=df.tolist(),
+                showlegend = False
+                                    )
 
-st.bar_chart(df)
+layout = go.Layout(                                    
+                    xaxis_title='País',
+                    yaxis_title='Esperanza de vida (años)'
+                                                            )
+data = [trace]
+fig = go.Figure(data=data,layout = layout)
+st.plotly_chart(fig)
