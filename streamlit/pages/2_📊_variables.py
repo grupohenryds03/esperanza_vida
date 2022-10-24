@@ -61,8 +61,8 @@ trace  = go.Bar(
                                     )
 
 layout = go.Layout(                                    
-                    xaxis_title='País',
-                    yaxis_title='Esperanza de vida (años)'
+                    xaxis_title='Columnas',
+                    yaxis_title='Cantidad de Valores'
                                                             )
 data = [trace]
 fig = go.Figure(data=data,layout = layout)
@@ -76,8 +76,8 @@ trace  = go.Bar(
                                     )
 
 layout = go.Layout(                                    
-                    xaxis_title='País',
-                    yaxis_title='Esperanza de vida (años)'
+                    xaxis_title='Columnas',
+                    yaxis_title='Cantidad de Valores'
                                                             )
 data = [trace]
 fig = go.Figure(data=data,layout = layout)
