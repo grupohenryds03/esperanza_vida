@@ -55,7 +55,7 @@ df = pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vid
 st.write(df.head())
 trace  = go.Bar(
                 x=df.columns.tolist(),
-                y=len(df),
+                y=len(df).tolist(),
                 showlegend = False
                                     )
 
