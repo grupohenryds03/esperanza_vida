@@ -50,4 +50,4 @@ sql ="""SELECT p.NOMBRE, e.VALOR
             ORDER BY e.VALOR DESC"""
 
 
-st.write("snow username:", st.secrets["user"])
+st.write("snow username:", st.secrets.snowflake.user)
