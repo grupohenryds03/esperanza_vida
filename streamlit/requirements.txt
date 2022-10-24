@@ -6,4 +6,3 @@ requests
 plotly
 altair
 missingno
-matplotlib.pyplot
