@@ -41,7 +41,12 @@ st.write('***')
 
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
-
+cnn = snowflake.connector.connect(
+    user=st.secrets.snowflake.user,
+    password=st.secrets.snowflake.password,
+    account=st.secrets.snowflake.account,
+    warehouse=st.secrets.snowflake.warehouse,
+    database=st.secrets.snowflake.database)
 
 
 sql ="""SELECT p.NOMBRE, e.VALOR  
@@ -49,5 +54,6 @@ sql ="""SELECT p.NOMBRE, e.VALOR
             WHERE e.ID_INDICADOR=28 AND e.ANIO=2020 AND e.ID_CONTINENTE=1
             ORDER BY e.VALOR DESC"""
 
+df=pd.read_sql(sql,cnn)
 
-st.write("snow username:", st.secrets.snowflake.user)
+st.dataframe(df)
