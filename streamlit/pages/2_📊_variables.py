@@ -54,7 +54,7 @@ st.write('***')
 df = pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/EV.csv')
 st.write(df.head())
 trace  = go.Bar(
-                x=df['NOMBRE'].tolist(),
+                x=df['ID_PAIS'].tolist(),
                 y=df['VALOR'].tolist(),
                 showlegend = False
                                     )
