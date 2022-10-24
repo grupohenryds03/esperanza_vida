@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import missingno as msno
 import matplotlib.pyplot as plt
+import plotly.express as px
 
 st.set_page_config(
     page_title="Multipage App",
