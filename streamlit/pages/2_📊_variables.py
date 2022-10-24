@@ -67,5 +67,4 @@ st.write(df.head())
 #fig = go.Figure(data=data,layout = layout)
 #st.plotly_chart(fig)
 
-a=px.bar(df)
-st.plotly_chart(a)
+st.bar_chart(df)
