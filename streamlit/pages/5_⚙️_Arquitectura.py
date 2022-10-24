@@ -42,8 +42,6 @@ st.write('***')
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
 
-cnn = snowflake.connector.connect(st.secrets["snowflake"])
-
 
 
 sql ="""SELECT p.NOMBRE, e.VALOR  
@@ -52,4 +50,4 @@ sql ="""SELECT p.NOMBRE, e.VALOR
             ORDER BY e.VALOR DESC"""
 
 
-st.write("snow username:", st.secrets["snowflake"])
+st.write("snow username:", st.secrets["user"])
