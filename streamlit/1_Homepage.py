@@ -288,7 +288,7 @@ with tab5:
 
         trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
-                                y=df['VALOR'].tolist(),
+                                y=df.value_counts().tolist(),
                                 showlegend = False
                                 )
 
