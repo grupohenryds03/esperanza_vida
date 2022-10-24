@@ -49,8 +49,8 @@ def init_connection():
 
 conn = init_connection()
 
-#
-@st.experimental_memo(ttl=600)
+
+
 def run_query(query):
     with conn.cursor() as cur:
         cur.execute(query)
