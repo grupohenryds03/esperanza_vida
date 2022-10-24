@@ -1,4 +1,6 @@
 import streamlit as st
+import pandas as pd
+import snowflake.connector
 
 st.header("Arquitectura")
 st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/diagrama_arq.png')
@@ -25,3 +27,17 @@ with g4:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/airflow.png', width=100)
 
 st.write('***')
+
+
+def init_connection():
+    return snowflake.connector.connect(st.secrets["snowflake"], client_session_keep_alive=True)
+
+conn = init_connection() # connect
+
+sql ="""SELECT p.NOMBRE, e.VALOR  
+            FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
+            WHERE e.ID_INDICADOR=28 AND e.ANIO=2020 AND e.ID_CONTINENTE=1
+            ORDER BY e.VALOR DESC"""
+df=pd.read_sql(sql,conn)
+df=df.drop_duplicates()
+st.dataframe(df)
