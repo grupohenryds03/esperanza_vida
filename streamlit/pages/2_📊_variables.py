@@ -43,17 +43,16 @@ st.subheader('*Variables de Salud*')
 '- Mortality rate, female adults (per 1000 adults) - ID:20'
 '- Death rate, male adults (per 1000 adults) - ID:19'
 
-st.write('***')
-'''# Proceso de selección de variables'''
-'''#### Obtuvimos 38 indicadores del Banco Mundial y de la Organización Mundial de la Salud.'''
-'''#### Con todos estos indicadores en nuestro dataset nos encontramos con una gran proporción de datos faltantes en ellos: 30.16%'''
-'''#### Decidimos eliminar aquellos indicadores que contaban con mas del 20% de datos faltantes. Tomando ese porcentaje para eliminar los menos posibles.'''
-'''#### Una vez hecho eso nos quedamos con 17 indicadores con un porcentaje de datos faltantes del 3.36%'''
-'''#### Con una cantidad razonable de datos faltantes utilizamos el algoritmo de ML KNNImputer para reemplar adecuadamente los datos faltantes.'''
 valores1 = [40100,40100,40100,28006,40100,40100]
 valores2 = [18278,18278,18278,17664,18278,18278]
+valores3 = [18278,18278,18278,18278,18278,18278]
 df = pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/EV.csv')
+
+st.write('***')
+'''# Proceso de selección de variables'''
+'''##### Obtuvimos 38 indicadores del Banco Mundial y de la Organización Mundial de la Salud.'''
 st.write(df.head())
+'''##### Con todos estos indicadores en nuestro dataset nos encontramos con una gran proporción de datos faltantes en ellos: 30.16%'''
 trace  = go.Bar(
                 x=df.columns,
                 y=valores1,
@@ -67,11 +66,25 @@ layout = go.Layout(
 data = [trace]
 fig = go.Figure(data=data,layout = layout)
 st.plotly_chart(fig)
-
-
+'''##### Decidimos eliminar aquellos indicadores que contaban con mas del 20% de datos faltantes. Tomando ese porcentaje para eliminar los menos posibles.'''
+'''##### Una vez hecho eso nos quedamos con 17 indicadores con un porcentaje de datos faltantes del 3.36%'''
 trace  = go.Bar(
                 x=df.columns,
                 y=valores2,
+                showlegend = False
+                                    )
+
+layout = go.Layout(                                    
+                    xaxis_title='Columnas',
+                    yaxis_title='Cantidad de Valores'
+                                                            )
+data = [trace]
+fig = go.Figure(data=data,layout = layout)
+st.plotly_chart(fig)
+'''##### Con una cantidad razonable de datos faltantes utilizamos el algoritmo de ML KNNImputer para reemplar adecuadamente los datos faltantes.'''
+trace  = go.Bar(
+                x=df.columns,
+                y=valores3,
                 showlegend = False
                                     )
 
