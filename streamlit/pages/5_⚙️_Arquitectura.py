@@ -60,7 +60,5 @@ sql ="""SELECT p.NOMBRE, e.VALOR
             WHERE e.ID_INDICADOR=28 AND e.ANIO=2020 AND e.ID_CONTINENTE=1
             ORDER BY e.VALOR DESC"""
 
-df = pd.read_sql(sql,conn)
 
-df=df.drop_duplicates()
-st.dataframe(st.secrets["snowflake"])
+st.write("snow username:", st.secrets["snowflake"])
