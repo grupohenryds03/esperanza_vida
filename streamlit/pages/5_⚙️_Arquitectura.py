@@ -57,3 +57,27 @@ sql ="""SELECT p.NOMBRE, e.VALOR
 df=pd.read_sql(sql,cnn)
 
 st.dataframe(df)
+
+
+@st.experimental_singleton
+def init_connection():
+    return snowflake.connector.connect(
+        user=st.secrets.snowflake.user,
+    password=st.secrets.snowflake.password,
+    account=st.secrets.snowflake.account,
+    warehouse=st.secrets.snowflake.warehouse,
+    database=st.secrets.snowflake.database, client_session_keep_alive=True
+    )
+
+conn = init_connection()
+
+# Perform query.
+# Uses st.experimental_memo to only rerun when the query changes or after 10 min.
+@st.experimental_memo(ttl=600)
+def run_query(query):
+    with conn.cursor() as cur:
+        cur.execute(query)
+        return cur.fetch_pandas_all()
+
+df2=run_query(sql)
+st.dataframe(df2)
