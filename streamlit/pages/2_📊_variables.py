@@ -51,11 +51,27 @@ st.write('***')
 '''#### Una vez hecho eso nos quedamos con 17 indicadores con un porcentaje de datos faltantes del 3.36%'''
 '''#### Con una cantidad razonable de datos faltantes utilizamos el algoritmo de ML KNNImputer para reemplar adecuadamente los datos faltantes.'''
 valores1 = [40100,40100,40100,28006,40100,40100]
+valores2 = [18278,18278,18278,17664,18278,18278]
 df = pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/EV.csv')
 st.write(df.head())
 trace  = go.Bar(
                 x=df.columns,
                 y=valores1,
+                showlegend = False
+                                    )
+
+layout = go.Layout(                                    
+                    xaxis_title='País',
+                    yaxis_title='Esperanza de vida (años)'
+                                                            )
+data = [trace]
+fig = go.Figure(data=data,layout = layout)
+st.plotly_chart(fig)
+
+
+trace  = go.Bar(
+                x=df.columns,
+                y=valores2,
                 showlegend = False
                                     )
 
