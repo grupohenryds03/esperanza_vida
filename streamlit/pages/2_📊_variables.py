@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
 import missingno as msno
-import matplotlib.pyplot as plt
 import plotly.express as px
+import plotly.graph_objs as go
 
 st.set_page_config(
     page_title="Multipage App",
@@ -53,4 +53,16 @@ st.write('***')
 
 df = pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/EV.csv')
 st.write(df.head())
-st.bar_chart(df)
+trace  = go.Bar(
+                x=df['NOMBRE'].tolist(),
+                y=df['VALOR'].tolist(),
+                showlegend = False
+                                    )
+
+layout = go.Layout(                                    
+                    xaxis_title='País',
+                    yaxis_title='Esperanza de vida (años)'
+                                                            )
+data = [trace]
+fig = go.Figure(data=data,layout = layout)
+st.plotly_chart(fig)
