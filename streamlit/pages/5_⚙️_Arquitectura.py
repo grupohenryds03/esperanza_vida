@@ -43,9 +43,7 @@ st.write('***')
 # Uses st.experimental_singleton to only run once.
 @st.experimental_singleton
 def init_connection():
-    return snowflake.connector.connect(
-        **st.secrets["snowflake"], client_session_keep_alive=True
-    )
+    return snowflake.connector.connect(**st.secrets["snowflake"])
 
 conn = init_connection()
 
@@ -65,4 +63,4 @@ sql ="""SELECT p.NOMBRE, e.VALOR
 df = pd.read_sql(sql,conn)
 
 df=df.drop_duplicates()
-st.dataframe(df)
+st.dataframe(**st.secrets["snowflake"])
