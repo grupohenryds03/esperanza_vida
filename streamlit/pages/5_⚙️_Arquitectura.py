@@ -63,4 +63,4 @@ sql ="""SELECT p.NOMBRE, e.VALOR
 df = pd.read_sql(sql,conn)
 
 df=df.drop_duplicates()
-st.dataframe(**st.secrets["snowflake"])
+st.dataframe(st.secrets["snowflake"])
