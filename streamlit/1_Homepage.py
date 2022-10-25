@@ -212,7 +212,7 @@ with tab1:
 with tab2:
         sql ="""SELECT p.NOMBRE, e.VALOR  
             FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
-            WHERE e.ID_INDICADOR=28 AND e.ANIO=2020 AND e.ID_CONTINENTE=2
+            WHERE e.ID_INDICADOR=28 AND e.ANIO=2020 AND e.ID_CONTINENTE=3
             ORDER BY e.VALOR DESC"""
         df=pd.read_sql(sql,cnn)
         df=df.drop_duplicates()
@@ -235,7 +235,7 @@ with tab2:
 with tab3:
         sql ="""SELECT p.NOMBRE, e.VALOR  
             FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
-            WHERE e.ID_INDICADOR=28 AND e.ANIO=2020 AND e.ID_CONTINENTE=3
+            WHERE e.ID_INDICADOR=28 AND e.ANIO=2020 AND e.ID_CONTINENTE=2
             ORDER BY e.VALOR DESC"""
         df=pd.read_sql(sql,cnn)
         df=df.drop_duplicates()
@@ -258,7 +258,7 @@ with tab3:
 with tab4:
         sql ="""SELECT p.NOMBRE, e.VALOR  
             FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
-            WHERE e.ID_INDICADOR=28 AND e.ANIO=2020 AND e.ID_CONTINENTE=4
+            WHERE e.ID_INDICADOR=28 AND e.ANIO=2020 AND e.ID_CONTINENTE=0
             ORDER BY e.VALOR DESC"""
         df=pd.read_sql(sql,cnn)
         df=df.drop_duplicates()
@@ -281,7 +281,7 @@ with tab4:
 with tab5:
         sql ="""SELECT p.NOMBRE, e.VALOR  
             FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
-            WHERE e.ID_INDICADOR=28 AND e.ANIO=2020 AND e.ID_CONTINENTE=5
+            WHERE e.ID_INDICADOR=28 AND e.ANIO=2020 AND e.ID_CONTINENTE=4
             ORDER BY e.VALOR DESC"""
         df=pd.read_sql(sql,cnn)
         df=df.drop_duplicates()
