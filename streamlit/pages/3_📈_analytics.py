@@ -43,7 +43,7 @@ with tab1:
     df_prediccion=pd.concat([YEAR,df], axis=1)
     df_final=pd.concat([df_prediccion.YEAR,df_prediccion[a]], axis=1) #option
 
-    sql =f"SELECT ANIO, ID_PAIS, VALOR FROM EV WHERE ID_INDICADOR=28 AND ANIO<=2020 AND ID_PAIS='{id_pais}'"
+    sql =f"SELECT ANIO, ID_PAIS, VALOR FROM EV WHERE ID_INDICADOR=31 AND ANIO<=2020 AND ID_PAIS='{id_pais}'"
     df_anterior=pd.read_sql(sql,cnn)
 
     'Predicciones de la Esperanza de Vida Promedio Anual para los Proximos 10 Años'
