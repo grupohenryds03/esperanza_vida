@@ -37,16 +37,16 @@ with tab1:
     
     id_pais=dic_id_pais[a] #option
 
-    df=pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/Prediccion_EV_10.csv')
+    df=pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/Prediccion_EV_9.csv')
     df.drop('Unnamed: 0',inplace=True, axis=1)
-    YEAR=pd.DataFrame([2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030], columns=['YEAR'])
+    YEAR=pd.DataFrame([2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029], columns=['YEAR'])
     df_prediccion=pd.concat([YEAR,df], axis=1)
     df_final=pd.concat([df_prediccion.YEAR,df_prediccion[a]], axis=1) #option
 
     sql =f"SELECT ANIO, ID_PAIS, VALOR FROM EV WHERE ID_INDICADOR=31 AND ANIO<=2020 AND ID_PAIS='{id_pais}'"
     df_anterior=pd.read_sql(sql,cnn)
 
-    'Predicciones de la Esperanza de Vida Promedio Anual para los Proximos 10 Años'
+    'Predicciones de la Esperanza de Vida Promedio Anual para los Proximos 9 Años'
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=df_anterior.ANIO, 
                         y=df_anterior.VALOR,
