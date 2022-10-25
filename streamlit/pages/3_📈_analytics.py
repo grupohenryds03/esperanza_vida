@@ -121,7 +121,7 @@ st.subheader('Carga incremental')
 '''
 La ingesta de datos desde la API del banco mundial y la OMS se programan anualmente mediante airflow.
 '''
-st.video('https://youtu.be/iXmhOic_WME')
+#st.video('https://youtu.be/iXmhOic_WME')
 
 
 
