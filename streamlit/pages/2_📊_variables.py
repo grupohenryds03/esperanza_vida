@@ -11,9 +11,10 @@ st.set_page_config(
 
 st.title('Variables Seleccionadas')
 st.write('***')
+'''##### hola'''
 
-'''#####Se seleccionaron 17 indicadores que pueden ayudar a explicar la relación de la economía, la educación y la salud con la esperanza de vida al nacer.'''
-'''#####Para hacer esta selección hicimos investigaciones propias basandonos en fuentes como estas:'''
+'''##### Se seleccionaron 17 indicadores que pueden ayudar a explicar la relación de la economía, la educación y la salud con la esperanza de vida al nacer.'''
+'''##### Para hacer esta selección hicimos investigaciones propias basandonos en fuentes como estas:'''
 
 st.write(1, '-  https://rstudio-pubs-static.s3.amazonaws.com/180554_a412caa868c24939a873ca679d54bbde.html')
 st.write(2, '-  https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2022_wpp_key-messages.pdf')
