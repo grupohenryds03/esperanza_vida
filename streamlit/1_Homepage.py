@@ -107,7 +107,7 @@ st.write('***')
 st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/paso_vida.jpeg')
 c1,c2,c3=st.columns(3)
 with c2:
-    st.header("Objectives")
+    st.header("Goals")
 
 '''
 - Provide advice to public and private entities about the most relevant possible socioeconomic and health factors in the incidence of life expectancy at birth.
@@ -181,12 +181,34 @@ def init_connection():
 conn = init_connection() # connect
 
 st.header("Life expectancy by Continent")
+
 cnn = snowflake.connector.connect(
     user='grupods03',
     password='Henry2022#',
     account='nr28668.sa-east-1.aws',
     warehouse='DW_EV',
     database="LAKE")
+#Creamos una tabla para America
+lista_america=['Argentina','Canada','Mexico','United States','Panama','Brazil','Chile','Uruguay','Bolivia','Peru','Costa Rica']
+lista_africa=['Egypt, Arab Rep.','Libya','South Africa','Nigeria','Morocco']
+lista_asia=['China','India','Thailand','Japan','Korea, Rep.','Israel','Saudi Arabia','Malaysia','Indonesia','Russian Federation','Turkiye']
+lista_europa=['Spain','Bulgaria','France','Italy','Germany','United Kingdom','Norway','Sweden','Greece']
+lista_oceania=['Australia',]
+j=1
+for i in lista_america:
+    
+    sql= f"""SELECT e.ANIO, e.VALOR 
+                FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
+                WHERE e.ID_INDICADOR=31 AND p.NOMBRE='{i}'"""
+                
+    df=pd.read_sql(sql,cnn)
+    df=df.rename(columns={"VALOR":i})
+    if j==1:
+        EV_America=df
+        j+=1
+    else:
+        EV_America=pd.merge(EV_America, df, how='left', on=['ANIO'])               
+
 tab1, tab2, tab3 , tab4, tab5= st.tabs(["America","Europe","Asia","Africa","Oceania"])
 with tab1:
         sql ="""SELECT p.NOMBRE, e.VALOR  
@@ -209,30 +231,13 @@ with tab1:
         fig = go.Figure(data=data,layout = layout)
         st.plotly_chart(fig)
 
-        sql2= """SELECT e.VALOR as Mexico, e.ANIO  
-            FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
-            WHERE e.ID_INDICADOR=31 AND p.NOMBRE='Mexico'"""
-            
-        df2=pd.read_sql(sql2,cnn)
-        #st.line_chart(df2, x='ANIO', y='VALOR')
-        sql3= """SELECT e.VALOR as Canada, e.ANIO  
-            FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
-            WHERE e.ID_INDICADOR=31 AND p.NOMBRE='Canada'"""
-            
-        df3=pd.read_sql(sql3,cnn)
-        df2=df2.merge(df3, on='ANIO', how='left')
-
         fig2 = go.Figure()
-        fig2.add_trace(go.Scatter(x=df2.ANIO, 
-                        y=df2.MEXICO,
-                        mode='lines',
-                        name='Mexico',
-                        line=dict(width=0.8)))
-        fig2.add_trace(go.Scatter(x=df2.ANIO, 
-                        y=df2.CANADA,
-                        mode='lines',
-                        name="Canada",
-                        line=dict(width=0.8)))
+        for i in lista_America:
+            fig2.add_trace(go.Scatter(x=EV_America.ANIO, 
+                            y=EV_America.i,
+                            mode='lines',
+                            name=f'{i}',
+                            line=dict(width=0.8)))
         layout = go.Layout(                                    
                                     xaxis_title='Year',
                                     yaxis_title='Life Expectancy (years)'
