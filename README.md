@@ -1,42 +1,41 @@
-# Proyecto Final -Data 03- Soy Henry
-## Jhovany Lara, Rodrigo Ruiz, Pablo Poletti ,José María Toledo
+# Latin-Data
+## Proyecto Final -Data 03- Soy Henry
+## Jhovany Lara, Rodrigo Ruiz, Pablo Poletti , José Toledo
 
 <img src="/imagenes/Snowflake_Logo.png" width="300" height="100"/><img src="/imagenes/Pandas_logo.png" width="300" height="150"/><img src="/imagenes/Streamlit.png" width="300" height="150"/>
-
-
 
 ### Consigna: Desarrollo de un proyecto
 
 - Para este proyecto final, se elegio la Esperanza de Vida al Nacer.
 
 
-### Arquitectura (Ingesta data lake -> Armado Pipeline -> Ingesta data data warehouse)
+### Arquitectura: Ingesta data cruda, limpieza y carga (ETL) -> Armado de tareas para la carga incremental -> Ingesta de data a base de datos relacional -> Acceso a base de datos para modelar progreciones en machine lerning y visualización en dasboard
 
-- La arquitectura esta basada en el entorno de trabajo de snowflake, donde se ingestaran archivos de los datasets, siguiendo la realización de un pipline del EDA, para luego crear las tablas relacionales en un data warehouse donde se ingestan los datos. Realizando querys se trabajaran los  modelos de ML para visualizar en un dashboard de streamlit los requerimientos del cliente.
+- La arquitectura sigue tres pasos principales: uno para la Extracción, Trasformación (limpieza) y Carga (Load) llamado por sus siglas ETL, un segundo paso donde se realiza la carga incremental a la base de datos relacional y el trecero donde se realizan las consltas necesarias para ser utilizada en modelos de ML.
+- El entorno de trabajo para el ETL se desarrola en AIRFLOW dentro de una cloud maching de HEROKU.
+- Para el armado del datalake se ingestan los datos en el entorno STAGE de SNOWFLAKE en formato .csv comprimido en .gz (pueden ser tambien json, parquet, xlsx).
+- En el caso de la base de datos relacional se utiliza SNOWFLAKE con la creación de un warehouse para su mantenimiento e ingesta incremental.
+- para el modelado en ML y visualización de datos se realiza querys según los requerimientos del cliente.
 
 <img src="/imagenes/diagrama latin data.jpg"/>
-
-- Para la ingesta de dataset se realizará un data lake, en un storage interno de snowflake (si el cliente requiere más capacidad de almacenamento se creará una cuenta en AWS para usar un bucket S3 como external storege).
-- Se ingestan los archivos crudos en formato .csv (tmb se manejan formatos json, parquet , avro) mediante u na compresión en formato .gz desde la api del Banco Mundial y la Organización Mundial de la salud.
 
 | archivo                              | internal storage | tipo de compresión |
 |--------------------------------------|------------------|--------------------|
 | banco mundial.csv                    | snowflake        | .gz                |
 | organización mundial de la salud.csv | snowflake        | .gz                |
 
-- Luego de la ingesta de archivos se realiza un pipline automático para su EDA.
 - Para el armado del data warehouse se crean las tablas relacionales de hecho y dimensión con sus respectivos Id´s y primary keys.
 
 - tabla de hecho
 
-| col    | tipo   | key | 
-|--------|--------|-----|
-| idPais | int    | PK  |
-| pais   | string | -   |
-| año    | int    | -   |
-| var1   | float  | -   |
-| ..     | ..     | -   |
-| var37  | float  | -   |
+| col     | tipo   | key | 
+|---------|--------|-----|
+| Idpais  | int    | PK  |
+| Codpais | string | -   |
+| año     | int    | -   |
+| income  | float  | -   |
+| Idcont  | ..     | -   |
+| IdVar   | float  | -   |
 
 - tablas de dimesiones
 
@@ -57,7 +56,7 @@
 | región | string | -   |
 
 
-- Para la creación del dashboard se utiliza streamlit: https://grupohenryds03-esperanza-vida-streamlitstreamlit-app-kni98s.streamlitapp.com/
+- Para la creación del dashboard se utiliza streamlit: https://latin-data.streamlitapp.com/
 
 - Para el deploy del dashboard se utiliza la herramienta porpia streamlit.
 
@@ -85,18 +84,6 @@ conn = snowflake.connector.connect(
     role ='ACCOUNTADMIN', # tipo de rol
     )
 ```
-
-### Descripción de los pasos para el trabajo colaborativo con container docker:
-
-1. clonar este repo: git clone https://github.com/grupohenryds03/esperanza_vida
-
-dentro de la carpeta container:
-
-- *.devcontainer*->carpepeta para realizar el container en Visual Studio Code (VSC)
-- *Dockerfile*-> archivo docker para la cracion del container
-- *.snowflake-connect.template* ->archivo con datos en formato .json para la conección con snowflake
-- *devcontainer.json*->archivo .json con especificaciones del entorno para la conexión 
-- para la creacion del container en VSC, se va a From Remote-Containers: Reopen in Container y se eleje la carpeta *.devcontainer*
 
 ### Documentación Paises elegidos
 
