@@ -7,7 +7,7 @@ st.set_page_config(
 
 st.title("Contact:")
 #José Toledo
-a1,a2,a3=st.columns(3)
+a1,a2=st.columns(2)
 with a1:
     st.image('https://github.com/grupohenryds03/esperanza_vida/raw/main/imagenes/Jose_photo_v.jpeg', width=100)
 with a2:
@@ -18,7 +18,7 @@ with a2:
     
 
 #Pablo Poletti
-b1,b2,b3=st.columns(3)
+b1,b2=st.columns(2)
 with b1:
     st.image('https://github.com/grupohenryds03/esperanza_vida/raw/main/imagenes/Pablo_photo_v.jpeg', width=100)
 with b2:
@@ -30,7 +30,7 @@ with b2:
 
 
 #Jhovany Lara
-c1,c2,c3=st.columns(3)
+c1,c2=st.columns(2)
 with c1:
     st.image('https://github.com/grupohenryds03/esperanza_vida/raw/main/imagenes/Jhovany_photo_v.jpeg', width=100)
 with c2:
@@ -40,7 +40,7 @@ with c2:
 
 
 #Rodrigo Alvarez Ruiz
-d1,d2,d3=st.columns(3)
+d1,d2=st.columns(2)
 with d1:
     st.image('https://github.com/grupohenryds03/esperanza_vida/raw/main/imagenes/Rodrigo_photo_v.jpeg', width=100)
 with d2:
