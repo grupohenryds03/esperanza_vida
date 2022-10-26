@@ -220,7 +220,6 @@ with tab1:
         fig2.add_trace(go.Scatter(x=df2.ANIO, 
                         y=df2.VALOR,
                         mode='lines',
-                        name=a,#option
                         line=dict(width=0.8)))
         layout = go.Layout(                                    
                                     xaxis_title='Year',
