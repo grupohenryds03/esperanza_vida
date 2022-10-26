@@ -7,7 +7,9 @@ st.set_page_config(
 
 st.title("Contact:")
 
-a1,a2=st.columns(2)
+a1,a2,a3=st.columns(3)
+with a1:
+    st.image('https://github.com/grupohenryds03/esperanza_vida/raw/main/imagenes/Jose_photo_v.jpeg', width=100)
 with a1:
     st.subheader("José Toledo")
 with a2:
