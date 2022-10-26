@@ -214,7 +214,19 @@ with tab1:
             WHERE e.ID_INDICADOR=31 AND p.NOMBRE='Mexico'"""
             
         df2=pd.read_sql(sql2,cnn)
-        st.line_chart(df2, x='ANIO', y='VALOR')
+        #st.line_chart(df2, x='ANIO', y='VALOR')
+
+        fig2 = go.Figure()
+        fig2.add_trace(go.Scatter(x=df2.ANIO, 
+                        y=df2.VALOR,
+                        mode='lines',
+                        name=a,#option
+                        line=dict(width=0.8)))
+        layout = go.Layout(                                    
+                                    xaxis_title='Year',
+                                    yaxis_title='Life Expectancy (years)'
+                                )
+        st.plotly_chart(fig2,use_container_width=True)
 
 with tab2:
         sql ="""SELECT p.NOMBRE, e.VALOR  
