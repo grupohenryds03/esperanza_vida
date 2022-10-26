@@ -214,7 +214,7 @@ with tab1:
             WHERE e.ID_INDICADOR=31 AND p.NOMBRE='Mexico'"""
             
         df2=pd.read_sql(sql2,cnn)
-        st.line_chart(df2, X='ANIO', Y='VALOR')
+        st.line_chart(df2, x='ANIO', y='VALOR')
 
 with tab2:
         sql ="""SELECT p.NOMBRE, e.VALOR  
