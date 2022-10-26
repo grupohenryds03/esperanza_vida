@@ -4,12 +4,22 @@
 
 <img src="/imagenes/Snowflake_Logo.png" width="300" height="100"/><img src="/imagenes/Pandas_logo.png" width="300" height="150"/><img src="/imagenes/Streamlit.png" width="300" height="150"/>
 
-### Consigna: Desarrollo de un proyecto
+
+## Tabla de contenidos
+1. [Consigna](#Consigna)
+2. [Arquitectura](#Arquitectura)
+3. [Descripción](#Descripción)
+4. [Documentación](#Documentación)
+5. [FAQs](#faqs)
+
+# Consigna: 
+## Desarrollo de un proyecto
 
 - Para este proyecto final, se elegio la Esperanza de Vida al Nacer.
 
 
-### Arquitectura: Ingesta data cruda, limpieza y carga (ETL) -> Armado de tareas para la carga incremental -> Ingesta de data a base de datos relacional -> Acceso a base de datos para modelar progreciones en machine lerning y visualización en dasboard
+# Arquitectura: 
+## Ingesta data cruda, limpieza y carga (ETL) -> Armado de tareas para la carga incremental -> Ingesta de data a base de datos relacional -> Acceso a base de datos para modelar progreciones en machine lerning y visualización en dasboard
 
 - La arquitectura sigue tres pasos principales: uno para la Extracción, Trasformación (limpieza) y Carga (Load) llamado por sus siglas ETL, un segundo paso donde se realiza la carga incremental a la base de datos relacional y el trecero donde se realizan las consltas necesarias para ser utilizada en modelos de ML.
 - El entorno de trabajo para el ETL se desarrola en AIRFLOW dentro de una cloud maching de HEROKU.
@@ -60,7 +70,8 @@
 
 - Para el deploy del dashboard se utiliza la herramienta porpia streamlit.
 
-### Descripción de los pasos para el trabajo colaborativo sin container docker:
+# Descripción:
+## trabajo colaborativo
 
 - Para relaizar el trabajo colaborativo , se establece la conexión desde visual studio code local
 
@@ -85,7 +96,8 @@ conn = snowflake.connector.connect(
     )
 ```
 
-### Documentación Paises elegidos
+# Documentación:
+## Paises elegidos
 
 - Se selecciono una muestra de países teniendo en cuenta incluir estados de los 5 continentes que sean representativos, tengan buena calidad en la información histórica recolectada por el World Bank para la confección de sus indicadores.
 -  Inicialmente se utilizó como filtro para diferenciar la muestra por continentes, el status de países “desarrollados” vs “en desarrollo”, pero tomando en cuenta la clasificación que realiza las naciones unidas se observo que tanto en América Latina, África como en Medio Oriente, se necesitaba incluir otro nivel de clasificación para mejorar la diferenciación; por lo cual se decidió utilizar la clasificación por nivel de ingresos que realiza el World Bank mediante el “GNI (Ingreso Bruto Nacional)  per cápita” y así poder mejorar la diferenciación de los efectos de las diferentes variables sobre la esperanza de vida, según el país o continente en estudio.
@@ -142,7 +154,7 @@ conn = snowflake.connector.connect(
 | L           | LOW INCOME          |
 
 
-### Documentación Paises variables elejidas
+## Variables elejidas
 
 - de acuerdo a diferentes papers la seleccion de variables se separaron en salud y socio-económicas:
 - papers realacionados
