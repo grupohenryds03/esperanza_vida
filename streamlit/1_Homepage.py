@@ -224,11 +224,11 @@ with tab1:
 
         fig2 = go.Figure()
         fig2.add_trace(go.Scatter(x=df2.ANIO, 
-                        y=df2.Mexico,
+                        y=df2.MEXICO,
                         mode='lines',
                         line=dict(width=0.8)))
         fig2.add_trace(go.Scatter(x=df2.ANIO, 
-                        y=df2.Canada,
+                        y=df2.CANADA,
                         mode='lines',
                         line=dict(width=0.8)))
         layout = go.Layout(                                    
