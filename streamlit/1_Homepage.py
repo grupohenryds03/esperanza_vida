@@ -226,12 +226,12 @@ with tab1:
         fig2.add_trace(go.Scatter(x=df2.ANIO, 
                         y=df2.MEXICO,
                         mode='lines',
-                        name='Mexico'
+                        name='Mexico',
                         line=dict(width=0.8)))
         fig2.add_trace(go.Scatter(x=df2.ANIO, 
                         y=df2.CANADA,
                         mode='lines',
-                        name="Canada"
+                        name="Canada",
                         line=dict(width=0.8)))
         layout = go.Layout(                                    
                                     xaxis_title='Year',
