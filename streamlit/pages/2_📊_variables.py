@@ -42,7 +42,7 @@ st.subheader('*Variables de Salud*')
 '- Polio (Pol3) immunization covergae among 1-year-olds (%) - ID:14'
 '- Mortality rate, female adults (per 1000 adults) - ID:20'
 '- Death rate, male adults (per 1000 adults) - ID:19'
-
+columnas = ['Id_Country','Year', 'Id_Indicator', 'Value', 'Continent','Id_Income']
 valores1 = [40100,40100,40100,28006,40100,40100]
 valores2 = [18278,18278,18278,17664,18278,18278]
 valores3 = [18278,18278,18278,18278,18278,18278]
@@ -54,7 +54,7 @@ st.write('***')
 st.write(df.head())
 '''##### With all these indicators in our dataset we find a large proportion of missing data in them: 30.16%'''
 trace  = go.Bar(
-                x=df.columns,
+                x=columnas,
                 y=valores1,
                 showlegend = False
                                     )
@@ -69,7 +69,7 @@ st.plotly_chart(fig)
 '''##### We decided to eliminate those indicators that had more than 20% of missing data. Taking that percentage to eliminate as few as possible.'''
 '''##### Once that is done we are left with 17 indicators with a percentage of missing data from the 3.36%'''
 trace  = go.Bar(
-                x=df.columns,
+                x=columnas,
                 y=valores2,
                 showlegend = False
                                     )
@@ -83,7 +83,7 @@ fig = go.Figure(data=data,layout = layout)
 st.plotly_chart(fig)
 '''##### With a reasonable amount of missing data we use the KNNImputer ML algorithm to properly replace the missing data.'''
 trace  = go.Bar(
-                x=df.columns,
+                x=columnas,
                 y=valores3,
                 showlegend = False
                                     )
