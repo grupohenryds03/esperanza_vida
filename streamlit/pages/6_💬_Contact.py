@@ -40,12 +40,10 @@ with c3:
     'https://www.linkedin.com/in'
 
 #Jhovany Lara
-d1,d2,d3=st.columns(3)
+d1,d2=st.columns(2)
 with d1:
     st.image('https://github.com/grupohenryds03/esperanza_vida/raw/main/imagenes/Jhovany_photo_v.jpeg', width=100)
 with d2:
     st.subheader('Jhovany Lara')
     'jhovanylara@hotmail.com'
-with d3:
-    '''### Linkedin'''
     'https://www.linkedin.com/in/jhovany-lara-ds/'
