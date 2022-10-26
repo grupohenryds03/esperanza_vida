@@ -60,7 +60,7 @@ Japanese women, whose average lifespan is 86.8 years, are the longest. In the ca
 it is in Switzerland where they live the longest, with an average of 81.3 years. The population of Sierra Leone has the lowest life expectancy
 worldwide for both sexes: 50.8 years for women and 49.3 years for men.
 '''
-st.subheader("What factors influence Life Expectancy (LE)?")
+st.subheader("Which factors influence Life Expectancy (LE)?")
 
 '''
 The largest increase in LE was recorded in the African Region, where the
