@@ -87,16 +87,15 @@ with a1:
     people smoke tobacco'''
 with a2:
     st.caption('156 million')
-    '''children under teh age of 5 are stunted'''
+    '''children under the age of 5 are stunted'''
 with a3:
-    st.caption('42 millones')
-    '''de menores de 5 años tienen sobrepeso'''
+    st.caption('42 million')
+    '''under the age of 5 are overweight'''
 st.write('***')
 b1,b2,b3=st.columns(3)
 with b1:
     st.caption('1.8 billion')
-    '''
-    people drink contaminated water '''
+    '''people drink contaminated water '''
 with b2:
     st.caption('946 million')
     '''people defecate in the open'''
@@ -131,7 +130,7 @@ with d2:
 st.write('***')
 e1,e2,e3=st.columns(3)
 with e2:
-    st.header("Arquitectura")
+    st.header("Architecture")
 st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/diagrama_arq.png')
 st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/5puntos.jpg')
 
@@ -160,15 +159,16 @@ st.write('***')
 
 h1,h2,h3=st.columns(3)
 with h2:
-    st.header("Metodología")
-'''El trabajo se sustenta bajo un enfoque cuantitativo con el que se buscará establecer relaciones de
-distintos tipos entre variables cuantitativas de indicadores socioeconomicos y de salud, como PIB per cápita, 
-gasto público en educación, tasa de mortalidad en menores de 5 años, % de población rural, % pobreza, % total de 
-gasto en salud, etc. las cuales permitan generar un contexto de la posible influencia de cada variable en 
-la esperanza de vida al nacer.
+    st.header("Metodology")
+'''
+The work is based on a quantitative approach which will help to establish relations between quantitative variables from socioeconomic and health indicators, such as GDP per capita,
+public spending on education, under-5 mortality rate, % of rural population, % of poverty, % of total
+health spending etc. which can help to generate a context of the possible influence of each variable in
+life expectancy at birth.
 
-Se trabajó en la elaboración de un algortimo de ML que permita generar predicciones futuras usando
-expectativas de dichos indicadores.'''
+We have worked on the development of a ML algorithm that allows us to generate future predictions using
+expectations of these indicators.'''
+
 st.write('***')
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
