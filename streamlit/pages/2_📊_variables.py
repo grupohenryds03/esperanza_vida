@@ -34,7 +34,7 @@ st.subheader('*Socioeconomic Variables*')
 '- Rural population (% of total population) - ID:33'
 '- Urban population (% total population) - ID:34'
 
-st.subheader('*Variables de Salud*')
+st.subheader('*Health Variables*')
 '- Hepatitis B (HepB3) inmmunization coverage among 1-year-olds % - ID:7'
 '- Mortality rate, under-5 (per 1000 live births) - ID:11'
 '- Inmmunization, DPT (% of children ages 12-23 months) - ID:8'
