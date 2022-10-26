@@ -60,7 +60,7 @@ trace  = go.Bar(
                                     )
 
 layout = go.Layout(                                    
-                    xaxis_title='Columnas',
+                    xaxis_title='Columns',
                     yaxis_title='Cantidad de Valores'
                                                             )
 data = [trace]
@@ -75,7 +75,7 @@ trace  = go.Bar(
                                     )
 
 layout = go.Layout(                                    
-                    xaxis_title='Columnas',
+                    xaxis_title='Columns',
                     yaxis_title='Cantidad de Valores'
                                                             )
 data = [trace]
@@ -89,7 +89,7 @@ trace  = go.Bar(
                                     )
 
 layout = go.Layout(                                    
-                    xaxis_title='Columnas',
+                    xaxis_title='Columns',
                     yaxis_title='Cantidad de Valores'
                                                             )
 data = [trace]
