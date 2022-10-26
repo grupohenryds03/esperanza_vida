@@ -21,8 +21,8 @@ with col2:
 
 st.title("LIFE EXPECTANCY ANALYSIS")
 
-with st.sidebar:    
-    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/LDlogo.png', width=100)
+#with st.sidebar:    
+#    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/LDlogo.png', width=100)
 
 #st.sidebar.success('')
 

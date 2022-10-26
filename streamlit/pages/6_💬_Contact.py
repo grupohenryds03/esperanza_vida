@@ -17,7 +17,7 @@ with a2:
 
 #Pablo Poletti
 b1,b2,b3=st.columns(3)
-with a1:
+with b1:
     st.image('https://github.com/grupohenryds03/esperanza_vida/raw/main/imagenes/Pablo_photo_v.jpeg', width=100)
 with b2:
     st.subheader("Pablo Poletti")
@@ -26,7 +26,7 @@ with b3:
 
 #Rodrigo Alvarez Ruiz
 c1,c2,c3=st.columns(3)
-with a1:
+with c1:
     st.image('https://github.com/grupohenryds03/esperanza_vida/raw/main/imagenes/Rodrigo_photo_v.jpeg', width=100)
 with c2:
     st.subheader("Rodrigo Álvarez Ruiz")
@@ -35,7 +35,7 @@ with c3:
 
 #Jhovany Lara
 d1,d2,d3=st.columns(3)
-with a1:
+with d1:
     st.image('https://github.com/grupohenryds03/esperanza_vida/raw/main/imagenes/Jhovany_photo_v.jpeg', width=100)
 with d2:
     '''### Jhovany Lara'''
