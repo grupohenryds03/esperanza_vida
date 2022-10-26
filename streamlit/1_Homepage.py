@@ -209,16 +209,22 @@ with tab1:
         fig = go.Figure(data=data,layout = layout)
         st.plotly_chart(fig)
 
-        sql2= """SELECT p.NOMBRE, e.VALOR, e.ANIO  
+        sql2= """SELECT e.VALOR as Mexico, e.ANIO  
             FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
             WHERE e.ID_INDICADOR=31 AND p.NOMBRE='Mexico'"""
             
         df2=pd.read_sql(sql2,cnn)
         #st.line_chart(df2, x='ANIO', y='VALOR')
+        sql3= """SELECT e.VALOR as Canada, e.ANIO  
+            FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
+            WHERE e.ID_INDICADOR=31 AND p.NOMBRE='Canada'"""
+            
+        df3=pd.read_sql(sql3,cnn)
+        df2.merge(df3, on='ANIO', how='left')
 
         fig2 = go.Figure()
         fig2.add_trace(go.Scatter(x=df2.ANIO, 
-                        y=df2.VALOR,
+                        y=[df2.Mexico, df2.Canada],
                         mode='lines',
                         line=dict(width=0.8)))
         layout = go.Layout(                                    
