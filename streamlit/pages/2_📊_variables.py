@@ -12,7 +12,7 @@ st.set_page_config(
 st.title('Selected Variables')
 st.write('***')
 
-'''##### We select 17 indicators that can help explain the relationship of the economy, education and health with life expectancy at birth.'''
+'''##### We selected 17 indicators that can help explain the relationship of the economy, education and health care with life expectancy at birth.'''
 '''##### To make this selection we did our own research based on sources like these:'''
 
 st.write(1, '-  https://rstudio-pubs-static.s3.amazonaws.com/180554_a412caa868c24939a873ca679d54bbde.html')
@@ -47,6 +47,7 @@ valores1 = [40100,40100,40100,28006,40100,40100]
 valores2 = [18278,18278,18278,17664,18278,18278]
 valores3 = [18278,18278,18278,18278,18278,18278]
 df = pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/Hechos.csv')
+df = df.drop('Unnamed: 0', axis = 1)
 
 st.write('***')
 '''# Variable selection process'''
