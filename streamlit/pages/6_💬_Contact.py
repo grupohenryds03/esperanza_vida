@@ -28,21 +28,22 @@ with b2:
 
     
 
-#Rodrigo Alvarez Ruiz
-c1,c2,c3=st.columns(3)
-with c1:
-    st.image('https://github.com/grupohenryds03/esperanza_vida/raw/main/imagenes/Rodrigo_photo_v.jpeg', width=100)
-with c2:
-    st.subheader("Rodrigo Álvarez Ruiz")
-    'Rodrigorear94@gmail.com'
-    'https://www.linkedin.com/in'
-
 
 #Jhovany Lara
-d1,d2,d3=st.columns(3)
-with d1:
+c1,c2,c3=st.columns(3)
+with c1:
     st.image('https://github.com/grupohenryds03/esperanza_vida/raw/main/imagenes/Jhovany_photo_v.jpeg', width=100)
-with d2:
+with c2:
     st.subheader('Jhovany Lara')
     'jhovanylara@hotmail.com'
     'https://www.linkedin.com/in/jhovany-lara-ds/'
+
+
+#Rodrigo Alvarez Ruiz
+d1,d2,d3=st.columns(3)
+with d1:
+    st.image('https://github.com/grupohenryds03/esperanza_vida/raw/main/imagenes/Rodrigo_photo_v.jpeg', width=100)
+with d2:
+    st.subheader("Rodrigo Álvarez Ruiz")
+    'Rodrigorear94@gmail.com'
+    'https://www.linkedin.com/in'
