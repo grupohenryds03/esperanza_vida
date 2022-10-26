@@ -9,12 +9,11 @@ st.set_page_config(
     page_icon="📊",
 )
 
-st.title('Variables Seleccionadas')
+st.title('Selected Variables')
 st.write('***')
-'''##### hola'''
 
-'''##### Se seleccionaron 17 indicadores que pueden ayudar a explicar la relación de la economía, la educación y la salud con la esperanza de vida al nacer.'''
-'''##### Para hacer esta selección hicimos investigaciones propias basandonos en fuentes como estas:'''
+'''##### We select 17 indicators that can help explain the relationship of the economy, education and health with life expectancy at birth.'''
+'''##### To make this selection we did our own research based on sources like these:'''
 
 st.write(1, '-  https://rstudio-pubs-static.s3.amazonaws.com/180554_a412caa868c24939a873ca679d54bbde.html')
 st.write(2, '-  https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2022_wpp_key-messages.pdf')
@@ -47,7 +46,7 @@ st.subheader('*Variables de Salud*')
 valores1 = [40100,40100,40100,28006,40100,40100]
 valores2 = [18278,18278,18278,17664,18278,18278]
 valores3 = [18278,18278,18278,18278,18278,18278]
-df = pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/EV.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/Hechos.csv')
 
 st.write('***')
 '''# Proceso de selección de variables'''
