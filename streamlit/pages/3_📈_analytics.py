@@ -46,7 +46,7 @@ with tab1:
     sql =f"SELECT ANIO, ID_PAIS, VALOR FROM EV WHERE ID_INDICADOR=31 AND ANIO<=2020 AND ID_PAIS='{id_pais}'"
     df_anterior=pd.read_sql(sql,cnn)
 
-    'Predicciones de la Esperanza de Vida Promedio Anual para los Proximos 9 Años'
+    'Predicciones de la Esperanza de Vida Promedio Anual para los Proximos 10 Años'
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=df_anterior.ANIO, 
                         y=df_anterior.VALOR,
@@ -71,7 +71,7 @@ sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR
         ON (e.ID_INDICADOR=i.ID_INDICADOR)
         JOIN PAIS p
         on (e.ID_PAIS=p.ID_PAIS)
-        WHERE e.ID_INDICADOR=28 AND e.ANIO>1960 AND e.ANIO<=2020 """ 
+        WHERE e.ID_INDICADOR=31 AND e.ANIO>1960 AND e.ANIO<=2020 """ 
 EV_todos=pd.read_sql(sql,cnn)
 
 with tab2:
@@ -96,10 +96,13 @@ sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR
         ON (e.ID_INDICADOR=i.ID_INDICADOR)
         JOIN PAIS p
         on (e.ID_PAIS=p.ID_PAIS)
-        WHERE e.ID_INDICADOR=31 AND e.ANIO>1960 AND e.ANIO<=2020 """ 
+        WHERE e.ID_INDICADOR=9 AND e.ANIO>1960 AND e.ANIO<=2020 """ 
 GDP_todos=pd.read_sql(sql,cnn)
 
 with tab3:
+
+
+
     'Mapa de Calor del GDP Per Capita promedio Anual (En U$S Constantes del 2015) por Pais'
     fig3 = px.scatter_geo(GDP_todos,
                             locations='CODIGO_PAIS',
@@ -113,6 +116,9 @@ with tab3:
     fig3.update_layout(margin={"r":10,"t":50,"l":10,"b":10},width=900, 
                   height=600)
     st.plotly_chart(fig3,use_container_width=True)
+
+
+
 with tab4:
     st.dataframe(df_prediccion)
 
