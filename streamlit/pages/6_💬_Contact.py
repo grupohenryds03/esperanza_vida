@@ -13,9 +13,9 @@ with a1:
 with a2:
     st.subheader("José Toledo")
     'toledojm@outlook.com'
-with a3:
-    '''### Linkedin'''
     'https://www.linkedin.com/in'
+
+    
 
 #Pablo Poletti
 b1,b2,b3=st.columns(3)
@@ -24,9 +24,9 @@ with b1:
 with b2:
     st.subheader("Pablo Poletti")
     'lic.poletti@gmail.com'
-with b3:
-    '''### Linkedin'''
     'https://www.linkedin.com/in'
+
+    
 
 #Rodrigo Alvarez Ruiz
 c1,c2,c3=st.columns(3)
@@ -35,12 +35,11 @@ with c1:
 with c2:
     st.subheader("Rodrigo Álvarez Ruiz")
     'Rodrigorear94@gmail.com'
-with c3:
-    '''### Linkedin'''
     'https://www.linkedin.com/in'
 
+
 #Jhovany Lara
-d1,d2=st.columns(2)
+d1,d2,d3=st.columns(3)
 with d1:
     st.image('https://github.com/grupohenryds03/esperanza_vida/raw/main/imagenes/Jhovany_photo_v.jpeg', width=100)
 with d2:
