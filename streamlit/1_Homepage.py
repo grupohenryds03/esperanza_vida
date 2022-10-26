@@ -220,7 +220,7 @@ with tab1:
             WHERE e.ID_INDICADOR=31 AND p.NOMBRE='Canada'"""
             
         df3=pd.read_sql(sql3,cnn)
-        df2.merge(df3, on='ANIO', how='left')
+        df2=df2.merge(df3, on='ANIO', how='left')
 
         fig2 = go.Figure()
         fig2.add_trace(go.Scatter(x=df2.ANIO, 
@@ -235,6 +235,7 @@ with tab1:
                                     xaxis_title='Year',
                                     yaxis_title='Life Expectancy (years)'
                                 )
+        fig.update_xaxes(showgrid=False)
         st.plotly_chart(fig2,use_container_width=True)
 
 with tab2:
