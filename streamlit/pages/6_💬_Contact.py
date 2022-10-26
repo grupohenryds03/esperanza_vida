@@ -15,7 +15,7 @@ with a2:
     'toledojm@outlook.com'
 with a3:
     '''### Linkedin'''
-    'https://www.linkedin.com/in
+    'https://www.linkedin.com/in'
 
 #Pablo Poletti
 b1,b2,b3=st.columns(3)
