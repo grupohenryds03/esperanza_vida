@@ -19,7 +19,7 @@ with col2:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/LDlogo.png', width=200)
 
 
-st.title("ANÁLISIS DE ESPERANZA DE VIDA")
+st.title("LIFE EXPECTANCY ANALYSIS")
 
 with st.sidebar:    
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/LDlogo.png', width=100)
@@ -47,87 +47,87 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-st.header("La esperanza de vida difiere en función del lugar de nacimiento")
+st.header("Life expectancy differs depending on the birth place ")
 '''
-Según datos de la Organización Mundial de la Salud (OMS), a escala mundial, la esperanza de vida de los niños 
-nacidos en 2015 era de 71,4 años (73,8 años para las niñas y 69,1 para los niños), pero las perspectivas de 
-cada niño en particular dependen del lugar de nacimiento. 
+According to data from the World Health Organization (WHO), on a global scale, the life expectancy of children
+born in 2015 was 71.4 years (73.8 years for girls and 69.1 for boys), but the expectations for
+each child in particular depend on the place of birth.
 
-Señala que los recién nacidos en países de ingresos altos tienen una esperanza media de vida igual o superior a 80 años, 
-mientras que los recién nacidos en países en el África subsahariana, tienen una esperanza de vida inferior a 60 años.
+Notes that `newborns` in high-income countries have an average life expectancy equal to or greater than 80 years,
+while `newborns` in countries in sub-Saharan Africa have a life expectancy of less than 60 years.
 
-Las mujeres japonesas, cuya vida se prolonga de media 86,8 años, son las más longevas. En el caso de los hombres, 
-es en Suiza donde más tiempo viven, con 81,3 años de media. La población de Sierra Leona tiene la esperanza de vida más 
-baja de todo el mundo para ambos sexos: 50,8 años para las mujeres y 49,3 años para los hombres.
+Japanese women, whose average lifespan is 86.8 years, are the longest. In the case of men,
+it is in Switzerland where they live the longest, with an average of 81.3 years. The population of Sierra Leone has the lowest life expectancy
+worldwide for both sexes: 50.8 years for women and 49.3 years for men.
 '''
-st.subheader("¿Qué factores influyen en la Esperanza de Vida (EV)?")
+st.subheader("What factors influence Life Expectancy (LE)?")
 
 '''
-El mayor aumento en la EV se registró en la Región de África, en la que la 
-esperanza de vida aumentó en 9,4 años hasta llegar a los 60 años, debido principalmente a las mejoras en la 
-supervivencia infantil, los progresos en la lucha contra el paludismo y la ampliación del acceso a los 
-antirretrovíricos para el tratamiento del VIH.
+The largest increase in LE was recorded in the African Region, where the
+life expectancy increased by 9.4 years, until it reached 60 years, due to improvements in
+child survival, progress in combating malaria and expanding access to
+antiretrovirals for the treatment of AIDS.
 
-Aunque en países más desarrollados se ha visto que la EV depende de otros factores, como el consumo de tabaco, 
-el sobrepeso en menores de 5 años, la contaminación del aire. Por lo que es un tema multifactorial que depende de la economía propia de cada país.
+Although in the most developed countries it has been seen that LE depends on other factors, such as tobacco consumption,
+overweight in children under 5 years, air pollution. So it is a multifactorial issue that depends on the economy of each country.
 
-Estudios de diferentes entidades demuestran que la esperanza de vida al nacer viene en
-aumento año tras año. Diferentes factores son claves para descifrar el por qué del 
-aumento de la esperanza de vida al nacer.
-Desde la revolucón industrial en adelante se demostró que no solo afectan la EV los
-facotres biológicos propianente dichos, sinó que también los factores socioeconómicos
-fueron ganando terreno en la relevancia para la construcción de este índice.
+Studies by different entities show that life expectancy at birth comes in
+increase year after year. Different factors are key to deciphering the reason for the
+increased life expectancy at birth.
+From the industrial revolution onwards it was shown that not only biological factors affect the EV, 
+but also socioeconomic factors are studied in relevance for the construction of this index.
 '''
 
 st.write('***')
 
 a1,a2,a3=st.columns(3)
 with a1:
-    st.caption('1100 millones')
+    st.caption('1.1 billion')
     '''
-    de personas fuman tabaco'''
+    people smoke tobacco'''
 with a2:
-    st.caption('156 millones')
-    '''de menores de 5 años sufren retraso del crecimiento'''
+    st.caption('156 million')
+    '''children under teh age of 5 are stunted'''
 with a3:
     st.caption('42 millones')
     '''de menores de 5 años tienen sobrepeso'''
 st.write('***')
 b1,b2,b3=st.columns(3)
 with b1:
-    st.caption('1800 millones')
+    st.caption('1.8 billion')
     '''
-    de personas beben agua contaminada '''
+    people drink contaminated water '''
 with b2:
-    st.caption('946 millones')
-    '''de personas defecan al aire libre'''
+    st.caption('946 million')
+    '''people defecate in the open'''
 with b3:
-    st.caption('3100 millones')
-    '''de personas cocinan con combustibles contaminantes'''
+    st.caption('3.1 billion')
+    '''people cook with polluting fuels'''
 
 st.write('***')
 st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/paso_vida.jpeg')
 c1,c2,c3=st.columns(3)
 with c2:
-    st.header("Objetivos")
+    st.header("Objectives")
 
 '''
-- Brindar asesoramiento a entidades públicas y privadas acerca de los posibles factores socioeconómicos y de salud más relevantes en las incidencia de la esperanza de vida al nacer.
+- Provide advice to public and private entities about the most relevant possible socioeconomic and health factors in the incidence of life expectancy at birth.
 
-- Ayudar a las distintas regiones o países a implementar políticas de estado, brindandoles las posibles causas que estan afectando la esperanza de vida al nacer.
+- Help the different regions or countries to implement state policies, providing them with the possible causes that are affecting life expectancy at birth.
 
-- Aportar para lograr una mejor calidad de vida a partir de un cambio en los indicadores por región.
+- Contribute to achieve a better quality of life based on a change in the indicators by region.
 '''
 
 d1,d2=st.columns(2)
 with d1:
-    st.subheader("Alcance")
-    '''Ingesta de diferentes datasets con registros a partir del año 1960 para transformar estos datos en información de valor que permitan realizar consultas sobre la esperanza de vida al nacer en un período de tiempo específico o realizar predicciones a través de algoritmos de machine learning.'''
+    st.subheader("In scope")
+    '''Loadings of different datasets with records from the year 1960 in order to transform this data into valuable information that allows queries on life expectancy at birth in a specific period of time or make predictions through machine learning algorithms.'''
 with d2:
-    st.subheader("Fuera de alcance")
-    '''El análisis y las predicciones proporcionadas no seran anteriores al año 1960.
-    Las consultas no incluirán factores biológicos.
-    La carga de datos será por lotes en diferentes formatos.'''
+    st.subheader("Out of scope")
+    '''The analysis and predictions provided will not be prior to the year 1960.
+    The consultations will not include biological factors.
+    The data load will be in batches in different formats.'''
+
 st.write('***')
 e1,e2,e3=st.columns(3)
 with e2:
@@ -136,7 +136,7 @@ st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/i
 st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/5puntos.jpg')
 
 
-st.header("Tecnologías usadas")
+st.header("Used technologies")
 f1,f2,f3,f4=st.columns(4)
 with f1:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/Python_logo_and_wordmark.png', width=100)
@@ -180,14 +180,14 @@ def init_connection():
 
 conn = init_connection() # connect
 
-st.header("Esperanza de vida por continente")
+st.header("Life expectancy by Continent")
 cnn = snowflake.connector.connect(
     user='grupods03',
     password='Henry2022#',
     account='nr28668.sa-east-1.aws',
     warehouse='DW_EV',
     database="LAKE")
-tab1, tab2, tab3 , tab4, tab5= st.tabs(["América","Europa","Asia","Africa","Oceania"])
+tab1, tab2, tab3 , tab4, tab5= st.tabs(["America","Europe","Asia","Africa","Oceania"])
 with tab1:
         sql ="""SELECT p.NOMBRE, e.VALOR  
             FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
@@ -202,8 +202,8 @@ with tab1:
                                 )
 
         layout = go.Layout(                                    
-                                    xaxis_title='País',
-                                    yaxis_title='Esperanza de vida (años)'
+                                    xaxis_title='Country',
+                                    yaxis_title='Life Expectancy (years)'
                                 )
         data = [trace]
         fig = go.Figure(data=data,layout = layout)
@@ -225,8 +225,8 @@ with tab2:
 
         layout = go.Layout(
                                     #title = 'EV Europa',
-                                    xaxis_title='País',
-                                    yaxis_title='Esperanza de vida (años)'
+                                    xaxis_title='Country',
+                                    yaxis_title='Life Expectancy (years)'
                                 )
         data = [trace]
         fig = go.Figure(data=data,layout = layout)
@@ -248,8 +248,8 @@ with tab3:
 
         layout = go.Layout(
                                     #title = 'EV Asia',
-                                    xaxis_title='País',
-                                    yaxis_title='Esperanza de vida (años)'
+                                    xaxis_title='Country',
+                                    yaxis_title='Life Expectancy (years)'
                                 )
         data = [trace]
         fig = go.Figure(data=data,layout = layout)
@@ -271,8 +271,8 @@ with tab4:
 
         layout = go.Layout(
                                     #title = 'EV Africa',
-                                    xaxis_title='País',
-                                    yaxis_title='Esperanza vida'
+                                    xaxis_title='Country',
+                                    yaxis_title='Life Expectancy (years)'
                                 )
         data = [trace]
         fig = go.Figure(data=data,layout = layout)
@@ -294,8 +294,8 @@ with tab5:
 
         layout = go.Layout(
                                    #title = 'EV Oceania',
-                                    xaxis_title='País',
-                                    yaxis_title='Esperanza vida'
+                                    xaxis_title='Country',
+                                    yaxis_title='Life Expectancy (years)'
                                 )
         data = [trace]
         fig = go.Figure(data=data,layout = layout)
