@@ -2,9 +2,6 @@
 ## Proyecto Final -Data 03- Soy Henry
 ## Jhovany Lara, Rodrigo Ruiz, Pablo Poletti , José Toledo
 
-<img src="/imagenes/Snowflake_Logo.png" width="300" height="100"/><img src="/imagenes/Pandas_logo.png" width="300" height="150"/><img src="/imagenes/Streamlit.png" width="300" height="150"/>
-
-
 ## Tabla de contenidos
 1. [Consigna](#Consigna)
 2. [Arquitectura](#Arquitectura)
@@ -27,7 +24,7 @@
 - En el caso de la base de datos relacional se utiliza SNOWFLAKE con la creación de un warehouse para su mantenimiento e ingesta incremental.
 - para el modelado en ML y visualización de datos se realiza querys según los requerimientos del cliente.
 
-<img src="/imagenes/diagrama latin data.jpg"/>
+<img src="/imagenes/diagrama solo.jpg"/>
 
 | archivo                              | internal storage | tipo de compresión |
 |--------------------------------------|------------------|--------------------|
