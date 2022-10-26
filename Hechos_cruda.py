@@ -371,7 +371,8 @@ hechos['CONTINENTE'] = hechos.apply(lambda row: categoria_pais(row), axis=1)
 
 #Abrimos encoder guardado
 import tempfile
-file = open("le_conti.obj",'rb')
+dir=temp_dir+"le_conti.obj"
+file = open(dir,'rb')
 le_loaded = pickle.load(file)
 file.close()
 
@@ -396,7 +397,8 @@ hechos['CODIGO_INCOME'] = hechos.apply(lambda row: ingreso_pais(row), axis=1)
 
 #Abrimos encoder guardado
 import tempfile
-file = open("le_income.obj",'rb')
+dir=temp_dir+"le_income.obj"
+file = open(dir,'rb')
 le_loaded = pickle.load(file)
 file.close()
 
@@ -407,7 +409,8 @@ hechos['ID_INCOME'] = le_loaded.transform(hechos['CODIGO_INCOME'])
 
 #Abrimos encoder guardado
 import tempfile
-file = open("le_nation.obj",'rb')
+dir=temp_dir+"le_nation.obj"
+file = open(dir,'rb')
 le_loaded = pickle.load(file)
 file.close()
 
@@ -487,7 +490,8 @@ WHO['CONTINENTE'] = WHO.apply(lambda row: categoria_pais(row), axis=1)
 
 #Abrimos encoder guardado
 import tempfile
-file = open("le_conti.obj",'rb')
+dir=temp_dir+"le_conti.obj"
+file = open(dir,'rb')
 le_loaded = pickle.load(file)
 file.close()
 
@@ -511,7 +515,8 @@ WHO['CODIGO_INCOME'] = WHO.apply(lambda row: ingreso_pais(row), axis=1)
 
 #Abrimos encoder guardado
 import tempfile
-file = open("le_income.obj",'rb')
+dir=temp_dir+"le_income.obj"
+file = open(dir,'rb')
 le_loaded = pickle.load(file)
 file.close()
 
@@ -520,7 +525,8 @@ WHO['ID_INCOME'] = le_loaded.transform(WHO['CODIGO_INCOME'])
 
 #Abrimos encoder guardado
 import tempfile
-file = open("le_nation.obj",'rb')
+dir=temp_dir+"le_nation.obj"
+file = open(dir.obj",'rb')
 le_loaded = pickle.load(file)
 file.close()
 
