@@ -211,10 +211,10 @@ with tab1:
 
         sql2= """SELECT p.NOMBRE, e.VALOR, e.ANIO  
             FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
-            WHERE e.ID_INDICADOR=31 AND e.ID_CONTINENTE=1 and p.NOMBRE='Mexico'"""
+            WHERE e.ID_INDICADOR=31 AND p.NOMBRE='Mexico'"""
             
         df2=pd.read_sql(sql2,cnn)
-        st.line_chart(f2, X='ANIO', Y='VALOR')
+        st.line_chart(df2, X='ANIO', Y='VALOR')
 
 with tab2:
         sql ="""SELECT p.NOMBRE, e.VALOR  
