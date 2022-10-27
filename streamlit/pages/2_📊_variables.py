@@ -5,7 +5,7 @@ import plotly.express as px
 import plotly.graph_objs as go
 
 st.set_page_config(
-    page_title="Multipage App",
+    page_title="Variables",
     page_icon="📊",
 )
 
