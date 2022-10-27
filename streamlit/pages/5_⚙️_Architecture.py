@@ -114,8 +114,8 @@ fig.add_trace(go.Scatter(x=df_var.ANIO,
 
 fig.update_xaxes(showgrid=False)
 fig.update_yaxes(showgrid=False)
-fig.update_yaxes(title_text="<b>primary</b> yaxis title", secondary_y=False)
-fig.update_yaxes(title_text="<b>secondary</b> yaxis title", secondary_y=True)
+fig.update_yaxes(title_text="años", secondary_y=False)
+fig.update_yaxes(title_text="xxxx", secondary_y=True)
 st.plotly_chart(fig,use_container_width=True)
 
 
