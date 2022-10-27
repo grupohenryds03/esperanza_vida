@@ -303,8 +303,8 @@ with tab5:
             st.plotly_chart(fig2,use_container_width=True)
         plot()
 
+cnn.close()
 
-st.write('***')
 
 '''
 ## Análisis y Presentación de Variables
@@ -317,7 +317,17 @@ la Muestra_
 
 # se crean las tabs para mostrar las tablas, caluculadora y gráficos
 
-tab1, tab2, tab3 = st.tabs(["Mapa de Calor(GDP per Cap)","Mapa Geo-Referenciado(EV)","TABLA A PONER"])
+tab1, tab2, tab3= st.tabs(["Mapa de Calor(GDP per Cap)","Mapa Geo-Referenciado(EV)","TABLA A PONER"])
+
+
+sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR 
+        FROM EV e 
+        JOIN INDICADOR i 
+        ON (e.ID_INDICADOR=i.ID_INDICADOR)
+        JOIN PAIS p
+        on (e.ID_PAIS=p.ID_PAIS)
+        WHERE e.ID_INDICADOR=31 AND e.ANIO>1960 AND e.ANIO<=2020 """ 
+EV_todos=pd.read_sql(sql,cnn)
 
 with tab1:
     
@@ -375,4 +385,4 @@ La ingesta de datos desde la API del banco mundial y la OMS se programan anualme
 st.video('https://youtu.be/iXmhOic_WME')
 st.write('***')
 
-cnn.close()
+
