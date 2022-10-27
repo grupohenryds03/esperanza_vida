@@ -28,18 +28,21 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 1. Finding and studying data source: First we analice the data from the World Bank (WB), World Health Organization  (WHO) and scientific papers publications finding the way to access data relative for life expectancy.
 2. Extraction data: we use two methods to access data using PANDAS library in Visual Studio Code with PYTHON lenguaje.  One method with WBGAPI library that provides modern, pythonic access to the World Bank's data API. Another way was importing csv files directly from the WHO website.
 3. Transforming crude data: for cleaning data we made and extensive EDA using different method. The best implementation for missing data over a time series was using a machine learning method calls KNNImputer from SKLEARN library that impute to blanks data  using the mean value from nearest neighbors.
+4. Incrementally load: ones the data is transform we put it into SNOWFLAKE database as compress csv file. For manage the first steps calls ETL we use AIRFLOW annually tasks that is deploy in a cloud  computer HEROKU: https://etl-latin-data.herokuapp.com/ .For Incrementally load to relational tables we use schedule task inside SNOWFLAKE.
+5. ML and visualization: We use SQL querys to ingest data for ML training and predictions methods using PYCARET library. For the dashboard we implement STREAMLIT using PLOTLY library for charts.
+
 '''
 '## Diagram'
 
-st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/diagrama_solo.jpg')
-
-
-'4. Incrementally load: ones the data is transform we put it into SNOWFLAKE database as compress csv file. For manage the first steps calls ETL we use AIRFLOW annually tasks that is deploy in a cloud  computer HEROKU: https://etl-latin-data.herokuapp.com/ .For Incrementally load to relational tables we use schedule task inside SNOWFLAKE.'
-st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/airflow_runing.png')
-'5. ML and visualization: We use SQL querys to ingest data for ML training and predictions methods using PYCARET library. For the dashboard we implement STREAMLIT using PLOTLY library for charts.'
-st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/diagrama_estrella.png')
-
-
+tab1, tab2, tab3 , tab4= st.tabs(['Arquitecture Diagram',"Airflow ELT runing","Relational tables diagram","snowflake tasks"])
+with tab1:
+    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/diagrama_solo.jpg', caption='Arquitecture Diagram')
+with tab2:
+    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/airflow_runing.png',caption='Airflow ELT runing')
+with tab3:
+    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/diagrama_estrella.png',caption='Star Diagram for relational tables in snowflake data warerhouse')
+with tab4:
+    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/snow-tasks.png',caption='Incremetal load with snowflake tasks')
 
 
 # ------------------------- grafico comparativo de indicadores vs esperza vida -------------------
