@@ -22,7 +22,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 '_The data arquitectura follows five principal steps: The fish one to studio and analice the data source. The second one implementing data extraction from source. The third one where the data is transform and cleaning. The fourth one where the data is incrementally load into relational tables. And the last one implementing queries to extract data for machine learning  (ML) algorithms and visualice with charts in a dashboard._'
 
-'## Detail description:'
+'### Detail description:'
 
 '''
 1. Finding and studying data source: First we analice the data from the World Bank (WB), World Health Organization  (WHO) and scientific papers publications finding the way to access data relative for life expectancy.
@@ -32,7 +32,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 5. ML and visualization: We use SQL querys to ingest data for ML training and predictions methods using PYCARET library. For the dashboard we implement STREAMLIT using PLOTLY library for charts.
 
 '''
-'## Diagram'
+'### architecture with images'
 
 tab1, tab2, tab3 , tab4= st.tabs(['Arquitecture Diagram',"Airflow ELT runing","Relational tables diagram","snowflake tasks"])
 with tab1:
@@ -43,6 +43,16 @@ with tab3:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/diagrama_estrella.png',caption='Star Diagram for relational tables in snowflake data warerhouse')
 with tab4:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/snow-tasks.png',caption='Incremetal load with snowflake tasks')
+
+'### Apps Documentation'
+'AIRFLOW: https://airflow.apache.org/docs/'
+'PANDAS: https://pandas.pydata.org/docs/'
+'SNOWFLAKE: https://docs.snowflake.com/en/'
+'STREAMLIT:https://docs.streamlit.io/'
+'PYCARET: https://pycaret.gitbook.io/docs/'
+'WBAPI:https://pypi.org/project/wbgapi/'
+'PLOTLY:https://plotly.com/python/'
+'SKLEARN: https://scikit-learn.org/stable/user_guide.html'
 
 
 # ------------------------- grafico comparativo de indicadores vs esperza vida -------------------
