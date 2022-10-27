@@ -19,7 +19,7 @@ page_style = """
             <style>
             [data-testid="stAppViewContainer"] {
             
-            background_image: url(https://github.com/grupohenryds03/esperanza_vida/raw/main/imagenes/houses-background.jpg);
+            background_image: url("https://github.com/grupohenryds03/esperanza_vida/raw/main/imagenes/houses-background.jpg");
             background_size: cover;
             }
             </style>
