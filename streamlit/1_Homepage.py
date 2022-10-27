@@ -18,7 +18,7 @@ page_style = """
             <style>
             [data-testid="stAppViewContainer"] {
             
-            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/houses-background.jpg?raw=true");
+            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/houses-background2.jpg?raw=true");
             background-size: cover;
             background-position: right;
             }
