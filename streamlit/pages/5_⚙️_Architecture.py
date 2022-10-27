@@ -96,6 +96,8 @@ sql_pais =f"""SELECT e.ANIO, e.VALOR
                 WHERE i.CODIGO='{eleccion_var}' AND e.ANIO<=2020 AND e.ID_PAIS='{id_pais}'"""
 df_var=run_query(sql_pais)
 
+st.dataframe(df_var)
+
 fig = go.Figure()
 fig.add_trace(go.Scatter(x=df_esp.ANIO, 
                     y=df_esp.VALOR,
