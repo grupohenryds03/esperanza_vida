@@ -18,11 +18,13 @@ st.set_page_config(
 page_style = """
             <style>
             [data-testid="stAppViewContainer"] {
-            background-Color: blue;
+            
+            background_image: url(https://github.com/grupohenryds03/esperanza_vida/raw/main/imagenes/houses-background.jpg);
+            background_size: cover;
             }
             </style>
             """
-
+#background-Color: blue;
             
 st.markdown(page_style, unsafe_allow_html=True)
 
