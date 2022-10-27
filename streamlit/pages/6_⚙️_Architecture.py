@@ -69,9 +69,9 @@ def run_query(query):
 
 
 sql_ind="SELECT i.ID_INDICADOR , i.CODIGO, i.DESCRIPCION FROM INDICADOR i JOIN (SELECT DISTINCT ID_INDICADOR FROM EV) e ON e.ID_INDICADOR=i.ID_INDICADOR"
-df_ind=pd.read_sql(sql_ind,conn) # dataframe indicadores
+df_ind=run_query(sql_ind) # dataframe indicadores
 sql_pais="SELECT p.ID_PAIS, p.CODIGO_PAIS, p.NOMBRE FROM PAIS p JOIN (SELECT DISTINCT ID_PAIS FROM EV) e ON e.ID_PAIS=p.ID_PAIS"
-df_pais=pd.read_sql(sql_pais,conn) # dataframe pais
+df_pais=run_query(sql_pais) # dataframe pais
 
 col1,col2=st.columns(2)
 
@@ -90,7 +90,7 @@ sql_esp =f"""SELECT ANIO, VALOR
             JOIN (SELECT ID_PAIS FROM PAIS WHERE NOMBRE='{option_pais}') p
             ON e.ID_PAIS=p.ID_PAIS
             WHERE ID_INDICADOR=31 AND ANIO<=2020"""
-df_esp=pd.read_sql(sql_esp,conn) # dataframe esperanza vida
+df_esp=run_query(sql_esp) # dataframe esperanza vida
 
 sql_ind =f"""SELECT ANIO, VALOR 
             FROM EV e
@@ -99,7 +99,7 @@ sql_ind =f"""SELECT ANIO, VALOR
             JOIN (SELECT ID_PAIS FROM PAIS WHERE NOMBRE='{option_pais}') p
             ON e.ID_PAIS=p.ID_PAIS
             WHERE e.ANIO<=2020"""
-df_ind=pd.read_sql(sql_ind,conn) # dataframe indicador elejido
+df_ind=run_query(sql_ind) # dataframe indicador elejido
 
 
 fig = make_subplots(specs=[[{"secondary_y": True}]])
