@@ -15,7 +15,7 @@ st.set_page_config(
 
 # Open page style
 #with open('style.css') as f:
-st.markdown('<style>body{backgroundColor: #0f5c71;}</style>', unsafe_allow_html=True)
+st.markdown('<style>body{backgroundColor: blue;}</style>', unsafe_allow_html=True)
 
 col1,col2,col3=st.columns(3)
 with col2:
