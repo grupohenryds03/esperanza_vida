@@ -93,7 +93,7 @@ sql_esp =f"""SELECT ANIO, VALOR
             JOIN (SELECT ID_PAIS FROM PAIS WHERE NOMBRE='{option_pais}') p
             ON e.ID_PAIS=p.ID_PAIS
             WHERE ID_INDICADOR=31 AND ANIO<=2020;'"""
-df_esp=run_query(sql_esp)
+df_esp=pd.read_sql(sql_esp,conn)
 
 sql_var =f"""SELECT ANIO, VALOR 
             FROM EV e
@@ -102,7 +102,7 @@ sql_var =f"""SELECT ANIO, VALOR
             JOIN (SELECT ID_PAIS FROM PAIS WHERE NOMBRE='{option_pais}') p
             ON e.ID_PAIS=p.ID_PAIS
             WHERE e.ANIO<=2020;"""
-df_var=run_query(sql_var)
+df_var=pd.read_sql(sql_var,conn)
 
 # Create figure with secondary y-axis
 fig = make_subplots(specs=[[{"secondary_y": True}]])
