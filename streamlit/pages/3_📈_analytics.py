@@ -66,6 +66,7 @@ with tab1:
                         line=dict(width=0.8)))
 
     fig.update_xaxes(showgrid=False)
+    fig.update_yaxes(showgrid=False, title_text="años")
     st.plotly_chart(fig,use_container_width=True)
 
 sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR 
