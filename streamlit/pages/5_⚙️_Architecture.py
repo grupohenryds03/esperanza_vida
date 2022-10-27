@@ -72,10 +72,10 @@ def run_query(query):
 
 
 
-sql =f"SELECT * FROM INDICADOR i JOIN (SELECT DISTINCT ID_INDICADOR FROM EV) e ON e.ID_INDICADOR=i.ID_INDICADOR"
-df_ind=run_query(sql)
-sql =f"SELECT * FROM PAIS p JOIN (SELECT DISTINCT ID_PAIS FROM EV) e ON e.ID_PAIS=p.ID_PAIS"
-df_pais=run_query(sql)
+sql_ind=f"SELECT * FROM INDICADOR i JOIN (SELECT DISTINCT ID_INDICADOR FROM EV) e ON e.ID_INDICADOR=i.ID_INDICADOR"
+df_ind=run_query(sql_ind)
+sql_pais=f"SELECT * FROM PAIS p JOIN (SELECT DISTINCT ID_PAIS FROM EV) e ON e.ID_PAIS=p.ID_PAIS"
+df_pais=run_query(sql_pais)
 
 col1,col2=st.columns(2)
 
@@ -89,7 +89,43 @@ with col2:
             'Elegir la variable de la lista despleglable',
             df_ind.DESCRIPCION) #lista_codigo_pais
 
+sql_esp =f"""SELECT ANIO, VALOR 
+            FROM EV e
+            JOIN (SELECT ID_PAIS FROM PAIS WHERE NOMBRE='{option_pais}') p
+            ON e.ID_PAIS=p.ID_PAIS
+            WHERE ID_INDICADOR=31 AND ANIO<=2020;'"""
+df_esp=run_query(sql_esp)
 
+sql_var =f"""SELECT ANIO, VALOR 
+            FROM EV e
+            JOIN (SELECT ID_INDICADOR FROM INDICADOR WHERE DESCRIPCION='{option_var}') i
+            ON e.ID_INDICADOR=i.ID_INDICADOR
+            JOIN (SELECT ID_PAIS FROM PAIS WHERE NOMBRE='{option_pais}') p
+            ON e.ID_PAIS=p.ID_PAIS
+            WHERE e.ANIO<=2020;"""
+df_var=run_query(sql_var)
+
+# Create figure with secondary y-axis
+fig = make_subplots(specs=[[{"secondary_y": True}]])
+fig.add_trace(go.Scatter(x=df_esp.ANIO, 
+                    y=df_esp.VALOR,
+                    mode='lines',
+                    marker_color='#FF0000',
+                    name="esperanza de vida",
+                    line=dict(width=0.8)),secondary_y=False)
+
+fig.add_trace(go.Scatter(x=df_var.ANIO, 
+                    y=df_var.VALOR,#option
+                    mode='lines',
+                    marker_color='#00FF00',
+                    name=option_var,
+                    line=dict(width=0.8)),secondary_y=True)
+
+fig.update_xaxes(showgrid=False)
+fig.update_yaxes(showgrid=False)
+fig.update_yaxes(title_text="años", secondary_y=False)
+fig.update_yaxes(title_text="xxxx", secondary_y=True)
+st.plotly_chart(fig,use_container_width=True)
 
 
 
