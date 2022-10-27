@@ -17,7 +17,8 @@ st.set_page_config(
 #with open('style.css') as f:
 page_style = """
             <style>
-            body{background-Color: blue;}
+            .divblock_container.css-18e3th{background-Color: blue;}
+            .body{background-Color: blue;}
             .font {font-size:50px ; font-family: 'Cooper Black'; color: #FF9633;}
             </style>
             """
