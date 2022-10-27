@@ -7,7 +7,7 @@ from info import *
 
 st.set_page_config(
     page_title="Analitic",
-    page_icon="📊",
+    page_icon="📈",
 )
 
 cnn = snowflake.connector.connect(

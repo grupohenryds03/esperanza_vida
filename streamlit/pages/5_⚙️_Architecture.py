@@ -17,16 +17,14 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-
-
 '## Arquitectura'
 
 '''
-1. busqueda de data y análisis para data cruda
-2. Ingesta data cruda, limpieza y carga (ETL)
-3. Tareas para la carga incremental
-4.  Ingesta de data a base de datos relacional
-5. Acceso a base de datos para modelar progreciones en machine lerning y visualización en dasboard
+1. busqueda de data y análisis para data cruda_.
+2. Ingesta data cruda, limpieza y carga (ETL)_.
+3. Tareas para la carga incremental_.
+4.  Ingesta de data a base de datos relacional_.
+5. Acceso a base de datos para modelar progreciones en machine lerning y visualización en dasboard_.
 '''
 st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/diagrama_solo.jpg')
 
