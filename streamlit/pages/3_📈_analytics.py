@@ -398,11 +398,11 @@ with tab1:
 
 with tab2:
 
-    eleccion = st.selectbox(
+    eleccion2 = st.selectbox(
     'Select Variable:',
     (lista_Kpi2))
 
-    if eleccion=='Infant_Mortality':
+    if eleccion2=='Infant_Mortality':
 
             sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR 
                     FROM EV e 
@@ -412,7 +412,7 @@ with tab2:
                     on (e.ID_PAIS=p.ID_PAIS)
                     WHERE e.ID_INDICADOR=18 AND e.ANIO>1960 AND e.ANIO<=2020 """ 
             GDP_todos=pd.read_sql(sql,cnn)
-    elif eleccion=='CO2_Emission':
+    elif eleccion2=='CO2_Emission':
             sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR 
                     FROM EV e 
                     JOIN INDICADOR i 
@@ -422,7 +422,7 @@ with tab2:
                     WHERE e.ID_INDICADOR=5 AND e.ANIO>1960 AND e.ANIO<=2020 """ 
             GDP_todos=pd.read_sql(sql,cnn)
     
-    elif eleccion=='Rural_Population (%)':
+    elif eleccion2=='Rural_Population (%)':
             sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR 
                     FROM EV e 
                     JOIN INDICADOR i 
@@ -432,7 +432,7 @@ with tab2:
                     WHERE e.ID_INDICADOR=35 AND e.ANIO>1960 AND e.ANIO<=2020 """ 
             GDP_todos=pd.read_sql(sql,cnn)
 
-    elif eleccion=='GDP_Per Capita':
+    elif eleccion2=='GDP_Per Capita':
             sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR 
                     FROM EV e 
                     JOIN INDICADOR i 
@@ -442,7 +442,7 @@ with tab2:
                     WHERE e.ID_INDICADOR=9 AND e.ANIO>1960 AND e.ANIO<=2020 """ 
             GDP_todos=pd.read_sql(sql,cnn)
 
-    elif eleccion=='Life_Expectancy':
+    elif eleccion2=='Life_Expectancy':
             sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR 
                     FROM EV e 
                     JOIN INDICADOR i 
@@ -460,7 +460,7 @@ with tab2:
                             size=GDP_todos['VALOR'],
                             animation_frame='ANIO',
                             projection='natural earth',
-                            title='eleccion',
+                            title=eleccion2,
                             template='simple_white')
     fig3.update_layout(margin={"r":10,"t":50,"l":10,"b":10},width=900, 
                   height=600)
