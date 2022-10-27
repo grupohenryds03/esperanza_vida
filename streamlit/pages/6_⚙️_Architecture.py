@@ -46,6 +46,8 @@ st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/i
 
 
 
+
+# ------------------------- grafico comparativo de indicadores vs esperza vida -------------------
 @st.experimental_singleton
 def init_connection():
     return snowflake.connector.connect(
@@ -58,14 +60,11 @@ def init_connection():
 
 conn = init_connection()
 
-# Perform query.
-# Uses st.experimental_memo to only rerun when the query changes or after 10 min.
 @st.experimental_memo(ttl=600)
 def run_query(query):
     with conn.cursor() as cur:
         cur.execute(query)
         return cur.fetch_pandas_all()
-
 
 
 sql_ind="SELECT i.ID_INDICADOR , i.CODIGO, i.DESCRIPCION FROM INDICADOR i JOIN (SELECT DISTINCT ID_INDICADOR FROM EV) e ON e.ID_INDICADOR=i.ID_INDICADOR"
