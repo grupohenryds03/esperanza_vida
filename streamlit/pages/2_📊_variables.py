@@ -3,6 +3,9 @@ import pandas as pd
 import missingno as msno
 import plotly.express as px
 import plotly.graph_objs as go
+import snowflake.connector
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 
 st.set_page_config(
     page_title="Variables",
@@ -113,3 +116,80 @@ layout = go.Layout(
 data = [trace]
 fig = go.Figure(data=data,layout = layout)
 st.plotly_chart(fig)
+
+
+# ------------------------- grafico comparativo de indicadores vs esperza vida -------------------
+
+@st.experimental_singleton
+def init_connection():
+    return snowflake.connector.connect(
+        user=st.secrets.snowflake.user,
+    password=st.secrets.snowflake.password,
+    account=st.secrets.snowflake.account,
+    warehouse=st.secrets.snowflake.warehouse,
+    database=st.secrets.snowflake.database, client_session_keep_alive=True
+    )
+
+conn = init_connection()
+
+@st.experimental_memo(ttl=600)
+def run_query(query):
+    with conn.cursor() as cur:
+        cur.execute(query)
+        return cur.fetch_pandas_all()
+
+
+sql_ind="SELECT i.ID_INDICADOR , i.CODIGO, i.DESCRIPCION FROM INDICADOR i JOIN (SELECT DISTINCT ID_INDICADOR FROM EV) e ON e.ID_INDICADOR=i.ID_INDICADOR"
+df_ind=run_query(sql_ind) # dataframe indicadores
+sql_pais="SELECT p.ID_PAIS, p.CODIGO_PAIS, p.NOMBRE FROM PAIS p JOIN (SELECT DISTINCT ID_PAIS FROM EV) e ON e.ID_PAIS=p.ID_PAIS"
+df_pais=run_query(sql_pais) # dataframe pais
+
+col1,col2=st.columns(2)
+
+with col1:
+    option_pais = st.selectbox(
+        'Elegir el país de la lista despleglable',
+        df_pais.NOMBRE) 
+
+with col2:
+    option_ind = st.selectbox(
+            'Elegir la variable de la lista despleglable',
+            df_ind.DESCRIPCION) 
+
+sql_esp =f"""SELECT ANIO, VALOR 
+            FROM EV e
+            JOIN (SELECT ID_PAIS FROM PAIS WHERE NOMBRE='{option_pais}') p
+            ON e.ID_PAIS=p.ID_PAIS
+            WHERE ID_INDICADOR=31 AND ANIO<=2020"""
+df_esp=run_query(sql_esp) # dataframe esperanza vida
+
+sql_ind =f"""SELECT ANIO, VALOR 
+            FROM EV e
+            JOIN (SELECT ID_INDICADOR FROM INDICADOR WHERE DESCRIPCION='{option_ind}') i
+            ON e.ID_INDICADOR=i.ID_INDICADOR
+            JOIN (SELECT ID_PAIS FROM PAIS WHERE NOMBRE='{option_pais}') p
+            ON e.ID_PAIS=p.ID_PAIS
+            WHERE e.ANIO<=2020"""
+df_ind=run_query(sql_ind) # dataframe indicador elejido
+
+titulo_grafico=f"Correlación entre espereanza de vida de {option_pais} contra {option_ind}"
+fig = make_subplots(specs=[[{"secondary_y": True}]])
+fig.add_trace(go.Scatter(x=df_esp.ANIO, 
+                    y=df_esp.VALOR,
+                    mode='lines',
+                    marker_color='#FF0000',
+                    name="esperanza de vida",
+                    line=dict(width=0.8)),secondary_y=False)
+
+fig.add_trace(go.Scatter(x=df_ind.ANIO, 
+                    y=df_ind.VALOR,#option
+                    mode='lines',
+                    marker_color='#00FF00',
+                    line=dict(width=0.8)),secondary_y=True)
+
+fig.update_xaxes(showgrid=False)
+fig.update_yaxes(showgrid=False)
+fig.update_yaxes(title_text="años", secondary_y=False)
+fig.update_yaxes(secondary_y=True)
+fig.update_layout(title=titulo_grafico)
+st.plotly_chart(fig,use_container_width=True)
