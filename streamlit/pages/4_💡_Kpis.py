@@ -8,7 +8,7 @@ st.set_page_config(
 
 #st.title('Kpis')
 
-lista_Kpi =['Mortalidad Infantil','CO2 EMISSION','RURAL POPULATION (%)','GDP PER CAPITA']
+lista_Kpi =['Infant Mortality','CO2 Emission','Rural Population (%)','GDP Per Capita','Conclusions']
 '''
 # Key Performance Indicators (KPIs)
 '''
@@ -21,10 +21,10 @@ In addition, it was differentiated according to the level of development of a co
 st.write('***')
 
 eleccion = st.selectbox(
-    'Select KPI',
+    'Select:',
     (lista_Kpi))
 
-if eleccion=='Mortalidad Infantil':
+if eleccion=='Infant Mortality':
     a1,a2=st.columns(2)
     with a1:
         st.subheader("Objetivo")
@@ -55,24 +55,30 @@ if eleccion=='Mortalidad Infantil':
     ev_2020_average.append(round((df['EV_2020'][(df['ID_INCOME'] !=0)].mean()),4))
     ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] !=0)].mean()),4))
     ev_2025_hypo_average.append(round((df['EV_2025_Mejora'][(df['ID_INCOME'] !=0)].mean()),4))
-    resultados = pd.DataFrame(pais_desarrollo, columns=['DEVELOPED LEVEL'])
-    resultados1 = pd.DataFrame(ev_2020_average, columns=['LE 2020 AVERAGE'])
-    resultados2 = pd.DataFrame(ev_2025_average, columns=['LE FORECAST 2025 AVERAGE'])
-    resultados3 = pd.DataFrame(ev_2025_hypo_average, columns=['LE HYPOTETICAL 2025 AVERAGE'])
+    resultados = pd.DataFrame(pais_desarrollo, columns=['Developed Level'])
+    resultados1 = pd.DataFrame(ev_2020_average, columns=['LE 2020 Average'])
+    resultados2 = pd.DataFrame(ev_2025_average, columns=['LE Forecast 2025 Average'])
+    resultados3 = pd.DataFrame(ev_2025_hypo_average, columns=['LE Forecast Hypot. 2025 Average'])
     #resultados4 = pd.DataFrame(modelo_mejora, columns=['Modelo_Predictivo'])
-    resultado = pd.concat([resultados,resultados1,resultados2,resultados3],axis=1)#,resultados4
-    resultado['DIFFERENCE (%)']=(resultado['LE HYPOTETICAL 2025 AVERAGE']/resultado['LE FORECAST 2025 AVERAGE'])-1
+    resultadoa = pd.concat([resultados,resultados1,resultados2,resultados3],axis=1)#,resultados4
+    resultadoa['Difference (%)']=(resultadoa['LE Forecast Hypot. 2025 Average']/resultadoa['LE Forecast 2025 Average'])-1
 
-    st.table(resultado)
+    resultado1=resultadoa['Difference (%)']
+    resultado1=pd.DataFrame(resultado1)
+    resultado1=resultado1.rename(columns={'Difference (%)':'Infant Mortality'})
+    resultado1=pd.concat([resultados,resultado1],axis=1)
+
+    st.table(resultadoa)
 
 
-    
+
     df.drop('Unnamed: 0',inplace=True, axis=1)
+    df=df.rename(columns={'Pais':'Country','EV_2020':'LE 2020','EV_2025':'LE 2025','EV_2025_Mejora':'LE 2025 Hypotetical'})
     
     st.table(df)
 
 
-elif eleccion=='CO2 EMISSION':
+elif eleccion=='CO2 Emission':
     a1,a2=st.columns(2)
     with a1:
         st.subheader("Objetivo")
@@ -102,25 +108,30 @@ elif eleccion=='CO2 EMISSION':
     ev_2020_average.append(round((df['EV_2020'][(df['ID_INCOME'] !=0)].mean()),4))
     ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] !=0)].mean()),4))
     ev_2025_hypo_average.append(round((df['EV_2025_Mejora'][(df['ID_INCOME'] !=0)].mean()),4))
-    resultados = pd.DataFrame(pais_desarrollo, columns=['DEVELOPED LEVEL'])
-    resultados1 = pd.DataFrame(ev_2020_average, columns=['LE 2020 AVERAGE'])
-    resultados2 = pd.DataFrame(ev_2025_average, columns=['LE FORECAST 2025 AVERAGE'])
-    resultados3 = pd.DataFrame(ev_2025_hypo_average, columns=['LE HYPOTETICAL 2025 AVERAGE'])
+    resultados = pd.DataFrame(pais_desarrollo, columns=['Developed Level'])
+    resultados1 = pd.DataFrame(ev_2020_average, columns=['LE 2020 Average'])
+    resultados2 = pd.DataFrame(ev_2025_average, columns=['LE Forecast 2025 Average'])
+    resultados3 = pd.DataFrame(ev_2025_hypo_average, columns=['LE Forecast Hypot. 2025 Average'])
     #resultados4 = pd.DataFrame(modelo_mejora, columns=['Modelo_Predictivo'])
-    resultado = pd.concat([resultados,resultados1,resultados2,resultados3],axis=1)#,resultados4
-    resultado['DIFFERENCE (%)']=(resultado['LE HYPOTETICAL 2025 AVERAGE']/resultado['LE FORECAST 2025 AVERAGE'])-1
+    resultadob = pd.concat([resultados,resultados1,resultados2,resultados3],axis=1)#,resultados4
+    resultadob['Difference (%)']=(resultadob['LE Forecast Hypot. 2025 Average']/resultadob['LE Forecast 2025 Average'])-1
 
-    st.table(resultado)
+    resultado2=resultadob['Difference (%)']
+    resultado2=pd.DataFrame(resultado2)
+    resultado2=resultado2.rename(columns={'Difference (%)':'CO2 Emission'})
+    
+
+    st.table(resultadob)
 
 
     
     df.drop('Unnamed: 0',inplace=True, axis=1)
-    
+    df=df.rename(columns={'Pais':'Country','EV_2020':'LE 2020','EV_2025':'LE 2025','EV_2025_Mejora':'LE 2025 Hypotetical'})
     st.table(df)
 
 
 
-elif eleccion=='RURAL POPULATION (%)':
+elif eleccion=='Rural Population (%)':
     a1,a2=st.columns(2)
     with a1:
         st.subheader("Objetivo")
@@ -150,24 +161,29 @@ elif eleccion=='RURAL POPULATION (%)':
     ev_2020_average.append(round((df['EV_2020'][(df['ID_INCOME'] !=0)].mean()),4))
     ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] !=0)].mean()),4))
     ev_2025_hypo_average.append(round((df['EV_2025_Mejora'][(df['ID_INCOME'] !=0)].mean()),4))
-    resultados = pd.DataFrame(pais_desarrollo, columns=['DEVELOPED LEVEL'])
-    resultados1 = pd.DataFrame(ev_2020_average, columns=['LE 2020 AVERAGE'])
-    resultados2 = pd.DataFrame(ev_2025_average, columns=['LE FORECAST 2025 AVERAGE'])
-    resultados3 = pd.DataFrame(ev_2025_hypo_average, columns=['LE HYPOTETICAL 2025 AVERAGE'])
+    resultados = pd.DataFrame(pais_desarrollo, columns=['Developed Level'])
+    resultados1 = pd.DataFrame(ev_2020_average, columns=['LE 2020 Average'])
+    resultados2 = pd.DataFrame(ev_2025_average, columns=['LE Forecast 2025 Average'])
+    resultados3 = pd.DataFrame(ev_2025_hypo_average, columns=['LE Forecast Hypot. 2025 Average'])
     #resultados4 = pd.DataFrame(modelo_mejora, columns=['Modelo_Predictivo'])
-    resultado = pd.concat([resultados,resultados1,resultados2,resultados3],axis=1)#,resultados4
-    resultado['DIFFERENCE (%)']=(resultado['LE HYPOTETICAL 2025 AVERAGE']/resultado['LE FORECAST 2025 AVERAGE'])-1
+    resultadoc = pd.concat([resultados,resultados1,resultados2,resultados3],axis=1)#,resultados4
+    resultadoc['Difference (%)']=(resultadoc['LE Forecast Hypot. 2025 Average']/resultadoc['LE Forecast 2025 Average'])-1
 
-    st.table(resultado)
+    resultado3=resultadoc['Difference (%)']
+    resultado3=pd.DataFrame(resultado3)
+    resultado3=resultado3.rename(columns={'Difference (%)':'Rural Population (%)'})
+
+
+    st.table(resultadoc)
 
 
     
     df.drop('Unnamed: 0',inplace=True, axis=1)
-    
+    df=df.rename(columns={'Pais':'Country','EV_2020':'LE 2020','EV_2025':'LE 2025','EV_2025_Mejora':'LE 2025 Hypotetical'})
     st.table(df)
 
 
-elif eleccion=='GDP PER CAPITA':
+elif eleccion=='GDP Per Capita':
     a1,a2=st.columns(2)
     with a1:
         st.subheader("Objetivo")
@@ -197,18 +213,154 @@ elif eleccion=='GDP PER CAPITA':
     ev_2020_average.append(round((df['EV_2020'][(df['ID_INCOME'] !=0)].mean()),4))
     ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] !=0)].mean()),4))
     ev_2025_hypo_average.append(round((df['EV_2025_Mejora'][(df['ID_INCOME'] !=0)].mean()),4))
-    resultados = pd.DataFrame(pais_desarrollo, columns=['DEVELOPED LEVEL'])
-    resultados1 = pd.DataFrame(ev_2020_average, columns=['LE 2020 AVERAGE'])
-    resultados2 = pd.DataFrame(ev_2025_average, columns=['LE FORECAST 2025 AVERAGE'])
-    resultados3 = pd.DataFrame(ev_2025_hypo_average, columns=['LE HYPOTETICAL 2025 AVERAGE'])
+    resultados = pd.DataFrame(pais_desarrollo, columns=['Developed Level'])
+    resultados1 = pd.DataFrame(ev_2020_average, columns=['LE 2020 Average'])
+    resultados2 = pd.DataFrame(ev_2025_average, columns=['LE Forecast 2025 Average'])
+    resultados3 = pd.DataFrame(ev_2025_hypo_average, columns=['LE Forecast Hypot. 2025 Average'])
     #resultados4 = pd.DataFrame(modelo_mejora, columns=['Modelo_Predictivo'])
-    resultado = pd.concat([resultados,resultados1,resultados2,resultados3],axis=1)#,resultados4
-    resultado['DIFFERENCE (%)']=(resultado['LE HYPOTETICAL 2025 AVERAGE']/resultado['LE FORECAST 2025 AVERAGE'])-1
+    resultadod = pd.concat([resultados,resultados1,resultados2,resultados3],axis=1)#,resultados4
+    resultadod['Difference (%)']=(resultadod['LE Forecast Hypot. 2025 Average']/resultadod['LE Forecast 2025 Average'])-1
 
-    st.table(resultado)
+    resultado4=resultadod['Difference (%)']
+    resultado4=pd.DataFrame(resultado4)
+    resultado4=resultado4.rename(columns={'Difference (%)':'GDP Per Capita'})
 
 
+    st.table(resultadod)
+
+    
     
     df.drop('Unnamed: 0',inplace=True, axis=1)
-    
+    df=df.rename(columns={'Pais':'Country','EV_2020':'LE 2020','EV_2025':'LE 2025','EV_2025_Mejora':'LE 2025 Hypotetical'})
     st.table(df)
+
+
+if eleccion=='Conclusions':
+
+
+
+    df = pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/KPI_Mort-Inf.csv')
+        
+    pais_desarrollo=[]
+    ev_2020_average=[]
+    ev_2025_average=[]
+    ev_2025_hypo_average=[]
+
+    pais_desarrollo.append('Developed Countrys')
+
+    ev_2020_average.append(round((df['EV_2020'][(df['ID_INCOME'] ==0)].mean()),4))
+    ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] ==0)].mean()),4))
+    ev_2025_hypo_average.append(round((df['EV_2025_Mejora'][(df['ID_INCOME'] ==0)].mean()),4))
+
+    pais_desarrollo.append('NOT Developed Countrys')
+
+    ev_2020_average.append(round((df['EV_2020'][(df['ID_INCOME'] !=0)].mean()),4))
+    ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] !=0)].mean()),4))
+    ev_2025_hypo_average.append(round((df['EV_2025_Mejora'][(df['ID_INCOME'] !=0)].mean()),4))
+    resultados = pd.DataFrame(pais_desarrollo, columns=['Developed Level'])
+    resultados1 = pd.DataFrame(ev_2020_average, columns=['LE 2020 Average'])
+    resultados2 = pd.DataFrame(ev_2025_average, columns=['LE Forecast 2025 Average'])
+    resultados3 = pd.DataFrame(ev_2025_hypo_average, columns=['LE Forecast Hypot. 2025 Average'])
+    
+    resultadoa = pd.concat([resultados,resultados1,resultados2,resultados3],axis=1)#,resultados4
+    resultadoa['Difference (%)']=(resultadoa['LE Forecast Hypot. 2025 Average']/resultadoa['LE Forecast 2025 Average'])-1
+
+    resultado1=resultadoa['Difference (%)']
+    resultado1=pd.DataFrame(resultado1)
+    resultado1=resultado1.rename(columns={'Difference (%)':'Infant Mortality'})
+    resultado1=pd.concat([resultados,resultado1],axis=1)
+
+    df = pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/KPI_CO2.csv')
+        
+    pais_desarrollo=[]
+    ev_2020_average=[]
+    ev_2025_average=[]
+    ev_2025_hypo_average=[]
+
+    pais_desarrollo.append('Developed Countrys')
+
+    ev_2020_average.append(round((df['EV_2020'][(df['ID_INCOME'] ==0)].mean()),4))
+    ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] ==0)].mean()),4))
+    ev_2025_hypo_average.append(round((df['EV_2025_Mejora'][(df['ID_INCOME'] ==0)].mean()),4))
+
+    pais_desarrollo.append('NOT Developed Countrys')
+
+    ev_2020_average.append(round((df['EV_2020'][(df['ID_INCOME'] !=0)].mean()),4))
+    ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] !=0)].mean()),4))
+    ev_2025_hypo_average.append(round((df['EV_2025_Mejora'][(df['ID_INCOME'] !=0)].mean()),4))
+    resultados = pd.DataFrame(pais_desarrollo, columns=['Developed Level'])
+    resultados1 = pd.DataFrame(ev_2020_average, columns=['LE 2020 Average'])
+    resultados2 = pd.DataFrame(ev_2025_average, columns=['LE Forecast 2025 Average'])
+    resultados3 = pd.DataFrame(ev_2025_hypo_average, columns=['LE Forecast Hypot. 2025 Average'])
+        
+    resultadob = pd.concat([resultados,resultados1,resultados2,resultados3],axis=1)#,resultados4
+    resultadob['Difference (%)']=(resultadob['LE Forecast Hypot. 2025 Average']/resultadob['LE Forecast 2025 Average'])-1
+
+    resultado2=resultadob['Difference (%)']
+    resultado2=pd.DataFrame(resultado2)
+    resultado2=resultado2.rename(columns={'Difference (%)':'CO2 Emission'})
+
+    df = pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/KPI_RURAL.csv')
+        
+    pais_desarrollo=[]
+    ev_2020_average=[]
+    ev_2025_average=[]
+    ev_2025_hypo_average=[]
+
+    pais_desarrollo.append('Developed Countrys')
+
+    ev_2020_average.append(round((df['EV_2020'][(df['ID_INCOME'] ==0)].mean()),4))
+    ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] ==0)].mean()),4))
+    ev_2025_hypo_average.append(round((df['EV_2025_Mejora'][(df['ID_INCOME'] ==0)].mean()),4))
+
+    pais_desarrollo.append('NOT Developed Countrys')
+
+    ev_2020_average.append(round((df['EV_2020'][(df['ID_INCOME'] !=0)].mean()),4))
+    ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] !=0)].mean()),4))
+    ev_2025_hypo_average.append(round((df['EV_2025_Mejora'][(df['ID_INCOME'] !=0)].mean()),4))
+    resultados = pd.DataFrame(pais_desarrollo, columns=['Developed Level'])
+    resultados1 = pd.DataFrame(ev_2020_average, columns=['LE 2020 Average'])
+    resultados2 = pd.DataFrame(ev_2025_average, columns=['LE Forecast 2025 Average'])
+    resultados3 = pd.DataFrame(ev_2025_hypo_average, columns=['LE Forecast Hypot. 2025 Average'])
+        
+    resultadoc = pd.concat([resultados,resultados1,resultados2,resultados3],axis=1)#,resultados4
+    resultadoc['Difference (%)']=(resultadoc['LE Forecast Hypot. 2025 Average']/resultadoc['LE Forecast 2025 Average'])-1
+
+    resultado3=resultadoc['Difference (%)']
+    resultado3=pd.DataFrame(resultado3)
+    resultado3=resultado3.rename(columns={'Difference (%)':'Rural Population (%)'})
+
+    df = pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/KPI_GDP.csv')
+        
+    pais_desarrollo=[]
+    ev_2020_average=[]
+    ev_2025_average=[]
+    ev_2025_hypo_average=[]
+
+    pais_desarrollo.append('Developed Countrys')
+
+    ev_2020_average.append(round((df['EV_2020'][(df['ID_INCOME'] ==0)].mean()),4))
+    ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] ==0)].mean()),4))
+    ev_2025_hypo_average.append(round((df['EV_2025_Mejora'][(df['ID_INCOME'] ==0)].mean()),4))
+
+    pais_desarrollo.append('NOT Developed Countrys')
+
+    ev_2020_average.append(round((df['EV_2020'][(df['ID_INCOME'] !=0)].mean()),4))
+    ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] !=0)].mean()),4))
+    ev_2025_hypo_average.append(round((df['EV_2025_Mejora'][(df['ID_INCOME'] !=0)].mean()),4))
+    resultados = pd.DataFrame(pais_desarrollo, columns=['Developed Level'])
+    resultados1 = pd.DataFrame(ev_2020_average, columns=['LE 2020 Average'])
+    resultados2 = pd.DataFrame(ev_2025_average, columns=['LE Forecast 2025 Average'])
+    resultados3 = pd.DataFrame(ev_2025_hypo_average, columns=['LE Forecast Hypot. 2025 Average'])
+        
+    resultadod = pd.concat([resultados,resultados1,resultados2,resultados3],axis=1)#,resultados4
+    resultadod['Difference (%)']=(resultadod['LE Forecast Hypot. 2025 Average']/resultadod['LE Forecast 2025 Average'])-1
+
+    resultado4=resultadod['Difference (%)']
+    resultado4=pd.DataFrame(resultado4)
+    resultado4=resultado4.rename(columns={'Difference (%)':'GDP Per Capita'})
+
+
+    conclu=pd.concat([resultado1,resultado2,resultado3,resultado4],axis=1)
+    
+    st.dataframe(conclu.style.highlight_max(axis=0))
