@@ -56,17 +56,18 @@ with tab1:
                         mode='lines',
                         marker_color='#FF0000',
                         name=a,#option
-                        line=dict(width=0.8)))
+                        line=dict(width=1)))
 
     fig.add_trace(go.Scatter(x=df_final.YEAR, 
                         y=df_final[a],#option
                         mode='lines',
                         marker_color='#00FF00',
                         name='Predicción Esperanza de Vida',
-                        line=dict(width=0.8)))
+                        line=dict(width=1)))
 
     fig.update_xaxes(showgrid=False)
-    fig.update_yaxes(showgrid=False, title_text="años")
+    fig.update_yaxes(showgrid=True, gridwidth=0.5, gridcolor='LightPink')
+    fig.update_yaxes(title_text="años")
     st.plotly_chart(fig,use_container_width=True)
 
 sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR 
