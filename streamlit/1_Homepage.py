@@ -26,6 +26,8 @@ page_style = """
             background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/imageLE.png?raw=true");
             background-size: cover;
             background-position: right;
+            opacity: 0.2;
+            text-color: gray;
             }
             </style>
             """
