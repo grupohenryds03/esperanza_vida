@@ -304,7 +304,7 @@ with tab5:
         plot()
 
 
-
+st.write('***')
 
 '''
 ## Análisis y Presentación de Variables
@@ -317,46 +317,8 @@ la Muestra_
 
 # se crean las tabs para mostrar las tablas, caluculadora y gráficos
 
-tab1, tab2, tab3 , tab4= st.tabs(['GRAFICO A PONER',"Mapa de Calor(GDP per Cap)","Mapa Geo-Referenciado(EV)","TABLA A PONER"])
-with tab1:
-    option = st.selectbox(
-    'Elegir el país de la lista despleglable',
-    pais) #lista_codigo_pais
-
-    a=dic_pais.get(option)
-    'La selección fue:', option #dic_pais2[option]
+tab1, tab2, tab3= st.tabs(["Mapa de Calor(GDP per Cap)","Mapa Geo-Referenciado(EV)","TABLA A PONER"])
     
-    id_pais=dic_id_pais[a] #option
-
-    df=pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/Prediccion_EV_10.csv')
-    df.drop('Unnamed: 0',inplace=True, axis=1)
-    YEAR=pd.DataFrame([2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029,2030], columns=['YEAR'])
-    df_prediccion=pd.concat([YEAR,df], axis=1)
-    df_final=pd.concat([df_prediccion.YEAR,df_prediccion[a]], axis=1) #option
-
-    sql =f"SELECT ANIO, ID_PAIS, VALOR FROM EV WHERE ID_INDICADOR=31 AND ANIO<=2020 AND ID_PAIS='{id_pais}'"
-    df_anterior=pd.read_sql(sql,cnn)
-
-    'Predicciones de la Esperanza de Vida Promedio Anual para los Proximos 10 Años'
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(x=df_anterior.ANIO, 
-                        y=df_anterior.VALOR,
-                        mode='lines',
-                        marker_color='#FF0000',
-                        name=a,#option
-                        line=dict(width=2)))
-
-    fig.add_trace(go.Scatter(x=df_final.YEAR, 
-                        y=df_final[a],#option
-                        mode='lines',
-                        marker_color='#00FF00',
-                        name='Predicción Esperanza de Vida',
-                        line=dict(width=2)))
-
-    fig.update_xaxes(showgrid=False)
-    fig.update_yaxes(showgrid=True, griddash='dot', gridwidth=0.5, gridcolor='White')
-    fig.update_yaxes(title_text="años")
-    st.plotly_chart(fig,use_container_width=True)
 
 sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR 
         FROM EV e 
@@ -367,7 +329,7 @@ sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR
         WHERE e.ID_INDICADOR=31 AND e.ANIO>1960 AND e.ANIO<=2020 """ 
 EV_todos=pd.read_sql(sql,cnn)
 
-with tab2:
+with tab1:
     
     'Mapa Geo-Referenciado de la Esperanza de Vida Promedio Anual por Pais'
     fig2 = px.choropleth(
@@ -392,7 +354,7 @@ sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR
         WHERE e.ID_INDICADOR=9 AND e.ANIO>1960 AND e.ANIO<=2020 """ 
 GDP_todos=pd.read_sql(sql,cnn)
 
-with tab3:
+with tab2:
 
 
 
@@ -412,7 +374,7 @@ with tab3:
 
 
 
-with tab4:
+with tab3:
     st.dataframe(df_prediccion)
 
 st.write('***')
