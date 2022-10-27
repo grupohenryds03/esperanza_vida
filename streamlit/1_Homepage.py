@@ -13,7 +13,7 @@ st.set_page_config(
     page_icon="👋",
 )
 
-
+#opacity: 0.2;
 page_style = """
             <style>
             [data-testid="stAppViewContainer"] {
@@ -26,8 +26,8 @@ page_style = """
             background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/imageLE.png?raw=true");
             background-size: cover;
             background-position: right;
-            #opacity: 0.2;
-            text-color: white;
+            
+            color: white;
             }
             </style>
             """
