@@ -9,7 +9,7 @@ import plotly.graph_objs as go
 
 
 st.set_page_config(
-    page_title="Multipage App",
+    page_title="Homepage",
     page_icon="👋",
 )
 

@@ -19,10 +19,18 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
 
-st.header("Arquitectura")
-st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/diagrama_solo.jpg')
-st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/5puntos.jpg')
+'## Arquitectura'
 
+
+'1. busqueda de data y análisis para data cruda'
+'2. Ingesta data cruda, limpieza y carga (ETL)'
+'3. Tareas para la carga incremental'
+'4.  Ingesta de data a base de datos relacional'
+'5. Acceso a base de datos para modelar progreciones en machine lerning y visualización en dasboard'
+
+st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/diagrama_solo.jpg')
+
+'''
 st.header("Tecnologías usadas")
 f1,f2,f3,f4=st.columns(4)
 with f1:
@@ -44,7 +52,7 @@ with g4:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/airflow.png', width=100)
 
 st.write('***')
-
+'''
 
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
