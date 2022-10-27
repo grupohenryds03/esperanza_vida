@@ -89,15 +89,14 @@ with col2:
 sql_esp =f"SELECT ANIO, VALOR FROM EV WHERE ID_INDICADOR=31 AND ANIO<=2020 AND ID_PAIS='{id_pais}'"
 df_esp=run_query(sql_esp)
 
-sql_var =f"""SELECT e.ANIO, e.VALOR 
-                FROM EV e
-                JOIN (SELECT ID_INDICADOR, CODIGO FROM INDICADOR WHERE CODIGO='{eleccion_var}') i
+sql_var =f"""SELECT e.ANIO, e.VALOR FROM EV e
+                JOIN (SELECT ID_INDICADOR FROM INDICADOR WHERE CODIGO='{eleccion_var}') i
                 ON e.ID_INDICADOR=i.ID_INDICADOR
                 WHERE e.ANIO<=2020 AND e.ID_PAIS='{id_pais}'"""
 df_var=run_query(sql_var)
 
 
-sql=f"SELECT ID_INDICADOR, CODIGO FROM INDICADOR WHERE CODIGO='{eleccion_var}'"
+sql=f"SELECT * FROM INDICADOR"
 df_PRUEBA=run_query(sql)
 st.dataframe(df_PRUEBA)
 st.dataframe(df_var)
