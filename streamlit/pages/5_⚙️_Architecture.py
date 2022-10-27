@@ -84,7 +84,7 @@ with col2:
         Indicador) #lista_codigo_pais
 
     eleccion_var=dic_indicador2.get(option_var)
-    id_var=dic_indicador[eleccion_var] #option
+    id_var=dic_indicador.get(eleccion_var) #option
 
 sql_var =f"SELECT ANIO, VALOR FROM EV WHERE ID_INDICADOR=31 AND ANIO<=2020 AND ID_PAIS='{id_pais}'"
 df_esp=run_query(sql_var)
