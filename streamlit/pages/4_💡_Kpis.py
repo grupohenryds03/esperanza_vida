@@ -8,19 +8,20 @@ st.set_page_config(
 
 #st.title('Kpis')
 
-lista_Kpi =['Mortalidad Infantil','Inversión Publica en Salud','Mortalidad Materna','Ingresos Per Capita']
+lista_Kpi =['Mortalidad Infantil','CO2 EMISSION','RURAL POPULATION (%)','GDP PER CAPITA']
 '''
 # Key Performance Indicators (KPIs)
 '''
 
 st.write('***')
-st.write('''Para el diseño de estos KPIs, se seleccionaron 4 variables que segun diferentes estudios afectan
-sobre la evolucion de la Esperanza de Vida (EV) de la poblacion de un pais.
-Ademas, se diferenció segun el nivel de desarrollo de un pais, para observar si esto influye en los efectos de las variables sobre la EV de cada pais.''')
+st.write('''
+For the design of these KPIs, 4 variables were selected that, according to different studies, affect
+on the evolution of Life Expectancy (LE) of the population of a country.
+In addition, it was differentiated according to the level of development of a country, to see if this influences the effects of the variables on the LE of each country.''')
 st.write('***')
 
 eleccion = st.selectbox(
-    'Seleccionar KPI',
+    'Select KPI',
     (lista_Kpi))
 
 if eleccion=='Mortalidad Infantil':
@@ -35,7 +36,43 @@ if eleccion=='Mortalidad Infantil':
         '''Se presenta como Hipótesis que la Esperanza de Vida al nacer en los países Sub-desarrollados,
              aumentara como mínimo un 1% anual y en el caso de los países Desarrollados no llegara
             a aumentar un 1% anual. Esto por efecto de la mejora en la tasa de mortalidad infantil'''
-elif eleccion=='Inversión Publica en Salud':
+
+    df = pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/KPI_Mort-Inf.csv')
+    
+    pais_desarrollo=[]
+    ev_2020_average=[]
+    ev_2025_average=[]
+    ev_2025_hypo_average=[]
+
+    pais_desarrollo.append('Developed Countrys')
+
+    ev_2020_average.append(round((df['EV_2020'][(df['ID_INCOME'] ==0)].mean()),4))
+    ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] ==0)].mean()),4))
+    ev_2025_hypo_average.append(round((df['EV_2025_Mejora'][(df['ID_INCOME'] ==0)].mean()),4))
+
+    pais_desarrollo.append('NOT Developed Countrys')
+
+    ev_2020_average.append(round((df['EV_2020'][(df['ID_INCOME'] !=0)].mean()),4))
+    ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] !=0)].mean()),4))
+    ev_2025_hypo_average.append(round((df['EV_2025_Mejora'][(df['ID_INCOME'] !=0)].mean()),4))
+    resultados = pd.DataFrame(pais_desarrollo, columns=['DEVELOPED LEVEL'])
+    resultados1 = pd.DataFrame(ev_2020_average, columns=['LE 2020 AVERAGE'])
+    resultados2 = pd.DataFrame(ev_2025_average, columns=['LE FORECAST 2025 AVERAGE'])
+    resultados3 = pd.DataFrame(ev_2025_hypo_average, columns=['LE HYPOTETICAL 2025 AVERAGE'])
+    #resultados4 = pd.DataFrame(modelo_mejora, columns=['Modelo_Predictivo'])
+    resultado = pd.concat([resultados,resultados1,resultados2,resultados3],axis=1)#,resultados4
+    resultado['DIFFERENCE (%)']=(resultado['LE HYPOTETICAL 2025 AVERAGE']/resultado['LE FORECAST 2025 AVERAGE'])-1
+
+    st.table(resultado)
+
+
+    
+    df.drop('Unnamed: 0',inplace=True, axis=1)
+    
+    st.table(df)
+
+
+elif eleccion=='CO2 EMISSION':
     a1,a2=st.columns(2)
     with a1:
         st.subheader("Objetivo")
@@ -46,7 +83,44 @@ elif eleccion=='Inversión Publica en Salud':
         '''Se presenta como Hipótesis que la variación promedio anual de la Esperanza de Vida al nacer 
             en los países sub-desarrollados de la muestra, aumente como mínimo el doble de la variación 
             promedio anual en los países desarrollados.'''
-elif eleccion=='Mortalidad Materna':
+
+    df = pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/KPI_CO2.csv')
+    
+    pais_desarrollo=[]
+    ev_2020_average=[]
+    ev_2025_average=[]
+    ev_2025_hypo_average=[]
+
+    pais_desarrollo.append('Developed Countrys')
+
+    ev_2020_average.append(round((df['EV_2020'][(df['ID_INCOME'] ==0)].mean()),4))
+    ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] ==0)].mean()),4))
+    ev_2025_hypo_average.append(round((df['EV_2025_Mejora'][(df['ID_INCOME'] ==0)].mean()),4))
+
+    pais_desarrollo.append('NOT Developed Countrys')
+
+    ev_2020_average.append(round((df['EV_2020'][(df['ID_INCOME'] !=0)].mean()),4))
+    ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] !=0)].mean()),4))
+    ev_2025_hypo_average.append(round((df['EV_2025_Mejora'][(df['ID_INCOME'] !=0)].mean()),4))
+    resultados = pd.DataFrame(pais_desarrollo, columns=['DEVELOPED LEVEL'])
+    resultados1 = pd.DataFrame(ev_2020_average, columns=['LE 2020 AVERAGE'])
+    resultados2 = pd.DataFrame(ev_2025_average, columns=['LE FORECAST 2025 AVERAGE'])
+    resultados3 = pd.DataFrame(ev_2025_hypo_average, columns=['LE HYPOTETICAL 2025 AVERAGE'])
+    #resultados4 = pd.DataFrame(modelo_mejora, columns=['Modelo_Predictivo'])
+    resultado = pd.concat([resultados,resultados1,resultados2,resultados3],axis=1)#,resultados4
+    resultado['DIFFERENCE (%)']=(resultado['LE HYPOTETICAL 2025 AVERAGE']/resultado['LE FORECAST 2025 AVERAGE'])-1
+
+    st.table(resultado)
+
+
+    
+    df.drop('Unnamed: 0',inplace=True, axis=1)
+    
+    st.table(df)
+
+
+
+elif eleccion=='RURAL POPULATION (%)':
     a1,a2=st.columns(2)
     with a1:
         st.subheader("Objetivo")
@@ -57,7 +131,43 @@ elif eleccion=='Mortalidad Materna':
         st.subheader("Hipótesis")
         '''Se presenta como Hipótesis que la variación promedio de la esperanza de vida del total de 
             paises de la muestra aumentara como mínimo un 0.5% anual por los próximos 5 años.'''
-elif eleccion=='Ingresos Per Capita':
+
+    df = pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/KPI_RURAL.csv')
+    
+    pais_desarrollo=[]
+    ev_2020_average=[]
+    ev_2025_average=[]
+    ev_2025_hypo_average=[]
+
+    pais_desarrollo.append('Developed Countrys')
+
+    ev_2020_average.append(round((df['EV_2020'][(df['ID_INCOME'] ==0)].mean()),4))
+    ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] ==0)].mean()),4))
+    ev_2025_hypo_average.append(round((df['EV_2025_Mejora'][(df['ID_INCOME'] ==0)].mean()),4))
+
+    pais_desarrollo.append('NOT Developed Countrys')
+
+    ev_2020_average.append(round((df['EV_2020'][(df['ID_INCOME'] !=0)].mean()),4))
+    ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] !=0)].mean()),4))
+    ev_2025_hypo_average.append(round((df['EV_2025_Mejora'][(df['ID_INCOME'] !=0)].mean()),4))
+    resultados = pd.DataFrame(pais_desarrollo, columns=['DEVELOPED LEVEL'])
+    resultados1 = pd.DataFrame(ev_2020_average, columns=['LE 2020 AVERAGE'])
+    resultados2 = pd.DataFrame(ev_2025_average, columns=['LE FORECAST 2025 AVERAGE'])
+    resultados3 = pd.DataFrame(ev_2025_hypo_average, columns=['LE HYPOTETICAL 2025 AVERAGE'])
+    #resultados4 = pd.DataFrame(modelo_mejora, columns=['Modelo_Predictivo'])
+    resultado = pd.concat([resultados,resultados1,resultados2,resultados3],axis=1)#,resultados4
+    resultado['DIFFERENCE (%)']=(resultado['LE HYPOTETICAL 2025 AVERAGE']/resultado['LE FORECAST 2025 AVERAGE'])-1
+
+    st.table(resultado)
+
+
+    
+    df.drop('Unnamed: 0',inplace=True, axis=1)
+    
+    st.table(df)
+
+
+elif eleccion=='GDP PER CAPITA':
     a1,a2=st.columns(2)
     with a1:
         st.subheader("Objetivo")
@@ -69,5 +179,36 @@ elif eleccion=='Ingresos Per Capita':
             población, generara un efecto positivo en la esperanza de vida, que se presentara como un 
             aumento promedio anual mínimo del 1%.'''
 
+    df = pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/KPI_GDP.csv')
+    
+    pais_desarrollo=[]
+    ev_2020_average=[]
+    ev_2025_average=[]
+    ev_2025_hypo_average=[]
+
+    pais_desarrollo.append('Developed Countrys')
+
+    ev_2020_average.append(round((df['EV_2020'][(df['ID_INCOME'] ==0)].mean()),4))
+    ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] ==0)].mean()),4))
+    ev_2025_hypo_average.append(round((df['EV_2025_Mejora'][(df['ID_INCOME'] ==0)].mean()),4))
+
+    pais_desarrollo.append('NOT Developed Countrys')
+
+    ev_2020_average.append(round((df['EV_2020'][(df['ID_INCOME'] !=0)].mean()),4))
+    ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] !=0)].mean()),4))
+    ev_2025_hypo_average.append(round((df['EV_2025_Mejora'][(df['ID_INCOME'] !=0)].mean()),4))
+    resultados = pd.DataFrame(pais_desarrollo, columns=['DEVELOPED LEVEL'])
+    resultados1 = pd.DataFrame(ev_2020_average, columns=['LE 2020 AVERAGE'])
+    resultados2 = pd.DataFrame(ev_2025_average, columns=['LE FORECAST 2025 AVERAGE'])
+    resultados3 = pd.DataFrame(ev_2025_hypo_average, columns=['LE HYPOTETICAL 2025 AVERAGE'])
+    #resultados4 = pd.DataFrame(modelo_mejora, columns=['Modelo_Predictivo'])
+    resultado = pd.concat([resultados,resultados1,resultados2,resultados3],axis=1)#,resultados4
+    resultado['DIFFERENCE (%)']=(resultado['LE HYPOTETICAL 2025 AVERAGE']/resultado['LE FORECAST 2025 AVERAGE'])-1
+
+    st.table(resultado)
 
 
+    
+    df.drop('Unnamed: 0',inplace=True, axis=1)
+    
+    st.table(df)

@@ -82,4 +82,7 @@ with tab2:
 
 df_models=pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/Pycaret_Models.csv')
 
-st.dataframe(df_models)
+'''
+## Pycaret Forecast Models'''
+
+st.table(df_models)
