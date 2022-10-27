@@ -66,8 +66,7 @@ with tab1:
                         line=dict(width=2)))
 
     fig.update_xaxes(showgrid=False)
-    fig.update_yaxes(showgrid=True, gridwidth=0.5, gridcolor='White')
-    fig.update_yaxes(minor=dict(ticklen=6, tickcolor="White", showgrid=True))
+    fig.update_yaxes(minor=dict(ticklen=6,griddash='dash', tickcolor="White", showgrid=True),showgrid=True, griddash='dash', gridwidth=0.5, gridcolor='White')
     fig.update_yaxes(minor_ticks="inside")
     fig.update_yaxes(title_text="años")
     st.plotly_chart(fig,use_container_width=True)
