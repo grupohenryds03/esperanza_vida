@@ -375,7 +375,9 @@ with tab2:
 
 
 with tab3:
-    st.dataframe(df_prediccion)
+    st.dataframe(EV_todos)
+
+cnn.close()
 
 st.write('***')
 st.subheader('Carga incremental')
@@ -385,4 +387,4 @@ La ingesta de datos desde la API del banco mundial y la OMS se programan anualme
 st.video('https://youtu.be/iXmhOic_WME')
 st.write('***')
 
-cnn.close()
+
