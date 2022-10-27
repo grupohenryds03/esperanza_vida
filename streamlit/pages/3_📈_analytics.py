@@ -87,17 +87,66 @@ with tab1:
     fig.update_yaxes(title_text="años")
     st.plotly_chart(fig,use_container_width=True)
 
-sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR 
-        FROM EV e 
-        JOIN INDICADOR i 
-        ON (e.ID_INDICADOR=i.ID_INDICADOR)
-        JOIN PAIS p
-        on (e.ID_PAIS=p.ID_PAIS)
-        WHERE e.ID_INDICADOR=31 AND e.ANIO>1960 AND e.ANIO<=2020 """ 
-EV_todos=pd.read_sql(sql,cnn)
+lista_Kpi =['Infant Mortality','CO2 Emission','Rural Population (%)','GDP Per Capita','Life Expectancy']
+lista_Kpi2 =['Infant_Mortality','CO2_Emission','Rural_Population (%)','GDP_Per Capita','Life_Expectancy']
 
 with tab2:
     
+    eleccion = st.selectbox(
+    'Select Variable:',
+    (lista_Kpi))
+
+    if eleccion=='Infant Mortality':
+
+            sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR 
+                    FROM EV e 
+                    JOIN INDICADOR i 
+                    ON (e.ID_INDICADOR=i.ID_INDICADOR)
+                    JOIN PAIS p
+                    on (e.ID_PAIS=p.ID_PAIS)
+                    WHERE e.ID_INDICADOR=18 AND e.ANIO>1960 AND e.ANIO<=2020 """ 
+            EV_todos=pd.read_sql(sql,cnn)
+    elif eleccion=='CO2 Emission':
+            sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR 
+                    FROM EV e 
+                    JOIN INDICADOR i 
+                    ON (e.ID_INDICADOR=i.ID_INDICADOR)
+                    JOIN PAIS p
+                    on (e.ID_PAIS=p.ID_PAIS)
+                    WHERE e.ID_INDICADOR=5 AND e.ANIO>1960 AND e.ANIO<=2020 """ 
+            EV_todos=pd.read_sql(sql,cnn)
+    
+    elif eleccion=='Rural Population (%)':
+            sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR 
+                    FROM EV e 
+                    JOIN INDICADOR i 
+                    ON (e.ID_INDICADOR=i.ID_INDICADOR)
+                    JOIN PAIS p
+                    on (e.ID_PAIS=p.ID_PAIS)
+                    WHERE e.ID_INDICADOR=35 AND e.ANIO>1960 AND e.ANIO<=2020 """ 
+            EV_todos=pd.read_sql(sql,cnn)
+
+    elif eleccion=='GDP Per Capita':
+            sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR 
+                    FROM EV e 
+                    JOIN INDICADOR i 
+                    ON (e.ID_INDICADOR=i.ID_INDICADOR)
+                    JOIN PAIS p
+                    on (e.ID_PAIS=p.ID_PAIS)
+                    WHERE e.ID_INDICADOR=9 AND e.ANIO>1960 AND e.ANIO<=2020 """ 
+            EV_todos=pd.read_sql(sql,cnn)
+
+    elif eleccion=='Life Expectancy':
+            sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR 
+                    FROM EV e 
+                    JOIN INDICADOR i 
+                    ON (e.ID_INDICADOR=i.ID_INDICADOR)
+                    JOIN PAIS p
+                    on (e.ID_PAIS=p.ID_PAIS)
+                    WHERE e.ID_INDICADOR=31 AND e.ANIO>1965 AND e.ANIO<=2020 """ 
+            EV_todos=pd.read_sql(sql,cnn)
+    
+
     'Mapa Geo-Referenciado de la Esperanza de Vida Promedio Anual por Pais'
     fig2 = px.choropleth(
                         EV_todos,
@@ -107,23 +156,68 @@ with tab2:
                         animation_frame="ANIO",
                         color_continuous_scale=px.colors.sequential.Plasma,
                         projection="natural earth",
-                        title='Esperanza de Vida')
+                        title=eleccion)
     fig2.update_layout(margin={"r":10,"t":50,"l":10,"b":10},width=900, 
                   height=600) 
     st.plotly_chart(fig2,use_container_width=True)
 
-sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR 
-        FROM EV e 
-        JOIN INDICADOR i 
-        ON (e.ID_INDICADOR=i.ID_INDICADOR)
-        JOIN PAIS p
-        on (e.ID_PAIS=p.ID_PAIS)
-        WHERE e.ID_INDICADOR=9 AND e.ANIO>1960 AND e.ANIO<=2020 """ 
-GDP_todos=pd.read_sql(sql,cnn)
+
 
 with tab3:
 
+    eleccion = st.selectbox(
+    'Select Variable:',
+    (lista_Kpi2))
 
+    if eleccion=='Infant_Mortality':
+
+            sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR 
+                    FROM EV e 
+                    JOIN INDICADOR i 
+                    ON (e.ID_INDICADOR=i.ID_INDICADOR)
+                    JOIN PAIS p
+                    on (e.ID_PAIS=p.ID_PAIS)
+                    WHERE e.ID_INDICADOR=18 AND e.ANIO>1960 AND e.ANIO<=2020 """ 
+            GDP_todos=pd.read_sql(sql,cnn)
+    elif eleccion=='CO2_Emission':
+            sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR 
+                    FROM EV e 
+                    JOIN INDICADOR i 
+                    ON (e.ID_INDICADOR=i.ID_INDICADOR)
+                    JOIN PAIS p
+                    on (e.ID_PAIS=p.ID_PAIS)
+                    WHERE e.ID_INDICADOR=5 AND e.ANIO>1960 AND e.ANIO<=2020 """ 
+            GDP_todos=pd.read_sql(sql,cnn)
+    
+    elif eleccion=='Rural_Population (%)':
+            sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR 
+                    FROM EV e 
+                    JOIN INDICADOR i 
+                    ON (e.ID_INDICADOR=i.ID_INDICADOR)
+                    JOIN PAIS p
+                    on (e.ID_PAIS=p.ID_PAIS)
+                    WHERE e.ID_INDICADOR=35 AND e.ANIO>1960 AND e.ANIO<=2020 """ 
+            GDP_todos=pd.read_sql(sql,cnn)
+
+    elif eleccion=='GDP_Per Capita':
+            sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR 
+                    FROM EV e 
+                    JOIN INDICADOR i 
+                    ON (e.ID_INDICADOR=i.ID_INDICADOR)
+                    JOIN PAIS p
+                    on (e.ID_PAIS=p.ID_PAIS)
+                    WHERE e.ID_INDICADOR=9 AND e.ANIO>1960 AND e.ANIO<=2020 """ 
+            GDP_todos=pd.read_sql(sql,cnn)
+
+    elif eleccion=='Life_Expectancy':
+            sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR 
+                    FROM EV e 
+                    JOIN INDICADOR i 
+                    ON (e.ID_INDICADOR=i.ID_INDICADOR)
+                    JOIN PAIS p
+                    on (e.ID_PAIS=p.ID_PAIS)
+                    WHERE e.ID_INDICADOR=31 AND e.ANIO>1965 AND e.ANIO<=2020 """ 
+            GDP_todos=pd.read_sql(sql,cnn)
 
     'Mapa de Calor del GDP Per Capita promedio Anual (En U$S Constantes del 2015) por Pais'
     fig3 = px.scatter_geo(GDP_todos,
@@ -133,7 +227,7 @@ with tab3:
                             size=GDP_todos['VALOR'],
                             animation_frame='ANIO',
                             projection='natural earth',
-                            title='GDP per Capita (constant 2015 US$)',
+                            title='eleccion',
                             template='simple_white')
     fig3.update_layout(margin={"r":10,"t":50,"l":10,"b":10},width=900, 
                   height=600)

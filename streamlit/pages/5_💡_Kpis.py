@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 st.set_page_config(
-    page_title="KPIs",
+    page_title="Kpis",
     page_icon="💡",
 )
 
@@ -24,19 +24,26 @@ page_style = """
 #background-Color: blue;
             
 st.markdown(page_style, unsafe_allow_html=True)
-#st.title('Kpis')
+#st.title('Analysis')
 
 lista_Kpi =['Infant Mortality','CO2 Emission','Rural Population (%)','GDP Per Capita','Conclusions']
 '''
-# Key Performance Indicators (KPIs)
+# Analysis and Assumptions
 '''
 
 st.write('***')
 st.write('''
-_For the design of these KPIs, 4 variables were selected that, according to different studies, affect
-on the evolution of Life Expectancy (LE) of the population of a country.
-In addition, it was differentiated according to the level of development of a country, to see if this influences the effects of the variables on the LE of each country._''')
+_To carry out this study, 4 variables were selected that, according to different studies, affect the evolution of the Life Expectancy (LE) 
+of the population of a country.
+The objective of this analysis is to identify if an improvement of 10% per year for the next 5 years will have a greater benefit on LE in developing countries, 
+since we assume that they have greater margin to improve in these 4 variables compared to the developed countries._''')
+
+st.write('''
+_To separate between developed and developing countries, the World Bank Income Index was used. Developed countries were considered those with a high income index
+and the rest as Developing countries._''')
 st.write('***')
+
+
 
 eleccion = st.selectbox(
     'Select:',
@@ -68,7 +75,7 @@ if eleccion=='Infant Mortality':
     ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] ==0)].mean()),4))
     ev_2025_hypo_average.append(round((df['EV_2025_Mejora'][(df['ID_INCOME'] ==0)].mean()),4))
 
-    pais_desarrollo.append('NOT Developed Countrys')
+    pais_desarrollo.append('Developing  Countrys')
 
     ev_2020_average.append(round((df['EV_2020'][(df['ID_INCOME'] !=0)].mean()),4))
     ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] !=0)].mean()),4))
@@ -126,7 +133,7 @@ elif eleccion=='CO2 Emission':
     ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] ==0)].mean()),4))
     ev_2025_hypo_average.append(round((df['EV_2025_Mejora'][(df['ID_INCOME'] ==0)].mean()),4))
 
-    pais_desarrollo.append('NOT Developed Countrys')
+    pais_desarrollo.append('Developingd Countrys')
 
     ev_2020_average.append(round((df['EV_2020'][(df['ID_INCOME'] !=0)].mean()),4))
     ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] !=0)].mean()),4))
@@ -184,7 +191,7 @@ elif eleccion=='Rural Population (%)':
     ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] ==0)].mean()),4))
     ev_2025_hypo_average.append(round((df['EV_2025_Mejora'][(df['ID_INCOME'] ==0)].mean()),4))
 
-    pais_desarrollo.append('NOT Developed Countrys')
+    pais_desarrollo.append('Developing Countrys')
 
     ev_2020_average.append(round((df['EV_2020'][(df['ID_INCOME'] !=0)].mean()),4))
     ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] !=0)].mean()),4))
@@ -240,7 +247,7 @@ elif eleccion=='GDP Per Capita':
     ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] ==0)].mean()),4))
     ev_2025_hypo_average.append(round((df['EV_2025_Mejora'][(df['ID_INCOME'] ==0)].mean()),4))
 
-    pais_desarrollo.append('NOT Developed Countrys')
+    pais_desarrollo.append('Developing Countrys')
 
     ev_2020_average.append(round((df['EV_2020'][(df['ID_INCOME'] !=0)].mean()),4))
     ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] !=0)].mean()),4))
@@ -288,7 +295,7 @@ if eleccion=='Conclusions':
     ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] ==0)].mean()),4))
     ev_2025_hypo_average.append(round((df['EV_2025_Mejora'][(df['ID_INCOME'] ==0)].mean()),4))
 
-    pais_desarrollo.append('NOT Developed Countrys')
+    pais_desarrollo.append('Developing Countrys')
 
     ev_2020_average.append(round((df['EV_2020'][(df['ID_INCOME'] !=0)].mean()),4))
     ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] !=0)].mean()),4))
@@ -319,7 +326,7 @@ if eleccion=='Conclusions':
     ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] ==0)].mean()),4))
     ev_2025_hypo_average.append(round((df['EV_2025_Mejora'][(df['ID_INCOME'] ==0)].mean()),4))
 
-    pais_desarrollo.append('NOT Developed Countrys')
+    pais_desarrollo.append('Developing Countrys')
 
     ev_2020_average.append(round((df['EV_2020'][(df['ID_INCOME'] !=0)].mean()),4))
     ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] !=0)].mean()),4))
@@ -349,7 +356,7 @@ if eleccion=='Conclusions':
     ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] ==0)].mean()),4))
     ev_2025_hypo_average.append(round((df['EV_2025_Mejora'][(df['ID_INCOME'] ==0)].mean()),4))
 
-    pais_desarrollo.append('NOT Developed Countrys')
+    pais_desarrollo.append('Developing Countrys')
 
     ev_2020_average.append(round((df['EV_2020'][(df['ID_INCOME'] !=0)].mean()),4))
     ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] !=0)].mean()),4))
@@ -379,7 +386,7 @@ if eleccion=='Conclusions':
     ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] ==0)].mean()),4))
     ev_2025_hypo_average.append(round((df['EV_2025_Mejora'][(df['ID_INCOME'] ==0)].mean()),4))
 
-    pais_desarrollo.append('NOT Developed Countrys')
+    pais_desarrollo.append('Developing Countrys')
 
     ev_2020_average.append(round((df['EV_2020'][(df['ID_INCOME'] !=0)].mean()),4))
     ev_2025_average.append(round((df['EV_2025'][(df['ID_INCOME'] !=0)].mean()),4))
