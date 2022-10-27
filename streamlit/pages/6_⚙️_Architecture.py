@@ -45,14 +45,17 @@ with tab4:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/snow-tasks.png',caption='Incremetal load with snowflake tasks')
 
 '### Apps Documentation'
-'AIRFLOW: https://airflow.apache.org/docs/'
-'PANDAS: https://pandas.pydata.org/docs/'
-'SNOWFLAKE: https://docs.snowflake.com/en/'
-'STREAMLIT:https://docs.streamlit.io/'
-'PYCARET: https://pycaret.gitbook.io/docs/'
-'WBAPI:https://pypi.org/project/wbgapi/'
-'PLOTLY:https://plotly.com/python/'
-'SKLEARN: https://scikit-learn.org/stable/user_guide.html'
+f1,f2=st.columns(2)
+with f1:
+    'AIRFLOW: https://airflow.apache.org/docs/'
+    'PANDAS: https://pandas.pydata.org/docs/'
+    'SNOWFLAKE: https://docs.snowflake.com/en/'
+    'STREAMLIT:https://docs.streamlit.io/'
+with f2:
+    'PYCARET: https://pycaret.gitbook.io/docs/'
+    'WBAPI:https://pypi.org/project/wbgapi/'
+    'PLOTLY:https://plotly.com/python/'
+    'SKLEARN: https://scikit-learn.org/stable/user_guide.html'
 
 
 # ------------------------- grafico comparativo de indicadores vs esperza vida -------------------
