@@ -10,6 +10,24 @@ st.set_page_config(
     page_icon="📶",
 )
 
+page_style = """
+            <style>
+            [data-testid="stAppViewContainer"] {
+            
+            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/background-image.png?raw=true");
+            background-size: cover;
+            background-position: right;
+            }
+            [data-testid="stSidebar"]{
+            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/WallpaperRocky.jpg?raw=true");
+            background-size: cover;
+            background-position: right;
+            }
+            </style>
+            """
+#background-Color: blue;
+            
+st.markdown(page_style, unsafe_allow_html=True)
 cnn = snowflake.connector.connect(
     user=st.secrets.snowflake.user,
     password=st.secrets.snowflake.password,
@@ -46,20 +64,20 @@ with tab1:
     sql =f"SELECT ANIO, ID_PAIS, VALOR FROM EV WHERE ID_INDICADOR=31 AND ANIO<=2020 AND ID_PAIS='{id_pais}'"
     df_anterior=pd.read_sql(sql,cnn)
 
-    'Predicciones de la Esperanza de Vida Promedio Anual para los Proximos 10 Años'
+    'Predicciones de la Esperanza de Vida (EV) Promedio Anual para los Proximos 10 Años'
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=df_anterior.ANIO, 
                         y=df_anterior.VALOR,
                         mode='lines',
                         marker_color='#FF0000',
-                        name=a,#option
+                        name='EV Actual',#option
                         line=dict(width=2)))
 
     fig.add_trace(go.Scatter(x=df_final.YEAR, 
                         y=df_final[a],#option
                         mode='lines',
                         marker_color='#00FF00',
-                        name='Predicción Esperanza de Vida',
+                        name='EV Predicción',
                         line=dict(width=2)))
 
     fig.update_xaxes(showgrid=False)
