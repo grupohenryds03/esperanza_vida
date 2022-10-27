@@ -1,9 +1,5 @@
 import streamlit as st
-import pandas as pd
-import snowflake.connector
-from info import *
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
+
 
 
 st.set_page_config(
@@ -21,33 +17,40 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-'## Arquitectura'
+'## Data arquitecture'
 
-'La arquitectura sigue cinco pasos principales: el primero para analizar las fuentes de datos, el segundo para la Extracción, Trasformación (limpieza) y Carga (Load) llamado por sus siglas ETL. El tercer paso donde se realiza la carga incremental a la base de datos relacional, el cuarto la carga incremental y el último paso donde se realizan las consultas necesarias para ser utilizada en modelos de ML y visualización en dashboard.'
-'''
-1. Busqueda de data y análisis para data cruda.
-2. Ingesta data cruda, limpieza y carga (ETL).
-3. Tareas para la carga incremental.
-4. Ingesta de data a base de datos relacional.
-5. Acceso a base de datos para modelar progreciones en machine lerning y visualización en dasboard.
 
-Diagrama de Arquitectura
+'The data arquitectura follows five principal steps: The fish one to studio and analice the data source. The second one implementing data extraction from source. The third one where the data is transform and cleaning. The fourth one where the data is incrementally load into relational tables. And the last one implementing queries to extract data for machine learning  (ML) algorithms and visualice with charts in a dashboard.'
+
+'# Detail description:'
 '''
+1. Finding and studying data source: First we analice the data from the World Bank (WB) and World Health Organization  (WHO) implementing the way to access to their database.
+2. Extraction data: we use two methods to access data using PANDAS library in Visual Studio Code with PYTHON lenguaje.  One method with WBGAPI library that provides modern, pythonic access to the World Bank's data API. And another source directly importing csv files from the WHO website.
+3. Transforming crude data: for cleaning data we made and extensive EDA using different method. The best implementation for missing data over a time series was using a machine learning method calls KNNImputer from SKLEARN library that impute to blanks data  using the mean value from nearest neighbors.
+'''
+'# Diagram'
+
 st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/diagrama_solo.jpg')
 
 
-
-'- El entorno de trabajo para el ETL se desarrola en AIRFLOW dentro de una cloud maching de HEROKU. Acceso a la api: https://etl-latin-data.herokuapp.com/'
+'4. Incrementally load: ones the data is transform we put it into SNOWFLAKE database as compress csv file. For manage the first steps calls ETL we use AIRFLOW annually tasks that is deploy in a cloud  computer HEROKU: https://etl-latin-data.herokuapp.com/ .For Incrementally load to relational tables we use schedule task inside SNOWFLAKE.'
 st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/airflow_runing.png')
-'- Para el armado del datalake se ingestan los datos en el entorno STAGE de SNOWFLAKE en formato .csv comprimido en .gz (pueden ser tambien json, parquet, xlsx).'
-'- En el caso de la base de datos relacional se utiliza SNOWFLAKE con la creación de un warehouse para su mantenimiento e ingesta incremental.'
+'5. ML and visualization: We use SQL querys to ingest data for ML training and predictions methods using PYCARET library. For the dashboard we implement STREAMLIT using PLOTLY library for charts.'
 st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/diagrama_estrella.png')
-'- para el modelado en ML y visualización de datos se realiza querys según los requerimientos del cliente.'
 
 
 
 
 # ------------------------- grafico comparativo de indicadores vs esperza vida -------------------
+
+import pandas as pd
+import snowflake.connector
+from info import *
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
+
+
 @st.experimental_singleton
 def init_connection():
     return snowflake.connector.connect(
