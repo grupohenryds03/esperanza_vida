@@ -6,6 +6,24 @@ st.set_page_config(
     page_icon="💡",
 )
 
+page_style = """
+            <style>
+            [data-testid="stAppViewContainer"] {
+            
+            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/background-image.png?raw=true");
+            background-size: cover;
+            background-position: right;
+            }
+            [data-testid="stSidebar"]{
+            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/WallpaperRocky.jpg?raw=true");
+            background-size: cover;
+            background-position: right;
+            }
+            </style>
+            """
+#background-Color: blue;
+            
+st.markdown(page_style, unsafe_allow_html=True)
 #st.title('Kpis')
 
 lista_Kpi =['Infant Mortality','CO2 Emission','Rural Population (%)','GDP Per Capita','Conclusions']
