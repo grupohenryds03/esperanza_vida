@@ -303,7 +303,7 @@ with tab5:
             st.plotly_chart(fig2,use_container_width=True)
         plot()
 
-cnn.close()
+
 
 
 '''
@@ -423,4 +423,4 @@ La ingesta de datos desde la API del banco mundial y la OMS se programan anualme
 st.video('https://youtu.be/iXmhOic_WME')
 st.write('***')
 
-
+cnn.close()
