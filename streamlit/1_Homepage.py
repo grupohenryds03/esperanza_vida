@@ -22,6 +22,11 @@ page_style = """
             background-size: cover;
             background-position: right;
             }
+            [data-testid="stHeader"]{
+            background-color: #29d863;
+            background-size: cover;
+            background-position: right;     
+            }
             </style>
             """
 #background-Color: blue;
