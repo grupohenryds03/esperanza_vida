@@ -94,7 +94,7 @@ with col2:
 sql_esp =f"SELECT ANIO, VALOR FROM EV WHERE ID_INDICADOR=31 AND ANIO<=2020 AND ID_PAIS='{id_pais}'"
 df_esp=run_query(sql_esp)
 
-sql_var =f"SELECT ANIO, VALOR FROM EV WHERE ID_INDICADOR=='{id_var}' AND ANIO<=2020 AND ID_PAIS='{id_pais}'"
+sql_var =f"SELECT ANIO, VALOR FROM EV WHERE ID_INDICADOR='{id_var}' AND ANIO<=2020 AND ID_PAIS='{id_pais}'"
 df_var=run_query(sql_var)
 
 fig = go.Figure()
