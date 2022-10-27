@@ -92,7 +92,7 @@ sql_esp =f"""SELECT ANIO, VALOR
             FROM EV e
             JOIN (SELECT ID_PAIS FROM PAIS WHERE NOMBRE='{option_pais}') p
             ON e.ID_PAIS=p.ID_PAIS
-            WHERE ID_INDICADOR=31 AND ANIO<=2020;'"""
+            WHERE ID_INDICADOR=31 AND ANIO<=2020"""
 df_esp=pd.read_sql(sql_esp,conn)
 
 sql_var =f"""SELECT ANIO, VALOR 
@@ -101,7 +101,7 @@ sql_var =f"""SELECT ANIO, VALOR
             ON e.ID_INDICADOR=i.ID_INDICADOR
             JOIN (SELECT ID_PAIS FROM PAIS WHERE NOMBRE='{option_pais}') p
             ON e.ID_PAIS=p.ID_PAIS
-            WHERE e.ANIO<=2020;"""
+            WHERE e.ANIO<=2020"""
 df_var=pd.read_sql(sql_var,conn)
 
 # Create figure with secondary y-axis
