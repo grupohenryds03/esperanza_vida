@@ -22,7 +22,7 @@ page_style = """
             background-size: cover;
             background-position: right;
             }
-            [data-testid="stToolbar"]{
+            [data-testid="stSidebar"]{
             background-color: #29d863;
               
             }
