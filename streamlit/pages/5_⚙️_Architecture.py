@@ -80,16 +80,14 @@ with col1:
 
 with col2:
     option_var = st.selectbox(
-        'Elegir la variable de la lista despleglable',
-        Indicador) #lista_codigo_pais
+            'Elegir la variable de la lista despleglable',
+            code_indicador) #lista_codigo_pais
 
-    eleccion_var=dic_indicador2.get(option_var)
     
     dict_keys=list(dic_indicador.keys())
     dict_values=list(dic_indicador.values())
-    val_index=dict_values.index(eleccion_var)
+    val_index=dict_values.index(option_var)
     id_var=dict_keys[val_index]
-    'La selección fue:', eleccion_var #dic_pais2[option]
 
 sql_esp =f"SELECT ANIO, VALOR FROM EV WHERE ID_INDICADOR=31 AND ANIO<=2020 AND ID_PAIS='{id_pais}'"
 df_esp=run_query(sql_esp)
