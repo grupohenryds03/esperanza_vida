@@ -84,8 +84,11 @@ with col2:
         Indicador) #lista_codigo_pais
 
     eleccion_var=dic_indicador2.get(option_var)
-    val_index=dic_indicador.index(eleccion_var)
-    id_var=dic_indicador[val_index]
+    
+    dict_keys=list(dic_indicador.keys())
+    dict_values=list(dic_indicador.values())
+    val_index=dict_values.index(eleccion_var)
+    id_var=dict_keys[val_index]
     'La selección fue:', eleccion_var #dic_pais2[option]
 
 sql_esp =f"SELECT ANIO, VALOR FROM EV WHERE ID_INDICADOR=31 AND ANIO<=2020 AND ID_PAIS='{id_pais}'"
