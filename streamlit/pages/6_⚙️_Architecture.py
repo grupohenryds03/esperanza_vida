@@ -68,10 +68,13 @@ def run_query(query):
 
 
 
-sql_ind="SELECT * FROM INDICADOR i JOIN (SELECT DISTINCT ID_INDICADOR FROM EV) e ON e.ID_INDICADOR=i.ID_INDICADOR"
-df_ind=run_query(sql_ind)
-sql_pais="SELECT * FROM PAIS p JOIN (SELECT DISTINCT ID_PAIS FROM EV) e ON e.ID_PAIS=p.ID_PAIS"
-df_pais=run_query(sql_pais)
+sql_ind="SELECT i.ID_INDICADOR , i.CODIGO, i.DESCRIPCION FROM INDICADOR i JOIN (SELECT DISTINCT ID_INDICADOR FROM EV) e ON e.ID_INDICADOR=i.ID_INDICADOR"
+df_ind=pd.read_sql(sql_ind,conn)
+sql_pais="SELECT p.ID_PAIS, p.CODIGO_PAIS, p.NOMBRE FROM PAIS p JOIN (SELECT DISTINCT ID_PAIS FROM EV) e ON e.ID_PAIS=p.ID_PAIS"
+df_pais=pd.read_sql(sql_pais,conn)
+
+st.dataframe(df_ind)
+st.dataframe(df_pais)
 
 col1,col2=st.columns(2)
 
@@ -89,8 +92,8 @@ sql_esp =f"""SELECT ANIO, VALOR
             FROM EV e
             JOIN (SELECT ID_PAIS FROM PAIS WHERE NOMBRE='{option_pais}') p
             ON e.ID_PAIS=p.ID_PAIS
-            WHERE ID_INDICADOR=31 AND ANIO<=2020;'"""
-df_esp=run_query(sql_esp)
+            WHERE ID_INDICADOR=31 AND ANIO<=2020"""
+df_esp=pd.read_sql(sql_esp,conn)
 
 sql_var =f"""SELECT ANIO, VALOR 
             FROM EV e
@@ -98,8 +101,8 @@ sql_var =f"""SELECT ANIO, VALOR
             ON e.ID_INDICADOR=i.ID_INDICADOR
             JOIN (SELECT ID_PAIS FROM PAIS WHERE NOMBRE='{option_pais}') p
             ON e.ID_PAIS=p.ID_PAIS
-            WHERE e.ANIO<=2020;"""
-df_var=run_query(sql_var)
+            WHERE e.ANIO<=2020"""
+df_var=pd.read_sql(sql_var,conn)
 
 # Create figure with secondary y-axis
 fig = make_subplots(specs=[[{"secondary_y": True}]])
