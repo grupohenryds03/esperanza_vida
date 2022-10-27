@@ -17,7 +17,8 @@ st.set_page_config(
 #with open('style.css') as f:
 page_style = """
             <style>
-            body{backgroundColor: blue;}
+            body{background-Color: blue;}
+            .font {font-size:50px ; font-family: 'Cooper Black'; color: #FF9633;}
             </style>
             """
 st.markdown(page_style, unsafe_allow_html=True)
