@@ -44,6 +44,11 @@ with tab3:
 with tab4:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/snow-tasks.png',caption='Incremetal load with snowflake tasks')
 
+'### Collaborative group job'
+
+'- for collaborative grupo job we work on visual studio code platform local on GTIHUB cloud clone repository: https://github.com/grupohenryds03 '
+
+
 '### Apps Documentation'
 f1,f2=st.columns(2)
 with f1:
