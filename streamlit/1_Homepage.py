@@ -15,7 +15,12 @@ st.set_page_config(
 
 # Open page style
 #with open('style.css') as f:
-st.markdown('<style>body{backgroundColor: blue;}</style>', unsafe_allow_html=True)
+page_style = """
+            <style>
+            body{backgroundColor: blue;}
+            </style>
+            """
+st.markdown(page_style, unsafe_allow_html=True)
 
 col1,col2,col3=st.columns(3)
 with col2:
@@ -42,14 +47,14 @@ st.title("LIFE EXPECTANCY ANALYSIS")
 
 # --- HIDE STREAMLIT STYLE ---
 
-#hide_st_style = """
-#            <style>
-#            #MainMenu {visibility: hidden;}
-#            footer {visibility: hidden;}
-#            header {visibility: hidden;}
-#            </style>
-#            """
-#st.markdown(hide_st_style, unsafe_allow_html=True)
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
 
 st.header("Life expectancy differs depending on the birth place ")
 '''
