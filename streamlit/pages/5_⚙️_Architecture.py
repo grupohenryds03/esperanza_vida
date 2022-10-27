@@ -74,7 +74,7 @@ with col1:
         lista_codigo_pais) #lista_codigo_pais
 
     eleccion_pais=dic_pais2[option_pais]
-    id_pais=dic_id_pais[eleccion_pais] #option
+    id_pais=dic_id_pais[option_pais] #option
 
     'La selección fue:', eleccion_pais #dic_pais2[option]
 
