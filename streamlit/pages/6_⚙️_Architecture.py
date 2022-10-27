@@ -17,18 +17,19 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-'## Data arquitecture'
+'# Data arquitecture'
 
 
-'The data arquitectura follows five principal steps: The fish one to studio and analice the data source. The second one implementing data extraction from source. The third one where the data is transform and cleaning. The fourth one where the data is incrementally load into relational tables. And the last one implementing queries to extract data for machine learning  (ML) algorithms and visualice with charts in a dashboard.'
+'_The data arquitectura follows five principal steps: The fish one to studio and analice the data source. The second one implementing data extraction from source. The third one where the data is transform and cleaning. The fourth one where the data is incrementally load into relational tables. And the last one implementing queries to extract data for machine learning  (ML) algorithms and visualice with charts in a dashboard._'
 
-'# Detail description:'
+'## Detail description:'
+
 '''
-1. Finding and studying data source: First we analice the data from the World Bank (WB) and World Health Organization  (WHO) implementing the way to access to their database.
-2. Extraction data: we use two methods to access data using PANDAS library in Visual Studio Code with PYTHON lenguaje.  One method with WBGAPI library that provides modern, pythonic access to the World Bank's data API. And another source directly importing csv files from the WHO website.
+1. Finding and studying data source: First we analice the data from the World Bank (WB), World Health Organization  (WHO) and scientific papers publications finding the way to access data relative for life expectancy.
+2. Extraction data: we use two methods to access data using PANDAS library in Visual Studio Code with PYTHON lenguaje.  One method with WBGAPI library that provides modern, pythonic access to the World Bank's data API. Another way was importing csv files directly from the WHO website.
 3. Transforming crude data: for cleaning data we made and extensive EDA using different method. The best implementation for missing data over a time series was using a machine learning method calls KNNImputer from SKLEARN library that impute to blanks data  using the mean value from nearest neighbors.
 '''
-'# Diagram'
+'## Diagram'
 
 st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/diagrama_solo.jpg')
 
