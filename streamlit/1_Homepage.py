@@ -22,10 +22,9 @@ page_style = """
             background-size: cover;
             background-position: right;
             }
-            [data-testid="stHeader"]{
+            [data-testid="stToolbar"]{
             background-color: #29d863;
-            background-size: cover;
-            background-position: right;     
+              
             }
             </style>
             """
