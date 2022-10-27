@@ -5,14 +5,17 @@ import plotly.graph_objects as go
 import plotly.express as px
 from info import *
 
-#st.set_page_config(page_title="Analitics",page_icon='📈')
+st.set_page_config(
+    page_title="Analitic",
+    page_icon="📊",
+)
 
 cnn = snowflake.connector.connect(
-    user='grupods03',
-    password='Henry2022#',
-    account='nr28668.sa-east-1.aws',
-    warehouse='DW_EV',
-    database="LAKE")
+    user=st.secrets.snowflake.user,
+    password=st.secrets.snowflake.password,
+    account=st.secrets.snowflake.account,
+    warehouse=st.secrets.snowflake.warehouse,
+    database=st.secrets.snowflake.database)
 
 
 '''
