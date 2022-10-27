@@ -9,10 +9,14 @@ import plotly.graph_objs as go
 
 
 st.set_page_config(
-    page_title="Homepage",
+    page_title="Homepage", layout="wide"
     page_icon="👋",
 )
 
+# Open page style
+style=st.style.snowflake
+with open(style) as f:
+    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 col1,col2,col3=st.columns(3)
 with col2:
