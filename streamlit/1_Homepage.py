@@ -233,31 +233,34 @@ with tab1:
         st.plotly_chart(fig)
         
         #Multiselect plot
-        sql2 ="""SELECT p.NOMBRE, e.ANIO, e.VALOR  
-            FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
-            WHERE e.ID_INDICADOR=31 AND e.ID_CONTINENTE=1"""
+        def plot ():
+            sql2 ="""SELECT p.NOMBRE, e.ANIO, e.VALOR  
+                FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
+                WHERE e.ID_INDICADOR=31 AND e.ID_CONTINENTE=1"""
+                
+            df2=pd.read_sql(sql2,cnn)
+            clist=df2["NOMBRE"].unique().tolist()
             
-        df2=pd.read_sql(sql2,cnn)
-        clist=df2["NOMBRE"].unique().tolist()
-        countries = st.multiselect('Select country',clist,['United States', 'Mexico', 'Argentina'])
-        dfs={NOMBRE:df2[df2["NOMBRE"]==NOMBRE]for NOMBRE in countries}
-        
-        fig2 = go.Figure()
+            countries = st.multiselect('Select country',clist) #,['United States', 'Mexico', 'Argentina']
+            
+            dfs={NOMBRE: df2[df2["NOMBRE"]==NOMBRE] for NOMBRE in countries}
+            
+            fig2 = go.Figure()
 
-        for NOMBRE, df2 in dfs.items()
-            fig2=fig2.add_trace(go.Scatter(x=df2["ANIO"], 
-                            y=df2['VALOR'],
-                            mode='lines',
-                            name=country,
-                            line=dict(width=0.8)))
-        
-        layout = go.Layout(                                    
-                                    xaxis_title='Year',
-                                    yaxis_title='Life Expectancy (years)'
-                                )
-        #fig.update_xaxes(showgrid=False)
-        st.plotly_chart(fig2,use_container_width=True)
-
+            for NOMBRE, df2 in dfs.items()
+                fig2=fig2.add_trace(go.Scatter(x=df2["ANIO"], 
+                                y=df2["VALOR"],
+                                mode='lines',
+                                name=country,
+                                line=dict(width=0.8)))
+            
+            layout = go.Layout(                                    
+                                        xaxis_title='Year',
+                                        yaxis_title='Life Expectancy (years)'
+                                    )
+            #fig.update_xaxes(showgrid=False)
+            st.plotly_chart(fig2,use_container_width=True)
+        plot()
 with tab2:
         sql ="""SELECT p.NOMBRE, e.VALOR  
             FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
