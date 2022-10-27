@@ -23,8 +23,9 @@ page_style = """
             background-position: right;
             }
             [data-testid="stSidebar"]{
-            background-color: #29d863;
-              
+            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/wallpaperw.jpg?raw=true");
+            background-size: cover;
+            background-position: right;
             }
             </style>
             """
