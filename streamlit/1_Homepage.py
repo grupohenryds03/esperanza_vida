@@ -273,7 +273,7 @@ with tab2:
             df2=pd.read_sql(sql2,cnn)
             clist=df2["NOMBRE"].unique().tolist()
             
-            countries = st.multiselect('Select country',clist)]
+            countries = st.multiselect('Select country',clist)
             
             dfs={country: df2[df2["NOMBRE"]==country] for country in countries}
             
@@ -326,7 +326,7 @@ with tab3:
             df2=pd.read_sql(sql2,cnn)
             clist=df2["NOMBRE"].unique().tolist()
             
-            countries = st.multiselect('Select country',clist)]
+            countries = st.multiselect('Select country',clist)
             
             dfs={country: df2[df2["NOMBRE"]==country] for country in countries}
             
@@ -379,7 +379,7 @@ with tab4:
             df2=pd.read_sql(sql2,cnn)
             clist=df2["NOMBRE"].unique().tolist()
             
-            countries = st.multiselect('Select country',clist)]
+            countries = st.multiselect('Select country',clist)
             
             dfs={country: df2[df2["NOMBRE"]==country] for country in countries}
             
@@ -432,7 +432,7 @@ with tab5:
             df2=pd.read_sql(sql2,cnn)
             clist=df2["NOMBRE"].unique().tolist()
             
-            countries = st.multiselect('Select country',clist)]
+            countries = st.multiselect('Select country',clist)
             
             dfs={country: df2[df2["NOMBRE"]==country] for country in countries}
             
