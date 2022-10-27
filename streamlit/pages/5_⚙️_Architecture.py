@@ -96,6 +96,9 @@ sql_var =f"""SELECT e.ANIO, e.VALOR
                 WHERE e.ANIO<=2020 AND e.ID_PAIS='{id_pais}'"""
 df_var=run_query(sql_var)
 
+
+df_PRUEBA=f"SELECT ID_INDICADOR, CODIGO FROM INDICADOR WHERE CODIGO='{eleccion_var}'"
+st.dataframe(df_PRUEBA)
 st.dataframe(df_var)
 
 fig = go.Figure()
