@@ -221,7 +221,7 @@ with tab1:
             df2=pd.read_sql(sql2,cnn)
             clist=df2["NOMBRE"].unique().tolist()
             
-            countries = st.multiselect('Select country',clist) ,['United States', 'Canada', 'Mexico', 'Argentina']
+            countries = st.multiselect('Select country',clist ,['United States', 'Canada', 'Mexico', 'Argentina'])
             
             dfs={country: df2[df2["NOMBRE"]==country] for country in countries}
             
