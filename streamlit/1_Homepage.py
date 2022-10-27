@@ -13,7 +13,7 @@ st.set_page_config(
     page_icon="👋",
 )
 
-
+#opacity: 0.2;
 page_style = """
             <style>
             [data-testid="stAppViewContainer"] {
@@ -23,9 +23,10 @@ page_style = """
             background-position: right;
             }
             [data-testid="stSidebar"]{
-            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/WallpaperRocky.jpg?raw=true");
+            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/imageLE2.png?raw=true");
             background-size: cover;
             background-position: right;
+            color: #ffffff;
             }
             </style>
             """
