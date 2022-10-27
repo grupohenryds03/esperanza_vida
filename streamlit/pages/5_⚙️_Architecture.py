@@ -84,5 +84,5 @@ with col2:
         Indicador) #lista_codigo_pais
 
     eleccion_var=dic_indicador2.get(option_var)
-    'La selección fue:', eleccion_pais #dic_pais2[option]
+    'La selección fue:', eleccion_var #dic_pais2[option]
 
