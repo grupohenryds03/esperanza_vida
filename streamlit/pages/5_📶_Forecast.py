@@ -47,11 +47,11 @@ variables as a methodology for all the countries of the Sample._
 tab1, tab2= st.tabs(['FORECAST - Life Expectancy',"Prediction Table"])
 with tab1:
     option = st.selectbox(
-    'Elegir el país de la lista despleglable',
+    'Choose the country from the Selectbox list',
     pais) #lista_codigo_pais
 
     a=dic_pais.get(option)
-    'La selección fue:', option #dic_pais2[option]
+    'The Choose was:', option #dic_pais2[option]
     
     id_pais=dic_id_pais[a] #option
 
@@ -64,25 +64,25 @@ with tab1:
     sql =f"SELECT ANIO, ID_PAIS, VALOR FROM EV WHERE ID_INDICADOR=31 AND ANIO<=2020 AND ID_PAIS='{id_pais}'"
     df_anterior=pd.read_sql(sql,cnn)
 
-    'Predicciones de la Esperanza de Vida (EV) Promedio Anual para los Proximos 10 Años'
+    'Annual Average Life Expectancy (LE) Predictions for the Next 10 Years'
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=df_anterior.ANIO, 
                         y=df_anterior.VALOR,
                         mode='lines',
                         marker_color='#FF0000',
-                        name='EV Actual',#option
+                        name='Actual LE',#option
                         line=dict(width=2)))
 
     fig.add_trace(go.Scatter(x=df_final.YEAR, 
                         y=df_final[a],#option
                         mode='lines',
                         marker_color='#00FF00',
-                        name='EV Predicción',
+                        name='LE Forecast',
                         line=dict(width=2)))
 
     fig.update_xaxes(showgrid=False)
     fig.update_yaxes(showgrid=True, griddash='dot', gridwidth=0.5, gridcolor='White')
-    fig.update_yaxes(title_text="años")
+    fig.update_yaxes(title_text="Years")
     st.plotly_chart(fig,use_container_width=True)
 
 sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR 
