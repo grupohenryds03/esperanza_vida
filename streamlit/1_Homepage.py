@@ -128,9 +128,10 @@ with d2:
     The data load will be in batches in different formats.'''
 
 st.write('***')
-e1,e2,e3=st.columns(3)
+e1,e2,e3,e4=st.columns(4)
 with e2:
     """###    Used"""
+with e3:
     """### technologies"""
 
 f1,f2,f3,f4=st.columns(4)
