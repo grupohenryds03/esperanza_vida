@@ -2,6 +2,11 @@ import streamlit as st
 import pandas as pd
 import snowflake.connector
 
+st.set_page_config(
+    page_title='Architecture',
+    page_icon='⚙️',
+)
+
 # --- HIDE STREAMLIT STYLE ---
 hide_st_style = """
             <style>
@@ -12,8 +17,10 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
+
+
 st.header("Arquitectura")
-st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/diagrama_arq.png')
+st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/diagrama_solo.jpg')
 st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/5puntos.jpg')
 
 st.header("Tecnologías usadas")
