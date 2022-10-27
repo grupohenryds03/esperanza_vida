@@ -188,28 +188,8 @@ cnn = snowflake.connector.connect(
     account='nr28668.sa-east-1.aws',
     warehouse='DW_EV',
     database="LAKE")
-#Creamos una tabla para America
-lista_america=['Argentina','Canada','Mexico','United States','Panama','Brazil','Chile','Uruguay','Bolivia','Peru','Costa Rica']
-lista_africa=['Egypt, Arab Rep.','Libya','South Africa','Nigeria','Morocco']
-lista_asia=['China','India','Thailand','Japan','Korea, Rep.','Israel','Saudi Arabia','Malaysia','Indonesia','Russian Federation','Turkiye']
-lista_europa=['Spain','Bulgaria','France','Italy','Germany','United Kingdom','Norway','Sweden','Greece']
-lista_oceania=['Australia',]
-'''
-j=1
-#for i in lista_america:
 
-    sql= f"""SELECT e.ANIO, e.VALOR 
-                FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
-                WHERE e.ID_INDICADOR=31 AND p.NOMBRE='{i}'"""
-                
-    df=pd.read_sql(sql,cnn)
-    df=df.rename(columns={"VALOR":i})
-    if j==1:
-        EV_America=df
-        j+=1
-    else:
-        EV_America=pd.merge(EV_America, df, how='left', on=['ANIO'])               
-'''
+
 tab1, tab2, tab3 , tab4, tab5= st.tabs(["America","Europe","Asia","Africa","Oceania"])
 with tab1:
         sql ="""SELECT p.NOMBRE, e.VALOR  
@@ -241,7 +221,7 @@ with tab1:
             df2=pd.read_sql(sql2,cnn)
             clist=df2["NOMBRE"].unique().tolist()
             
-            countries = st.multiselect('Select country',clist) #,['United States', 'Mexico', 'Argentina']
+            countries = st.multiselect('Select country',clist) ,['United States', 'Canada', 'Mexico', 'Argentina']
             
             dfs={country: df2[df2["NOMBRE"]==country] for country in countries}
             
@@ -284,6 +264,36 @@ with tab2:
         fig = go.Figure(data=data,layout = layout)
         st.plotly_chart(fig)
 
+        #Multiselect plot
+        def plot ():
+            sql2 ="""SELECT p.NOMBRE, e.ANIO, e.VALOR  
+                FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
+                WHERE e.ID_INDICADOR=31 AND e.ID_CONTINENTE=3"""
+                
+            df2=pd.read_sql(sql2,cnn)
+            clist=df2["NOMBRE"].unique().tolist()
+            
+            countries = st.multiselect('Select country',clist)]
+            
+            dfs={country: df2[df2["NOMBRE"]==country] for country in countries}
+            
+            fig2 = go.Figure()
+
+            for country, df2 in dfs.items():
+                fig2=fig2.add_trace(go.Scatter(x=df2["ANIO"], 
+                                y=df2["VALOR"],
+                                mode='lines',
+                                name=country,
+                                line=dict(width=0.8)))
+            
+            layout = go.Layout(                                    
+                                        xaxis_title='Year',
+                                        yaxis_title='Life Expectancy (years)'
+                                    )
+            #fig.update_xaxes(showgrid=False)
+            st.plotly_chart(fig2,use_container_width=True)
+        plot()
+
 with tab3:
         sql ="""SELECT p.NOMBRE, e.VALOR  
             FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
@@ -306,6 +316,36 @@ with tab3:
         data = [trace]
         fig = go.Figure(data=data,layout = layout)
         st.plotly_chart(fig)
+
+        #Multiselect plot
+        def plot ():
+            sql2 ="""SELECT p.NOMBRE, e.ANIO, e.VALOR  
+                FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
+                WHERE e.ID_INDICADOR=31 AND e.ID_CONTINENTE=2"""
+                
+            df2=pd.read_sql(sql2,cnn)
+            clist=df2["NOMBRE"].unique().tolist()
+            
+            countries = st.multiselect('Select country',clist)]
+            
+            dfs={country: df2[df2["NOMBRE"]==country] for country in countries}
+            
+            fig2 = go.Figure()
+
+            for country, df2 in dfs.items():
+                fig2=fig2.add_trace(go.Scatter(x=df2["ANIO"], 
+                                y=df2["VALOR"],
+                                mode='lines',
+                                name=country,
+                                line=dict(width=0.8)))
+            
+            layout = go.Layout(                                    
+                                        xaxis_title='Year',
+                                        yaxis_title='Life Expectancy (years)'
+                                    )
+            #fig.update_xaxes(showgrid=False)
+            st.plotly_chart(fig2,use_container_width=True)
+        plot()
 
 with tab4:
         sql ="""SELECT p.NOMBRE, e.VALOR  
@@ -330,6 +370,36 @@ with tab4:
         fig = go.Figure(data=data,layout = layout)
         st.plotly_chart(fig)
 
+        #Multiselect plot
+        def plot ():
+            sql2 ="""SELECT p.NOMBRE, e.ANIO, e.VALOR  
+                FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
+                WHERE e.ID_INDICADOR=31 AND e.ID_CONTINENTE=0"""
+                
+            df2=pd.read_sql(sql2,cnn)
+            clist=df2["NOMBRE"].unique().tolist()
+            
+            countries = st.multiselect('Select country',clist)]
+            
+            dfs={country: df2[df2["NOMBRE"]==country] for country in countries}
+            
+            fig2 = go.Figure()
+
+            for country, df2 in dfs.items():
+                fig2=fig2.add_trace(go.Scatter(x=df2["ANIO"], 
+                                y=df2["VALOR"],
+                                mode='lines',
+                                name=country,
+                                line=dict(width=0.8)))
+            
+            layout = go.Layout(                                    
+                                        xaxis_title='Year',
+                                        yaxis_title='Life Expectancy (years)'
+                                    )
+            #fig.update_xaxes(showgrid=False)
+            st.plotly_chart(fig2,use_container_width=True)
+        plot()
+
 with tab5:
         sql ="""SELECT p.NOMBRE, e.VALOR  
             FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
@@ -352,6 +422,36 @@ with tab5:
         data = [trace]
         fig = go.Figure(data=data,layout = layout)
         st.plotly_chart(fig)
+
+        #Multiselect plot
+        def plot ():
+            sql2 ="""SELECT p.NOMBRE, e.ANIO, e.VALOR  
+                FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
+                WHERE e.ID_INDICADOR=31 AND e.ID_CONTINENTE=4"""
+                
+            df2=pd.read_sql(sql2,cnn)
+            clist=df2["NOMBRE"].unique().tolist()
+            
+            countries = st.multiselect('Select country',clist)]
+            
+            dfs={country: df2[df2["NOMBRE"]==country] for country in countries}
+            
+            fig2 = go.Figure()
+
+            for country, df2 in dfs.items():
+                fig2=fig2.add_trace(go.Scatter(x=df2["ANIO"], 
+                                y=df2["VALOR"],
+                                mode='lines',
+                                name=country,
+                                line=dict(width=0.8)))
+            
+            layout = go.Layout(                                    
+                                        xaxis_title='Year',
+                                        yaxis_title='Life Expectancy (years)'
+                                    )
+            #fig.update_xaxes(showgrid=False)
+            st.plotly_chart(fig2,use_container_width=True)
+        plot()
 
 cnn.close()
 conn.close()
