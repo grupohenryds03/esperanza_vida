@@ -86,15 +86,15 @@ with col2:
     eleccion_var=dic_indicador2.get(option_var)
     'La selección fue:', eleccion_var #dic_pais2[option]
 
-sql_var =f"SELECT ANIO, VALOR FROM EV WHERE ID_INDICADOR=31 AND ANIO<=2020 AND ID_PAIS='{id_pais}'"
-df_esp=run_query(sql_var)
+sql_esp =f"SELECT ANIO, VALOR FROM EV WHERE ID_INDICADOR=31 AND ANIO<=2020 AND ID_PAIS='{id_pais}'"
+df_esp=run_query(sql_esp)
 
-sql_pais =f"""SELECT e.ANIO, e.VALOR 
+sql_var =f"""SELECT e.ANIO, e.VALOR 
                 FROM EV e
-                JOIN INDICADOR i
+                JOIN (SELECT ID_INDICADOR, CODIGO FROM INDICADOR WHERE CODIGO='{eleccion_var}') i
                 ON e.ID_INDICADOR=i.ID_INDICADOR
-                WHERE i.CODIGO='{eleccion_var}' AND e.ANIO<=2020 AND e.ID_PAIS='{id_pais}'"""
-df_var=run_query(sql_pais)
+                WHERE e.ANIO<=2020 AND e.ID_PAIS='{id_pais}'"""
+df_var=run_query(sql_var)
 
 st.dataframe(df_var)
 
