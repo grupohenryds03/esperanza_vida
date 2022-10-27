@@ -89,13 +89,6 @@ with col2:
 sql_var =f"SELECT ANIO, VALOR FROM EV WHERE ID_INDICADOR=31 AND ANIO<=2020 AND ID_PAIS='{id_pais}'"
 df_esp=run_query(sql_var)
 
-sql_pais =f"""SELECT e.ANIO, e.VALOR 
-                FROM EV e
-                JOIN INDICADOR i
-                ON e.ID_INDICADOR=i.ID_INDICADOR
-                WHERE i.CODIGO='{eleccion_var}' AND ANIO<=2020 AND e.ID_PAIS='{id_pais}'"""
-df_var=run_query(sql_pais)
-
 fig = go.Figure()
 fig.add_trace(go.Scatter(x=df_esp.ANIO, 
                     y=df_esp.VALOR,
@@ -103,10 +96,4 @@ fig.add_trace(go.Scatter(x=df_esp.ANIO,
                     marker_color='#FF0000',
                     line=dict(width=0.8)))
 
-fig.add_trace(go.Scatter(x=df_var.ANIO, 
-                    y=df_var.VALOR,#option
-                    mode='lines',
-                    marker_color='#00FF00',
-                    name='Relación Esperanza de Vida',
-                    line=dict(width=0.8)))
 
