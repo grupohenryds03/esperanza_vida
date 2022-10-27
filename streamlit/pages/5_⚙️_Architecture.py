@@ -69,42 +69,39 @@ def run_query(query):
 
 
 sql_ind="SELECT i.ID_INDICADOR , i.CODIGO, i.DESCRIPCION FROM INDICADOR i JOIN (SELECT DISTINCT ID_INDICADOR FROM EV) e ON e.ID_INDICADOR=i.ID_INDICADOR"
-df_ind=pd.read_sql(sql_ind,conn)
+df_ind=pd.read_sql(sql_ind,conn) # dataframe indicadores
 sql_pais="SELECT p.ID_PAIS, p.CODIGO_PAIS, p.NOMBRE FROM PAIS p JOIN (SELECT DISTINCT ID_PAIS FROM EV) e ON e.ID_PAIS=p.ID_PAIS"
-df_pais=pd.read_sql(sql_pais,conn)
-
-st.dataframe(df_ind)
-st.dataframe(df_pais)
+df_pais=pd.read_sql(sql_pais,conn) # dataframe pais
 
 col1,col2=st.columns(2)
 
 with col1:
     option_pais = st.selectbox(
         'Elegir el país de la lista despleglable',
-        df_pais.NOMBRE) #lista_codigo_pais
+        df_pais.NOMBRE) 
 
 with col2:
-    option_var = st.selectbox(
+    option_ind = st.selectbox(
             'Elegir la variable de la lista despleglable',
-            df_ind.DESCRIPCION) #lista_codigo_pais
+            df_ind.DESCRIPCION) 
 
 sql_esp =f"""SELECT ANIO, VALOR 
             FROM EV e
             JOIN (SELECT ID_PAIS FROM PAIS WHERE NOMBRE='{option_pais}') p
             ON e.ID_PAIS=p.ID_PAIS
             WHERE ID_INDICADOR=31 AND ANIO<=2020"""
-df_esp=pd.read_sql(sql_esp,conn)
+df_esp=pd.read_sql(sql_esp,conn) # dataframe esperanza vida
 
 sql_var =f"""SELECT ANIO, VALOR 
             FROM EV e
-            JOIN (SELECT ID_INDICADOR FROM INDICADOR WHERE DESCRIPCION='{option_var}') i
+            JOIN (SELECT ID_INDICADOR FROM INDICADOR WHERE DESCRIPCION='{option_ind}') i
             ON e.ID_INDICADOR=i.ID_INDICADOR
             JOIN (SELECT ID_PAIS FROM PAIS WHERE NOMBRE='{option_pais}') p
             ON e.ID_PAIS=p.ID_PAIS
             WHERE e.ANIO<=2020"""
-df_var=pd.read_sql(sql_var,conn)
+df_var=pd.read_sql(sql_var,conn) # dataframe indicador elejido
 
-# Create figure with secondary y-axis
+
 fig = make_subplots(specs=[[{"secondary_y": True}]])
 fig.add_trace(go.Scatter(x=df_esp.ANIO, 
                     y=df_esp.VALOR,
