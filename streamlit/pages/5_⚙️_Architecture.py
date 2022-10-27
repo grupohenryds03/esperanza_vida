@@ -71,7 +71,11 @@ def run_query(query):
 sql_ind="SELECT * FROM INDICADOR i JOIN (SELECT DISTINCT ID_INDICADOR FROM EV) e ON e.ID_INDICADOR=i.ID_INDICADOR"
 df_ind=pd.read_sql(sql_ind,conn)
 sql_pais="SELECT * FROM PAIS p JOIN (SELECT DISTINCT ID_PAIS FROM EV) e ON e.ID_PAIS=p.ID_PAIS"
-df_pais=pd.read_sql(sql_ind,conn)
+df_pais=pd.read_sql(sql_pais,conn)
+
+st.dataframe(df_ind)
+st.dataframe(df_pais)
+
 
 col1,col2=st.columns(2)
 
