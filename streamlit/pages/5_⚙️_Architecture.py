@@ -106,16 +106,15 @@ fig.add_trace(go.Scatter(x=df_esp.ANIO,
                     y=df_esp.VALOR,
                     mode='lines',
                     marker_color='#FF0000',
-                    secondary_y=False,
-                    line=dict(width=0.8)))
+                    name="esperanza de vida",
+                    line=dict(width=0.8)),secondary_y=False)
 
 fig.add_trace(go.Scatter(x=df_var.ANIO, 
                     y=df_var.VALOR,#option
                     mode='lines',
                     marker_color='#00FF00',
-                    name='Relación Esperanza de Vida',
-                    secondary_y=True,
-                    line=dict(width=0.8)))
+                    name=option_var,
+                    line=dict(width=0.8)),secondary_y=True)
 
 
 fig.update_yaxes(title_text="<b>primary</b> yaxis title", secondary_y=False)
