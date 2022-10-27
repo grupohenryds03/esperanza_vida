@@ -80,7 +80,7 @@ with col1:
 
 with col2:
     option_var = st.selectbox(
-        'Elegir el país de la lista despleglable',
+        'Elegir la variable de la lista despleglable',
         Indicador) #lista_codigo_pais
 
     eleccion_var=dic_indicador2.get(option_var)
@@ -93,7 +93,7 @@ sql_pais =f"""SELECT e.ANIO, e.VALOR
                 FROM EV e
                 JOIN INDICADOR i
                 ON e.ID_INDICADOR=i.ID_INDICADOR
-                WHERE i.CODIGO={eleccion_var} AND ANIO<=2020 AND e.ID_PAIS='{id_pais}'"""
+                WHERE i.CODIGO='{eleccion_var}' AND ANIO<=2020 AND e.ID_PAIS='{id_pais}'"""
 df_var=run_query(sql_pais)
 
 fig = go.Figure()
