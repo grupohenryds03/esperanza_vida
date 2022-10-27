@@ -15,12 +15,20 @@ st.set_page_config(
 
 # Open page style
 #with open('style.css') as f:
+@st.experimental_memo
+def get_img_as_base64(file):
+    with open(file, "rb") as f:
+        data=f.read()
+    return base64.b64encode(data).decode()
+img= get_img_as_base64("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/houses-background.jpg?raw=true")
+
 page_style = """
             <style>
             [data-testid="stAppViewContainer"] {
             
-            background_image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/houses-background.jpg?raw=true");
-            background_size: cover;
+            background-image: url("data:image/jpg;base64,{img}");
+            background-size: cover;
+            background-position: right;
             }
             </style>
             """
