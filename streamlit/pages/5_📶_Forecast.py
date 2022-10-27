@@ -79,3 +79,7 @@ EV_todos=pd.read_sql(sql,cnn)
 
 with tab2:
     st.dataframe(df_prediccion)
+
+df_models=pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/Pycaret_Models.csv')
+
+st.dataframe(df_models)
