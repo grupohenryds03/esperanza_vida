@@ -97,7 +97,11 @@ df_esp=run_query(sql_esp)
 sql_var =f"SELECT ANIO, VALOR FROM EV WHERE ID_INDICADOR='{id_var}' AND ANIO<=2020 AND ID_PAIS='{id_pais}'"
 df_var=run_query(sql_var)
 
-fig = go.Figure()
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
+# Create figure with secondary y-axis
+fig = make_subplots(specs=[[{"secondary_y": True}]])
 fig.add_trace(go.Scatter(x=df_esp.ANIO, 
                     y=df_esp.VALOR,
                     mode='lines',
@@ -113,8 +117,9 @@ fig.add_trace(go.Scatter(x=df_var.ANIO,
                     secondary_y=True,
                     line=dict(width=0.8)))
 
-fig.update_xaxes(showgrid=False)
+
 fig.update_yaxes(title_text="<b>primary</b> yaxis title", secondary_y=False)
 fig.update_yaxes(title_text="<b>secondary</b> yaxis title", secondary_y=True)
+fig.update_xaxes(showgrid=False)
 st.plotly_chart(fig,use_container_width=True)
 
