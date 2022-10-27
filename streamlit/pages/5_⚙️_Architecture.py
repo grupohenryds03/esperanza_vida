@@ -3,6 +3,7 @@ import pandas as pd
 import snowflake.connector
 from info import *
 import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 
 
 st.set_page_config(
@@ -94,10 +95,6 @@ df_esp=run_query(sql_esp)
 
 sql_var =f"SELECT ANIO, VALOR FROM EV WHERE ID_INDICADOR='{id_var}' AND ANIO<=2020 AND ID_PAIS='{id_pais}'"
 df_var=run_query(sql_var)
-st.dataframe(df_var)
-
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
 
 # Create figure with secondary y-axis
 fig = make_subplots(specs=[[{"secondary_y": True}]])
