@@ -15,9 +15,9 @@ lista_Kpi =['Infant Mortality','CO2 Emission','Rural Population (%)','GDP Per Ca
 
 st.write('***')
 st.write('''
-For the design of these KPIs, 4 variables were selected that, according to different studies, affect
+_For the design of these KPIs, 4 variables were selected that, according to different studies, affect
 on the evolution of Life Expectancy (LE) of the population of a country.
-In addition, it was differentiated according to the level of development of a country, to see if this influences the effects of the variables on the LE of each country.''')
+In addition, it was differentiated according to the level of development of a country, to see if this influences the effects of the variables on the LE of each country._''')
 st.write('***')
 
 eleccion = st.selectbox(
@@ -68,6 +68,7 @@ if eleccion=='Infant Mortality':
     resultado1=resultado1.rename(columns={'Difference (%)':'Infant Mortality'})
     resultado1=pd.concat([resultados,resultado1],axis=1)
 
+ 
     st.table(resultadoa)
 
 
@@ -75,7 +76,11 @@ if eleccion=='Infant Mortality':
     df.drop('Unnamed: 0',inplace=True, axis=1)
     df=df.rename(columns={'Pais':'Country','EV_2020':'LE 2020','EV_2025':'LE 2025','EV_2025_Mejora':'LE 2025 Hypotetical'})
     
-    st.table(df)
+    agree = st.checkbox('Show Forecast Table')
+
+    if agree:
+
+        st.table(df)
 
 
 elif eleccion=='CO2 Emission':
@@ -127,7 +132,12 @@ elif eleccion=='CO2 Emission':
     
     df.drop('Unnamed: 0',inplace=True, axis=1)
     df=df.rename(columns={'Pais':'Country','EV_2020':'LE 2020','EV_2025':'LE 2025','EV_2025_Mejora':'LE 2025 Hypotetical'})
-    st.table(df)
+
+    agree = st.checkbox('Show Forecast Table')
+
+    if agree:
+
+        st.table(df)
 
 
 
@@ -180,7 +190,11 @@ elif eleccion=='Rural Population (%)':
     
     df.drop('Unnamed: 0',inplace=True, axis=1)
     df=df.rename(columns={'Pais':'Country','EV_2020':'LE 2020','EV_2025':'LE 2025','EV_2025_Mejora':'LE 2025 Hypotetical'})
-    st.table(df)
+
+    agree = st.checkbox('Show Forecast Table')
+
+    if agree:
+        st.table(df)
 
 
 elif eleccion=='GDP Per Capita':
@@ -232,7 +246,11 @@ elif eleccion=='GDP Per Capita':
     
     df.drop('Unnamed: 0',inplace=True, axis=1)
     df=df.rename(columns={'Pais':'Country','EV_2020':'LE 2020','EV_2025':'LE 2025','EV_2025_Mejora':'LE 2025 Hypotetical'})
-    st.table(df)
+
+    agree = st.checkbox('Show Forecast Table')
+
+    if agree:
+        st.table(df)
 
 
 if eleccion=='Conclusions':

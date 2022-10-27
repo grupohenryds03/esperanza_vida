@@ -21,9 +21,8 @@ cnn = snowflake.connector.connect(
 '''
 ## Forecast and Analysis of the Target Varible
 
-_Se realizó una predicción de la Esperanza de Vida Promedio Anual utilizando como metodologia
-una estimacion de series de tiempo univariada SIN variables Exógenas Automatizada para todos los paises de 
-la Muestra_
+_The prediction of the Annual Average Life Expectancy was made using an estimation of univariate time series WITHOUT Automated Exogenous 
+variables as a methodology for all the countries of the Sample._
 '''
 
 
