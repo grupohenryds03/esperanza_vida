@@ -130,12 +130,9 @@ with d2:
 st.write('***')
 e1,e2,e3=st.columns(3)
 with e2:
-    st.header("Architecture")
-st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/diagrama_arq.png')
-st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/5puntos.jpg')
+    """###    Used"""
+    """### technologies"""
 
-
-st.header("Used technologies")
 f1,f2,f3,f4=st.columns(4)
 with f1:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/Python_logo_and_wordmark.png', width=100)
