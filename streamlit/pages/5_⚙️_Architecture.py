@@ -97,7 +97,8 @@ sql_var =f"""SELECT e.ANIO, e.VALOR
 df_var=run_query(sql_var)
 
 
-df_PRUEBA=f"SELECT ID_INDICADOR, CODIGO FROM INDICADOR WHERE CODIGO='{eleccion_var}'"
+sql=f"SELECT ID_INDICADOR, CODIGO FROM INDICADOR WHERE CODIGO='{eleccion_var}'"
+df_PRUEBA=run_query(sql)
 st.dataframe(df_PRUEBA)
 st.dataframe(df_var)
 
