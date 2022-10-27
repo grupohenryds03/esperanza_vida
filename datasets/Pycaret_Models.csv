@@ -1,0 +1,32 @@
+PYCARET MODELS
+Naive Forecaster
+Grand Means Forecaster
+Polynomial Trend Forecaster
+ARIMA
+Auto ARIMA
+Exponential Smoothing
+Croston
+ETS
+Theta Forecaster
+TBATS
+BATS
+Prophet
+Linear w/ Cond. Deseasonalize & Detrending
+Elastic Net w/ Cond. Deseasonalize & Detrending
+Ridge w/ Cond. Deseasonalize & Detrending
+Lasso w/ Cond. Deseasonalize & Detrending
+Least Angular Regressor w/ Cond. Deseasonalize & Detrending
+Lasso Least Angular Regressor w/ Cond. Deseasonalize & Detrending
+Bayesian Ridge w/ Cond. Deseasonalize & Detrending
+Huber w/ Cond. Deseasonalize & Detrending
+Passive Aggressive w/ Cond. Deseasonalize & Detrending
+Orthogonal Matching Pursuit w/ Cond. Deseasonalize & Detrending
+K Neighbors w/ Cond. Deseasonalize & Detrending
+Decision Tree w/ Cond. Deseasonalize & Detrending
+Random Forest w/ Cond. Deseasonalize & Detrending
+Extra Trees w/ Cond. Deseasonalize & Detrending
+Gradient Boosting w/ Cond. Deseasonalize & Detrending
+AdaBoost w/ Cond. Deseasonalize & Detrending
+Extreme Gradient Boosting w/ Cond. Deseasonalize & Detrending
+Light Gradient Boosting w/ Cond. Deseasonalize & Detrending
+CatBoost Regressor w/ Cond. Deseasonalize & Detrending
