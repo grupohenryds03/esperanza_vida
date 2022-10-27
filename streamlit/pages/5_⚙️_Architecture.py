@@ -25,21 +25,26 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 'La arquitectura sigue cinco pasos principales: el primero para analizar las fuentes de datos, el segundo para la Extracción, Trasformación (limpieza) y Carga (Load) llamado por sus siglas ETL. El tercer paso donde se realiza la carga incremental a la base de datos relacional, el cuarto la carga incremental y el último paso donde se realizan las consultas necesarias para ser utilizada en modelos de ML y visualización en dashboard.'
 '''
-1. busqueda de data y análisis para data cruda_.
-2. Ingesta data cruda, limpieza y carga (ETL)_.
-3. Tareas para la carga incremental_.
-4.  Ingesta de data a base de datos relacional_.
-5. Acceso a base de datos para modelar progreciones en machine lerning y visualización en dasboard_.
+1. Busqueda de data y análisis para data cruda.
+2. Ingesta data cruda, limpieza y carga (ETL).
+3. Tareas para la carga incremental.
+4. Ingesta de data a base de datos relacional.
+5. Acceso a base de datos para modelar progreciones en machine lerning y visualización en dasboard.
+
+Diagrama de Arquitectura
 '''
 st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/diagrama_solo.jpg')
 
 
-'''
-- El entorno de trabajo para el ETL se desarrola en AIRFLOW dentro de una cloud maching de HEROKU. Acceso a la api: https://etl-latin-data.herokuapp.com/
-- Para el armado del datalake se ingestan los datos en el entorno STAGE de SNOWFLAKE en formato .csv comprimido en .gz (pueden ser tambien json, parquet, xlsx).
-- En el caso de la base de datos relacional se utiliza SNOWFLAKE con la creación de un warehouse para su mantenimiento e ingesta incremental.
-- para el modelado en ML y visualización de datos se realiza querys según los requerimientos del cliente.
-'''
+
+'- El entorno de trabajo para el ETL se desarrola en AIRFLOW dentro de una cloud maching de HEROKU. Acceso a la api: https://etl-latin-data.herokuapp.com/'
+st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/airflow_runing.png')
+'- Para el armado del datalake se ingestan los datos en el entorno STAGE de SNOWFLAKE en formato .csv comprimido en .gz (pueden ser tambien json, parquet, xlsx).'
+'- En el caso de la base de datos relacional se utiliza SNOWFLAKE con la creación de un warehouse para su mantenimiento e ingesta incremental.'
+st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/diagrama_estrella.png')
+'- para el modelado en ML y visualización de datos se realiza querys según los requerimientos del cliente.'
+
+
 
 
 
