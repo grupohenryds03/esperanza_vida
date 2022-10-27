@@ -17,11 +17,13 @@ st.set_page_config(
 #with open('style.css') as f:
 page_style = """
             <style>
-            .divblock_container.css-18e3th{background-Color: blue;}
-            .body{background-Color: blue;}
-            .font {font-size:50px ; font-family: 'Cooper Black'; color: #FF9633;}
+            [data-testid="stAppViewContainer"] {
+            background-Color: blue;
+            }
             </style>
             """
+
+            
 st.markdown(page_style, unsafe_allow_html=True)
 
 col1,col2,col3=st.columns(3)
