@@ -46,7 +46,7 @@ with tab4:
 
 '### Collaborative group job'
 
-'- for collaborative grupo job we work on visual studio code platform local on GTIHUB cloud clone repository: https://github.com/grupohenryds03 '
+'- for collaborative grupo job we work on VISUAL STUDIO CODE (VSC) platform in local machine on a GTIHUB cloud clone repository: https://github.com/grupohenryds03 '
 
 
 '### Apps Documentation'
@@ -56,6 +56,7 @@ with f1:
     'PANDAS: https://pandas.pydata.org/docs/'
     'SNOWFLAKE: https://docs.snowflake.com/en/'
     'STREAMLIT:https://docs.streamlit.io/'
+    'GITHUB: https://docs.github.com/es'
 with f2:
     'PYCARET: https://pycaret.gitbook.io/docs/'
     'WBAPI:https://pypi.org/project/wbgapi/'
