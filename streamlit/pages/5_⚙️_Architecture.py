@@ -84,22 +84,14 @@ with col2:
         Indicador) #lista_codigo_pais
 
     eleccion_var=dic_indicador2.get(option_var)
+    id_var = [k for k, v in dic_indicador.items() if v == eleccion_var]
     'La selección fue:', eleccion_var #dic_pais2[option]
 
 sql_esp =f"SELECT ANIO, VALOR FROM EV WHERE ID_INDICADOR=31 AND ANIO<=2020 AND ID_PAIS='{id_pais}'"
 df_esp=run_query(sql_esp)
 
-sql_var =f"""SELECT e.ANIO, e.VALOR FROM EV e
-                JOIN (SELECT ID_INDICADOR FROM INDICADOR WHERE CODIGO='{eleccion_var}') i
-                ON e.ID_INDICADOR=i.ID_INDICADOR
-                WHERE e.ANIO<=2020 AND e.ID_PAIS='{id_pais}'"""
+sql_var =f"SELECT ANIO, VALOR FROM EV WHERE ID_INDICADOR=='{id_var}' AND ANIO<=2020 AND ID_PAIS='{id_pais}'"
 df_var=run_query(sql_var)
-
-
-sql=f"SELECT * FROM INDICADOR WHERE CODIGO='{eleccion_var}'"
-df_PRUEBA=run_query(sql)
-st.dataframe(df_PRUEBA)
-st.dataframe(df_var)
 
 fig = go.Figure()
 fig.add_trace(go.Scatter(x=df_esp.ANIO, 
