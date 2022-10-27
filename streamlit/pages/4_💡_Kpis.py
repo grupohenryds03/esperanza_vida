@@ -10,7 +10,7 @@ page_style = """
             <style>
             [data-testid="stAppViewContainer"] {
             
-            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/background-image.png?raw=true");
+            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/paso_vida2.png?raw=true");
             background-size: cover;
             background-position: right;
             }
