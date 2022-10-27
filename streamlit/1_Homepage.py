@@ -243,11 +243,11 @@ with tab1:
             
             countries = st.multiselect('Select country',clist) #,['United States', 'Mexico', 'Argentina']
             
-            dfs={NOMBRE: df2[df2["NOMBRE"]==NOMBRE] for NOMBRE in countries}
+            dfs={country: df2[df2["NOMBRE"]==country] for country in countries}
             
             fig2 = go.Figure()
 
-            for NOMBRE, df2 in dfs.items()
+            for country, df2 in dfs.items():
                 fig2=fig2.add_trace(go.Scatter(x=df2["ANIO"], 
                                 y=df2["VALOR"],
                                 mode='lines',
