@@ -93,7 +93,7 @@ sql_pais =f"""SELECT e.ANIO, e.VALOR
                 FROM EV e
                 JOIN INDICADOR i
                 ON e.ID_INDICADOR=i.ID_INDICADOR
-                WHERE i.CODIGO_INDICADOR={eleccion_var} AND ANIO<=2020 AND e.ID_PAIS='{id_pais}'"""
+                WHERE i.CODIGO={eleccion_var} AND ANIO<=2020 AND e.ID_PAIS='{id_pais}'"""
 df_var=run_query(sql_pais)
 
 fig = go.Figure()
