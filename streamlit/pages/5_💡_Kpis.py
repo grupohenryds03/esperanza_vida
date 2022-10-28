@@ -33,8 +33,8 @@ will have a greater benefit on LE in developing countries,
 since we assume that they have greater margin to improve in these 4 variables compared to the developed countries._''')
 
 st.write('''
-_To separate between developed and undeveloped countries, the World Bank Income Index was used. Developed countries were considered those with a high income index
-and the rest as undeveloped countries._''')
+_To separate between developed and developing countries, the World Bank Income Index was used. Developed countries were considered those with a high income index
+and the rest as developing countries._''')
 st.write('***')
 
 st.write('''
