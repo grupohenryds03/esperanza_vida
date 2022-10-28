@@ -25,7 +25,7 @@ st.write('***')
 '### Detail description'
 
 '''
-1. Research and analyze the data sources: First we analyze the data from the World Bank (WB), World Health Organization (WHO) and scientific papers in order to find the way to access relative data related with life expectancy.
+1. Research and analyze the data sources: First we analyze the data from the World Bank (WB), World Health Organization (WHO) and scientific papers in order to find the way to access data related with life expectancy.
 2. Extraction data: We use two methods to access data, using PANDAS library in Visual Studio Code with PYTHON language. One method was with WBGAPI library that provides modern, access to the World Bank's data API. The other way was importing csv files directly from the WHO website.
 3. Transforming crude data: To clean data we made an extensive EDA, using different methods. The best implementation for missing data over a time series was using a machine learning method called: KNNImputer, from SKLEARN library. This method imputes data into blanks using the mean value from the nearest neighbors.
 4. Incrementally load: once the data is transformed, we upload it into SNOWFLAKE database as a compressed csv file. To manage the first ETL steps, we use AIRFLOW's annually tasks, that is deployed in a HEROKU cloud computer : https://etl-latin-data.herokuapp.com/ .For the incrementally load to relational tables we used scheduled tasks inside SNOWFLAKE database.
@@ -53,7 +53,7 @@ with tab6:
 st.write('***')
 '### Collaborative job'
 
-'- For collaborative job we worked on VISUAL STUDIO CODE (VSC) platform in local machine, with notebooks connected toa  Github cloud clone repository: https://github.com/grupohenryds03 '
+'- For collaborative job we worked on VISUAL STUDIO CODE (VSC) platform in local machine connected to GITHUB clone repository: https://github.com/grupohenryds03 '
 '- We also were sharing an excel sheet with google drive, where we collected the preliminar information for data analysis.'
 '- We did the project follow up with a Gantt chart. This helped us to have control over the project tasks and tells who is the person in charge of each activity.'
 
