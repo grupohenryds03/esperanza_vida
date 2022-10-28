@@ -326,11 +326,11 @@ in a short period of time compared to what our civilization has in existence. Th
 '''
 
 
-tab1, tab2, tab3 = st.tabs(['Developed','Undeveloped','Devel. vs Undevel.'])
+tab1, tab2, tab3 = st.tabs(['Developed','Undeveloped','Developed vs Undeveloped'])
 with tab1:
         sql ="""SELECT e.ANIO, e.VALOR, p.NOMBRE 
                     FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS) JOIN INCOME i ON (e.ID_INCOME=i.ID_INCOME)    
-                    WHERE e.ID_INDICADOR=31 AND i.ID_INCOME=0 AND e.ANIO=2020 SORT BY e.VALOR DESC"""
+                    WHERE e.ID_INDICADOR=31 AND i.ID_INCOME=0 AND e.ANIO=2020 ORDER BY e.VALOR DESC"""
         df=pd.read_sql(sql,cnn)
         trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
