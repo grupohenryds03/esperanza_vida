@@ -77,24 +77,19 @@ st.write('***')
 
 a1,a2,a3=st.columns(3)
 with a1:
-    a1.metric('people smoke tobacco', '1.1 billion')
     a1.metric('', '1.1 billion','people smoke tobacco')
 with a2:
-    a2.metric('children under the age of 5 are stunted','156 million')
-   
+    a2.metric('','156 million','children under the age of 5 are stunted')
 with a3:
-    a3.metric('under the age of 5 are overweight','42 million')
-   
+    a3.metric('','42 million','under the age of 5 are overweight','42 million')
 st.write('***')
 b1,b2,b3=st.columns(3)
 with b1:
-    b1.metric('people drink contaminated water','1.8 billion')
-    
+    b1.metric('','1.8 billion','people drink contaminated water')
 with b2:
-    b2.metric('people defecate in the open','946 million')
-   
+    b2.metric('','946 million','people defecate in the open')
 with b3:
-    b3.metric('people cook with polluting fuels','3.1 billion')
+    b3.metric('','3.1 billion','people cook with polluting fuels')
    
 
 st.write('***')
@@ -120,32 +115,6 @@ with d2:
     '''The analysis and predictions provided will not be prior to the year 1960.
     The consultations will not include biological factors.
     The data load will be in batches in different formats.'''
-
-st.write('***')
-e1,e2,e3,e4=st.columns(4)
-with e2:
-    """###    Used"""
-with e3:
-    """### technologies"""
-
-f1,f2,f3,f4=st.columns(4)
-with f1:
-    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/Python_logo_and_wordmark.png', width=100)
-with f2:
-    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/Snowflake_Logo.png', width=100)
-with f3:
-    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/Pandas_logo.png', width=100)
-with f4:
-    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/GitHub_logo.png', width=100)
-g1,g2,g3,g4=st.columns(4)
-with g1:
-    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/Streamlit.png', width=100)
-with g2:
-    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/project.png', width=100)
-with g3:
-    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/Mysql.png', width=100)
-with g4:
-    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/airflow.png', width=100)
 
 st.write('***')
 
