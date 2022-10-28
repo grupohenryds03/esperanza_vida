@@ -544,7 +544,39 @@ with tab2:
 
 with tab3:
     st.dataframe(EV_todos)
+st.write('***')
 
+'''
+## LE for every country
+'''
+def plot ():
+            sql2 ="""SELECT p.NOMBRE, e.ANIO, e.VALOR  
+                FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
+                WHERE e.ID_INDICADOR=31"""
+                
+            df2=pd.read_sql(sql2,cnn)
+            clist=df2["NOMBRE"].unique().tolist()
+            
+            countries = st.multiselect('Select country',clist ,['United States', 'Mexico', 'Argentina'])
+            
+            dfs={country: df2[df2["NOMBRE"]==country] for country in countries}
+            
+            fig2 = go.Figure()
+
+            for country, df2 in dfs.items():
+                fig2=fig2.add_trace(go.Scatter(x=df2["ANIO"], 
+                                y=df2["VALOR"],
+                                mode='lines',
+                                name=country,
+                                line=dict(width=2)))
+            
+            layout = go.Layout(                                    
+                                        xaxis_title='Year',
+                                        yaxis_title='Life Expectancy (years)'
+                                    )
+            #fig.update_xaxes(showgrid=False)
+            st.plotly_chart(fig2,use_container_width=True)
+plot()
 cnn.close()
 
 
