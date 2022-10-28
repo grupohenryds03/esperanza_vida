@@ -136,7 +136,7 @@ with tab1:
     st.plotly_chart(fig,use_container_width=True)
 with tab2:
     '''##### We decided to eliminate those indicators that had more than 20% of missing data. Taking that percentage to eliminate as few as possible.'''
-    '''##### Once that is done we are left with 17 indicators with a percentage of missing data from the 3.36%'''
+    '''##### Once that is done we are left with 17 indicators with a percentage of missing data of the 3.36%'''
     trace  = go.Bar(
                     x=columnas,
                     y=valores2,
