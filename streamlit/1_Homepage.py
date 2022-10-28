@@ -80,31 +80,24 @@ st.write('***')
 a1,a2,a3=st.columns(3)
 with a1:
     a1.metric('people smoke tobacco', '1.1 billion')
-    st.caption('1.1 billion')
-    '''
-    people smoke tobacco'''
+  
 with a2:
     a2.metric('children under the age of 5 are stunted','156 million')
-    st.caption('156 million')
-    '''children under the age of 5 are stunted'''
+   
 with a3:
     a3.metric('under the age of 5 are overweight','42 million')
-    st.caption('42 million')
-    '''under the age of 5 are overweight'''
+   
 st.write('***')
 b1,b2,b3=st.columns(3)
 with b1:
     b1.metric('people drink contaminated water','1.8 billion')
-    st.caption('1.8 billion')
-    '''people drink contaminated water '''
+    
 with b2:
-    b2.metric('946 million')
-    st.caption('946 million')
-    '''people defecate in the open'''
+    b2.metric('people defecate in the open','946 million')
+   
 with b3:
     b3.metric('people cook with polluting fuels','3.1 billion')
-    st.caption('3.1 billion')
-    '''people cook with polluting fuels'''
+   
 
 st.write('***')
 st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/paso_vida.jpeg')
