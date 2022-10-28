@@ -83,7 +83,7 @@ with tab1:
                                 y=df2["VALOR"],
                                 mode='lines',
                                 name=country,
-                                line=dict(width=0.8)))
+                                line=dict(width=2)))
             
             layout = go.Layout(                                    
                                         xaxis_title='Year',
@@ -135,7 +135,7 @@ with tab2:
                                 y=df2["VALOR"],
                                 mode='lines',
                                 name=country,
-                                line=dict(width=0.8)))
+                                line=dict(width=2)))
             
             layout = go.Layout(                                    
                                         xaxis_title='Year',
@@ -188,7 +188,7 @@ with tab3:
                                 y=df2["VALOR"],
                                 mode='lines',
                                 name=country,
-                                line=dict(width=0.8)))
+                                line=dict(width=2)))
             
             layout = go.Layout(                                    
                                         xaxis_title='Year',
@@ -241,7 +241,7 @@ with tab4:
                                 y=df2["VALOR"],
                                 mode='lines',
                                 name=country,
-                                line=dict(width=0.8)))
+                                line=dict(width=2)))
             
             layout = go.Layout(                                    
                                         xaxis_title='Year',
@@ -294,7 +294,7 @@ with tab5:
                                 y=df2["VALOR"],
                                 mode='lines',
                                 name=country,
-                                line=dict(width=0.8)))
+                                line=dict(width=2)))
             
             layout = go.Layout(                                    
                                         xaxis_title='Year',
