@@ -35,7 +35,7 @@ st.write('***')
 st.write('***')
 '### Architecture with images'
 
-tab1, tab2, tab3 , tab4, tab5= st.tabs(['Architecture Diagram',"Airflow ELT runing","Relational tables diagram","snowflake tasks", "Demo video"])
+tab1, tab2, tab3 , tab4, tab5= st.tabs(['Architecture Diagram',"Airflow ELT runing","Relational tables diagram","snowflake tasks",'Gantt chart', "Demo video"])
 with tab1:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/arquitetura_bueno.jpg', caption='Arquitecture Diagram')
 with tab2:
@@ -45,6 +45,8 @@ with tab3:
 with tab4:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/snow-tasks.png',caption='Incremetal load with snowflake tasks')
 with tab5:
+    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/Gantt_chart.png',caption='Gantt chart')
+with tab6:
     'Demo for ETL and incremental load'
     st.video('https://youtu.be/iXmhOic_WME')
 
@@ -53,7 +55,7 @@ st.write('***')
 
 '- For collaborative job we worked on VISUAL STUDIO CODE (VSC) platform in local machine, with notebooks connected toa  Github cloud clone repository: https://github.com/grupohenryds03 '
 '- We also were sharing an excel sheet with google drive, where we collected the preliminar information for data analysis.'
-
+'- We did the project follow up with a Gantt chart. This helped us to have control over the project tasks and tells who is the person in charge of each activity.'
 
 st.write('***')
 ' ### Technologies'
