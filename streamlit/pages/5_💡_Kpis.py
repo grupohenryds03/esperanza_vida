@@ -26,9 +26,10 @@ lista_Kpi =['Infant Mortality','CO2 Emission','Rural Population (%)','GDP Per Ca
 
 st.write('***')
 st.write('''
-_To carry out this study, 4 variables were selected that, according to different studies, affect the evolution of the Life Expectancy (LE) 
+_To carry out this study 4 variables were selected that, according to different studies, affect the evolution of the Life Expectancy (LE) 
 of the population of a country.
-The objective of this analysis is to identify if an improvement of 10% per year for the next 5 years will have a greater benefit on LE in developing countries, 
+The objective of this analysis is to identify if an improvement of 10% per year for the next 5 years in the 4 selected variables,  
+will have a greater benefit on LE in developing countries, 
 since we assume that they have greater margin to improve in these 4 variables compared to the developed countries._''')
 
 st.write('''
