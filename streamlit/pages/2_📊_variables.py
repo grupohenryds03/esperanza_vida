@@ -71,6 +71,11 @@ with f2:
     url = 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6650812/'
     st.write("Analysis of Life Expectancy at Birth paper - National Library of Medicine from Spain [link](%s)" % url)
 
+    url = 'https://ruc.udc.es/dspace/bitstream/handle/2183/16409/RodriguezRodriguez_David_TFG_2015.pdf?sequence=2'
+    st.write("David Rodríguez Rodríguez paper - Económic Coruña University[link](%s)" % url)
+
+
+
 
 st.write('***')
 st.subheader('*Socioeconomic Variables*')
