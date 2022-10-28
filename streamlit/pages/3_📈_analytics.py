@@ -321,9 +321,8 @@ st.write('***')
 st.header("Life expectancy by Income")
 
 '''
-Our first approach was to divide the countries by continent, to have a better view of the trends marked for each region. 
-The first thing to note is that all countries have drastically improved their life expectancy
-in a short period of time compared to what our civilization has in existence. This change was marked since the industrial revolution.
+Another way to categorize the data is by income level, in this case we selected developed countries as one group and the undeveloped countries as another group.
+This way is easier to look for differences between differnt types of economies.
 '''
 
 
@@ -382,7 +381,7 @@ with tab3:
         title='Developed vs Undeveloped'
     )
 
-    st.altair_chart(line_chart,,use_container_width=True)   
+    st.altair_chart(line_chart,use_container_width=True)   
             
             
 st.write('***')
