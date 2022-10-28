@@ -39,7 +39,7 @@ variables as a methodology for all the countries of the Sample._
 '''
 
 
-tab1, tab2= st.tabs(['FORECAST - Life Expectancy',"Prediction Table"])
+tab1, tab2, tab3= st.tabs(['FORECAST - Life Expectancy',"Prediction Table",'Pycaret Forecast Models'])
 with tab1:
     option = st.selectbox(
     'Choose the country from the Selectbox list',
@@ -94,7 +94,8 @@ with tab2:
 
 df_models=pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/Pycaret_Models.csv')
 
-'''
-## Pycaret Forecast Models'''
+with tab3:
+    '''
+    ## Pycaret Forecast Models'''
 
-st.table(df_models)
+    st.dataframe(df_models)
