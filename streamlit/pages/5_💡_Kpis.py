@@ -26,18 +26,10 @@ lista_Kpi =['Infant Mortality','CO2 Emission','Rural Population (%)','GDP Per Ca
 
 st.write('***')
 st.write('''
-<<<<<<< HEAD
 _To carry out this study, 4 variables were selected that, according to different studies, affect the evolution of the Life Expectancy (LE) 
 of the population of a country.
-The objective of this analysis is to identify if an improvement of 10% per year during the next 5 years in the 4 selected variables, 
-will have a greater benefit in LE in developing countries, since we assume that they have greater room for improvement in these 4 variables 
-compared to developed countries._''')
-
-=======
-_To carry out this study, 4 variables were selected, according to different studies that argue they may affect the Life Expectancy (LE) evolution of a country's population.
-The objective of this analysis is to identify if a 10% per year improvement in the next 5 years will have a greater benefit on LE in developing countries, 
+The objective of this analysis is to identify if an improvement of 10% per year for the next 5 years will have a greater benefit on LE in developing countries, 
 since we assume that they have greater margin to improve in these 4 variables compared to the developed countries._''')
->>>>>>> df9615f09166b2861930d6ccd7f0c6e4c58f09e1
 
 st.write('''
 _To separate between developed and undeveloped countries, the World Bank Income Index was used. Developed countries were considered those with a high income index
