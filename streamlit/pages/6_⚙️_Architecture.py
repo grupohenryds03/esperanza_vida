@@ -17,7 +17,7 @@ page_style = """
             """
 st.markdown(page_style, unsafe_allow_html=True)
 
-'#Architecture'
+'# Architecture'
 
 '_The architecture project follows five main steps: the first one is to study and analyze the data source. The second one extract particular data from the source. The third one is data transformation and cleaning. The fourth one is incremental load of data into the relational tables. Finally, the last step implements queries to extract data for machine learning (ML) algorithms and visualizes it by charts in the dashboard._'
 
