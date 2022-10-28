@@ -16,14 +16,8 @@ st.set_page_config(
 
 page_style = """
             <style>
-            [data-testid="stAppViewContainer"] {
-            background-color: white;
-            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/long_clock2.jpg?raw=true");
-            background-size: cover;
-            background-position: left;
-            }
             [data-testid="stSidebar"]{
-            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/life.jpg?raw=true");
+            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/life2.jpg?raw=true");
             background-size: cover;
             background-position: right;
             }
