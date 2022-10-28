@@ -271,7 +271,7 @@ if eleccion=='Conclusions':
     st.write('***')
     st.write('''
      _From the studies and analyzes carried out, it can be concluded that 3 of the 4 selected variables would have a greater positive 
-    influence on the LE of the population of underdeveloped countries, but 2 of them showed better results 
+    influence on the LE of the population of developing countries, but 2 of them showed better results 
     ('GDP Per Capita' and 'Rural Population (%)')._''')
     st.write('***')
 
