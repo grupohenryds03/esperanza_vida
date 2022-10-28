@@ -16,11 +16,12 @@ page_style = """
             </style>
             """
 st.markdown(page_style, unsafe_allow_html=True)
-'# Data architecture'
-st.write('***')
 
+'# Data architecture'
 
 '_The data architecture follows five main steps: the first one is to study and analyze the data source. The second one extract particular data from the source. The third one is data transformation and cleaning. The fourth one is incremental load of data into the relational tables. Finally, the last step implements queries to extract data for machine learning (ML) algorithms and visualizes it by charts in the dashboard._'
+
+st.write('***')
 '### Detail description:'
 
 '''
@@ -30,6 +31,7 @@ st.write('***')
 4. Incrementally load: once the data is transformed, we upload it into SNOWFLAKE database as a compressed csv file. To manage the first ETL steps  , we use AIRFLOW´s annually tasks, that is deployed in a HEROKU cloud computer  : https://etl-latin-data.herokuapp.com/ .For the incrementally load to relational tables we used scheduled tasks inside SNOWFLAKE database.
 5. ML and visualization: We use SQL queries to ingest data for ML training and predictions methods using PYCARET library. For the dashboard, we implement STREAMLIT, using PLOTLY library for charts.
 '''
+
 st.write('***')
 '### Architecture with images'
 
@@ -56,7 +58,7 @@ st.write('***')
 st.write('***')
 ' ### technologies'
 
-f1,f2,f3,f4=st.columns(4)
+f1,f2,f3,f4, f5=st.columns(5)
 with f1:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/Python_logo_and_wordmark.png', width=100)
 with f2:
@@ -65,17 +67,22 @@ with f3:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/Pandas_logo.png', width=100)
 with f4:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/GitHub_logo.png', width=100)
-g1,g2,g3,g4=st.columns(4)
+with f5:
+    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/Plotly-logo.png', width=100)
+
+g1,g2,g3,g4, g5=st.columns(5)
 with g1:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/Streamlit.png', width=100)
 with g2:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/project.png', width=100)
 with g3:
-    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/Mysql.png', width=100)
+    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/logo_pycaret.png', width=100)
 with g4:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/airflow.png', width=100)
+with g5:
+    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/logo_pycaret.png', width=100)
 
-
+st.write('***')
 '### Apps Documents'
 f1,f2=st.columns(2)
 with f1:
@@ -90,6 +97,5 @@ with f2:
     'PLOTLY:https://plotly.com/python/'
     'SKLEARN: https://scikit-learn.org/stable/user_guide.html'
 
-st.write('***')
 
 
