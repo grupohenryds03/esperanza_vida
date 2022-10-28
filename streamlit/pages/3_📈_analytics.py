@@ -45,7 +45,7 @@ with tab1:
         sql ="""SELECT p.NOMBRE, e.VALOR  
             FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
             WHERE e.ID_INDICADOR=31 AND e.ANIO=2020 AND e.ID_CONTINENTE=1
-            ORDER BY- e.VALOR DESC"""
+            ORDER BY e.VALOR DESC"""
         df=pd.read_sql(sql,cnn)
         df=df.drop_duplicates()
         trace  = go.Bar(
@@ -309,12 +309,12 @@ st.write('***')
 st.header("Life expectancy by Income")
 
 '''
-Another way to categorize the data is by income level, in this case we selected developed countries as one group and the undeveloped countries as another group.
+Another way to categorize the data is by income level, in this case we selected developed countries as one group and the developing countries as another group.
 This way is easier to look for differences between different types of economies. In this case we can se how the gap is getting smaller with the pass of time, buy maybe not as quick as we all want.
 '''
 
 
-tab1, tab2, tab3 = st.tabs(['Developed','Undeveloped','Developed vs Undeveloped'])
+tab1, tab2, tab3 = st.tabs(['Developed','Developing','Developed vs Developing'])
 with tab1:
         sql ="""SELECT e.ANIO, e.VALOR, p.NOMBRE 
                     FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS) JOIN INCOME i ON (e.ID_INCOME=i.ID_INCOME)    
