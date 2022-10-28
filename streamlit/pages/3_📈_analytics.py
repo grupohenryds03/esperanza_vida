@@ -366,11 +366,23 @@ with tab2:
         data = [trace]
         fig = go.Figure(data=data,layout = layout)
         st.plotly_chart(fig)
-with tab3:
+with tab3:     
+    import numpy as np
+    import pandas as pd
+    import altair as alt
 
-                                 
     df3=pd.read_sql('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/income_df.csv')
-    st.line_chart(df3)     
+    income=df3.melt('Year', var_name='category', value_name='y')
+
+    line_chart = alt.Chart(income).mark_line(interpolate='basis').encode(
+        alt.X('Year', title='Year'),
+        alt.Y('y', title='Life Expectancy'),
+        color='category:N'
+    ).properties(
+        title='Developed vs Undeveloped'
+    )
+
+    st.altair_chart(line_chart)   
             
             
 st.write('***')
