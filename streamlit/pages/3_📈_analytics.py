@@ -53,7 +53,7 @@ with tab1:
                                 y=df['VALOR'].tolist(),
                                 showlegend = False,
                                 
-                                marker=dict(color = ['Argentina'],'#00FF00')
+                                marker=['Argentina'],color ='#00FF00'
                                 #marker=dict(color = df['VALOR'].tolist(),colorscale='viridis')
                                 )
 
