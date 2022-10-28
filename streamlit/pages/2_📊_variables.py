@@ -189,9 +189,9 @@ fig.add_trace(go.Scatter(x=df_ind.ANIO,
                     name="Factor",
                     line=dict(width=2)),secondary_y=True)
 
-fig.update_xaxes(showgrid=False)
+fig.update_xaxes(showgrid=False, title_text = 'Years')
 fig.update_yaxes(showgrid=True, griddash='dot', gridwidth=0.1, gridcolor='White')
-fig.update_yaxes(title_text="years", secondary_y=False)
+fig.update_yaxes(title_text="Indicator", secondary_y=False)
 fig.update_yaxes(secondary_y=True)
 fig.update_layout(title=titulo_grafico)
 st.plotly_chart(fig,use_container_width=True)
