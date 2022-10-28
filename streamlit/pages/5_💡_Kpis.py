@@ -8,12 +8,7 @@ st.set_page_config(
 
 page_style = """
             <style>
-            [data-testid="stAppViewContainer"] {
-            background-color: #d9e3fa;
-            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/clock_background2.png?raw=true");
-            background-size: cover;
-            background-position: left;
-            }
+            
             [data-testid="stSidebar"]{
             background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/life.jpg?raw=true");
             background-size: cover;
@@ -39,14 +34,13 @@ lista_Kpi =['Infant Mortality','CO2 Emission','Rural Population (%)','GDP Per Ca
 
 st.write('***')
 st.write('''
-_To carry out this study, 4 variables were selected that, according to different studies, affect the evolution of the Life Expectancy (LE) 
-of the population of a country.
-The objective of this analysis is to identify if an improvement of 10% per year for the next 5 years will have a greater benefit on LE in developing countries, 
+_To carry out this study, 4 variables were selected, according to different studies that argue they may affect the Life Expectancy (LE) evolution of a country's population.
+The objective of this analysis is to identify if a 10% per year improvement in the next 5 years will have a greater benefit on LE in developing countries, 
 since we assume that they have greater margin to improve in these 4 variables compared to the developed countries._''')
 
 st.write('''
-_To separate between developed and developing countries, the World Bank Income Index was used. Developed countries were considered those with a high income index
-and the rest as Developing countries._''')
+_To separate between developed and undeveloped countries, the World Bank Income Index was used. Developed countries were considered those with a high income index
+and the rest as undeveloped countries._''')
 st.write('***')
 
 
