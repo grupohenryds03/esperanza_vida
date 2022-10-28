@@ -13,51 +13,22 @@ st.set_page_config(
     page_icon="👋",
 )
 
-#opacity: 0.2;
+
 page_style = """
             <style>
             [data-testid="stAppViewContainer"] {
-            
-            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/background-image.png?raw=true");
+            background-color: #d9e3fa;
+            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/clock_background2.png?raw=true");
             background-size: cover;
-            background-position: right;
+            background-position: left;
             }
             [data-testid="stSidebar"]{
-            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/imageLE2.png?raw=true");
+            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/life.jpg?raw=true");
             background-size: cover;
             background-position: right;
-            color: #ffffff;
             }
             </style>
             """
-#background-Color: blue;
-            
-st.markdown(page_style, unsafe_allow_html=True)
-
-col1,col2,col3=st.columns(3)
-with col2:
-    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/LDlogo.png', width=200)
-
-
-st.title("LIFE EXPECTANCY ANALYSIS")
-
-#with st.sidebar:    
-#    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/LDlogo.png', width=100)
-
-#st.sidebar.success('')
-
-
-
-#if "my_input" not in st.session_state:
-#    st.session_state["my_input"] = ""
-
-#my_input = st.text_input("Input a text here", st.session_state["my_input"])
-#submit = st.button("Submit")
-#if submit:
-#    st.session_state["my_input"] = my_input
-#    st.write("You have entered: ", my_input)
-
-# --- HIDE STREAMLIT STYLE ---
 
 hide_st_style = """
             <style>
@@ -67,6 +38,15 @@ hide_st_style = """
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
+            
+st.markdown(page_style, unsafe_allow_html=True)
+
+col1,col2,col3=st.columns(3)
+with col2:
+    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/LDlogo.png', width=200)
+
+
+st.title("LIFE EXPECTANCY ANALYSIS")
 
 st.header("Life expectancy differs depending on the birth place ")
 '''
