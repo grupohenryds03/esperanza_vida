@@ -78,7 +78,7 @@ st.write('***')
 a1,a2,a3=st.columns(3)
 with a1:
     a1.metric('people smoke tobacco', '1.1 billion')
-  
+    a1.metric('', '1.1 billion','people smoke tobacco')
 with a2:
     a2.metric('children under the age of 5 are stunted','156 million')
    
