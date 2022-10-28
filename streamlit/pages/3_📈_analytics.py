@@ -484,7 +484,7 @@ with tab2:
                     ON (e.ID_INDICADOR=i.ID_INDICADOR)
                     JOIN PAIS p
                     on (e.ID_PAIS=p.ID_PAIS)
-                    WHERE e.ID_INDICADOR=18 AND e.ANIO>1960 AND e.ANIO<=2020 """ 
+                    WHERE i.CODIGO='SH.DYN.MORT' AND e.ANIO>1960 AND e.ANIO<=2020 """ 
             GDP_todos=pd.read_sql(sql,cnn)
     elif eleccion2=='CO2_Emission':
             sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR 
