@@ -54,20 +54,20 @@ st.title('Selected Variables')
 '''##### We selected 17 indicators that can help explain the relationship of the economy, education and health care with life expectancy at birth.'''
 '''##### To make this selection we did our own research based on sources like these:'''
 
-f1,f2,f3,f4, f5=st.columns(5)
+f1,f2=st.columns(5)
 with f1:
     url = "https://rstudio-pubs-static.s3.amazonaws.com/180554_a412caa868c24939a873ca679d54bbde.html"
     st.write("Ian Vleeming y Ricardo Valladares paper [link](%s)" % url)
-with f2:
+
     url = 'https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2022_wpp_key-messages.pdf'
     st.write("World Population Prospects 2022 - United Nations [link](%s)" % url)
-with f3:
+
     url = 'https://www.kaggle.com/search?q=life+expectancy'
     st.write("Kaggle studies reserch [link](%s)" % url)
-with f4:
+with f2:
     url = 'https://www.kaggle.com/code/nilaychauhan/etl-pipelines-tutorial-world-bank-datasets'
     st.write("Kaggle ETL process [link](%s)" % url)
-with f5:
+
     url = 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6650812/'
     st.write("Analysis of Life Expectancy at Birth paper - National Library of Medicine from Spain [link](%s)" % url)
 
