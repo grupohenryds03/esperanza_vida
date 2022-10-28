@@ -330,7 +330,7 @@ tab1, tab2, tab3 = st.tabs(['Developed','Undeveloped','Devel. vs Undevel.'])
 with tab1:
         sql ="""SELECT e.ANIO, e.VALOR, p.NOMBRE 
                     FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS) JOIN INCOME i ON (e.ID_INCOME=i.ID_INCOME)    
-                    WHERE e.ID_INDICADOR=31 AND i.ID_INCOME=0 AND e.ANIO=2020"""
+                    WHERE e.ID_INDICADOR=31 AND i.ID_INCOME=0 AND e.ANIO=2020 SORT BY e.VALOR DESC"""
         df=pd.read_sql(sql,cnn)
         trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
@@ -346,36 +346,7 @@ with tab1:
         fig = go.Figure(data=data,layout = layout)
         st.plotly_chart(fig)
         
-        #Multiselect plot
-        def plot ():
-            sql2 ="""SELECT p.NOMBRE, e.ANIO, e.VALOR  
-                FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
-                WHERE e.ID_INDICADOR=31 AND i.ID_INCOME=0"""
-                
-            df2=pd.read_sql(sql2,cnn)
-            clist=df2["NOMBRE"].unique().tolist()
-            
-            countries = st.multiselect('Select country',clist ,['United States', 'Germany'])
-            
-            dfs={country: df2[df2["NOMBRE"]==country] for country in countries}
-            
-            fig2 = go.Figure()
-
-            for country, df2 in dfs.items():
-                fig2=fig2.add_trace(go.Scatter(x=df2["ANIO"], 
-                                y=df2["VALOR"],
-                                mode='lines',
-                                name=country,
-                                line=dict(width=0.8)))
-            
-            layout = go.Layout(                                    
-                                        xaxis_title='Year',
-                                        yaxis_title='Life Expectancy (years)'
-                                    )
-            #fig.update_xaxes(showgrid=False)
-            st.plotly_chart(fig2,use_container_width=True)
-        plot()
-
+        
 with tab2:
         sql ="""SELECT e.ANIO, e.VALOR, p.NOMBRE 
                     FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS) JOIN INCOME i ON (e.ID_INCOME=i.ID_INCOME)    
@@ -394,27 +365,26 @@ with tab2:
         data = [trace]
         fig = go.Figure(data=data,layout = layout)
         st.plotly_chart(fig)
-        
+with tab3:
+
         #Multiselect plot
         def plot ():
-            sql2 ="""SELECT p.NOMBRE, e.ANIO, e.VALOR  
-                FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
-                WHERE e.ID_INDICADOR=31 AND (i.ID_INCOME=1 OR i.ID_INCOME=2)"""
-                
-            df2=pd.read_sql(sql2,cnn)
-            clist=df2["NOMBRE"].unique().tolist()
+                           
+            df3=pd.read_sql('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/income_df.csv')
             
-            countries = st.multiselect('Select country',clist )
-            
-            dfs={country: df2[df2["NOMBRE"]==country] for country in countries}
             
             fig2 = go.Figure()
 
-            for country, df2 in dfs.items():
-                fig2=fig2.add_trace(go.Scatter(x=df2["ANIO"], 
-                                y=df2["VALOR"],
+            fig2=fig2.add_trace(go.Scatter(x=df3["Year"], 
+                                y=df3["Developed"],
                                 mode='lines',
-                                name=country,
+                                name='Developed',
+                                line=dict(width=0.8)))
+            
+            fig2=fig2.add_trace(go.Scatter(x=df3["Year"], 
+                                y=df3["Undeveloped"],
+                                mode='lines',
+                                name='Uneveloped',
                                 line=dict(width=0.8)))
             
             layout = go.Layout(                                    
