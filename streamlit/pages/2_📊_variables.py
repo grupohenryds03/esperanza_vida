@@ -59,30 +59,35 @@ with f1:
     url = "https://rstudio-pubs-static.s3.amazonaws.com/180554_a412caa868c24939a873ca679d54bbde.html"
     st.write("Ian Vleeming y Ricardo Valladares paper [link](%s)" % url)
 with f2:
-    '2. https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2022_wpp_key-messages.pdf'
+    url = 'https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2022_wpp_key-messages.pdf'
+    st.write("World Population Prospects 2022 - United Nations [link](%s)" % url)
 with f3:
-    '3. https://www.kaggle.com/search?q=life+expectancy'
+    url = 'https://www.kaggle.com/search?q=life+expectancy'
+    st.write("Kaggle studies reserch [link](%s)" % url)
 with f4:
-    '4. https://www.kaggle.com/code/nilaychauhan/etl-pipelines-tutorial-world-bank-datasets'
+    url = 'https://www.kaggle.com/code/nilaychauhan/etl-pipelines-tutorial-world-bank-datasets'
+    st.write("Kaggle ETL process [link](%s)" % url)
 with f5:
-    '5. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6650812/'
+    url = 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6650812/'
+    st.write("Analysis of Life Expectancy at Birth paper - National Library of Medicine from Spain [link](%s)" % url)
+
 
 st.write('***')
 st.subheader('*Socioeconomic Variables*')
 
 g1,g2=st.columns(2)
 with g1:
-    '- Trade in services (% of GDP) - ID:38'
-    '- CO2 emissions (kt) - ID:2'
-    '- Population growth (annual %) - ID:3'
-    '- GPD per capita (constant 2015 US$) - ID:31'
-    '- Total unemployment (% total population) - ID:25'
+    '- Trade in services (% of GDP)'
+    '- CO2 emissions (kt)'
+    '- Population growth (annual %)'
+    '- GPD per capita (constant 2015 US$)'
+    '- Total unemployment (% total population)'
 with g2:
-    '- Life expectancy at birth, men (years) - ID:26'
-    '- Life expectancy at birth, women (years) - ID:27'
-    '- Life expectancy at birth, total (years) - ID:28'
-    '- Rural population (% of total population) - ID:33'
-    '- Urban population (% total population) - ID:34'
+    '- Life expectancy at birth, men (years)'
+    '- Life expectancy at birth, women (years)'
+    '- Life expectancy at birth, total (years)'
+    '- Rural population (% of total population)'
+    '- Urban population (% total population)'
 
 st.write('***')
 st.subheader('*Health Variables*')
