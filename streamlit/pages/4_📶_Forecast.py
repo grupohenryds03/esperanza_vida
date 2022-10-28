@@ -12,22 +12,17 @@ st.set_page_config(
 
 page_style = """
             <style>
-            [data-testid="stAppViewContainer"] {
             
-            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/background-image.png?raw=true");
-            background-size: cover;
-            background-position: right;
-            }
             [data-testid="stSidebar"]{
-            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/WallpaperRocky.jpg?raw=true");
+            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/life6.jpg?raw=true");
             background-size: cover;
             background-position: right;
             }
             </style>
             """
-#background-Color: blue;
-            
 st.markdown(page_style, unsafe_allow_html=True)
+
+
 cnn = snowflake.connector.connect(
     user=st.secrets.snowflake.user,
     password=st.secrets.snowflake.password,
@@ -37,9 +32,9 @@ cnn = snowflake.connector.connect(
 
 
 '''
-## Forecast and Analysis of the Target Varible
+## Forecast and analysis of target variable
 
-_The prediction of the Annual Average Life Expectancy was made using an estimation of univariate time series WITHOUT Automated Exogenous 
+_The prediction of the Annual Average Life Expectancy was made using an estimation of univariate time series WITHOUT automated exogenous 
 variables as a methodology for all the countries of the Sample._
 '''
 
@@ -81,7 +76,7 @@ with tab1:
                         line=dict(width=2)))
 
     fig.update_xaxes(showgrid=False)
-    fig.update_yaxes(showgrid=True, griddash='dot', gridwidth=0.5, gridcolor='White')
+    fig.update_yaxes(showgrid=True, griddash='dot', gridwidth=0.1, gridcolor='White')
     fig.update_yaxes(title_text="Years")
     st.plotly_chart(fig,use_container_width=True)
 

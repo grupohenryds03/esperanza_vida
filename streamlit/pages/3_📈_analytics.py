@@ -6,27 +6,23 @@ import plotly.express as px
 from info import *
 
 st.set_page_config(
-    page_title="Analitic",
+    page_title="Analytics",
     page_icon="📈",
 )
+
 page_style = """
             <style>
-            [data-testid="stAppViewContainer"] {
             
-            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/background-image.png?raw=true");
-            background-size: cover;
-            background-position: right;
-            }
             [data-testid="stSidebar"]{
-            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/WallpaperRocky.jpg?raw=true");
+            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/life6.jpg?raw=true");
             background-size: cover;
             background-position: right;
             }
             </style>
             """
-#background-Color: blue;
-            
+
 st.markdown(page_style, unsafe_allow_html=True)
+
 
 cnn = snowflake.connector.connect(
     user=st.secrets.snowflake.user,
@@ -37,7 +33,11 @@ cnn = snowflake.connector.connect(
 
 st.header("Life expectancy by Continent")
 
-
+'''
+Our first approach was to divide the countries by continent, to have a better view of the trends marked for each region. 
+The first thing to note is that all countries have drastically improved their life expectancy
+in a short period of time compared to what our civilization has in existence. This change was marked since the industrial revolution.
+'''
 
 
 tab1, tab2, tab3 , tab4, tab5= st.tabs(["America","Europe","Asia","Africa","Oceania"])
@@ -303,21 +303,88 @@ with tab5:
             st.plotly_chart(fig2,use_container_width=True)
         plot()
 
+st.write('***')
 
+st.header("Life expectancy by Income")
+
+'''
+Another way to categorize the data is by income level, in this case we selected developed countries as one group and the undeveloped countries as another group.
+This way is easier to look for differences between different types of economies. In this case we can se how the gap is getting smaller with the pass of time, buy maybe not as quick as we all want.
+'''
+
+
+tab1, tab2, tab3 = st.tabs(['Developed','Undeveloped','Developed vs Undeveloped'])
+with tab1:
+        sql ="""SELECT e.ANIO, e.VALOR, p.NOMBRE 
+                    FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS) JOIN INCOME i ON (e.ID_INCOME=i.ID_INCOME)    
+                    WHERE e.ID_INDICADOR=31 AND i.ID_INCOME=0 AND e.ANIO=2020 ORDER BY e.VALOR DESC"""
+        df=pd.read_sql(sql,cnn)
+        trace  = go.Bar(
+                                x=df['NOMBRE'].tolist(),
+                                y=df['VALOR'].tolist(),
+                                showlegend = False
+                                )
+
+        layout = go.Layout(                                    
+                                    xaxis_title='Country',
+                                    yaxis_title='Life Expectancy (years)'
+                                )
+        data = [trace]
+        fig = go.Figure(data=data,layout = layout)
+        st.plotly_chart(fig)
+        
+        
+with tab2:
+        sql ="""SELECT e.ANIO, e.VALOR, p.NOMBRE 
+                    FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS) JOIN INCOME i ON (e.ID_INCOME=i.ID_INCOME)    
+                    WHERE e.ID_INDICADOR=31 AND e.ANIO=2020 AND (i.ID_INCOME=1 OR i.ID_INCOME=2) ORDER BY e.VALOR DESC"""
+        df=pd.read_sql(sql,cnn)
+        trace  = go.Bar(
+                                x=df['NOMBRE'].tolist(),
+                                y=df['VALOR'].tolist(),
+                                showlegend = False
+                                )
+
+        layout = go.Layout(                                    
+                                    xaxis_title='Country',
+                                    yaxis_title='Life Expectancy (years)'
+                                )
+        data = [trace]
+        fig = go.Figure(data=data,layout = layout)
+        st.plotly_chart(fig)
+with tab3:     
+    import numpy as np
+    import pandas as pd
+    import altair as alt
+
+    df3=pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/income_df.csv')
+    income=df3.melt('Year', var_name='category', value_name='y')
+
+    line_chart = alt.Chart(income).mark_line(interpolate='basis').encode(
+        alt.X('Year', title='Year'),
+        alt.Y('y', title='Life Expectancy'),
+        color='category:N'
+    ).properties(
+        title='Developed vs Undeveloped'
+    )
+
+    st.altair_chart(line_chart,use_container_width=True)   
+            
+            
 st.write('***')
 
 '''
-## Análisis y Presentación de Variables
+## Analysis of variables
 
-_Se realizó una predicción de la Esperanza de Vida Promedio Anual utilizando como metodologia
-una estimacion de series de tiempo univariada SIN variables Exógenas Automatizada para todos los paises de 
-la Muestra_
+_Maps were made with the selected economic indicators to be able to globally 
+compare the changes over time in the selected countries.
+With these maps you have the possibility to compare global development over time_
 '''
 
 
 # se crean las tabs para mostrar las tablas, caluculadora y gráficos
 
-tab1, tab2, tab3= st.tabs(["Mapa de Calor(GDP per Cap)","Mapa Geo-Referenciado(EV)","TABLA A PONER"])
+tab1, tab2, tab3= st.tabs(["Heat Map","Geo-Referenced map","Complete table"])
     
 
 lista_Kpi =['Infant Mortality','CO2 Emission','Rural Population (%)','GDP Per Capita','Life Expectancy']
@@ -380,7 +447,7 @@ with tab1:
             EV_todos=pd.read_sql(sql,cnn)
     
 
-    'Mapa Geo-Referenciado de la Esperanza de Vida Promedio Anual por Pais'
+    
     fig2 = px.choropleth(
                         EV_todos,
                         locations="CODIGO_PAIS",
@@ -452,7 +519,7 @@ with tab2:
                     WHERE e.ID_INDICADOR=31 AND e.ANIO>1965 AND e.ANIO<=2020 """ 
             GDP_todos=pd.read_sql(sql,cnn)
 
-    'Mapa de Calor del GDP Per Capita promedio Anual (En U$S Constantes del 2015) por Pais'
+    
     fig3 = px.scatter_geo(GDP_todos,
                             locations='CODIGO_PAIS',
                             color='CODIGO_PAIS',
@@ -473,12 +540,5 @@ with tab3:
 
 cnn.close()
 
-st.write('***')
-st.subheader('Carga incremental')
-'''
-La ingesta de datos desde la API del banco mundial y la OMS se programan anualmente mediante airflow.
-'''
-st.video('https://youtu.be/iXmhOic_WME')
-st.write('***')
 
 
