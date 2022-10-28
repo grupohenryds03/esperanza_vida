@@ -1,7 +1,6 @@
 import streamlit as st
 
 
-
 st.set_page_config(
     page_title='Architecture',
     page_icon='⚙️',
@@ -9,12 +8,6 @@ st.set_page_config(
 
 page_style = """
             <style>
-            [data-testid="stAppViewContainer"] {
-            background-color: #d9e3fa;
-            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/clock_background2.png?raw=true");
-            background-size: cover;
-            background-position: left;
-            }
             [data-testid="stSidebar"]{
             background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/life.jpg?raw=true");
             background-size: cover;
@@ -23,20 +16,20 @@ page_style = """
             </style>
             """
 st.markdown(page_style, unsafe_allow_html=True)
-'# Data arquitecture'
+'# Data architecture'
 
 
-'_The data architecture follows five main steps: the first one to study and analyze the data source. The second one implements data extraction from the source. The third one is where the data is transform and cleaned. The fourth one is where the data is incrementally load into relational tables. And, the last one implements queries to extract data for machine learning (ML) algorithms and visualizes it by charts in the dashboard._'
+'_The data architecture follows five main steps: the first one is to study and analyze the data source. The second one extract particular data from the source. The third one is data transformation and cleaning. The fourth one is incremental load of data into the relational tables. Finally, the last step implements queries to extract data for machine learning (ML) algorithms and visualizes it by charts in the dashboard._'
 '### Detail description:'
 
 '''
-1. Finding and studying data source: First we analyze the data from the World Bank (WB), World Health Organization (WHO) and scientific papers publications finding the way to access relative data for life expectancy.
-2. Extraction data: we use two methods to access data using PANDAS library in Visual Studio Code with PYTHON language. One method was with WBGAPI library that provides modern, pythonic__ access to the World Bank's data API. Another way was importing csv files directly from the WHO website.
-3. Transforming crude data: to clean data we made an extensive EDA using different method. The best implementation for missing data over a time series was using a machine learning method called KNNImputer from SKLEARN library that imputes to blanks data using the mean value from the nearest neighbors.
-4. Incrementally load: once the data is transformed, we uploaded it into SNOWFLAKE database as a compress csv file. To manage the first steps ETL calls, we use AIRFLOW´s annually tasks that is deployed in a computer cloud HEROKU: https://etl-latin-data.herokuapp.com/ .For the incrementally load to relational tables we used scheduled tasks inside SNOWFLAKE database.
-5. ML and visualization: We use SQL queries to ingest data for ML training and predictions methods using PYCARET library. For the dashboard, we implemented STREAMLIT using PLOTLY library for charts.
+1. Research and analyze the data sources: First we analyze the data from the World Bank (WB), World Health Organization (WHO) and scientific papers in order to find the way to access relative data related with life expectancy.
+2. Extraction data: We use two methods to access data, using PANDAS library in Visual Studio Code with PYTHON language. One method was with WBGAPI library that provides modern, pythonic__ access to the World Bank's data API. The other way was importing csv files directly from the WHO website.
+3. Transforming crude data: To clean data we made an extensive EDA, using different methods. The best implementation for missing data over a time series was using a machine learning method called: KNNImputer, from SKLEARN library. This method imputes data into blanks using the mean value from the nearest neighbors.
+4. Incrementally load: once the data is transformed, we upload it into SNOWFLAKE database as a compressed csv file. To manage the first ETL steps  , we use AIRFLOW´s annually tasks, that is deployed in a HEROKU cloud computer  : https://etl-latin-data.herokuapp.com/ .For the incrementally load to relational tables we used scheduled tasks inside SNOWFLAKE database.
+5. ML and visualization: We use SQL queries to ingest data for ML training and predictions methods using PYCARET library. For the dashboard, we implement STREAMLIT, using PLOTLY library for charts.
 '''
-'### architecture with images'
+'### Architecture with images'
 
 tab1, tab2, tab3 , tab4, tab5= st.tabs(['Architecture Diagram',"Airflow ELT runing","Relational tables diagram","snowflake tasks", "Demo video"])
 with tab1:
@@ -52,10 +45,10 @@ with tab5:
     st.video('https://youtu.be/iXmhOic_WME')
 
 
-'### Collaborative group job'
+'### Collaborative job'
 
-'- for collaborative job grupo  we work on VISUAL STUDIO CODE (VSC) platform in local machine on a GTIHUB cloud clone repository: https://github.com/grupohenryds03 '
-
+'- For collaborative job we worked on VISUAL STUDIO CODE (VSC) platform in local machine, with notebooks connected toa  Github cloud clone repository: https://github.com/grupohenryds03 '
+'- We also were sharing an excel sheet with google drive, where we collected the preliminar information for data analysis.'
 
 '### Apps Documents'
 f1,f2=st.columns(2)
@@ -72,11 +65,5 @@ with f2:
     'SKLEARN: https://scikit-learn.org/stable/user_guide.html'
 
 st.write('***')
-st.subheader('Carga incremental')
-'''
-La ingesta de datos desde la API del banco mundial y la OMS se programan anualmente mediante airflow.
-'''
-st.video('https://youtu.be/iXmhOic_WME')
-
 
 

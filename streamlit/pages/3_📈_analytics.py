@@ -322,7 +322,7 @@ st.header("Life expectancy by Income")
 
 '''
 Another way to categorize the data is by income level, in this case we selected developed countries as one group and the undeveloped countries as another group.
-This way is easier to look for differences between differnt types of economies.
+This way is easier to look for differences between different types of economies. In this case we can se how the gap is getting smaller with the pass of time, buy maybe not as quick as we all want.
 '''
 
 
@@ -330,7 +330,7 @@ tab1, tab2, tab3 = st.tabs(['Developed','Undeveloped','Developed vs Undeveloped'
 with tab1:
         sql ="""SELECT e.ANIO, e.VALOR, p.NOMBRE 
                     FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS) JOIN INCOME i ON (e.ID_INCOME=i.ID_INCOME)    
-                    WHERE e.ID_INDICADOR=31 AND i.ID_INCOME=0 AND e.ANIO=2020 ORDER BY e.VALOR ASC"""
+                    WHERE e.ID_INDICADOR=31 AND i.ID_INCOME=0 AND e.ANIO=2020 ORDER BY e.VALOR DESC"""
         df=pd.read_sql(sql,cnn)
         trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
@@ -350,7 +350,7 @@ with tab1:
 with tab2:
         sql ="""SELECT e.ANIO, e.VALOR, p.NOMBRE 
                     FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS) JOIN INCOME i ON (e.ID_INCOME=i.ID_INCOME)    
-                    WHERE e.ID_INDICADOR=31 AND e.ANIO=2020 AND (i.ID_INCOME=1 OR i.ID_INCOME=2) ORDER BY e.VALOR ASC"""
+                    WHERE e.ID_INDICADOR=31 AND e.ANIO=2020 AND (i.ID_INCOME=1 OR i.ID_INCOME=2) ORDER BY e.VALOR DESC"""
         df=pd.read_sql(sql,cnn)
         trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
@@ -389,7 +389,7 @@ st.write('***')
 '''
 ## Analysis of variables
 
--Maps were made with the selected economic indicators to be able to globally 
+_Maps were made with the selected economic indicators to be able to globally 
 compare the changes over time in the selected countries.
 With these maps you have the possibility to compare global development over time_
 '''
