@@ -12,12 +12,7 @@ st.set_page_config(
 
 page_style = """
             <style>
-            [data-testid="stAppViewContainer"] {
-            background-color: #d9e3fa;
-            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/clock_background2.png?raw=true");
-            background-size: cover;
-            background-position: left;
-            }
+            
             [data-testid="stSidebar"]{
             background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/life.jpg?raw=true");
             background-size: cover;
@@ -45,9 +40,9 @@ cnn = snowflake.connector.connect(
 
 
 '''
-## Forecast and Analysis of the Target Varible
+## Forecast and analysis of target variable
 
-_The prediction of the Annual Average Life Expectancy was made using an estimation of univariate time series WITHOUT Automated Exogenous 
+_The prediction of the Annual Average Life Expectancy was made using an estimation of univariate time series WITHOUT automated exogenous 
 variables as a methodology for all the countries of the Sample._
 '''
 
