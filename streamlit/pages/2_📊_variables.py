@@ -145,7 +145,8 @@ with tab2:
     trace  = go.Bar(
                     x=columnas,
                     y=valores2,
-                    showlegend = False)
+                    showlegend = False,
+                    marker=dict(color = valores2,colorscale='viridis'))
 
     layout = go.Layout(                                    
                         xaxis_title='Columns',
@@ -158,7 +159,8 @@ with tab3:
     trace  = go.Bar(
                     x=columnas,
                     y=valores3,
-                    showlegend = False)
+                    showlegend = False,
+                    marker=dict(color = valores3,colorscale='viridis'))
 
     layout = go.Layout(                                    
                         xaxis_title='Columns',
