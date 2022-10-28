@@ -371,7 +371,7 @@ with tab3:
     import pandas as pd
     import altair as alt
 
-    df3=pd.read_sql('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/income_df.csv')
+    df3=pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/income_df.csv')
     income=df3.melt('Year', var_name='category', value_name='y')
 
     line_chart = alt.Chart(income).mark_line(interpolate='basis').encode(
