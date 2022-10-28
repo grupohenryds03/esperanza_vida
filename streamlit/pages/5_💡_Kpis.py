@@ -28,19 +28,19 @@ st.write('***')
 st.write('''
 _To carry out this study 4 variables were selected that, according to different studies, affect the evolution of the Life Expectancy (LE) 
 of the population of a country.
-The objective of this analysis is to identify if an improvement of 10% per year for the next 5 years in the 4 selected variables,  
+The goal of this analysis is to identify if an improvement of 10% per year for the next 5 years in the 4 selected variables,  
 will have a greater benefit on LE in developing countries, 
 since we assume that they have greater margin to improve in these 4 variables compared to the developed countries._''')
 
 st.write('''
-_To separate between developed and undeveloped countries, the World Bank Income Index was used. Developed countries were considered those with a high income index
-and the rest as undeveloped countries._''')
+_To separate between developed and developing countries, the World Bank Income Index was used. Developed countries were considered those with a high income index
+and the rest as developing countries._''')
 st.write('***')
 
 st.write('''
 _In order to carry out this analysis we are going to project the LE until 2025 in 2 ways, the first will consist of making 
-the prediction using the 4 variables selected as exogenous variables (VE) and their respective "natural" predictions until 2025 
-and then the LE will be projected using the EVs, but with their “Hypothetical” predictions.
+the prediction using the 4 variables selected as exogenous variables (EV) and their respective "natural" predictions until 2025 
+and second, the LE will be projected using the EVs, but with their “Hypothetical” predictions.
 Finally, both results will be compared to obtain conclusions._''')
 st.write('***')
 

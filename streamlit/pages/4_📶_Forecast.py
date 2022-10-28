@@ -33,13 +33,50 @@ cnn = snowflake.connector.connect(
 
 '''
 ## Forecast and analysis of target variable
-
 _The prediction of the Annual Average Life Expectancy was made using an estimation of univariate time series WITHOUT automated exogenous 
 variables as a methodology for all the countries of the Sample._
 '''
+df_models=pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/Pycaret_Models.csv')
+agree = st.checkbox('Show Forecast Methodology')
 
+if agree:
+    tab1, tab2, tab3, tab4,tab5,tab6= st.tabs(['Setup','Select Model','Pycaret Forecast Models',"Optimize",'Blend','Forecast with Exog. Var.'])
 
-tab1, tab2, tab3= st.tabs(['FORECAST - Life Expectancy',"Prediction Table",'Pycaret Forecast Models'])
+    with tab1:
+        '''
+        _At this stage we start the experiment by ingesting the information, setting the target variables, normalizing the data, etc._
+        '''
+    with tab2:
+        '''
+        _At this stage we train and evaluate the performance of all estimators available in the model library through cross-validation 
+        and selects the 3 best models according to the specific metric for time series, MASE (Mean absolute scaled error)._
+        '''
+    with tab3:
+
+            st.dataframe(df_models,use_container_width=True)
+
+    with tab4:
+        '''
+        _At this stage we tunes up the hyperparameters iterating 50 times each one of the best 3 models previously selected._
+        '''
+    with tab5:
+        '''
+        _Blending is popular method of ensemble technique, its like taking into account the opinion of multiple models and come 
+        out with a single solution. Similar to voting. In this case we trains a Soft Voting / Majority Rule classifier_.
+        '''
+    with tab6:
+         '''
+        _To predict a target variable using exogenous variables (EV) that improve the quality of the Forecast, it is necessary to 
+        make a previous forecast on each EV to be used with the same temporal “length” that the Target variable is to be predicted, 
+        and use it to accompany the Forecast of the target variable ._
+        '''
+
+'''
+## Forecast Graphics
+'''
+st.subheader("")
+
+tab1, tab2= st.tabs(['FORECAST - Life Expectancy',"Prediction Table"])
 with tab1:
     option = st.selectbox(
     'Choose the country from the Selectbox list',
@@ -92,10 +129,5 @@ EV_todos=pd.read_sql(sql,cnn)
 with tab2:
     st.dataframe(df_prediccion,use_container_width=True)
 
-df_models=pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/Pycaret_Models.csv')
 
-with tab3:
-    '''
-    ## Pycaret Forecast Models'''
 
-    st.dataframe(df_models,use_container_width=True)
