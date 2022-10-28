@@ -12,12 +12,7 @@ st.set_page_config(
 
 page_style = """
             <style>
-            [data-testid="stAppViewContainer"] {
-            background-color: #d9e3fa;
-            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/clock_background2.png?raw=true");
-            background-size: cover;
-            background-position: left;
-            }
+            
             [data-testid="stSidebar"]{
             background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/life.jpg?raw=true");
             background-size: cover;
@@ -25,6 +20,12 @@ page_style = """
             }
             </style>
             """
+#[data-testid="stAppViewContainer"] {
+#            background-color: #d9e3fa;
+#            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/clock_background2.png?raw=true");
+#            background-size: cover;
+#            background-position: left;
+#            }
 st.markdown(page_style, unsafe_allow_html=True)
 
 hide_st_style = """
@@ -375,13 +376,13 @@ with tab3:
             
             fig2 = go.Figure()
 
-            fig2=fig2.add_trace(go.Scatter(x=df3["Year"], 
+            fig2.add_trace(go.Scatter(x=df3["Year"], 
                                 y=df3["Developed"],
                                 mode='lines',
                                 name='Developed',
                                 line=dict(width=0.8)))
             
-            fig2=fig2.add_trace(go.Scatter(x=df3["Year"], 
+            fig2.add_trace(go.Scatter(x=df3["Year"], 
                                 y=df3["Undeveloped"],
                                 mode='lines',
                                 name='Uneveloped',
