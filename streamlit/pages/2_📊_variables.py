@@ -56,15 +56,16 @@ st.title('Selected Variables')
 
 f1,f2,f3,f4, f5=st.columns(5)
 with f1:
-    st.write(1, '-  https://rstudio-pubs-static.s3.amazonaws.com/180554_a412caa868c24939a873ca679d54bbde.html')
+    url = "https://rstudio-pubs-static.s3.amazonaws.com/180554_a412caa868c24939a873ca679d54bbde.html"
+    st.write("Ian Vleeming y Ricardo Valladares paper [link](%s)" % url)
 with f2:
-    st.write(2, '-  https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2022_wpp_key-messages.pdf')
+    '2. https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2022_wpp_key-messages.pdf'
 with f3:
-    st.write(3, '-  https://www.kaggle.com/search?q=life+expectancy')
+    '3. https://www.kaggle.com/search?q=life+expectancy'
 with f4:
-    st.write(4, '-  https://www.kaggle.com/code/nilaychauhan/etl-pipelines-tutorial-world-bank-datasets')
+    '4. https://www.kaggle.com/code/nilaychauhan/etl-pipelines-tutorial-world-bank-datasets'
 with f5:
-    st.write(5, '-  https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6650812/')
+    '5. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6650812/'
 
 st.write('***')
 st.subheader('*Socioeconomic Variables*')
