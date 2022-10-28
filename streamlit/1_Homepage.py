@@ -17,7 +17,7 @@ st.set_page_config(
 page_style = """
             <style>
             [data-testid="stAppViewContainer"] {
-            background-color: #d9e3fa;
+            background-color: white;
             background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/long_clock2.jpg?raw=true");
             background-size: cover;
             background-position: left;
