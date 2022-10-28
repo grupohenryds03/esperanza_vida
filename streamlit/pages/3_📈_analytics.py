@@ -346,7 +346,7 @@ with tab1:
                     ON (e.ID_INDICADOR=i.ID_INDICADOR)
                     JOIN PAIS p
                     on (e.ID_PAIS=p.ID_PAIS)
-                    WHERE e.ID_INDICADOR=5 AND e.ANIO>1960 AND e.ANIO<=2020 """ 
+                    WHERE e.ID_INDICADOR=5 and e.DESCRIPCION="Mortality rate, under-5 (per 1,000 live births)" AND e.ANIO>1960 AND e.ANIO<=2020 """ 
             EV_todos=pd.read_sql(sql,cnn)
     
     elif eleccion=='Rural Population (%)':

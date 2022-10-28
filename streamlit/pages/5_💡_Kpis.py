@@ -35,32 +35,36 @@ st.write('***')
 st.write('''
 _To carry out this study, 4 variables were selected that, according to different studies, affect the evolution of the Life Expectancy (LE) 
 of the population of a country.
-The objective of this analysis is to identify if an improvement of 10% per year for the next 5 years will have a greater benefit on LE in developing countries, 
-since we assume that they have greater margin to improve in these 4 variables compared to the developed countries._''')
+The objective of this analysis is to identify if an improvement of 10% per year during the next 5 years in the 4 selected variables, 
+will have a greater benefit in LE in developing countries, since we assume that they have greater room for improvement in these 4 variables 
+compared to developed countries._''')
+
 
 st.write('''
 _To separate between developed and developing countries, the World Bank Income Index was used. Developed countries were considered those with a high income index
 and the rest as Developing countries._''')
 st.write('***')
 
-
+st.write('''
+_In order to carry out this analysis we are going to project the LE until 2025 in 2 ways, the first will consist of making 
+the prediction using the 4 variables selected as exogenous variables (VE) and their respective "natural" predictions until 2025 
+and then the LE will be projected using the EVs, but with their “Hypothetical” predictions.
+Finally, both results will be compared to obtain conclusions._''')
+st.write('***')
 
 eleccion = st.selectbox(
     'Select:',
     (lista_Kpi))
 
 if eleccion=='Infant Mortality':
-    a1,a2=st.columns(2)
-    with a1:
-        st.subheader("Objetivo")
-        '''Se espera que la tasa de mortalidad menores de 5 años (por cada 1000 nacidos vivos), 
-            disminuya 10% anual en los próximos 5 años para los países de la muestra manteniéndose 
-            todo los demás constante.'''
-    with a2:
-        st.subheader("Hipótesis")
-        '''Se presenta como Hipótesis que la Esperanza de Vida al nacer en los países Sub-desarrollados,
-             aumentara como mínimo un 1% anual y en el caso de los países Desarrollados no llegara
-            a aumentar un 1% anual. Esto por efecto de la mejora en la tasa de mortalidad infantil'''
+    
+    st.subheader("Results")
+    st.write('***')
+    st.write('''
+     _In the case of the exogenous variable (VE) Infant Mortality, the results of the "Hypothetical" vs. "Natural" projections 
+     show that developing countries would obtain a slight improvement in LE compared to developed countries._''')
+    st.write('***')
+
 
     df = pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/KPI_Mort-Inf.csv')
     
@@ -109,16 +113,13 @@ if eleccion=='Infant Mortality':
 
 
 elif eleccion=='CO2 Emission':
-    a1,a2=st.columns(2)
-    with a1:
-        st.subheader("Objetivo")
-        '''Se espera que los gobiernos de los países de la muestra aumenten el gasto público en Salud 
-            un 10% anual de 5 años manteniéndose todo los demás constante.'''
-    with a2:
-        st.subheader("Hipótesis")
-        '''Se presenta como Hipótesis que la variación promedio anual de la Esperanza de Vida al nacer 
-            en los países sub-desarrollados de la muestra, aumente como mínimo el doble de la variación 
-            promedio anual en los países desarrollados.'''
+
+    st.subheader("Results")
+    st.write('***')
+    st.write('''
+     _In the case of the exogenous variable (VE) CO2 Emission, the results of the "Hypothetical" vs. "Natural" projections 
+     show that developed countries would obtain a slight improvement in LE compared to developeding countries._''')
+    st.write('***')
 
     df = pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/KPI_CO2.csv')
     
@@ -167,16 +168,13 @@ elif eleccion=='CO2 Emission':
 
 
 elif eleccion=='Rural Population (%)':
-    a1,a2=st.columns(2)
-    with a1:
-        st.subheader("Objetivo")
-        ''' Se espera que la tasa de mortalidad materna (por cada 100.000 nacidos vivos), disminuya 10% 
-            anual en los próximos 5 años para los países de la muestra manteniéndose todo los demás 
-            constante'''
-    with a2:
-        st.subheader("Hipótesis")
-        '''Se presenta como Hipótesis que la variación promedio de la esperanza de vida del total de 
-            paises de la muestra aumentara como mínimo un 0.5% anual por los próximos 5 años.'''
+
+    st.subheader("Results")
+    st.write('***')
+    st.write('''
+     _In the case of the exogenous variable (VE) Rural Population (%), the results of the "Hypothetical" vs. "Natural" projections 
+     show that developing countries would obtain an improvement in LE compared to developed countries._''')
+    st.write('***')
 
     df = pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/KPI_RURAL.csv')
     
@@ -223,16 +221,13 @@ elif eleccion=='Rural Population (%)':
 
 
 elif eleccion=='GDP Per Capita':
-    a1,a2=st.columns(2)
-    with a1:
-        st.subheader("Objetivo")
-        '''Se espera que los ingresos per cápita (PBI per cápita (constante U$S 2015)), aumente en 
-            promedio un 10% anual por los próximos 5 años en los paises de la muestra.'''
-    with a2:
-        st.subheader("Hipótesis")
-        '''Se presenta como Hipótesis que este efecto positivo sobre los ingresos per cápita de la 
-            población, generara un efecto positivo en la esperanza de vida, que se presentara como un 
-            aumento promedio anual mínimo del 1%.'''
+
+    st.subheader("Results")
+    st.write('***')
+    st.write('''
+     _In the case of the exogenous variable (VE) GDP Per Capita, the results of the "Hypothetical" vs. "Natural" projections 
+     show that developing countries would obtain an improvement in LE compared to developed countries._''')
+    st.write('***')
 
     df = pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/KPI_GDP.csv')
     
@@ -280,7 +275,13 @@ elif eleccion=='GDP Per Capita':
 
 if eleccion=='Conclusions':
 
-
+    st.subheader("Final Conclusions")
+    st.write('***')
+    st.write('''
+     _From the studies and analyzes carried out, it can be concluded that 3 of the 4 selected variables would have a greater positive 
+    influence on the LE of the population of underdeveloped countries, but 2 of them showed better results 
+    ('GDP Per Capita' and 'Rural Population (%)')._''')
+    st.write('***')
 
     df = pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/KPI_Mort-Inf.csv')
         
