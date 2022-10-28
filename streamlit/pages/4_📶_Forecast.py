@@ -33,11 +33,43 @@ cnn = snowflake.connector.connect(
 
 '''
 ## Forecast and analysis of target variable
-
 _The prediction of the Annual Average Life Expectancy was made using an estimation of univariate time series WITHOUT automated exogenous 
 variables as a methodology for all the countries of the Sample._
 '''
 
+agree = st.checkbox('Show Forecast Methodology')
+
+if agree:
+    tab1, tab2, tab3, tab4,tab5= st.tabs(['Setup','Select Model',"Optimize",'Blend','Forecast with Exog. Var.'])
+
+    with tab1:
+        '''
+        _At this stage we start the experiment by ingesting the information, setting the target variables, normalizing the data, etc._
+        '''
+    with tab2:
+        '''
+        _At this stage we train and evaluate the performance of all estimators available in the model library through cross-validation 
+        and selects the 3 best models according to the specific metric for MASE (Mean absolute scaled error) time series._
+        '''
+    with tab3:
+        '''
+        _At this stage we tunes up the hyperparameters iterating 50 times each one of the best 3 models previously selected._
+        '''
+    with tab4:
+        '''
+        _Blending is popular method of ensemble technique, its like taking into account the opinion of multiple models and come 
+        out with a single solution. Similar to voting. In this case we trains a Soft Voting / Majority Rule classifier_.
+        '''
+    with tab5:
+         '''
+        _To predict a target variable using exogenous variables (EV) that improve the quality of the estimate, it is necessary to 
+        make a previous estimate on each EV to be used with the same temporal “length” that the Target variable is to be predicted._.
+        '''
+
+'''
+## Forecast Graphics
+'''
+st.subheader("")
 
 tab1, tab2, tab3= st.tabs(['FORECAST - Life Expectancy',"Prediction Table",'Pycaret Forecast Models'])
 with tab1:
