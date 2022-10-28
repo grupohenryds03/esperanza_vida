@@ -103,8 +103,8 @@ with tab2:
         trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
                                 y=df['VALOR'].tolist(),
-                                showlegend = False
-                                )
+                                showlegend = False,
+                                marker=dict(color =df['VALOR'].tolist(),colorscale='viridis'))
 
         layout = go.Layout(
                                     #title = 'EV Europa',
@@ -156,8 +156,8 @@ with tab3:
         trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
                                 y=df['VALOR'].tolist(),
-                                showlegend = False
-                                )
+                                showlegend = False,
+                                marker=dict(color=df['VALOR'].tolist(),colorscale='viridis'))
 
         layout = go.Layout(
                                     #title = 'EV Asia',
@@ -209,8 +209,8 @@ with tab4:
         trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
                                 y=df['VALOR'].tolist(),
-                                showlegend = False
-                                )
+                                showlegend = False,
+                                marker=dict(color=df['VALOR'].tolist(),colorscale='viridis'))
 
         layout = go.Layout(
                                     #title = 'EV Africa',
@@ -262,8 +262,8 @@ with tab5:
         trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
                                 y=df['VALOR'].tolist(),
-                                showlegend = False
-                                )
+                                showlegend = False,
+                                marker=dict(color=df['VALOR'].tolist(),colorscale='viridis'))
 
         layout = go.Layout(
                                    #title = 'EV Oceania',
