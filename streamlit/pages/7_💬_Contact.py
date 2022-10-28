@@ -60,4 +60,4 @@ with d1:
 with d2:
     st.subheader("Rodrigo Álvarez Ruiz")
     'Rodrigorear94@gmail.com'
-    'https://www.linkedin.com/in'
+    'https://www.linkedin.com/in/rodrigo-alvarez-ruiz-0b2410255/'
