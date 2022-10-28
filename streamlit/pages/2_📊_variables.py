@@ -17,7 +17,7 @@ page_style = """
             
             background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/clock_background2.png?raw=true");
             background-size: cover;
-            background-position: right;
+            background-position: left;
             }
             [data-testid="stSidebar"]{
             background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/life.jpg?raw=true");
