@@ -89,7 +89,7 @@ with tab1:
                         line=dict(width=2)))
 
     fig.update_xaxes(showgrid=False)
-    fig.update_yaxes(showgrid=True, griddash='dot', gridwidth=0.5, gridcolor='White')
+    fig.update_yaxes(showgrid=True, griddash='dot', gridwidth=0.1, gridcolor='White')
     fig.update_yaxes(title_text="Years")
     st.plotly_chart(fig,use_container_width=True)
 

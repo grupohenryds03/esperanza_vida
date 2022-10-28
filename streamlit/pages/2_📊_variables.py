@@ -181,24 +181,24 @@ sql_ind =f"""SELECT ANIO, VALOR
             WHERE e.ANIO<=2020"""
 df_ind=run_query(sql_ind) # dataframe indicador elejido
 
-titulo_grafico=f"life expectancy relationship from {option_pais}  bettewn {option_ind}"
+titulo_grafico=f"life expectancy (LE) relationship from {option_pais}  bettewn {option_ind}"
 fig = make_subplots(specs=[[{"secondary_y": True}]])
 fig.add_trace(go.Scatter(x=df_esp.ANIO, 
                     y=df_esp.VALOR,
                     mode='lines',
                     marker_color='#FF0000',
-                    name="EV",
-                    line=dict(width=0.8)),secondary_y=False)
+                    name="LE",
+                    line=dict(width=2)),secondary_y=False)
 
 fig.add_trace(go.Scatter(x=df_ind.ANIO, 
                     y=df_ind.VALOR,#option
                     mode='lines',
                     marker_color='#00FF00',
                     name="Factor",
-                    line=dict(width=0.8)),secondary_y=True)
+                    line=dict(width=2)),secondary_y=True)
 
 fig.update_xaxes(showgrid=False)
-fig.update_yaxes(showgrid=False)
+fig.update_yaxes(showgrid=True, griddash='dot', gridwidth=0.1, gridcolor='White')
 fig.update_yaxes(title_text="years", secondary_y=False)
 fig.update_yaxes(secondary_y=True)
 fig.update_layout(title=titulo_grafico)
