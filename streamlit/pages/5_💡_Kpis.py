@@ -39,7 +39,7 @@ st.write('***')
 
 st.write('''
 _In order to carry out this analysis we are going to project the LE until 2025 in 2 ways, the first will consist of making 
-the prediction using the 4 variables selected as exogenous variables (VE) and their respective "natural" predictions until 2025 
+the prediction using the 4 variables selected as exogenous variables (EV) and their respective "natural" predictions until 2025 
 and second, the LE will be projected using the EVs, but with their “Hypothetical” predictions.
 Finally, both results will be compared to obtain conclusions._''')
 st.write('***')
