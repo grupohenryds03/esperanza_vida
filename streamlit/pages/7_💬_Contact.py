@@ -18,6 +18,7 @@ page_style = """
 #background-Color: blue;
             
 st.markdown(page_style, unsafe_allow_html=True)
+
 st.title("Contact:")
 #José Toledo
 a1,a2=st.columns(2)
