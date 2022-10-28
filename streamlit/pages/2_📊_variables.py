@@ -167,7 +167,6 @@ with tab4:
     with col1:
         option_pais = st.selectbox(
             'Choose country from list',
-<<<<<<< HEAD
             df_pais.NOMBRE) 
 
     with col2:
@@ -213,45 +212,3 @@ with tab4:
     fig.update_yaxes(secondary_y=True)
     fig.update_layout(title=titulo_grafico)
     st.plotly_chart(fig,use_container_width=True)
-=======
-            df_ind.DESCRIPCION) 
-
-sql_esp =f"""SELECT ANIO, VALOR 
-            FROM EV e
-            JOIN (SELECT ID_PAIS FROM PAIS WHERE NOMBRE='{option_pais}') p
-            ON e.ID_PAIS=p.ID_PAIS
-            WHERE ID_INDICADOR=31 AND ANIO<=2020"""
-df_esp=run_query(sql_esp) # dataframe esperanza vida
-
-sql_ind =f"""SELECT ANIO, VALOR 
-            FROM EV e
-            JOIN (SELECT ID_INDICADOR FROM INDICADOR WHERE DESCRIPCION='{option_ind}') i
-            ON e.ID_INDICADOR=i.ID_INDICADOR
-            JOIN (SELECT ID_PAIS FROM PAIS WHERE NOMBRE='{option_pais}') p
-            ON e.ID_PAIS=p.ID_PAIS
-            WHERE e.ANIO<=2020"""
-df_ind=run_query(sql_ind) # dataframe indicador elejido
-
-titulo_grafico=f"life expectancy (LE) relationship from {option_pais}  bettewn {option_ind}"
-fig = make_subplots(specs=[[{"secondary_y": True}]])
-fig.add_trace(go.Scatter(x=df_esp.ANIO, 
-                    y=df_esp.VALOR,
-                    mode='lines',
-                    marker_color='#FF0000',
-                    name="LE",
-                    line=dict(width=2)),secondary_y=False)
-
-fig.add_trace(go.Scatter(x=df_ind.ANIO, 
-                    y=df_ind.VALOR,#option
-                    mode='lines',
-                    marker_color='#00FF00',
-                    name="Factor",
-                    line=dict(width=2)),secondary_y=True)
-
-fig.update_xaxes(showgrid=False, title_text = 'Years')
-fig.update_yaxes(showgrid=True, griddash='dot', gridwidth=0.1, gridcolor='White')
-fig.update_yaxes(title_text="Indicator", secondary_y=False)
-fig.update_yaxes(secondary_y=True)
-fig.update_layout(title=titulo_grafico)
-st.plotly_chart(fig,use_container_width=True)
->>>>>>> 45a62e8a97e0676cdebfdd14eb42046d0f9c58fd
