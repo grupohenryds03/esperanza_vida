@@ -9,6 +9,7 @@ st.set_page_config(
     page_title="Analytics",
     page_icon="📈",
 )
+
 page_style = """
             <style>
             [data-testid="stAppViewContainer"] {
@@ -24,6 +25,7 @@ page_style = """
             }
             </style>
             """
+st.markdown(page_style, unsafe_allow_html=True)
 
 hide_st_style = """
             <style>
