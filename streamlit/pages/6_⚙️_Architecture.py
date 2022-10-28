@@ -35,7 +35,7 @@ st.write('***')
 st.write('***')
 '### Architecture with images'
 
-tab1, tab2, tab3 , tab4, tab5= st.tabs(['Architecture Diagram',"Airflow ELT runing","Relational tables diagram","snowflake tasks",'Gantt chart', "Demo video"])
+tab1, tab2, tab3 , tab4, tab5, tab6= st.tabs(['Architecture Diagram',"Airflow ELT runing","Relational tables diagram","snowflake tasks",'Gantt chart', "Demo video"])
 with tab1:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/arquitetura_bueno.jpg', caption='Arquitecture Diagram')
 with tab2:
@@ -58,6 +58,7 @@ st.write('***')
 '- We did the project follow up with a Gantt chart. This helped us to have control over the project tasks and tells who is the person in charge of each activity.'
 
 st.write('***')
+
 ' ### Technologies'
 
 f1,f2,f3,f4, f5=st.columns(5)
