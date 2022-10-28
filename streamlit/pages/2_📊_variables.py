@@ -54,7 +54,7 @@ st.title('Selected Variables')
 '''##### We selected 17 indicators that can help explain the relationship of the economy, education and health care with life expectancy at birth.'''
 '''##### To make this selection we did our own research based on sources like these:'''
 
-f1,f2=st.columns(5)
+f1,f2=st.columns(2)
 with f1:
     url = "https://rstudio-pubs-static.s3.amazonaws.com/180554_a412caa868c24939a873ca679d54bbde.html"
     st.write("Ian Vleeming y Ricardo Valladares paper [link](%s)" % url)
