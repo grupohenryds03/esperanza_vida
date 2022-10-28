@@ -35,24 +35,22 @@ page_style = """
 #background-Color: blue;
             
 st.markdown(page_style, unsafe_allow_html=True)
-'# Data arquitecture'
+'# Data architecture'
 
 
-'_The data arquitectura follows five principal steps: The fish one to studio and analice the data source. The second one implementing data extraction from source. The third one where the data is transform and cleaning. The fourth one where the data is incrementally load into relational tables. And the last one implementing queries to extract data for machine learning  (ML) algorithms and visualice with charts in a dashboard._'
-
+'_The data architecture follows five main steps: the first one to study and analyze the data source. The second one implements data extraction from the source. The third one is where the data is transform and cleaned. The fourth one is where the data is incrementally load into relational tables. And, the last one implements queries to extract data for machine learning (ML) algorithms and visualizes it by charts in the dashboard._'
 '### Detail description:'
 
 '''
-1. Finding and studying data source: First we analice the data from the World Bank (WB), World Health Organization  (WHO) and scientific papers publications finding the way to access data relative for life expectancy.
-2. Extraction data: we use two methods to access data using PANDAS library in Visual Studio Code with PYTHON lenguaje.  One method with WBGAPI library that provides modern, pythonic access to the World Bank's data API. Another way was importing csv files directly from the WHO website.
-3. Transforming crude data: for cleaning data we made and extensive EDA using different method. The best implementation for missing data over a time series was using a machine learning method calls KNNImputer from SKLEARN library that impute to blanks data  using the mean value from nearest neighbors.
-4. Incrementally load: ones the data is transform we put it into SNOWFLAKE database as compress csv file. For manage the first steps calls ETL we use AIRFLOW annually tasks that is deploy in a cloud  computer HEROKU: https://etl-latin-data.herokuapp.com/ .For Incrementally load to relational tables we use schedule task inside SNOWFLAKE.
-5. ML and visualization: We use SQL querys to ingest data for ML training and predictions methods using PYCARET library. For the dashboard we implement STREAMLIT using PLOTLY library for charts.
-
+1. Finding and studying data source: First we analyze the data from the World Bank (WB), World Health Organization (WHO) and scientific papers publications finding the way to access relative data for life expectancy.
+2. Extraction data: we use two methods to access data using PANDAS library in Visual Studio Code with PYTHON language. One method was with WBGAPI library that provides modern, pythonic__ access to the World Bank's data API. Another way was importing csv files directly from the WHO website.
+3. Transforming crude data: to clean data we made an extensive EDA using different method. The best implementation for missing data over a time series was using a machine learning method called KNNImputer from SKLEARN library that imputes to blanks data using the mean value from the nearest neighbors.
+4. Incrementally load: once the data is transformed, we uploaded it into SNOWFLAKE database as a compress csv file. To manage the first steps ETL calls, we use AIRFLOW´s annually tasks that is deployed in a computer cloud HEROKU: https://etl-latin-data.herokuapp.com/ .For the incrementally load to relational tables we used scheduled tasks inside SNOWFLAKE database.
+5. ML and visualization: We use SQL queries to ingest data for ML training and predictions methods using PYCARET library. For the dashboard, we implemented STREAMLIT using PLOTLY library for charts.
 '''
 '### architecture with images'
 
-tab1, tab2, tab3 , tab4, tab5= st.tabs(['Arquitecture Diagram',"Airflow ELT runing","Relational tables diagram","snowflake tasks", "Demo video"])
+tab1, tab2, tab3 , tab4, tab5= st.tabs(['Architecture Diagram',"Airflow ELT runing","Relational tables diagram","snowflake tasks", "Demo video"])
 with tab1:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/diagrama_solo.jpg', caption='Arquitecture Diagram')
 with tab2:
@@ -68,10 +66,10 @@ with tab5:
 
 '### Collaborative group job'
 
-'- for collaborative grupo job we work on VISUAL STUDIO CODE (VSC) platform in local machine on a GTIHUB cloud clone repository: https://github.com/grupohenryds03 '
+'- for collaborative job grupo  we work on VISUAL STUDIO CODE (VSC) platform in local machine on a GTIHUB cloud clone repository: https://github.com/grupohenryds03 '
 
 
-'### Apps Documentation'
+'### Apps Documents'
 f1,f2=st.columns(2)
 with f1:
     'AIRFLOW: https://airflow.apache.org/docs/'
