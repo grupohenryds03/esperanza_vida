@@ -7,35 +7,23 @@ st.set_page_config(
     page_icon='⚙️',
 )
 
-# --- HIDE STREAMLIT STYLE ---
-hide_st_style = """
-            <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            header {visibility: hidden;}
-            </style>
-            """
-st.markdown(hide_st_style, unsafe_allow_html=True)
-
 page_style = """
             <style>
             [data-testid="stAppViewContainer"] {
-            
-            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/background-image.png?raw=true");
+            background-color: #d9e3fa;
+            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/clock_background2.png?raw=true");
             background-size: cover;
-            background-position: right;
+            background-position: left;
             }
             [data-testid="stSidebar"]{
-            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/WallpaperRocky.jpg?raw=true");
+            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/life.jpg?raw=true");
             background-size: cover;
             background-position: right;
             }
             </style>
             """
-#background-Color: blue;
-            
 st.markdown(page_style, unsafe_allow_html=True)
-'# Data architecture'
+'# Data arquitecture'
 
 
 '_The data architecture follows five main steps: the first one to study and analyze the data source. The second one implements data extraction from the source. The third one is where the data is transform and cleaned. The fourth one is where the data is incrementally load into relational tables. And, the last one implements queries to extract data for machine learning (ML) algorithms and visualizes it by charts in the dashboard._'
@@ -83,7 +71,12 @@ with f2:
     'PLOTLY:https://plotly.com/python/'
     'SKLEARN: https://scikit-learn.org/stable/user_guide.html'
 
-
+st.write('***')
+st.subheader('Carga incremental')
+'''
+La ingesta de datos desde la API del banco mundial y la OMS se programan anualmente mediante airflow.
+'''
+st.video('https://youtu.be/iXmhOic_WME')
 
 
 

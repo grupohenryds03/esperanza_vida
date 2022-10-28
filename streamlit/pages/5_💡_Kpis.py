@@ -9,22 +9,28 @@ st.set_page_config(
 page_style = """
             <style>
             [data-testid="stAppViewContainer"] {
-            
-            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/paso_vida2.png?raw=true");
+            background-color: #d9e3fa;
+            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/clock_background2.png?raw=true");
             background-size: cover;
-            background-position: right;
+            background-position: left;
             }
             [data-testid="stSidebar"]{
-            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/WallpaperRocky.jpg?raw=true");
+            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/life.jpg?raw=true");
             background-size: cover;
             background-position: right;
             }
             </style>
             """
-#background-Color: blue;
-            
 st.markdown(page_style, unsafe_allow_html=True)
-#st.title('Analysis')
+
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
 
 lista_Kpi =['Infant Mortality','CO2 Emission','Rural Population (%)','GDP Per Capita','Conclusions']
 '''

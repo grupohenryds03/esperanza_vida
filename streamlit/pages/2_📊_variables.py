@@ -14,10 +14,10 @@ st.set_page_config(
 page_style = """
             <style>
             [data-testid="stAppViewContainer"] {
-            
-            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/background-image.png?raw=true");
+            background-color: #d9e3fa;
+            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/clock_background2.png?raw=true");
             background-size: cover;
-            background-position: right;
+            background-position: left;
             }
             [data-testid="stSidebar"]{
             background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/life.jpg?raw=true");
@@ -26,7 +26,15 @@ page_style = """
             }
             </style>
             """
-#background-Color: blue;
+
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
             
 st.markdown(page_style, unsafe_allow_html=True)
 st.title('Selected Variables')
