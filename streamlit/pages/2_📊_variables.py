@@ -117,6 +117,8 @@ valores2 = [18278,18278,18278,17664,18278,18278]
 valores3 = [18278,18278,18278,18278,18278,18278]
 df = pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/Hechos.csv')
 df = df.drop('Unnamed: 0', axis = 1)
+st.dataframe(df)
+
 
 st.write('***')
 '''# Indicators selection process for EDA'''
@@ -124,7 +126,7 @@ st.write('***')
 tab1, tab2, tab3 , tab4= st.tabs(['Crud indicators',"Missing data","Imputer ML algorithm","Compare life expectancy relationship"])
 with tab1:
     '''##### We obtained 38 indicators from the World Bank and the World Health Organization.'''
-    st.write(df.head())
+    st.dataframe(df.head())
     '''##### With all these indicators in our dataset we find a large proportion of missing data in them: 30.16%'''
     trace  = go.Bar(
                     x=columnas,
