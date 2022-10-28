@@ -63,7 +63,7 @@ if agree:
     with tab5:
          '''
         _To predict a target variable using exogenous variables (EV) that improve the quality of the estimate, it is necessary to 
-        make a previous estimate on each EV to be used with the same temporal “length” that the Target variable is to be predicted._.
+        make a previous estimate on each EV to be used with the same temporal “length” that the Target variable is to be predicted._
         '''
 
 '''
