@@ -71,7 +71,7 @@ with a1:
 with a2:
     a2.metric('','156 million','children -5 age are stunted')
 with a3:
-    a3.metric('','42 million','under -5 age are overweight')
+    a3.metric('','42 million','children -5 age are overweight')
 st.write('***')
 b1,b2,b3=st.columns(3)
 with b1:
