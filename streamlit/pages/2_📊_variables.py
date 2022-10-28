@@ -154,14 +154,15 @@ df_pais=run_query(sql_pais) # dataframe pais
 
 col1,col2=st.columns(2)
 
+'compare life expectancy relationship bettewn diferents factor'
 with col1:
     option_pais = st.selectbox(
-        'Elegir el país de la lista despleglable',
+        'Choose country from list',
         df_pais.NOMBRE) 
 
 with col2:
     option_ind = st.selectbox(
-            'Elegir la variable de la lista despleglable',
+            'Choose country from list',
             df_ind.DESCRIPCION) 
 
 sql_esp =f"""SELECT ANIO, VALOR 
