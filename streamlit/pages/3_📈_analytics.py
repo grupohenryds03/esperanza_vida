@@ -315,7 +315,115 @@ with tab5:
             st.plotly_chart(fig2,use_container_width=True)
         plot()
 
+st.write('***')
 
+st.header("Life expectancy by Income")
+
+'''
+Our first approach was to divide the countries by continent, to have a better view of the trends marked for each region. 
+The first thing to note is that all countries have drastically improved their life expectancy
+in a short period of time compared to what our civilization has in existence. This change was marked since the industrial revolution.
+'''
+
+
+tab1, tab2, tab3 = st.tabs(['Developed','Undeveloped','Devel. vs Undevel.'])
+with tab1:
+        sql ="""SELECT e.ANIO, e.VALOR, p.NOMBRE 
+                    FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS) JOIN INCOME i ON (e.ID_INCOME=i.ID_INCOME)    
+                    WHERE e.ID_INDICADOR=31 AND i.ID_INCOME=0 AND e.ANIO=2020"""
+        df=pd.read_sql(sql,cnn)
+        trace  = go.Bar(
+                                x=df['NOMBRE'].tolist(),
+                                y=df['VALOR'].tolist(),
+                                showlegend = False
+                                )
+
+        layout = go.Layout(                                    
+                                    xaxis_title='Country',
+                                    yaxis_title='Life Expectancy (years)'
+                                )
+        data = [trace]
+        fig = go.Figure(data=data,layout = layout)
+        st.plotly_chart(fig)
+        
+        #Multiselect plot
+        def plot ():
+            sql2 ="""SELECT p.NOMBRE, e.ANIO, e.VALOR  
+                FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
+                WHERE e.ID_INDICADOR=31 AND i.ID_INCOME=0"""
+                
+            df2=pd.read_sql(sql2,cnn)
+            clist=df2["NOMBRE"].unique().tolist()
+            
+            countries = st.multiselect('Select country',clist ,['United States', 'Germany'])
+            
+            dfs={country: df2[df2["NOMBRE"]==country] for country in countries}
+            
+            fig2 = go.Figure()
+
+            for country, df2 in dfs.items():
+                fig2=fig2.add_trace(go.Scatter(x=df2["ANIO"], 
+                                y=df2["VALOR"],
+                                mode='lines',
+                                name=country,
+                                line=dict(width=0.8)))
+            
+            layout = go.Layout(                                    
+                                        xaxis_title='Year',
+                                        yaxis_title='Life Expectancy (years)'
+                                    )
+            #fig.update_xaxes(showgrid=False)
+            st.plotly_chart(fig2,use_container_width=True)
+        plot()
+
+with tab2:
+        sql ="""SELECT e.ANIO, e.VALOR, p.NOMBRE 
+                    FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS) JOIN INCOME i ON (e.ID_INCOME=i.ID_INCOME)    
+                    WHERE e.ID_INDICADOR=31 AND e.ANIO=2020 AND (i.ID_INCOME=1 OR i.ID_INCOME=2) """
+        df=pd.read_sql(sql,cnn)
+        trace  = go.Bar(
+                                x=df['NOMBRE'].tolist(),
+                                y=df['VALOR'].tolist(),
+                                showlegend = False
+                                )
+
+        layout = go.Layout(                                    
+                                    xaxis_title='Country',
+                                    yaxis_title='Life Expectancy (years)'
+                                )
+        data = [trace]
+        fig = go.Figure(data=data,layout = layout)
+        st.plotly_chart(fig)
+        
+        #Multiselect plot
+        def plot ():
+            sql2 ="""SELECT p.NOMBRE, e.ANIO, e.VALOR  
+                FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
+                WHERE e.ID_INDICADOR=31 AND (i.ID_INCOME=1 OR i.ID_INCOME=2)"""
+                
+            df2=pd.read_sql(sql2,cnn)
+            clist=df2["NOMBRE"].unique().tolist()
+            
+            countries = st.multiselect('Select country',clist )
+            
+            dfs={country: df2[df2["NOMBRE"]==country] for country in countries}
+            
+            fig2 = go.Figure()
+
+            for country, df2 in dfs.items():
+                fig2=fig2.add_trace(go.Scatter(x=df2["ANIO"], 
+                                y=df2["VALOR"],
+                                mode='lines',
+                                name=country,
+                                line=dict(width=0.8)))
+            
+            layout = go.Layout(                                    
+                                        xaxis_title='Year',
+                                        yaxis_title='Life Expectancy (years)'
+                                    )
+            #fig.update_xaxes(showgrid=False)
+            st.plotly_chart(fig2,use_container_width=True)
+        plot()
 st.write('***')
 
 '''
