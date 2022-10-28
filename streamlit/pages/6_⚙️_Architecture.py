@@ -70,7 +70,7 @@ with f4:
 with f5:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/Plotly-logo.png', width=100)
 
-g1,g2,g3,g4, g5=st.columns(5)
+g1,g2,g3,g4, g5, g6=st.columns(6)
 with g1:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/Streamlit.png', width=100)
 with g2:
@@ -81,6 +81,11 @@ with g4:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/airflow.png', width=100)
 with g5:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/logo_pycaret.png', width=100)
+with g6:
+    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/Heroku_logo.png', width=100)
+
+
+
 
 st.write('***')
 '### Apps Documents'
