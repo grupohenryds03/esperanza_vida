@@ -53,7 +53,7 @@ with tab1:
                                 y=df['VALOR'].tolist(),
                                 showlegend = False,
                                 
-                                marker=['Argentina'],color ='#00FF00'
+                                # marker=['Argentina'],color ='#00FF00'
                                 #marker=dict(color = df['VALOR'].tolist(),colorscale='viridis')
                                 )
 
@@ -106,7 +106,8 @@ with tab2:
                                 x=df['NOMBRE'].tolist(),
                                 y=df['VALOR'].tolist(),
                                 showlegend = False,
-                                marker=dict(color =df['VALOR'].tolist(),colorscale='viridis'))
+                                #marker=dict(color =df['VALOR'].tolist(),colorscale='viridis')
+                                )
 
         layout = go.Layout(
                                     #title = 'EV Europa',
@@ -159,7 +160,8 @@ with tab3:
                                 x=df['NOMBRE'].tolist(),
                                 y=df['VALOR'].tolist(),
                                 showlegend = False,
-                                marker=dict(color=df['VALOR'].tolist(),colorscale='viridis'))
+                                #marker=dict(color=df['VALOR'].tolist(),colorscale='viridis')
+                                )
 
         layout = go.Layout(
                                     #title = 'EV Asia',
@@ -212,7 +214,8 @@ with tab4:
                                 x=df['NOMBRE'].tolist(),
                                 y=df['VALOR'].tolist(),
                                 showlegend = False,
-                                marker=dict(color=df['VALOR'].tolist(),colorscale='viridis'))
+                                #marker=dict(color=df['VALOR'].tolist(),colorscale='viridis')
+                                )
 
         layout = go.Layout(
                                     #title = 'EV Africa',
