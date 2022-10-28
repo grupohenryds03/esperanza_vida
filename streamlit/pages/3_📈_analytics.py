@@ -51,7 +51,8 @@ with tab1:
         trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
                                 y=df['VALOR'].tolist(),
-                                showlegend = False
+                                showlegend = False,
+                                marker=dict(color = df['VALOR'].tolist(),colorscale='viridis')
                                 )
 
         layout = go.Layout(                                    
