@@ -31,7 +31,6 @@ st.write('***')
 4. Incrementally load: once the data is transformed, we upload it into SNOWFLAKE database as a compressed csv file. To manage the first ETL steps, we use AIRFLOW's annually tasks, that is deployed in a HEROKU cloud computer : https://etl-latin-data.herokuapp.com/ .For the incrementally load to relational tables we used scheduled tasks inside SNOWFLAKE database.
 5. ML and visualization: We use SQL queries to ingest data for ML training and predictions methods using PYCARET library. For the dashboard, we implementSTREAMLIT, using PLOTLY library for charts.
 '''
-
 st.write('***')
 '### Architecture with images'
 
