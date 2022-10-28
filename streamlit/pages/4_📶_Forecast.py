@@ -52,8 +52,6 @@ if agree:
         and selects the 3 best models according to the specific metric for MASE (Mean absolute scaled error) time series._
         '''
     with tab3:
-            '''
-            ## Pycaret Forecast Models'''
 
             st.dataframe(df_models,use_container_width=True)
 
