@@ -45,7 +45,7 @@ with tab1:
         sql ="""SELECT p.NOMBRE, e.VALOR  
             FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS)      
             WHERE e.ID_INDICADOR=31 AND e.ANIO=2020 AND e.ID_CONTINENTE=1
-            ORDER BY e.VALOR DESC"""
+            ORDER BY- e.VALOR DESC"""
         df=pd.read_sql(sql,cnn)
         df=df.drop_duplicates()
         trace  = go.Bar(
@@ -405,7 +405,7 @@ with tab1:
                     ON (e.ID_INDICADOR=i.ID_INDICADOR)
                     JOIN PAIS p
                     on (e.ID_PAIS=p.ID_PAIS)
-                    WHERE i.DESCRIPCION="Mortality rate, under-5 (per 1,000 live births)" AND e.ANIO>1960 AND e.ANIO<=2020 """ 
+                    WHERE i.CODIGO="SH.DTH.IMRT.IN" AND e.ANIO>1960 AND e.ANIO<=2020 """ 
             EV_todos=pd.read_sql(sql,cnn)
     elif eleccion=='CO2 Emission':
             sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR 
