@@ -83,7 +83,12 @@ with f2:
     'PLOTLY:https://plotly.com/python/'
     'SKLEARN: https://scikit-learn.org/stable/user_guide.html'
 
-
+st.write('***')
+st.subheader('Carga incremental')
+'''
+La ingesta de datos desde la API del banco mundial y la OMS se programan anualmente mediante airflow.
+'''
+st.video('https://youtu.be/iXmhOic_WME')
 
 
 

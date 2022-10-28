@@ -45,7 +45,11 @@ cnn = snowflake.connector.connect(
 
 st.header("Life expectancy by Continent")
 
-
+'''
+Our first approach was to divide the countries by continent, to have a better view of the trends marked for each region. 
+The first thing to note is that all countries have drastically improved their life expectancy
+in a short period of time compared to what our civilization has in existence. This change was marked since the industrial revolution.
+'''
 
 
 tab1, tab2, tab3 , tab4, tab5= st.tabs(["America","Europe","Asia","Africa","Oceania"])
@@ -315,17 +319,17 @@ with tab5:
 st.write('***')
 
 '''
-## Análisis y Presentación de Variables
+## Analysis of variables
 
-_Se realizó una predicción de la Esperanza de Vida Promedio Anual utilizando como metodologia
-una estimacion de series de tiempo univariada SIN variables Exógenas Automatizada para todos los paises de 
-la Muestra_
+-Maps were made with the selected economic indicators to be able to globally 
+compare the changes over time in the selected countries.
+With these maps you have the possibility to compare global development over time_
 '''
 
 
 # se crean las tabs para mostrar las tablas, caluculadora y gráficos
 
-tab1, tab2, tab3= st.tabs(["Mapa de Calor(GDP per Cap)","Mapa Geo-Referenciado(EV)","TABLA A PONER"])
+tab1, tab2, tab3= st.tabs(["Heat Map","Geo-Referenced map","Complete table"])
     
 
 lista_Kpi =['Infant Mortality','CO2 Emission','Rural Population (%)','GDP Per Capita','Life Expectancy']
@@ -388,7 +392,7 @@ with tab1:
             EV_todos=pd.read_sql(sql,cnn)
     
 
-    'Mapa Geo-Referenciado de la Esperanza de Vida Promedio Anual por Pais'
+    
     fig2 = px.choropleth(
                         EV_todos,
                         locations="CODIGO_PAIS",
@@ -460,7 +464,7 @@ with tab2:
                     WHERE e.ID_INDICADOR=31 AND e.ANIO>1965 AND e.ANIO<=2020 """ 
             GDP_todos=pd.read_sql(sql,cnn)
 
-    'Mapa de Calor del GDP Per Capita promedio Anual (En U$S Constantes del 2015) por Pais'
+    
     fig3 = px.scatter_geo(GDP_todos,
                             locations='CODIGO_PAIS',
                             color='CODIGO_PAIS',
@@ -481,12 +485,5 @@ with tab3:
 
 cnn.close()
 
-st.write('***')
-st.subheader('Carga incremental')
-'''
-La ingesta de datos desde la API del banco mundial y la OMS se programan anualmente mediante airflow.
-'''
-st.video('https://youtu.be/iXmhOic_WME')
-st.write('***')
 
 
