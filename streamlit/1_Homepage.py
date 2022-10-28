@@ -48,8 +48,8 @@ According to data from the World Health Organization (WHO), on a global scale, t
 born in 2015 was 71.4 years (73.8 years for girls and 69.1 for boys), but the expectations for
 each child in particular depend on the place of birth.
 
-Notes that _newborns_ in high-income countries have an average life expectancy equal to or greater than 80 years,
-while _newborns_ in countries in sub-Saharan Africa have a life expectancy of less than 60 years.
+Notes that *newborns* in high-income countries have an average life expectancy equal to or greater than 80 years,
+while *newborns* in countries in sub-Saharan Africa have a life expectancy of less than 60 years.
 
 Japanese women, whose average lifespan is 86.8 years, are the longest. In the case of men,
 it is in Switzerland where they live the longest, with an average of 81.3 years. The population of Sierra Leone has the lowest life expectancy
@@ -72,8 +72,6 @@ increased life expectancy at birth.
 From the industrial revolution onwards it was shown that not only biological factors affect the EV, 
 but also socioeconomic factors are studied in relevance for the construction of this index.
 '''
-col1, col2, col3 = st.columns(3)
-col1.metric("Temperature", "70 °F", "1.2 °F")
 
 st.write('***')
 
