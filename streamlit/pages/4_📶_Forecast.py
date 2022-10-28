@@ -90,7 +90,7 @@ sql ="""SELECT p.CODIGO_PAIS, e.ANIO, e.VALOR, i.DESCRIPCION as INDICADOR
 EV_todos=pd.read_sql(sql,cnn)
 
 with tab2:
-    st.dataframe(df_prediccion)
+    st.dataframe(df_prediccion,use_container_width=True)
 
 df_models=pd.read_csv('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/Pycaret_Models.csv')
 
@@ -98,4 +98,4 @@ with tab3:
     '''
     ## Pycaret Forecast Models'''
 
-    st.dataframe(df_models)
+    st.dataframe(df_models,use_container_width=True)
