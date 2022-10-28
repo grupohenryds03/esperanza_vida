@@ -331,7 +331,7 @@ tab1, tab2, tab3 = st.tabs(['Developed','Undeveloped','Developed vs Undeveloped'
 with tab1:
         sql ="""SELECT e.ANIO, e.VALOR, p.NOMBRE 
                     FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS) JOIN INCOME i ON (e.ID_INCOME=i.ID_INCOME)    
-                    WHERE e.ID_INDICADOR=31 AND i.ID_INCOME=0 AND e.ANIO=2020 ORDER BY e.VALOR DESC"""
+                    WHERE e.ID_INDICADOR=31 AND i.ID_INCOME=0 AND e.ANIO=2020 ORDER BY e.VALOR ASC"""
         df=pd.read_sql(sql,cnn)
         trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
@@ -351,7 +351,7 @@ with tab1:
 with tab2:
         sql ="""SELECT e.ANIO, e.VALOR, p.NOMBRE 
                     FROM EV e JOIN PAIS p ON (e.ID_PAIS=p.ID_PAIS) JOIN INCOME i ON (e.ID_INCOME=i.ID_INCOME)    
-                    WHERE e.ID_INDICADOR=31 AND e.ANIO=2020 AND (i.ID_INCOME=1 OR i.ID_INCOME=2) """
+                    WHERE e.ID_INDICADOR=31 AND e.ANIO=2020 AND (i.ID_INCOME=1 OR i.ID_INCOME=2) ORDER BY e.VALOR ASC"""
         df=pd.read_sql(sql,cnn)
         trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
@@ -368,33 +368,11 @@ with tab2:
         st.plotly_chart(fig)
 with tab3:
 
-        #Multiselect plot
-        def plot ():
-                           
-            df3=pd.read_sql('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/income_df.csv')
+                                 
+    df3=pd.read_sql('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/datasets/income_df.csv')
+    st.line_chart(df3)     
             
             
-            fig2 = go.Figure()
-
-            fig2.add_trace(go.Scatter(x=df3["Year"], 
-                                y=df3["Developed"],
-                                mode='lines',
-                                name='Developed',
-                                line=dict(width=0.8)))
-            
-            #fig2.add_trace(go.Scatter(x=df3["Year"], 
-            #                    y=df3["Undeveloped"],
-            #                    mode='lines',
-            #                    name='Uneveloped',
-            #                    line=dict(width=0.8)))
-            
-            layout = go.Layout(                                    
-                                        xaxis_title='Year',
-                                        yaxis_title='Life Expectancy (years)'
-                                    )
-            #fig.update_xaxes(showgrid=False)
-            st.plotly_chart(fig2,use_container_width=True)
-        plot()
 st.write('***')
 
 '''
