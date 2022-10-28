@@ -37,7 +37,7 @@ st.write('***')
 
 tab1, tab2, tab3 , tab4, tab5= st.tabs(['Architecture Diagram',"Airflow ELT runing","Relational tables diagram","snowflake tasks", "Demo video"])
 with tab1:
-    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/diagrama_solo.jpg', caption='Arquitecture Diagram')
+    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/arquitetura_bueno.jpg', caption='Arquitecture Diagram')
 with tab2:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/airflow_runing.png',caption='Airflow ELT runing')
 with tab3:

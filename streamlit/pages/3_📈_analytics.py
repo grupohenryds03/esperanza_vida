@@ -51,7 +51,8 @@ with tab1:
         trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
                                 y=df['VALOR'].tolist(),
-                                showlegend = False
+                                showlegend = False,
+                                marker=dict(color = df['VALOR'].tolist(),colorscale='viridis')
                                 )
 
         layout = go.Layout(                                    
@@ -82,7 +83,7 @@ with tab1:
                                 y=df2["VALOR"],
                                 mode='lines',
                                 name=country,
-                                line=dict(width=0.8)))
+                                line=dict(width=2)))
             
             layout = go.Layout(                                    
                                         xaxis_title='Year',
@@ -102,8 +103,8 @@ with tab2:
         trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
                                 y=df['VALOR'].tolist(),
-                                showlegend = False
-                                )
+                                showlegend = False,
+                                marker=dict(color =df['VALOR'].tolist(),colorscale='viridis'))
 
         layout = go.Layout(
                                     #title = 'EV Europa',
@@ -134,7 +135,7 @@ with tab2:
                                 y=df2["VALOR"],
                                 mode='lines',
                                 name=country,
-                                line=dict(width=0.8)))
+                                line=dict(width=2)))
             
             layout = go.Layout(                                    
                                         xaxis_title='Year',
@@ -155,8 +156,8 @@ with tab3:
         trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
                                 y=df['VALOR'].tolist(),
-                                showlegend = False
-                                )
+                                showlegend = False,
+                                marker=dict(color=df['VALOR'].tolist(),colorscale='viridis'))
 
         layout = go.Layout(
                                     #title = 'EV Asia',
@@ -187,7 +188,7 @@ with tab3:
                                 y=df2["VALOR"],
                                 mode='lines',
                                 name=country,
-                                line=dict(width=0.8)))
+                                line=dict(width=2)))
             
             layout = go.Layout(                                    
                                         xaxis_title='Year',
@@ -208,8 +209,8 @@ with tab4:
         trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
                                 y=df['VALOR'].tolist(),
-                                showlegend = False
-                                )
+                                showlegend = False,
+                                marker=dict(color=df['VALOR'].tolist(),colorscale='viridis'))
 
         layout = go.Layout(
                                     #title = 'EV Africa',
@@ -240,7 +241,7 @@ with tab4:
                                 y=df2["VALOR"],
                                 mode='lines',
                                 name=country,
-                                line=dict(width=0.8)))
+                                line=dict(width=2)))
             
             layout = go.Layout(                                    
                                         xaxis_title='Year',
@@ -261,8 +262,8 @@ with tab5:
         trace  = go.Bar(
                                 x=df['NOMBRE'].tolist(),
                                 y=df['VALOR'].tolist(),
-                                showlegend = False
-                                )
+                                showlegend = False,
+                                marker=dict(color=df['VALOR'].tolist(),colorscale='viridis'))
 
         layout = go.Layout(
                                    #title = 'EV Oceania',
@@ -293,7 +294,7 @@ with tab5:
                                 y=df2["VALOR"],
                                 mode='lines',
                                 name=country,
-                                line=dict(width=0.8)))
+                                line=dict(width=2)))
             
             layout = go.Layout(                                    
                                         xaxis_title='Year',
