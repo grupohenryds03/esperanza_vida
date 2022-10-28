@@ -22,7 +22,7 @@ st.markdown(page_style, unsafe_allow_html=True)
 '_The data architecture follows five main steps: the first one is to study and analyze the data source. The second one extract particular data from the source. The third one is data transformation and cleaning. The fourth one is incremental load of data into the relational tables. Finally, the last step implements queries to extract data for machine learning (ML) algorithms and visualizes it by charts in the dashboard._'
 
 st.write('***')
-'### Detail description:'
+'### Detail description'
 
 '''
 1. Research and analyze the data sources: First we analyze the data from the World Bank (WB), World Health Organization (WHO) and scientific papers in order to find the way to access relative data related with life expectancy.
@@ -56,7 +56,7 @@ st.write('***')
 
 
 st.write('***')
-' ### technologies'
+' ### Technologies'
 
 f1,f2,f3,f4, f5=st.columns(5)
 with f1:
@@ -88,7 +88,7 @@ with g6:
 
 
 st.write('***')
-'### Apps Documents'
+'### Documentation'
 f1,f2=st.columns(2)
 with f1:
     'AIRFLOW: https://airflow.apache.org/docs/'
