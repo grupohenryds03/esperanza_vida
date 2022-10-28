@@ -69,17 +69,17 @@ a1,a2,a3=st.columns(3)
 with a1:
     a1.metric('', '1.1 billion','people smoke tobacco')
 with a2:
-    a2.metric('','156 million','children under the age of 5 are stunted')
+    a2.metric('','156 million','children -5 age are stunted')
 with a3:
-    a3.metric('','42 million','under the age of 5 are overweight')
+    a3.metric('','42 million','under -5 age are overweight')
 st.write('***')
 b1,b2,b3=st.columns(3)
 with b1:
     b1.metric('','1.8 billion','people drink contaminated water')
 with b2:
-    b2.metric('','946 million','people defecate in the open')
+    b2.metric('','946 million','people defecate in open air')
 with b3:
-    b3.metric('','3.1 billion','people cook with polluting fuels')
+    b3.metric('','3.1 billion','cooking with polluting fuels')
    
 
 st.write('***')
