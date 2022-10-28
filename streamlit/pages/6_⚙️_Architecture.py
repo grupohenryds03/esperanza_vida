@@ -76,7 +76,7 @@ with g1:
 with g2:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/project.png', width=100)
 with g3:
-    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/logo_pycaret.png', width=100)
+    st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/Scikit_learn_logo.png', width=100)
 with g4:
     st.image('https://raw.githubusercontent.com/grupohenryds03/esperanza_vida/main/imagenes/airflow.png', width=100)
 with g5:
