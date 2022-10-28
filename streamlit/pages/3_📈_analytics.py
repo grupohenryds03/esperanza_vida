@@ -382,7 +382,7 @@ with tab3:
         title='Developed vs Undeveloped'
     )
 
-    st.altair_chart(line_chart)   
+    st.altair_chart(line_chart,,use_container_width=True)   
             
             
 st.write('***')
