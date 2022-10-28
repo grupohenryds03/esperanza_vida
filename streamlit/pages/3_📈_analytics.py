@@ -382,11 +382,11 @@ with tab3:
                                 name='Developed',
                                 line=dict(width=0.8)))
             
-            fig2.add_trace(go.Scatter(x=df3["Year"], 
-                                y=df3["Undeveloped"],
-                                mode='lines',
-                                name='Uneveloped',
-                                line=dict(width=0.8)))
+            #fig2.add_trace(go.Scatter(x=df3["Year"], 
+            #                    y=df3["Undeveloped"],
+            #                    mode='lines',
+            #                    name='Uneveloped',
+            #                    line=dict(width=0.8)))
             
             layout = go.Layout(                                    
                                         xaxis_title='Year',
