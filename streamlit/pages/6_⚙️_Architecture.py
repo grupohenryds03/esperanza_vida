@@ -7,7 +7,23 @@ st.set_page_config(
     page_icon='⚙️',
 )
 
-# --- HIDE STREAMLIT STYLE ---
+page_style = """
+            <style>
+            [data-testid="stAppViewContainer"] {
+            background-color: #d9e3fa;
+            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/clock_background2.png?raw=true");
+            background-size: cover;
+            background-position: left;
+            }
+            [data-testid="stSidebar"]{
+            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/life.jpg?raw=true");
+            background-size: cover;
+            background-position: right;
+            }
+            </style>
+            """
+st.markdown(page_style, unsafe_allow_html=True)
+
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
@@ -17,25 +33,7 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-page_style = """
-            <style>
-            [data-testid="stAppViewContainer"] {
-            
-            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/background-image.png?raw=true");
-            background-size: cover;
-            background-position: right;
-            }
-            [data-testid="stSidebar"]{
-            background-image: url("https://github.com/grupohenryds03/esperanza_vida/blob/main/imagenes/WallpaperRocky.jpg?raw=true");
-            background-size: cover;
-            background-position: right;
-            }
-            </style>
-            """
-#background-Color: blue;
-            
-st.markdown(page_style, unsafe_allow_html=True)
-'# Data arquitecture'
+'# Data architecture'
 
 
 '_The data arquitectura follows five principal steps: The fish one to studio and analice the data source. The second one implementing data extraction from source. The third one where the data is transform and cleaning. The fourth one where the data is incrementally load into relational tables. And the last one implementing queries to extract data for machine learning  (ML) algorithms and visualice with charts in a dashboard._'
