@@ -130,13 +130,14 @@ with tab1:
     trace  = go.Bar(
                     x=columnas,
                     y=valores1,
-                    showlegend = False)
+                    showlegend = False,
+                    marker=dict(color = valores1,colorscale='viridis'))
 
     layout = go.Layout(                                    
                         xaxis_title='Columns',
                         yaxis_title='Number of records')
     data = [trace]
-    fig = go.Figure(data=data,layout = layout)
+    fig = go.Figure(data=data,layout = layout,)
     st.plotly_chart(fig,use_container_width=True)
 with tab2:
     '''##### We decided to eliminate those indicators that had more than 20% of missing data. Taking that percentage to eliminate as few as possible.'''
