@@ -52,7 +52,9 @@ with tab1:
                                 x=df['NOMBRE'].tolist(),
                                 y=df['VALOR'].tolist(),
                                 showlegend = False,
-                                marker=dict(color = df['VALOR'].tolist(),colorscale='viridis')
+                                
+                                marker=dict(color = ['Argentina'],'#00FF00')
+                                #marker=dict(color = df['VALOR'].tolist(),colorscale='viridis')
                                 )
 
         layout = go.Layout(                                    
