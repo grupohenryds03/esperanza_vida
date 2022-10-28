@@ -49,7 +49,7 @@ if agree:
     with tab2:
         '''
         _At this stage we train and evaluate the performance of all estimators available in the model library through cross-validation 
-        and selects the 3 best models according to the specific metric for MASE (Mean absolute scaled error) time series._
+        and selects the 3 best models according to the specific metric for time series, MASE (Mean absolute scaled error)._
         '''
     with tab3:
 
