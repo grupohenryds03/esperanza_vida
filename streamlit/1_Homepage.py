@@ -79,7 +79,7 @@ with b1:
 with b2:
     b2.metric('','946 million','people defecate in open air')
 with b3:
-    b3.metric('','3.1 billion','people cook with polluting fuels')
+    b3.metric('','3.1 billion','cooking with polluting fuels')
    
 
 st.write('***')
