@@ -38,10 +38,10 @@ Para este proyecto final, se elegio la Esperanza de Vida al Nacer. En el rol de 
 - en terminal se crea el entorno de trabajo para realizar con la conexión con snowflake en visual studio code en maquina local con lenguaje phyton:
 
 ```bash
- pip install conda #se descarga condas
- conda create -n dbconnect python=3.8 #creacion del entorno
- conda activate dbconnect #activar el entorno
- pip install snowflake-connector-python[pandas] #se instala el conector con snowflake
+ $ pip install conda #se descarga condas
+ $ conda create -n dbconnect python=3.8 #creacion del entorno
+ $ conda activate dbconnect #activar el entorno
+ $ pip install snowflake-connector-python[pandas] #se instala el conector con snowflake
 ```
 
 - para realizar la conexión a la base de datos de snowflake, se creo un archivo snow.py con los datos de acceso que se ignora con gitignore para no mostar claves importantes.
@@ -50,11 +50,11 @@ Para este proyecto final, se elegio la Esperanza de Vida al Nacer. En el rol de 
 import snowflake.connector # se importa conector
 from snow import * # se importan claves de acceso
 conn = snowflake.connector.connect(
-    user='snow_user',
-    password='snow_pasoword',
-    account='snow_account',
-    warehouse='snow_warehouse',
-    database='snow_database'
+    user=snow_user,
+    password=snow_pasoword,
+    account=snow_account,
+    warehouse=snow_warehouse,
+    database=snow_database
     )
 ```
 
