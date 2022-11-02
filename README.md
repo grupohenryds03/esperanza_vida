@@ -5,7 +5,7 @@
 ## Tabla de contenidos
 1. [Consigna](#Consigna)
 2. [Arquitectura](#Arquitectura)
-3. [Trabajo Colaborativo](#Descripción)
+3. [Trabajo Colaborativo](#TrabajoColaborativo)
 4. [Documentación](#Documentación)
 
 ## Consigna
