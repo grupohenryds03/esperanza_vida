@@ -31,7 +31,7 @@ Para este proyecto final, se elegio la Esperanza de Vida al Nacer. En el rol de 
 
 - Para el deploy del dashboard se utiliza la herramienta propia STREAMLIT.
 
-## Trabajo colaborativo
+## Trabajo_colaborativo
 
 - Para poder realizar el trabajo colaborativo ,se establece la conexión desde visual studio code local da cada integrante al repositorio compartido de GITHUB.
 
