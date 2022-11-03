@@ -22,7 +22,7 @@ Para este proyecto final, se elegio la Esperanza de Vida al Nacer. En el rol de 
 - La arquitectura sigue cinco pasos principales: el primero para analizar las fuentes de datos, el segundo para la Extracción, Trasformación (limpieza) y Carga (Load) llamado por sus siglas ETL. El tercer paso donde se realiza la carga incremental a la base de datos relacional, el cuarto la carga incremental y el último paso donde se realizan las consultas necesarias para ser utilizada en modelos de ML y visualización en dashboard.
 
 1. busqueda de data y análisis para data cruda.
-2. Ingesta data cruda, limpieza y carga (ETL). https://etl-latin-data.herokuapp.com/ 
+2. Ingesta data cruda, limpieza y carga (ETL). https://etl-latin-data.herokuapp.com/ el repositorio del deploy es: https://github.com/grupohenryds03/airflow-heroku
 3. Tareas para la carga incremental.
 4.  Ingesta de data a base de datos relacional.
 5. Acceso a base de datos para modelar progresiones en machine lerning y visualización en dasboard.
