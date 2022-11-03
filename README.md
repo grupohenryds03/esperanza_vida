@@ -67,7 +67,7 @@ conn = snowflake.connector.connect(
 -  Inicialmente se utilizó como filtro para diferenciar la muestra por continentes, el status de países “desarrollados” vs “en desarrollo”, pero tomando en cuenta la clasificación que realiza las naciones unidas se observo que tanto en América Latina, África como en Medio Oriente, se necesitaba incluir otro nivel de clasificación para mejorar la diferenciación; por lo cual se decidió utilizar la clasificación por nivel de ingresos que realiza el World Bank mediante el “GNI (Ingreso Bruto Nacional)  per cápita” y así poder mejorar la diferenciación de los efectos de las diferentes variables sobre la esperanza de vida, según el país o continente en estudio.
 
 
-## Indicadores_elejidos
+## Indicadores_elegidos
 - Para la evaluación, se tendrán en cuenta los factores socioeconómicos y de Salud.  
 - Para la selección de factores, en una primera instancia, los datos crudos tenían 38 indicadores. Haciendo un análisis exploratorio nos encontramos que el principal problema en nuestros datos eran los valores faltantes, lo que representaba un gran problema para nuestro proyecto. 
 - Decidimos eliminar aquellos indicadores que tengan más de un 20% de valores faltantes, con esto nos quedamos con tan solo 17 indicadores con un porcentaje de aproximadamente 3% de datos faltantes. 
