@@ -15,12 +15,13 @@
 
 ## Desarrollo
 
-Para este proyecto final, se elegio la Esperanza de Vida al Nacer. En el rol de una consultora de datos, nuestro potencial cliente desea conocer los distintos factores que tienen incidencia en el resultado de la Esperanza de vida al nacer y, a su vez, cómo se manifiestan. Para ello se desarrolló un framework para el análisis de la data junto con su analisis y modelado en machine learning para ser visualizadoen en el dasboard: https://latin-data.streamlit.app/
+Para este proyecto final, se elegio la Esperanza de Vida al Nacer. En el rol de una consultora de datos, nuestro potencial cliente desea conocer los distintos factores que tienen incidencia en el resultado de la Esperanza de vida al nacer y, a su vez, cómo se manifiestan. Para ello se desarrolló un framework para el análisis de la data, modelado en machine learning y visualización en dasboard: https://latin-data.streamlit.app/.
 
 ## Paises
 
 - Se selecciono una muestra de países teniendo en cuenta incluir estados de los 5 continentes que sean representativos, tengan buena calidad en la información histórica recolectada por el World Bank para la confección de sus indicadores.
--  Inicialmente se utilizó como filtro para diferenciar la muestra por continentes, el status de países “desarrollados” vs “en desarrollo”, pero tomando en cuenta la clasificación que realiza las naciones unidas se observo que tanto en América Latina, África como en Medio Oriente, se necesitaba incluir otro nivel de clasificación para mejorar la diferenciación; por lo cual se decidió utilizar la clasificación por nivel de ingresos que realiza el World Bank mediante el “GNI (Ingreso Bruto Nacional)  per cápita” y así poder mejorar la diferenciación de los efectos de las diferentes variables sobre la esperanza de vida, según el país o continente en estudio.
+-  Inicialmente se utilizó como filtro para diferenciar la muestra por continentes, el status de países “desarrollados” vs “en desarrollo”, pero tomando en cuenta la clasificación que realiza las naciones unidas se observo que tanto en América Latina, África como en Medio Oriente, se necesitaba incluir otro nivel de clasificación para mejorar la diferenciación; 
+- Se decidió utilizar la clasificación por nivel de ingresos que realiza el World Bank mediante el Ingreso Bruto Nacional per cápita (GNI) y así poder mejorar la diferenciación de los efectos de las diferentes variables sobre la esperanza de vida, según el país o continente en estudio.
 
 
 ## Indicadores
@@ -46,6 +47,7 @@ Para ello recurrimos a la librería Pycaret que nos brindaba la posibilidad de p
 3. Tareas para la carga incremental.
 4.  Ingesta de data a base de datos relacional.
 5. Acceso a base de datos para modelar progresiones en machine lerning y visualización en dasboard.
+6. Su utlilizaron tres tipos de encriptado para la conección a la base de datos: secrets de streamlit, gitignore de github y variables de ariflow.
 
 <img src="/imagenes/arquitetura_bueno.jpg"/>
 
