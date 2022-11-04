@@ -47,7 +47,13 @@ Para ello recurrimos a la librería Pycaret que nos brindaba la posibilidad de p
 3. Tareas para la carga incremental.
 4.  Ingesta de data a base de datos relacional.
 5. Acceso a base de datos para modelar progresiones en machine lerning y visualización en dasboard.
-6. Su utlilizaron tres tipos de encriptado para la conección a la base de datos: secrets de streamlit, gitignore de github y variables de ariflow.
+
+
+- El entorno de trabajo para el ETL se desarrola en AIRFLOW dentro de una cloud maching de HEROKU. Acceso a la api: https://etl-latin-data.herokuapp.com/
+- Para el armado del datalake se ingestan los datos en el entorno STAGE de SNOWFLAKE en formato .csv comprimido en .gz (pueden ser tambien json, parquet, xlsx).
+- En el caso de la base de datos relacional se utiliza SNOWFLAKE con la creación de un warehouse para su mantenimiento e ingesta incremental.
+- para el modelado en ML y visualización de datos se realiza querys según los requerimientos del cliente.
+- Se utlilizaron tres tipos de encriptado para la conexión a la base de datos: *secrets de streamlit, gitignore de github y variables de ariflow*.
 
 <img src="/imagenes/arquitetura_bueno.jpg"/>
 
