@@ -27,7 +27,7 @@ with a1:
 with a2:
     st.subheader("José Toledo")
     'toledojm@outlook.com'
-    'https://www.linkedin.com/in'
+    'https://www.linkedin.com/in/toledojm/'
 
     
 
@@ -38,7 +38,7 @@ with b1:
 with b2:
     st.subheader("Pablo Poletti")
     'lic.poletti@gmail.com'
-    'https://www.linkedin.com/in'
+    'https://www.linkedin.com/in/pablom-poletti/'
 
     
 
